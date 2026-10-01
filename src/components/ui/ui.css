@@ -5,14 +5,14 @@
 /* --- Section Heading --- */
 .section-heading {
   text-align: center;
-  margin-bottom: var(--space-16);
+  margin-bottom: var(--space-8);
 }
 
 .section-heading__badge {
   display: inline-flex;
   align-items: center;
   gap: var(--space-2);
-  padding: var(--space-2) var(--space-4);
+  padding: var(--space-1) var(--space-4);
   background: var(--color-emerald-50);
   color: var(--color-emerald-600);
   font-size: var(--text-xs);
@@ -21,7 +21,7 @@
   text-transform: uppercase;
   border-radius: var(--radius-full);
   border: 1px solid var(--color-emerald-200);
-  margin-bottom: var(--space-5);
+  margin-bottom: var(--space-3);
 }
 
 .section-heading__badge-icon {
@@ -29,33 +29,34 @@
 }
 
 .section-heading__title {
-  font-size: var(--text-4xl);
+  font-size: clamp(1.75rem, 3.5vw, 2.35rem);
   font-weight: 800;
   color: var(--color-navy-900);
-  margin-bottom: var(--space-4);
+  margin-bottom: var(--space-3);
   letter-spacing: var(--tracking-tight);
 }
 
 .section-heading__subtitle {
-  font-size: var(--text-lg);
+  font-size: var(--text-base);
   color: var(--color-navy-400);
-  max-width: 640px;
+  max-width: 680px;
   margin: 0 auto;
   line-height: var(--leading-relaxed);
 }
 
 /* --- Stat Card --- */
 .stat-card {
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.88);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.6);
-  border-radius: var(--radius-lg);
-  padding: var(--space-6) var(--space-6);
+  border: 1px solid rgba(226, 232, 240, 0.85);
+  border-radius: var(--radius-xl);
+  padding: var(--space-5) var(--space-4);
   text-align: center;
   transition: all var(--transition-base);
   position: relative;
   overflow: hidden;
+  box-shadow: 0 4px 20px -2px rgba(10, 22, 40, 0.05);
 }
 
 .stat-card::before {
@@ -72,32 +73,47 @@
 
 .stat-card:hover {
   transform: translateY(-4px);
-  box-shadow: var(--shadow-lg);
+  box-shadow: 0 10px 30px -4px rgba(10, 22, 40, 0.1);
+  border-color: rgba(16, 185, 129, 0.35);
 }
 
 .stat-card:hover::before {
   opacity: 1;
 }
 
+/* Các con số màu xanh lá, ký hiệu kế bên màu đen */
 .stat-card__value {
   font-family: var(--font-mono);
-  font-size: var(--text-3xl);
-  font-weight: 700;
-  color: var(--color-navy-900);
+  font-size: clamp(2.2rem, 3.4vw, 2.9rem);
+  font-weight: 900;
+  letter-spacing: -0.035em;
   margin-bottom: var(--space-1);
-  line-height: 1;
+  line-height: 1.05;
+  display: inline-flex;
+  align-items: baseline;
+  justify-content: center;
+}
+
+.stat-card__number,
+.stat-card__value span:first-child {
+  color: var(--color-emerald-600);
+  -webkit-text-fill-color: var(--color-emerald-600);
 }
 
 .stat-card__suffix {
-  font-size: var(--text-lg);
-  color: var(--color-emerald-600);
-  font-weight: 600;
+  font-size: 0.62em;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  margin-left: 2px;
+  color: #18181B;
+  -webkit-text-fill-color: #18181B;
 }
 
 .stat-card__label {
-  font-size: var(--text-sm);
-  color: var(--color-navy-400);
-  font-weight: 500;
+  font-size: var(--text-xs);
+  color: #52525B;
+  font-weight: 600;
+  line-height: var(--leading-snug);
 }
 
 /* --- Feature Card --- */

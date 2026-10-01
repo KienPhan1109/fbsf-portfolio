@@ -1,3 +1,4 @@
+import logoImg from '../../assets/Logo.png';
 import './Footer.css';
 
 export default function Footer() {
@@ -8,8 +9,11 @@ export default function Footer() {
           {/* Brand */}
           <div className="footer__brand">
             <div className="footer__logo">
-              <div className="footer__logo-icon" aria-hidden="true">F</div>
-              <span className="footer__logo-name">FBSF Fund</span>
+              <img src={logoImg} alt="HUB Logo" className="footer__logo-img" style={{ height: '40px', width: 'auto', objectFit: 'contain' }} />
+              <div style={{ display: 'flex', alignItems: 'baseline', fontSize: '1.5rem', fontWeight: 900 }}>
+                <span style={{ background: 'var(--gradient-text)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>FBS</span>
+                <span style={{ background: 'var(--gradient-emerald)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', marginLeft: '0.5px' }}>F</span>
+              </div>
             </div>
             <p className="footer__description">
               FBSF Cash Flow Optimization Fund — Tối ưu hóa dòng tiền, xây dựng danh mục đầu tư
