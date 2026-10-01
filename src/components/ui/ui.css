@@ -28,6 +28,31 @@
   font-size: var(--text-sm);
 }
 
+/* --- Large & Prominent Badge Variant --- */
+.section-heading__badge--lg {
+  padding: 8px 22px;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  gap: 10px;
+  background: linear-gradient(135deg, rgba(5, 150, 105, 0.08) 0%, rgba(16, 185, 129, 0.16) 100%);
+  color: var(--color-emerald-700);
+  border: 1.5px solid rgba(16, 185, 129, 0.4);
+  box-shadow: 0 4px 16px rgba(5, 150, 105, 0.12), inset 0 1px 0 #ffffff;
+  margin-bottom: var(--space-4);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.section-heading__badge--lg .section-heading__badge-icon {
+  font-size: 18px;
+}
+
+.section-heading__badge--lg:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 22px rgba(5, 150, 105, 0.22), inset 0 1px 0 #ffffff;
+  border-color: rgba(5, 150, 105, 0.55);
+}
+
 .section-heading__title {
   font-size: clamp(1.75rem, 3.5vw, 2.35rem);
   font-weight: 800;
