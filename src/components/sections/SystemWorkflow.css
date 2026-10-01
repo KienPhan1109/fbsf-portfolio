@@ -37,10 +37,10 @@
 
 .sw-intro__grid {
   display: grid;
-  grid-template-columns: 1fr 1.25fr;
+  grid-template-columns: 1.5fr 1fr;
   gap: clamp(48px, 6vw, 88px);
   align-items: center;
-  max-width: 1250px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
@@ -138,58 +138,56 @@
 }
 
 /* --- 2B: 5-Step Process Visual Pipeline --- */
-.sw-process__pipeline {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: clamp(14px, 1.4vw, 20px);
-  max-width: 1320px;
-  margin: 0 auto;
+#system-process .container--wide {
+  max-width: 1540px;
+  padding: 0 clamp(20px, 2.5vw, 44px);
+}
+
+.sw-process {
+  position: relative;
   width: 100%;
 }
 
-.sw-step-card {
-  background: rgba(255, 255, 255, 0.95);
-  border: 1px solid rgba(228, 228, 231, 0.9);
-  border-radius: 16px;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  box-shadow: 0 4px 18px -4px rgba(10, 22, 40, 0.05);
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-              border-color 0.35s ease;
+.sw-process__pipeline {
+  --step-gap: clamp(24px, 2.3vw, 38px);
   position: relative;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--step-gap);
+  max-width: 100%;
+  margin: 0 auto;
+  width: 100%;
+  padding: 12px 0;
 }
 
-.sw-step-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: var(--gradient-emerald);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  z-index: 2;
+.sw-step-card {
+  background: #FFFFFF;
+  border: 1px solid rgba(228, 228, 231, 0.9);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 24px -4px rgba(10, 22, 40, 0.07), 0 2px 8px -1px rgba(0, 0, 0, 0.03);
+  transition: transform 0.38s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.38s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.35s ease;
+  position: relative;
+  z-index: 1;
 }
 
 .sw-step-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 18px 36px -8px rgba(5, 150, 105, 0.16), 0 4px 12px -2px rgba(0, 0, 0, 0.04);
-  border-color: rgba(5, 150, 105, 0.4);
+  transform: translateY(-8px);
+  box-shadow: 0 22px 48px -10px rgba(5, 150, 105, 0.22), 0 8px 22px -4px rgba(10, 22, 40, 0.08);
+  border-color: rgba(16, 185, 129, 0.6);
+  z-index: 3;
 }
 
-.sw-step-card:hover::before {
-  opacity: 1;
-}
-
+/* Full-bleed Media Container (Tràn viền mép trên & 2 bên, kích thước to rõ) */
 .sw-step-card__media {
   position: relative;
-  width: calc(100% - 18px);
-  margin: 9px 9px 0 9px;
-  height: clamp(130px, 9.5vw, 150px);
-  border-radius: 11px;
+  width: 100%;
+  margin: 0;
+  height: clamp(210px, 16vw, 275px);
+  border-radius: 19px 19px 0 0;
   overflow: hidden;
   background: #F4F4F5;
 }
@@ -199,11 +197,30 @@
   height: 100%;
   object-fit: cover;
   object-position: center;
-  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .sw-step-card:hover .sw-step-card__img {
-  transform: scale(1.05);
+  transform: scale(1.08);
+}
+
+.sw-step-card__media-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(15, 23, 42, 0.35) 0%,
+    rgba(15, 23, 42, 0) 38%,
+    rgba(15, 23, 42, 0.04) 65%,
+    rgba(15, 23, 42, 0.38) 100%
+  );
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+.sw-step-card:hover .sw-step-card__media-overlay {
+  opacity: 0.85;
 }
 
 .sw-step-card__placeholder {
@@ -216,7 +233,7 @@
   gap: 8px;
   background: linear-gradient(135deg, #FAFAFA 0%, #F4F4F5 100%);
   border: 1.5px dashed #D4D4D8;
-  border-radius: 11px;
+  border-radius: 19px 19px 0 0;
   transition: border-color 0.3s ease, background 0.3s ease;
 }
 
@@ -247,50 +264,159 @@
   color: var(--color-emerald-600);
 }
 
+/* Floating Glass Step Pill Badge */
 .sw-step-card__badge {
   position: absolute;
-  top: 8px;
-  left: 8px;
-  background: rgba(24, 24, 27, 0.9);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  padding: 3px 8px;
-  border-radius: 6px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  display: flex;
+  top: 14px;
+  left: 14px;
+  background: rgba(15, 23, 42, 0.78);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 5px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  z-index: 1;
+  gap: 7px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  z-index: 2;
+  transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+}
+
+.sw-step-card:hover .sw-step-card__badge {
+  background: rgba(15, 23, 42, 0.94);
+  border-color: rgba(16, 185, 129, 0.7);
+  transform: translateY(-1px);
+}
+
+.sw-step-card__badge-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #10B981;
+  box-shadow: 0 0 8px #10B981, 0 0 2px #34D399;
+  flex-shrink: 0;
+  display: inline-block;
+  animation: pulse-step-dot 2.5s infinite ease-in-out;
+}
+
+@keyframes pulse-step-dot {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.3);
+    opacity: 0.7;
+  }
 }
 
 .sw-step-card__badge-num {
   font-family: var(--font-mono);
-  font-size: 11.5px;
-  font-weight: 800;
-  color: #10B981;
-  letter-spacing: 0.04em;
+  font-size: 11px;
+  font-weight: 700;
+  color: #FFFFFF;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  line-height: 1;
 }
 
+/* Inter-Card Pipeline Connecting Bridge (Nối chuẩn từng cặp box, không bị vỡ) */
+.sw-step-card__connector {
+  position: absolute;
+  top: clamp(105px, 8vw, 138px);
+  right: calc(-1 * var(--step-gap));
+  width: var(--step-gap);
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  pointer-events: none;
+}
+
+/* Đường line chuẩn xác kết nối từ mép Card A đến Card B */
+.sw-step-card__connector::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #10B981;
+  transform: translateY(-50%);
+  z-index: 1;
+  opacity: 0.7;
+  transition: opacity 0.3s ease, height 0.3s ease;
+}
+
+.sw-step-card:hover .sw-step-card__connector::before {
+  opacity: 1;
+  height: 2.5px;
+}
+
+/* Node tròn chứa icon mũi tên ở giữa khoảng cách */
+.sw-step-card__connector-node {
+  position: relative;
+  z-index: 2;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  border: 1.5px solid #10B981;
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.16), 0 0 0 3px #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #059669;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.sw-step-card__connector-node svg {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.sw-step-card:hover .sw-step-card__connector-node {
+  background: var(--color-emerald-600);
+  border-color: var(--color-emerald-500);
+  color: #FFFFFF;
+  transform: scale(1.15);
+  box-shadow: 0 4px 14px rgba(5, 150, 105, 0.4), 0 0 0 4px rgba(16, 185, 129, 0.25);
+}
+
+.sw-step-card:hover .sw-step-card__connector-node svg {
+  transform: translateX(1.5px);
+}
+
+/* Card Body Content (Rộng rãi, thoáng đạt) */
 .sw-step-card__content {
-  padding: 13px 13px 16px 13px;
+  padding: 22px 20px 24px 20px;
   display: flex;
   flex-direction: column;
   flex: 1;
+  background: #FFFFFF;
+  border-radius: 0 0 20px 20px;
+  position: relative;
 }
 
 .sw-step-card__title {
-  font-size: 14.5px;
+  font-size: 16px;
   font-weight: 700;
   color: #18181B;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
   letter-spacing: -0.01em;
   line-height: 1.35;
+  transition: color 0.25s ease;
+}
+
+.sw-step-card:hover .sw-step-card__title {
+  color: var(--color-emerald-700);
 }
 
 .sw-step-card__desc {
-  font-size: 12px;
+  font-size: 13px;
   color: #52525B;
-  line-height: 1.55;
+  line-height: 1.58;
   margin: 0;
 }
 
@@ -335,8 +461,13 @@
     grid-template-columns: repeat(2, 1fr);
   }
 
+  .sw-process__pipeline::before,
+  .sw-step-card__connector {
+    display: none;
+  }
+
   .sw-process__pipeline {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: var(--space-4);
   }
 

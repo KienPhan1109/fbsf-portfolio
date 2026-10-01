@@ -4,19 +4,19 @@ import logoImg from '../../assets/Logo.png';
 import './Navbar.css';
 
 const NAV_ITEMS = [
-  { id: 'system-workflow', label: 'System Overview' },
-  { id: 'financial-profile', label: 'Financial Profile' },
-  { id: 'risk-assessment', label: 'Risk Appetite' },
-  { id: 'equity-analysis', label: 'Equity Analysis' },
-  { id: 'markowitz', label: 'Portfolio Optimization' },
-  { id: 'ips-report', label: 'IPS Report' },
+  { id: 'system-workflow', label: 'Overview' },
+  { id: 'financial-profile', label: 'Profile' },
+  { id: 'risk-assessment', label: 'Risk' },
+  { id: 'equity-analysis', label: 'Equity' },
+  { id: 'markowitz', label: 'Portfolio' },
+  { id: 'ips-report', label: 'Report' },
 ];
 
 const SECTION_IDS = NAV_ITEMS.map((item) => item.id);
 
 export default function Navbar() {
   const [isMobileOpen, setIsMobileOpen] = useState(false);
-  const isScrolled = useScrolled(50);
+  const isScrolled = useScrolled(30);
   const activeId = useScrollSpy(SECTION_IDS, 120);
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {

@@ -49,9 +49,9 @@ export function useCountUp(
   const startTimeRef = useRef<number | null>(null);
   const rafRef = useRef<number | null>(null);
 
-  // easeOutExpo easing function
-  const easeOutExpo = useCallback((t: number): number => {
-    return t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
+  // easeOutCubic provides a smooth, visible roll throughout the animation
+  const easeOutCubic = useCallback((t: number): number => {
+    return 1 - Math.pow(1 - t, 3);
   }, []);
 
   useEffect(() => {
@@ -67,7 +67,7 @@ export function useCountUp(
 
       const elapsed = timestamp - startTimeRef.current;
       const progress = Math.min(elapsed / duration, 1);
-      const easedProgress = easeOutExpo(progress);
+      const easedProgress = easeOutCubic(progress);
 
       setCount(Math.round(easedProgress * target));
 
@@ -84,32 +84,47 @@ export function useCountUp(
       }
       startTimeRef.current = null;
     };
-  }, [target, duration, shouldStart, easeOutExpo]);
+  }, [target, duration, shouldStart, easeOutCubic]);
 
   return count;
 }
 
 /**
  * Custom hook for scroll spy — detects which section is currently active.
+ * Throttled via requestAnimationFrame to ensure buttery-smooth 60/120fps scrolling.
  */
 export function useScrollSpy(
   sectionIds: string[],
-  offset: number = 100
+  offset: number = 120
 ): string {
   const [activeId, setActiveId] = useState<string>('');
+  const activeIdRef = useRef<string>('');
 
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollPos = window.scrollY + offset;
+    let ticking = false;
 
-      for (let i = sectionIds.length - 1; i >= 0; i--) {
-        const element = document.getElementById(sectionIds[i]);
-        if (element && element.offsetTop <= scrollPos) {
-          setActiveId(sectionIds[i]);
-          return;
-        }
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const scrollPos = window.scrollY + offset;
+
+          let current = sectionIds[0] || '';
+          for (let i = sectionIds.length - 1; i >= 0; i--) {
+            const element = document.getElementById(sectionIds[i]);
+            if (element && element.offsetTop <= scrollPos) {
+              current = sectionIds[i];
+              break;
+            }
+          }
+
+          if (current !== activeIdRef.current) {
+            activeIdRef.current = current;
+            setActiveId(current);
+          }
+          ticking = false;
+        });
+        ticking = true;
       }
-      setActiveId(sectionIds[0] || '');
     };
 
     handleScroll();
@@ -121,14 +136,28 @@ export function useScrollSpy(
 }
 
 /**
- * Custom hook for navbar scroll behavior (background change on scroll).
+ * Custom hook for navbar scroll behavior.
+ * Throttled via requestAnimationFrame and only triggers re-render on state change.
  */
-export function useScrolled(threshold: number = 50): boolean {
+export function useScrolled(threshold: number = 40): boolean {
   const [isScrolled, setIsScrolled] = useState(false);
+  const prevScrolledRef = useRef(false);
 
   useEffect(() => {
+    let ticking = false;
+
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > threshold);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const scrolled = window.scrollY > threshold;
+          if (scrolled !== prevScrolledRef.current) {
+            prevScrolledRef.current = scrolled;
+            setIsScrolled(scrolled);
+          }
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
 
     handleScroll();
