@@ -1,0 +1,17 @@
+/* ============================================================
+   APP LAYOUT STYLES
+   ============================================================ */
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app__main {
+  flex: 1;
+}
+
+/* Smooth scroll offset for fixed navbar */
+.app__main section[id] {
+  scroll-margin-top: var(--navbar-height);
+}
