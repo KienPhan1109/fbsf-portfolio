@@ -104,7 +104,7 @@
 }
 
 .hero__subtitle {
-  font-size: var(--text-lg);
+  font-size: clamp(0.95rem, 1.2vw, 1.05rem);
   color: #52525B;
   line-height: var(--leading-relaxed);
   max-width: 620px;
