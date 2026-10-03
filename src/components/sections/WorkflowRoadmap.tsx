@@ -1,47 +1,77 @@
 import { useInView } from '../../hooks/useAnimations';
 import '../ui/ui.css';
 import './SystemWorkflow.css';
+import './WorkflowRoadmap.css';
 
 const SECTION_NAV = [
   {
     number: '01',
-    icon: '📋',
     title: 'Financial Profile Collection',
-    subtitle: 'Thu thập và phân tích hồ sơ tài chính gia đình',
+    subtitle: 'Thu thập và phân tích toàn diện hồ sơ tài chính gia đình',
     href: '#financial-profile',
     available: true,
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+        <circle cx="9" cy="7" r="4" />
+        <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+        <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+      </svg>
+    ),
   },
   {
     number: '02',
-    icon: '🎯',
     title: 'Risk Appetite Assessment',
-    subtitle: 'Đánh giá mức độ chấp nhận rủi ro nhà đầu tư',
+    subtitle: 'Đo lường năng lực và tâm lý chấp nhận rủi ro chuẩn hóa',
     href: '#risk-assessment',
     available: false,
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+        <circle cx="12" cy="11" r="3" />
+      </svg>
+    ),
   },
   {
     number: '03',
-    icon: '📈',
     title: 'Sample Equity Analysis',
-    subtitle: 'Phân tích mẫu cổ phiếu tiềm năng trên thị trường',
+    subtitle: 'Bộ tiêu chí sàng lọc và định giá cổ phiếu cơ bản P/E, ROE',
     href: '#equity-analysis',
     available: false,
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+        <polyline points="22 7 13.5 15.5 8.5 10.5 2 17" />
+        <polyline points="16 7 22 7 22 13" />
+      </svg>
+    ),
   },
   {
     number: '04',
-    icon: '🧮',
     title: 'Markowitz Portfolio Optimization',
-    subtitle: 'Tối ưu danh mục theo Markowitz MPT & Efficient Frontier',
+    subtitle: 'Mô hình tối ưu hóa danh mục theo Efficient Frontier',
     href: '#markowitz',
     available: false,
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="12" cy="12" r="9" />
+        <path d="M12 3v9l6 3" />
+      </svg>
+    ),
   },
   {
     number: '05',
-    icon: '📄',
     title: 'IPS Report Generation',
-    subtitle: 'Tạo và xuất báo cáo chính sách đầu tư hoàn chỉnh',
+    subtitle: 'Tự động xuất văn kiện Investment Policy Statement chuẩn thể chế',
     href: '#ips-report',
     available: false,
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" />
+        <polyline points="14 2 14 8 20 8" />
+        <line x1="16" y1="13" x2="8" y2="13" />
+        <line x1="16" y1="17" x2="8" y2="17" />
+      </svg>
+    ),
   },
 ];
 
@@ -50,34 +80,34 @@ export default function WorkflowRoadmap() {
 
   return (
     <section
-      className="section section--alt"
+      className="section section--alt wr-section"
       id="system-roadmap"
       aria-label="Lộ trình hệ thống"
     >
       <div className="container">
         <div
-          className={`sw-navigation animate-on-scroll ${navVisible ? 'is-visible' : ''}`}
+          className={`animate-on-scroll ${navVisible ? 'is-visible' : ''}`}
           ref={navRef as React.RefObject<HTMLDivElement>}
         >
-          <div className="section-heading">
-            <span className="section-heading__badge">
-              <span className="section-heading__badge-icon">📑</span>
-              Roadmap
-            </span>
-            <h2 className="section-heading__title">
-              Khám phá Chi tiết Lộ trình
+          {/* Section Heading matching previous sections */}
+          <div className="section-heading sw-heading">
+            <h2 className="sw-heading__title">
+              <span className="sw-heading__title-highlight">
+                SYSTEM ARCHITECTURE ROADMAP
+              </span>
             </h2>
-            <p className="section-heading__subtitle">
-              Tìm hiểu sâu từng module trong quy trình tư vấn và tối ưu danh mục đầu tư của hệ thống FBS.
+            <p className="sw-heading__subtitle">
+              Khám phá chi tiết từng module chuyên biệt trong quy trình tư vấn và tối ưu hóa danh mục đầu tư.
             </p>
           </div>
 
-          <div className="sw-navigation__list">
+          {/* Clean, Refined Roadmap List */}
+          <div className="wr-list">
             {SECTION_NAV.map((item, i) => (
               <a
                 key={item.number}
                 href={item.available ? item.href : undefined}
-                className={`nav-card animate-on-scroll stagger-${i + 1} ${navVisible ? 'is-visible' : ''} ${!item.available ? 'nav-card--coming-soon' : ''}`}
+                className={`wr-card animate-on-scroll stagger-${i + 1} ${navVisible ? 'is-visible' : ''} ${!item.available ? 'wr-card--upcoming' : ''}`}
                 onClick={
                   item.available
                     ? (e) => {
@@ -91,26 +121,26 @@ export default function WorkflowRoadmap() {
                     : undefined
                 }
               >
-                <div className="nav-card__number">{item.number}</div>
-                <span className="nav-card__icon">{item.icon}</span>
-                <div className="nav-card__content">
-                  <div className="nav-card__title">
-                    {item.title}
-                    {!item.available && (
-                      <span
-                        className="badge badge--gold"
-                        style={{
-                          marginLeft: '8px',
-                          fontSize: '10px',
-                        }}
-                      >
-                        Coming Soon
-                      </span>
-                    )}
+                <div className="wr-card__left">
+                  <div className="wr-card__num">{item.number}</div>
+                  <div className="wr-card__icon">{item.icon}</div>
+                  <div className="wr-card__text">
+                    <h4 className="wr-card__title">{item.title}</h4>
+                    <span className="wr-card__subtitle">{item.subtitle}</span>
                   </div>
-                  <div className="nav-card__subtitle">{item.subtitle}</div>
                 </div>
-                <span className="nav-card__arrow">→</span>
+
+                <div className="wr-card__right">
+                  {item.available ? (
+                    <div className="wr-card__action" aria-label="Explore module">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M5 12h14M12 5l7 7-7 7" />
+                      </svg>
+                    </div>
+                  ) : (
+                    <span className="wr-card__badge">Coming Soon</span>
+                  )}
+                </div>
               </a>
             ))}
           </div>
