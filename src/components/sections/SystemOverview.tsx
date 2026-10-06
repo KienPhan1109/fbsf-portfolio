@@ -1,5 +1,5 @@
 import { useInView } from '../../hooks/useAnimations';
-import introImg from '../../assets/Image1.jpg';
+import introImg from '../../assets/1791220049300_2607338586959584821_2607338586959584821_996d4df7c6902ce1edbbc6c6d1a15123.jpg';
 import '../ui/ui.css';
 import './SystemWorkflow.css';
 
