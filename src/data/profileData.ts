@@ -118,7 +118,7 @@ export const familyMembers: FamilyMember[] = [
     birthYear: 1990,
     age: 36,
     occupation: 'Nhân viên Kế toán',
-    workplace: 'Cùng nơi làm việc với chồng',
+    workplace: 'Phòng giao dịch Ngân hàng',
     monthlyIncome: 20_000_000,
     annualIncome: 240_000_000,
     isDependent: false,
@@ -179,9 +179,9 @@ export const financialGoals: FinancialGoal[] = [
     title: 'Mua nhà đất',
     timeline: 'Dài hạn — 10 năm tới',
     timelineYears: 10,
-    targetAmount: 5_000_000_000, // ước tính giá nhà Q2/Q9
-    description: 'Mua nhà đất tại khu vực Quận 2 hoặc Quận 9 cũ để ổn định chỗ ở, thuận tiện đi làm và cho con đi học.',
-    progress: 19, // 950tr net worth / ~5 tỷ target
+    targetAmount: 6_500_000_000, // ước tính giá nhà đất 80m² Q2/Q9
+    description: 'Mua nhà đất diện tích khoảng 80m² tại khu vực Quận 2 hoặc Quận 9 cũ để ổn định chỗ ở, thuận tiện đi làm và cho con đi học.',
+    progress: 14.6, // 950tr net worth / ~6.5 tỷ target
     icon: '🏠',
     type: 'long-term',
   },

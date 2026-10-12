@@ -3,6 +3,7 @@ import Footer from './components/layout/Footer';
 import Hero from './components/sections/Hero';
 import SystemWorkflow from './components/sections/SystemWorkflow';
 import FinancialProfile from './components/sections/FinancialProfile';
+import RiskAssessment from './components/sections/RiskAssessment';
 import './App.css';
 
 export default function App() {
@@ -13,6 +14,7 @@ export default function App() {
         <Hero />
         <SystemWorkflow />
         <FinancialProfile />
+        <RiskAssessment />
       </main>
       <Footer />
     </div>

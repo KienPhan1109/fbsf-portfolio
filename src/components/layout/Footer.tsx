@@ -27,7 +27,7 @@ export default function Footer() {
             <div className="footer__links">
               <a href="#system-workflow" className="footer__link">Giới thiệu hệ thống</a>
               <a href="#financial-profile" className="footer__link">Thu thập hồ sơ</a>
-              <span className="footer__link" style={{ opacity: 0.4 }}>Đánh giá rủi ro</span>
+              <a href="#risk-assessment" className="footer__link">Đánh giá rủi ro</a>
               <span className="footer__link" style={{ opacity: 0.4 }}>Phân tích cổ phiếu</span>
               <span className="footer__link" style={{ opacity: 0.4 }}>Tối ưu Markowitz</span>
             </div>

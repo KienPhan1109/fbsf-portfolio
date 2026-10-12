@@ -1,0 +1,665 @@
+/* ============================================================
+   RISK ASSESSMENT CSS — Minimalist, Refined & Human-Crafted
+   Aligning with WorkflowBenefits & Institutional Advisory Style
+   ============================================================ */
+
+.ra-section {
+  padding-top: calc(var(--navbar-height) + 24px);
+  padding-bottom: var(--space-12);
+  box-sizing: border-box;
+}
+
+.ra-wrapper {
+  max-width: 1160px;
+  margin: 0 auto;
+}
+
+/* ============================================================
+   SECTION 4A: SURVEY QUESTIONNAIRE
+   ============================================================ */
+
+.ra-survey-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 22px;
+  padding: 0 4px;
+}
+
+.ra-survey-meta {
+  font-size: 13px;
+  color: #64748B;
+}
+
+.ra-survey-meta strong {
+  color: #0F172A;
+}
+
+.ra-btn-link {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 13px;
+  font-weight: 600;
+  color: #059669;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.ra-btn-link:hover {
+  color: #047857;
+  text-decoration: underline;
+}
+
+/* 2 Columns Grid */
+.ra-survey-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.ra-survey-column {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Question Item */
+.ra-question-item {
+  background: #ffffff;
+  border: 1px solid rgba(226, 232, 240, 0.85);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.02);
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.ra-question-item:hover {
+  border-color: rgba(5, 150, 105, 0.3);
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.04);
+}
+
+.ra-question-item.is-open {
+  border-color: rgba(5, 150, 105, 0.4);
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.05);
+}
+
+.ra-question-summary {
+  width: 100%;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  background: #ffffff;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.2s ease;
+}
+
+.ra-question-item.is-open .ra-question-summary {
+  background: #F8FAFC;
+  border-bottom: 1px solid #F1F5F9;
+}
+
+.ra-question-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+  min-width: 0;
+}
+
+.ra-question-idx {
+  font-size: 13px;
+  font-weight: 700;
+  color: #94A3B8;
+  flex-shrink: 0;
+}
+
+.ra-question-item.is-open .ra-question-idx {
+  color: #059669;
+}
+
+.ra-question-title {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #0F172A;
+  line-height: 1.45;
+}
+
+.ra-question-action {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.ra-choice-pill {
+  font-size: 12px;
+  font-weight: 600;
+  color: #047857;
+  background: #ECFDF5;
+  border: 1px solid #A7F3D0;
+  padding: 3px 9px;
+  border-radius: 6px;
+}
+
+.ra-chevron-icon {
+  color: #94A3B8;
+  display: flex;
+  align-items: center;
+}
+
+/* Detail Body */
+.ra-question-detail {
+  padding: 16px 20px;
+  background: #ffffff;
+}
+
+.ra-choices-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ra-choice-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid #F1F5F9;
+  background: #FAFAFA;
+  transition: all 0.2s ease;
+}
+
+.ra-choice-row.is-selected {
+  background: #F0FDF4;
+  border-color: #86EFAC;
+}
+
+.ra-choice-content {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+}
+
+.ra-choice-key {
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  background: #E2E8F0;
+  color: #475569;
+  font-size: 11px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.ra-choice-row.is-selected .ra-choice-key {
+  background: #059669;
+  color: #ffffff;
+}
+
+.ra-choice-text {
+  font-size: 12.5px;
+  color: #475569;
+  line-height: 1.4;
+}
+
+.ra-choice-row.is-selected .ra-choice-text {
+  color: #0F172A;
+  font-weight: 600;
+}
+
+.ra-choice-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.ra-choice-pts {
+  font-size: 11.5px;
+  color: #94A3B8;
+  font-weight: 600;
+}
+
+.ra-choice-row.is-selected .ra-choice-pts {
+  color: #059669;
+  font-weight: 700;
+}
+
+.ra-choice-check {
+  color: #059669;
+  display: flex;
+  align-items: center;
+}
+
+/* ============================================================
+   SECTION 4B: RISK SCORE & CLASSIFICATION
+   ============================================================ */
+
+.ra-score-card {
+  background: #ffffff;
+  border: 1px solid rgba(226, 232, 240, 0.85);
+  border-radius: 20px;
+  padding: 36px 40px;
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.04);
+}
+
+.ra-score-card__top {
+  display: flex;
+  align-items: flex-start;
+  gap: 40px;
+  margin-bottom: 36px;
+}
+
+.ra-score-card__primary {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.ra-score-card__divider {
+  width: 1px;
+  align-self: stretch;
+  background: #E2E8F0;
+}
+
+.ra-score-card__profile {
+  flex: 1.35;
+  display: flex;
+  flex-direction: column;
+}
+
+.ra-score-card__caption {
+  font-size: 12px;
+  font-weight: 700;
+  color: #94A3B8;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 8px;
+}
+
+.ra-score-card__value {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.ra-score-card__num {
+  font-size: 3.2rem;
+  font-weight: 900;
+  color: #0F172A;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.ra-score-card__denom {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #94A3B8;
+}
+
+.ra-score-card__formula {
+  font-size: 12.5px;
+  color: #64748B;
+}
+
+.ra-score-card__badge-text {
+  font-size: 1.65rem;
+  font-weight: 800;
+  color: #059669;
+  letter-spacing: -0.01em;
+  margin-bottom: 8px;
+}
+
+.ra-score-card__sub-desc {
+  font-size: 13.5px;
+  color: #475569;
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* Minimalist Scale Bar */
+.ra-scale-container {
+  padding-top: 24px;
+  border-top: 1px solid #F1F5F9;
+}
+
+.ra-scale-bar {
+  height: 36px;
+  border-radius: 10px;
+  background: #F1F5F9;
+  display: flex;
+  overflow: visible;
+  position: relative;
+  margin-bottom: 24px;
+}
+
+.ra-scale-segment {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 600;
+  position: relative;
+}
+
+.ra-scale-segment--low {
+  flex: 17;
+  background: #E2E8F0;
+  color: #64748B;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.ra-scale-segment--mid {
+  flex: 10;
+  background: #059669;
+  color: #ffffff;
+}
+
+.ra-scale-segment__active-text {
+  font-weight: 700;
+}
+
+.ra-scale-segment--high {
+  flex: 13;
+  background: #E2E8F0;
+  color: #64748B;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+/* Marker Line */
+.ra-scale-marker {
+  position: absolute;
+  right: 10%;
+  top: -8px;
+  bottom: -8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ra-scale-marker__line {
+  width: 2px;
+  height: 52px;
+  background: #0F172A;
+  border-radius: 2px;
+}
+
+.ra-scale-marker__label {
+  margin-top: 4px;
+  font-size: 11px;
+  font-weight: 800;
+  color: #0F172A;
+  background: #ffffff;
+  border: 1px solid #CBD5E1;
+  padding: 1px 6px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Legend items below scale */
+.ra-scale-legend {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.ra-scale-legend-item {
+  padding: 16px 18px;
+  border-radius: 12px;
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+}
+
+.ra-scale-legend-item.is-selected {
+  background: #F0FDF4;
+  border-color: #86EFAC;
+}
+
+.ra-scale-legend-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #0F172A;
+  margin-bottom: 6px;
+}
+
+.ra-scale-legend-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #CBD5E1;
+}
+
+.ra-scale-legend-item.is-selected .ra-scale-legend-dot {
+  background: #059669;
+}
+
+.ra-scale-legend-desc {
+  font-size: 12px;
+  color: #64748B;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ============================================================
+   SECTION 4C: CRRA RISK AVERSION & UTILITY MODEL
+   ============================================================ */
+
+.ra-academic-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.05fr;
+  gap: 24px;
+  align-items: stretch;
+}
+
+.ra-academic-card {
+  background: #ffffff;
+  border: 1px solid rgba(226, 232, 240, 0.85);
+  border-radius: 20px;
+  padding: 32px 36px;
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.04);
+  display: flex;
+  flex-direction: column;
+}
+
+.ra-academic-card__header {
+  margin-bottom: 22px;
+}
+
+.ra-academic-card__title {
+  font-size: 15px;
+  font-weight: 800;
+  color: #0F172A;
+  line-height: 1.4;
+  margin: 0 0 4px;
+}
+
+.ra-academic-card__subtitle {
+  font-size: 12.5px;
+  color: #64748B;
+  margin: 0;
+}
+
+/* Table 2.2 */
+.ra-academic-table-wrap {
+  overflow-x: auto;
+  border-radius: 10px;
+  border: 1px solid #E2E8F0;
+  margin-bottom: 14px;
+}
+
+.ra-academic-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.ra-academic-table th {
+  background: #F8FAFC;
+  color: #475569;
+  font-weight: 700;
+  padding: 12px 14px;
+  text-align: left;
+  font-size: 11.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border-bottom: 1px solid #E2E8F0;
+}
+
+.ra-academic-table td {
+  padding: 14px;
+  border-bottom: 1px solid #F1F5F9;
+  color: #334155;
+}
+
+.ra-academic-table tr:last-child td {
+  border-bottom: none;
+}
+
+.ra-academic-table tr.is-client-row {
+  background: #F0FDF4;
+}
+
+.ra-client-tag {
+  display: inline-block;
+  margin-left: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  background: #DCFCE7;
+  color: #15803D;
+  padding: 2px 7px;
+  border-radius: 5px;
+  border: 1px solid #BBF7D0;
+}
+
+.ra-a-number {
+  font-weight: 700;
+  font-size: 14px;
+  color: #0F172A;
+}
+
+.ra-a-number.is-active {
+  color: #059669;
+  font-size: 15px;
+}
+
+.ra-academic-footnote {
+  font-size: 11.5px;
+  color: #94A3B8;
+  font-style: italic;
+  text-align: right;
+  margin-top: auto;
+}
+
+/* Clean Math Box */
+.ra-math-card {
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin-bottom: 20px;
+}
+
+.ra-math-card__label {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: #64748B;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 6px;
+}
+
+.ra-math-card__equation {
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: #0F172A;
+  letter-spacing: 0.02em;
+  margin-bottom: 6px;
+}
+
+.ra-math-card__meta {
+  font-size: 12.5px;
+  color: #475569;
+}
+
+.ra-math-card__meta strong {
+  color: #059669;
+}
+
+/* Editorial Commentary */
+.ra-academic-editorial {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-size: 12.5px;
+  color: #475569;
+  line-height: 1.6;
+}
+
+.ra-academic-editorial p {
+  margin: 0;
+}
+
+.ra-academic-editorial strong {
+  color: #0F172A;
+}
+
+/* ============================================================
+   RESPONSIVE DESIGN
+   ============================================================ */
+@media (max-width: 1024px) {
+  .ra-survey-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ra-score-card__top {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .ra-score-card__divider {
+    display: none;
+  }
+
+  .ra-scale-legend {
+    grid-template-columns: 1fr;
+  }
+
+  .ra-academic-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .ra-survey-header-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .ra-score-card {
+    padding: 24px 20px;
+  }
+
+  .ra-academic-card {
+    padding: 24px 20px;
+  }
+}
