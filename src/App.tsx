@@ -4,6 +4,7 @@ import Hero from './components/sections/Hero';
 import SystemWorkflow from './components/sections/SystemWorkflow';
 import FinancialProfile from './components/sections/FinancialProfile';
 import RiskAssessment from './components/sections/RiskAssessment';
+import EquityScreening from './components/sections/EquityScreening';
 import './App.css';
 
 export default function App() {
@@ -15,6 +16,7 @@ export default function App() {
         <SystemWorkflow />
         <FinancialProfile />
         <RiskAssessment />
+        <EquityScreening />
       </main>
       <Footer />
     </div>

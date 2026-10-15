@@ -25,7 +25,7 @@ Gia đình đang hướng tới 02 mục tiêu tài chính lớn:
 
 1. **Mục tiêu trung hạn (trong** $3\text{ năm}$ **tới):** Mua xe hơi trị giá khoảng $800.000.000\text{ đ}$ để thuận tiện đưa đón các con đi học.
 
-2. **Mục tiêu dài hạn (trong** $10\text{ năm}$ **tới):** Mua nhà đất diện tích khoảng $80\text{m}^2$ trị giá khoảng $6.500.000.000\text{ đ}$ ($6,5\text{ tỷ}$) tại **khu vực Quận 2 hoặc Quận 9 cũ** để ổn định chỗ ở, thuận tiện đi làm và cho 02 con đi học.
+2. **Mục tiêu dài hạn (trong** $10\text{ năm}$ **tới):** Mua nhà đất diện tích khoảng $70\text{m}^2$ trị giá khoảng $3.900.000.000\text{ đ}$ ($3,9\text{ tỷ}$) tại **khu vực Quận 2 hoặc Quận 9 cũ** để ổn định chỗ ở, thuận tiện đi làm và cho 02 con đi học.
 
 ## 3. Tổng tài sản, Tổng nợ và Tài sản ròng
 

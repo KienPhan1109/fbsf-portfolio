@@ -215,7 +215,7 @@ export const clientRiskProfile = {
   willingnessScore: 4, // 4/10
   gsoepRange: '[4 – 6)',
   riskAversionA: 5.07,
-  utilityFormula: 'U = E(r) - \\frac{1}{2} A \\sigma^2',
+  utilityFormula: 'U = E(r) - ½ · A · σ²',
   commentary:
     'Điểm khảo sát của Anh Nam là 26/40 điểm, tương ứng với khẩu vị rủi ro Trung bình và mức độ sẵn sàng chấp nhận rủi ro chuẩn hóa 4/10. Theo bảng phân loại GSOEP (Hochmuth et al., 2025), giá trị tham số hệ số ngại rủi ro CRRA được xác lập là A = 5.07. Điều này thể hiện gia đình đặc biệt coi trọng việc bảo vệ vốn và kiểm soát tổn thất, song vẫn sẵn sàng đón nhận mức độ biến động vừa phải để tối ưu hóa tỷ suất sinh lời dài hạn trong mô hình Markowitz MPT.',
 };

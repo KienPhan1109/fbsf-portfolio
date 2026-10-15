@@ -1,0 +1,260 @@
+/* ============================================================
+   EQUITY SCREENING (STOCK SELECTION, SELECTED EQUITIES & PERFORMANCE)
+   Ultra-Clean, Minimalist Spec Table
+   Institutional wealth management style — zero clutter
+   ============================================================ */
+
+.sec-equity {
+  padding-top: calc(var(--navbar-height) + 32px);
+  padding-bottom: var(--space-20);
+  box-sizing: border-box;
+}
+
+.equity-wrapper {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.equity-wrapper--wide {
+  max-width: 1040px;
+}
+
+/* Minimalist Spec Card */
+.equity-card {
+  background: #ffffff;
+  border: 1px solid rgba(226, 232, 240, 0.85);
+  border-radius: 20px;
+  padding: clamp(24px, 3vw, 36px);
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.04);
+}
+
+/* Table Wrapper */
+.equity-table-wrap {
+  overflow-x: auto;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+}
+
+.equity-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13.5px;
+  text-align: left;
+}
+
+.equity-table th {
+  background: #f8fafc;
+  color: #475569;
+  font-weight: 700;
+  padding: 14px 20px;
+  font-size: 11.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid #e2e8f0;
+  white-space: nowrap;
+}
+
+.equity-table td {
+  padding: 16px 20px;
+  border-bottom: 1px solid #f1f5f9;
+  color: #334155;
+  vertical-align: middle;
+  line-height: 1.5;
+}
+
+.equity-table tr:last-child td {
+  border-bottom: none;
+}
+
+.equity-table tr:hover td {
+  background: #fafbfc;
+}
+
+/* Criterion Column (Table 1) */
+.equity-td-name {
+  white-space: nowrap;
+}
+
+.equity-idx {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #94a3b8;
+  margin-right: 12px;
+  display: inline-block;
+  min-width: 20px;
+}
+
+.equity-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: #0f172a;
+  letter-spacing: -0.01em;
+}
+
+/* Requirement / Benchmark Column (Table 1) */
+.equity-td-val {
+  font-size: 13.5px;
+}
+
+.equity-val-mono {
+  color: #047857;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.equity-val {
+  color: #334155;
+  font-weight: 500;
+}
+
+/* Selected Equities Columns (Table 2) */
+.equity-td-ticker {
+  white-space: nowrap;
+}
+
+.equity-ticker {
+  font-size: 14.5px;
+  font-weight: 700;
+  color: #0f172a;
+  letter-spacing: 0.03em;
+}
+
+.equity-td-industry {
+  font-weight: 500;
+  color: #334155;
+  white-space: nowrap;
+}
+
+.equity-role-pill {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 6px;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
+.equity-role-pill--def {
+  background: rgba(5, 150, 105, 0.08);
+  color: #047857;
+  border: 1px solid rgba(5, 150, 105, 0.2);
+}
+
+.equity-role-pill--grow {
+  background: rgba(37, 99, 235, 0.08);
+  color: #1d4ed8;
+  border: 1px solid rgba(37, 99, 235, 0.2);
+}
+
+.equity-td-driver {
+  color: #475569;
+}
+
+.equity-td-need {
+  color: #0f172a;
+  font-weight: 500;
+}
+
+/* ============================================================
+   PERFORMANCE EVALUATION
+   Dark navy header style matching the requested template
+   ============================================================ */
+.perf-card {
+  padding: clamp(24px, 3vw, 36px);
+}
+
+.perf-table-wrap {
+  overflow-x: auto;
+  border-radius: 14px;
+  border: 1px solid #0f172a;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.06);
+}
+
+.perf-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 14px;
+}
+
+.perf-table thead th {
+  background: #0b132b;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  padding: 16px 20px;
+  text-transform: uppercase;
+  border: none;
+  white-space: nowrap;
+}
+
+.perf-table tbody tr {
+  background: #ffffff;
+  border-bottom: 1px solid #f1f5f9;
+  transition: background 0.15s ease;
+}
+
+.perf-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.perf-table tbody tr:hover {
+  background: #f8fafc;
+}
+
+.perf-table td {
+  padding: 18px 20px;
+  vertical-align: middle;
+}
+
+.perf-td-ticker {
+  white-space: nowrap;
+}
+
+.perf-ticker {
+  color: #1d4ed8;
+  font-weight: 800;
+  font-size: 15px;
+  letter-spacing: 0.03em;
+}
+
+.perf-td-num {
+  white-space: nowrap;
+}
+
+.perf-val-dark {
+  color: #0f172a;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.perf-val-green {
+  color: #10b981;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+/* ============================================================
+   RESPONSIVE DESIGN
+   ============================================================ */
+@media (max-width: 768px) {
+  .equity-card,
+  .perf-card {
+    padding: 16px 12px;
+    border-radius: 14px;
+  }
+
+  .equity-table th,
+  .equity-table td,
+  .perf-table th,
+  .perf-table td {
+    padding: 12px 14px;
+    font-size: 13px;
+  }
+
+  .equity-idx {
+    margin-right: 6px;
+  }
+}
