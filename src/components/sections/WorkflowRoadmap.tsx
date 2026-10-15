@@ -72,7 +72,7 @@ const SECTION_NAV = [
         subtitle:
             " Optimal Risky Portfolio (ORP) & Optimal Complete Portfolio (OCP)",
         href: "#markowitz",
-        available: false,
+        available: true,
         icon: (
             <svg
                 viewBox="0 0 24 24"

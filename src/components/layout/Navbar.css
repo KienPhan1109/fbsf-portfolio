@@ -137,7 +137,8 @@
 .navbar__link--active {
   color: var(--color-emerald-700);
   font-weight: 600;
-  background: var(--color-emerald-50);
+  background: var(--color-emerald-100);
+  border: 0.05px solid var(--color-emerald-300);
 }
 
 /* --- CTA Button --- */
