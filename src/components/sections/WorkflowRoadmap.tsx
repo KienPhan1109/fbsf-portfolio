@@ -93,7 +93,7 @@ const SECTION_NAV = [
         subtitle:
             "Tự động xuất văn kiện Investment Policy Statement chuẩn thể chế",
         href: "#ips-report",
-        available: false,
+        available: true,
         icon: (
             <svg
                 viewBox="0 0 24 24"

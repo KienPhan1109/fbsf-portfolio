@@ -9,7 +9,8 @@ const NAV_ITEMS = [
   { id: 'risk-assessment', label: 'Risk' },
   { id: 'equity-analysis', label: 'Equity' },
   { id: 'markowitz', label: 'Portfolio' },
-  { id: 'ips-report', label: 'Report' },
+  { id: 'financial-plan', label: 'Plan' },
+  { id: 'ips-report', label: 'IPS' },
 ];
 
 const SECTION_IDS = NAV_ITEMS.map((item) => item.id);

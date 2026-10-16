@@ -62,7 +62,7 @@ Dự án sử dụng ngôn ngữ thiết kế **Institutional Wealth Management 
   3. `Risk` (Href: `#risk-assessment`)
   4. `Equity` (Href: `#equity-analysis`)
   5. `Portfolio` (Href: `#markowitz`)
-  6. `Report` (Href: `#ips-report`)
+  6. `Plan` (Href: `#financial-plan`)
 - **Nút CTA:** Nút `Get Started` (Href: `#financial-profile`).
 
 ---
@@ -371,7 +371,87 @@ Bao gồm 2 phần lớn: **Phần A (ORP)** và **Phần B (OCP)**.
 
 ---
 
-### SECTION 8: FOOTER (CHÂN TRANG)
+### SECTION 8: 6.3. FINANCIAL PLAN AND GOAL IMPLEMENTATION ROADMAP (INVESTMENT PLAN EVALUATION)
+
+- **Vị trí:** Tiếp theo sau phần Markowitz Portfolio Optimization (OCP).
+- **ID Section:** `#financial-plan` (Nền xám nhạt `section--alt`)
+- **Tiêu đề & Phụ đề chuẩn hệ thống (Standard System Heading):**
+  - Cấu trúc: `<div className="section-heading sw-heading">`
+  - Tiêu đề chính (`.sw-heading__title` + `.sw-heading__title-highlight`): `INVESTMENT PLAN EVALUATION SHEET` (In hoa toàn bộ, font-size clamp(2.4rem, 4.8vw, 3.6rem), font-weight 900, gradient than chì sang xanh ngọc `var(--gradient-text)`).
+  - Phụ đề (`.sw-heading__subtitle`): *"The evaluation shows that the investment plan is fully capable of meeting the 10-year housing goal without relying on financial leverage."* (Chữ xám `#52525B`, max-width 680px, căn giữa).
+
+#### 1. Bảng Đánh Giá Kế Hoạch Đầu Tư (Evaluation Table Card)
+- **Thẻ Card:** Bo góc 20px, viền hairline `1px solid rgba(226, 232, 240, 0.95)`, nền trắng `#FFFFFF`, đổ bóng nhẹ.
+- **Thanh tiêu đề bảng (Table Header):** Nền Dark Navy Deep `#0B132B`, chữ in hoa trắng, cỡ 12px font-bold.
+- **Các cột bảng:**
+  1. `GOAL` (Cột mục tiêu, canh trái)
+  2. `GOAL VALUE( VND MILLION )` (Cột giá trị mục tiêu, đơn vị triệu đồng)
+  3. `ACQUIRED CAPITAL SOURCE` (Cột nguồn vốn tích lũy đạt được)
+  4. `RESULT` (Cột kết quả đánh giá)
+- **Dữ liệu thực tế các hàng (Real Data Rows):**
+  | GOAL | GOAL VALUE( VND MILLION ) | ACQUIRED CAPITAL SOURCE | RESULT |
+  | :--- | :---: | :---: | :---: |
+  | **Vehicle Purchase (Year 3)** | `912,93` | `442,16` | **Unachieved** *(Màu đỏ/rose `#E11D48`)* |
+  | **Loan Recovery** | `100` | `100` | **Achieved** *(Màu xanh ngọc `#059669`)* |
+  | **Housing Purchase (Year 10)** | `6.056,60` | `6.066,96` | **Achieved** *(Màu xanh ngọc `#059669`)* |
+
+*Ghi chú định dạng:*
+- Cột `GOAL` hiển thị font đậm màu xanh hoàng gia `#2563EB`.
+- Cột số liệu hiển thị font `JetBrains Mono` màu than chì `#0F172A`.
+- Cột `RESULT`: Màu đỏ hồng `#E11D48` cho *Unachieved* và màu xanh ngọc `#059669` cho *Achieved*.
+
+#### 2. Thẻ Chỉ Số Cốt Lõi (Institutional Highlights)
+- **10-Year Housing Goal:** Thặng dư vốn `+10,38 triệu đ` (Tổng vốn sau thuế 6.066,96 tr vượt giá trị nhà 6.056,60 tr sau 10 năm lạm phát 4.5%).
+- **Emergency Reserve:** `150 triệu đ` bảo lưu dự phòng thanh khoản an toàn, không đem toàn bộ tiền mặt đi đầu tư rủi ro (đúng nguyên tắc chuẩn IPS).
+- **Compound Growth:** Tỷ suất sinh lời OCP `0,5653% / tháng` (`6,78% / năm`) giúp đạt mục tiêu an cư mà không cần sử dụng đòn bẩy tài chính nợ vay.
+
+---
+
+### SECTION 9: INVESTMENT POLICY STATEMENT (IPS) REPORT
+
+- **Vị trí:** Sau phần Financial Plan Evaluation.
+- **ID Section:** `#ips-report` (Nền xám nhạt `section--alt`)
+- **Tiêu đề Section Heading:**
+  - Tiêu đề chính: `INVESTMENT POLICY STATEMENT` (In hoa toàn bộ, font chữ lớn, gradient chữ than chì sang xanh ngọc).
+  - Phụ đề: *"The Nam–Nu Family · A decade-long strategy for balanced growth and financial security."*
+- **Khối Văn Kiện IPS Chính (IPS Document Card):**
+  - Thẻ card nền trắng bo góc lớn 24px, viền mỏng hairline, đổ bóng nhẹ nhàng.
+  - **Header văn kiện:**
+    - Eyebrow: `INVESTMENT POLICY STATEMENT` (Chữ xanh dương `#2563EB`, đậm, 12.5px).
+    - Tiêu đề: `The Nam–Nu Family` (28px font-extrabold `#0F172A`).
+    - Phụ đề: `A decade-long strategy for balanced growth and financial security.` (`#64748B`, 15px).
+  - **Lưới thông số hồ sơ 2 cột (Upper 2-Column Grid):**
+    - Cột trái:
+      - Thẻ 1: `Net worth`: `₫950M` | `Total assets less liabilities`
+      - Thẻ 2: `MONTHLY NET CASH FLOW` *(Được tích hợp theo hình ảnh 2)*:
+        - Tiêu đề thẻ: `MONTHLY NET CASH FLOW`
+        - Số lớn nổi bật: `+₫3.7M` (Màu xanh ngọc lục bảo `#059669`)
+        - Badge pill: `Positive cash flow after optimization` (Nền xanh nhạt `#DCFCE7`, chữ `#15803D`)
+        - Hairline divider
+        - Dòng 1: `Before optimization`: `−₫8.3M` (Đỏ `#EF4444`)
+        - Dòng 2: `After optimization`: `+₫3.7M` (Xanh `#059669`)
+        - Dòng 3: `Monthly improvement`: `+₫12M` (Xanh `#059669`)
+    - Cột phải:
+      - Thẻ 3: `Risk profile`: `Moderate` | `Balanced investor`
+      - Thẻ 4: `Risk aversion`: `5.07` | `Coefficient A`
+  - **Thẻ Phân Bổ Danh Mục Tối Ưu (Optimal Complete Portfolio):**
+    - Tiêu đề: `Optimal Complete Portfolio` (19px font-bold `#0F172A`)
+    - Phụ đề: `Recommended investment allocation` (`#64748B`)
+    - **Thanh phân bổ ngang 2 màu (Segmented Allocation Bar):**
+      - Đoạn trái 21.16%: Xanh hoàng gia `#2563EB`
+      - Đoạn phải 78.84%: Xanh da trời nhạt `#93C5FD`
+    - **Legend 2 cột:**
+      - Cột 1 (Dot xanh đậm `#2563EB`): `21.16%` | `Optimal Risky Portfolio` | `VCB · SSI · MWG · GAS`
+      - Cột 2 (Dot xanh nhạt `#93C5FD`): `78.84%` | `Vietnam Government Bonds` | `Risk-free asset assumption`
+  - **Thẻ Chiến Lược Đầu Tư (Investment Strategy Card - Dark Navy `#0B132B`):**
+    - Eyebrow: `INVESTMENT STRATEGY` (Xám nhạt `#94A3B8`, in hoa 11.5px)
+    - Tiêu đề: `Balanced Growth` (Chữ trắng 20px font-extrabold)
+    - Mô tả: *"Balance long-term capital growth with capital preservation while accounting for family expenses, debt obligations, and liquidity needs."* (Chữ xám sáng `#CBD5E1`, 14.5px, line-height 1.6)
+    - Nút tròn mũi tên cuộn xuống ở giữa đáy card.
+
+---
+
+### SECTION 10: FOOTER (CHÂN TRANG)
 - **Logo & Thương hiệu:** FBSF Cash Flow Optimization Fund.
 - **Sứ mệnh / Tagline:** *"Disciplined Wealth Architecture & Portfolio Optimization for Modern Families."*
 - **Khối liên kết (Quick Links):** Điều hướng tới Overview, Financial Profile, Risk Assessment, Equity Screening, Portfolio Optimization, IPS Delivery.

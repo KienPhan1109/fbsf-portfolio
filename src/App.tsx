@@ -6,6 +6,8 @@ import FinancialProfile from './components/sections/FinancialProfile';
 import RiskAssessment from './components/sections/RiskAssessment';
 import EquityScreening from './components/sections/EquityScreening';
 import MarkowitzOptimization from './components/sections/MarkowitzOptimization';
+import FinancialPlanRoadmap from './components/sections/FinancialPlanRoadmap';
+import IpsReport from './components/sections/IpsReport';
 import './App.css';
 
 export default function App() {
@@ -19,6 +21,8 @@ export default function App() {
         <RiskAssessment />
         <EquityScreening />
         <MarkowitzOptimization />
+        <FinancialPlanRoadmap />
+        <IpsReport />
       </main>
       <Footer />
     </div>
