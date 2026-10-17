@@ -2,7 +2,6 @@ import SystemOverview from './SystemOverview';
 import AdvisoryProcessC from './AdvisoryProcessC';
 import WorkflowBenefits from './WorkflowBenefits';
 import WorkflowFeatures from './WorkflowFeatures';
-import WorkflowRoadmap from './WorkflowRoadmap';
 import './SystemWorkflow.css';
 
 export {
@@ -10,7 +9,6 @@ export {
   AdvisoryProcessC,
   WorkflowBenefits,
   WorkflowFeatures,
-  WorkflowRoadmap,
 };
 
 export default function SystemWorkflow() {
@@ -27,9 +25,6 @@ export default function SystemWorkflow() {
 
       {/* 2D: Key Features (100vh) */}
       <WorkflowFeatures />
-
-      {/* 2E: Section Navigation Roadmap (100vh) */}
-      <WorkflowRoadmap />
     </>
   );
 }

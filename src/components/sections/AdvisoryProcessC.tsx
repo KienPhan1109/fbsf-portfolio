@@ -12,32 +12,46 @@ const STEPS = [
   {
     num: '01',
     title: 'Financial Profiling',
+    href: '#financial-profile',
     image: financialProfilingImg,
   },
   {
     num: '02',
     title: 'Risk Assessment',
+    href: '#risk-assessment',
     image: riskAssessmentImg,
   },
   {
     num: '03',
     title: 'Equity Screening',
+    href: '#equity-analysis',
     image: equityScreeningImg,
   },
   {
     num: '04',
     title: 'Portfolio Optimization',
+    href: '#markowitz',
     image: portfolioOptimizationImg,
   },
   {
     num: '05',
     title: 'IPS Report Delivery',
+    href: '#ips-report',
     image: ipsReportDeliveryImg,
   },
 ];
 
 export default function AdvisoryProcessC() {
   const [ref, visible] = useInView();
+
+  const handleStepClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    const id = href.replace('#', '');
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <section className="section apc" id="system-process" aria-label="5-Step Advisory Process">
@@ -60,9 +74,12 @@ export default function AdvisoryProcessC() {
 
           <div className="apc__grid">
             {STEPS.map((step, idx) => (
-              <div
+              <a
                 key={step.num}
+                href={step.href}
+                onClick={(e) => handleStepClick(e, step.href)}
                 className={`apc__card animate-on-scroll stagger-${idx + 1} ${visible ? 'is-visible' : ''}`}
+                title={`Khám phá ${step.title}`}
               >
                 {/* Background Image with Overlay */}
                 <div className="apc__card-bg">
@@ -81,9 +98,12 @@ export default function AdvisoryProcessC() {
                 </div>
 
                 <div className="apc__card-bottom">
-                  <h4 className="apc__card-title">{step.title}</h4>
+                  <h4 className="apc__card-title">
+                    {step.title}
+                    <span className="apc__card-arrow" aria-hidden="true"> ↗</span>
+                  </h4>
                 </div>
-              </div>
+              </a>
             ))}
           </div>
         </div>

@@ -331,7 +331,7 @@ export default function RiskAssessment() {
               <div className="ra-academic-card">
                 <div className="ra-academic-card__header">
                   <h3 className="ra-academic-card__title">
-                    Hàm Thỏa Dụng & Đánh Giá Danh Mục
+                    Hàm Hữu Dụng & Đánh Giá Danh Mục
                   </h3>
                   <p className="ra-academic-card__subtitle">
                     Tham số đầu vào cho thuật toán tối ưu hóa Mean-Variance Markowitz MPT

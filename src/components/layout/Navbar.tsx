@@ -7,18 +7,26 @@ const NAV_ITEMS = [
   { id: 'system-workflow', label: 'Overview' },
   { id: 'financial-profile', label: 'Profile' },
   { id: 'risk-assessment', label: 'Risk' },
-  { id: 'equity-analysis', label: 'Equity' },
+  { id: 'equity-analysis', label: 'Stock' },
   { id: 'markowitz', label: 'Portfolio' },
-  { id: 'financial-plan', label: 'Plan' },
   { id: 'ips-report', label: 'IPS' },
 ];
 
-const SECTION_IDS = NAV_ITEMS.map((item) => item.id);
+const SPY_IDS = [
+  'system-workflow',
+  'financial-profile',
+  'risk-assessment',
+  'equity-analysis',
+  'markowitz',
+  'financial-plan',
+  'ips-report',
+];
 
 export default function Navbar() {
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const isScrolled = useScrolled(30);
-  const activeId = useScrollSpy(SECTION_IDS, 120);
+  const rawActiveId = useScrollSpy(SPY_IDS, 120);
+  const activeId = rawActiveId === 'financial-plan' ? 'ips-report' : rawActiveId;
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault();
@@ -26,10 +34,9 @@ export default function Navbar() {
     if (el) {
       el.scrollIntoView({ behavior: 'smooth' });
     } else {
-      // Fallback to Roadmap section if module is upcoming
-      const roadmapEl = document.getElementById('system-roadmap');
-      if (roadmapEl) {
-        roadmapEl.scrollIntoView({ behavior: 'smooth' });
+      const processEl = document.getElementById('system-process') || document.getElementById('system-workflow');
+      if (processEl) {
+        processEl.scrollIntoView({ behavior: 'smooth' });
       }
     }
     setIsMobileOpen(false);
