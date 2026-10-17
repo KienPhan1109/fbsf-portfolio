@@ -255,7 +255,7 @@ export default function RiskAssessment() {
       <section
         className="section ra-section"
         id="risk-coefficient"
-        aria-label="Hệ số ngại rủi ro và hàm thỏa dụng Markowitz"
+        aria-label="Hệ số ngại rủi ro và hàm hữu dụng Markowitz"
       >
         <div className="container container--wide">
           <div
@@ -270,7 +270,7 @@ export default function RiskAssessment() {
                 </span>
               </h2>
               <p className="sw-heading__subtitle">
-                Xác lập hệ số ngại rủi ro A = 5.07 theo chuẩn GSOEP 2025 và ứng dụng hàm thỏa dụng Mean-Variance trong tối ưu hóa danh mục.
+                Xác lập hệ số ngại rủi ro A = 5.07 theo chuẩn GSOEP 2025 và ứng dụng hàm hữu dụng Mean-Variance trong tối ưu hóa danh mục.
               </p>
             </div>
 
@@ -340,7 +340,7 @@ export default function RiskAssessment() {
 
                 {/* Clean Academic Math Box */}
                 <div className="ra-math-card">
-                  <div className="ra-math-card__label">Hàm thỏa dụng nhà đầu tư (Utility Function):</div>
+                  <div className="ra-math-card__label">Hàm hữu dụng nhà đầu tư (Utility Function):</div>
                   <div className="ra-math-card__equation font-mono">
                     U = E(r) - ½ · A · σ²
                   </div>
