@@ -65,14 +65,15 @@ export default function MarkowitzOptimization() {
     0
   );
 
-  let currentAngle = -Math.PI / 2; // Start from 12 o'clock
-  const gap = 0.04; // Angle gap between sectors
+  const gap = 0.04;
+  const sectors = orpStockAllocations.map((item, index) => {
+    const prevSpan = orpStockAllocations
+      .slice(0, index)
+      .reduce((sum, prev) => sum + (prev.weightOrp / totalWeight) * 2 * Math.PI, 0);
 
-  const sectors = orpStockAllocations.map((item) => {
+    const startAngle = -Math.PI / 2 + prevSpan + gap / 2;
     const angleSpan = (item.weightOrp / totalWeight) * 2 * Math.PI;
-    const startAngle = currentAngle + gap / 2;
-    const endAngle = currentAngle + angleSpan - gap / 2;
-    currentAngle += angleSpan;
+    const endAngle = startAngle + angleSpan - gap;
 
     return {
       ...item,

@@ -1,0 +1,257 @@
+/* ============================================================
+   ADVISORY PROCESS C — Bento Grid Cards with Big Corner Numbers
+   ============================================================ */
+
+.apc {
+    position: relative;
+    overflow: hidden;
+}
+
+.apc__header {
+    text-align: center;
+    margin-bottom: clamp(40px, 5vh, 56px);
+}
+
+.apc__label {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-emerald-600);
+    margin-bottom: 16px;
+    display: block;
+}
+
+.apc__title {
+    font-size: clamp(2rem, 3.5vw, 2.8rem);
+    font-weight: 800;
+    color: var(--color-navy-900);
+    letter-spacing: -0.025em;
+    line-height: 1.15;
+    margin: 0;
+}
+
+.apc__subtitle {
+    font-size: clamp(0.95rem, 1.05vw, 1.05rem);
+    color: var(--color-navy-500);
+    margin-top: 14px;
+    line-height: 1.6;
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* --- Bento Grid --- */
+.apc__grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: auto auto;
+    gap: 18px;
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+/* Card Base */
+.apc__card {
+    border-radius: 25px;
+    padding: clamp(26px, 2.4vw, 36px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+    background: var(--color-navy-950, #0a1120);
+    box-shadow: 0 12px 32px -8px rgba(10, 22, 40, 0.28);
+    transform: translateY(0) translateZ(0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    will-change: transform, box-shadow;
+    transition:
+        transform 0.45s cubic-bezier(0.25, 1, 0.5, 1),
+        box-shadow 0.45s cubic-bezier(0.25, 1, 0.5, 1);
+    min-height: 240px;
+    text-decoration: none;
+    cursor: pointer;
+    color: inherit;
+}
+
+.apc__card:hover {
+    transform: translateY(-6px) translateZ(0);
+    box-shadow:
+        0 20px 48px -10px rgba(10, 22, 40, 0.48),
+        0 0 28px -2px rgba(16, 185, 129, 0.25);
+}
+
+/* Background Image & Scrim Overlay */
+.apc__card-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+    border-radius: inherit;
+}
+
+.apc__card-bg-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transform: scale(1.02);
+    transition: transform 0.65s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.apc__card:hover .apc__card-bg-image {
+    transform: scale(1.08);
+}
+
+.apc__card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        180deg,
+        rgba(10, 22, 40, 0.45) 0%,
+        rgba(10, 22, 40, 0.72) 40%,
+        rgba(6, 15, 28, 0.94) 100%
+    );
+    transition: background 0.45s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.apc__card:hover .apc__card-overlay {
+    background: linear-gradient(
+        180deg,
+        rgba(10, 22, 40, 0.3) 0%,
+        rgba(10, 22, 40, 0.62) 35%,
+        rgba(4, 25, 20, 0.95) 100%
+    );
+}
+
+/* Top: Big Punchy Number in Top-Right */
+.apc__card-top {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+}
+
+.apc__card-num {
+    font-family: var(--font-mono);
+    font-size: clamp(3rem, 4.2vw, 4.5rem);
+    font-weight: 900;
+    line-height: 0.85;
+    letter-spacing: -0.04em;
+    color: rgba(255, 255, 255, 0.45);
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    transition:
+        color 0.4s ease,
+        transform 0.4s ease;
+}
+
+.apc__card:hover .apc__card-num {
+    color: var(--color-emerald-400, #34d399);
+    transform: scale(1.06);
+}
+
+/* Bottom: Title with clean indicator */
+.apc__card-bottom {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+}
+
+.apc__card-title {
+    font-size: clamp(1.2rem, 1.45vw, 1.45rem);
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: -0.015em;
+    line-height: 1.25;
+    margin: 0;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    transition: color 0.3s ease;
+}
+
+.apc__card-arrow {
+    font-size: 0.9em;
+    color: rgba(255, 255, 255, 0.7);
+    transition: transform 0.3s ease, color 0.3s ease;
+    display: inline-block;
+}
+
+.apc__card:hover .apc__card-arrow {
+    transform: translate(3px, -3px);
+    color: var(--color-emerald-300, #6ee7b7);
+}
+
+.apc__card:hover .apc__card-title {
+    color: var(--color-emerald-300, #6ee7b7);
+}
+
+/* --- Bento Sizing: Row 1 = 3 cards (4 cols each), Row 2 = 2 wide cards (6 cols each) --- */
+.apc__card:nth-child(1) {
+    grid-column: span 4;
+    min-height: 250px;
+}
+
+.apc__card:nth-child(2) {
+    grid-column: span 4;
+    min-height: 250px;
+}
+
+.apc__card:nth-child(3) {
+    grid-column: span 4;
+    min-height: 250px;
+}
+
+.apc__card:nth-child(4) {
+    grid-column: span 6;
+    min-height: 270px;
+}
+
+.apc__card:nth-child(5) {
+    grid-column: span 6;
+    min-height: 270px;
+}
+
+/* --- Responsive Layout --- */
+@media (max-width: 1024px) {
+    .apc__card:nth-child(1),
+    .apc__card:nth-child(2),
+    .apc__card:nth-child(3) {
+        grid-column: span 6;
+    }
+
+    .apc__card:nth-child(3) {
+        grid-column: span 12;
+    }
+
+    .apc__card:nth-child(4),
+    .apc__card:nth-child(5) {
+        grid-column: span 6;
+    }
+}
+
+@media (max-width: 680px) {
+    .apc__grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .apc__card:nth-child(1),
+    .apc__card:nth-child(2),
+    .apc__card:nth-child(3),
+    .apc__card:nth-child(4),
+    .apc__card:nth-child(5) {
+        grid-column: span 1;
+        min-height: 210px;
+        padding: 22px;
+    }
+
+    .apc__card-num {
+        font-size: 2.8rem;
+    }
+}

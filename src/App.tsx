@@ -1,13 +1,12 @@
-import Navbar from './components/layout/Navbar';
-import Footer from './components/layout/Footer';
-import Hero from './components/sections/Hero';
-import SystemWorkflow from './components/sections/SystemWorkflow';
-import FinancialProfile from './components/sections/FinancialProfile';
-import RiskAssessment from './components/sections/RiskAssessment';
-import EquityScreening from './components/sections/EquityScreening';
-import MarkowitzOptimization from './components/sections/MarkowitzOptimization';
-import FinancialPlanRoadmap from './components/sections/FinancialPlanRoadmap';
-import IpsReport from './components/sections/IpsReport';
+import { Navbar, Footer } from './shared/layout';
+import { Hero } from './features/hero';
+import { SystemWorkflow } from './features/workflow';
+import { FinancialProfile } from './features/financial-profile';
+import { RiskAssessment } from './features/risk-assessment';
+import { EquityScreening } from './features/equity-screening';
+import { MarkowitzOptimization } from './features/portfolio-optimization';
+import { FinancialPlanRoadmap } from './features/financial-plan';
+import { IpsReport } from './features/ips-report';
 import './App.css';
 
 export default function App() {
