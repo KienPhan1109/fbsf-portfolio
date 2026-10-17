@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { useInView } from '../../hooks/useAnimations';
 import {
   surveyQuestions,
@@ -14,31 +13,20 @@ import './RiskAssessment.css';
 /* ============================================================
    CLEAN MONOLINE SVG ICONS (Minimalist, 1.75px stroke)
    ============================================================ */
-function IconChevron({ isExpanded }: { isExpanded: boolean }) {
+function IconCheckCircle() {
   return (
     <svg
-      width="16"
-      height="16"
+      width="15"
+      height="15"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
-      strokeWidth="2"
+      strokeWidth="2.5"
       strokeLinecap="round"
       strokeLinejoin="round"
-      style={{
-        transform: isExpanded ? 'rotate(180deg)' : 'rotate(0deg)',
-        transition: 'transform 0.25s cubic-bezier(0.16, 1, 0.3, 1)',
-      }}
     >
-      <polyline points="6 9 12 15 18 9" />
-    </svg>
-  );
-}
-
-function IconCheck() {
-  return (
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-      <polyline points="20 6 9 17 4 12" />
+      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+      <polyline points="22 4 12 14.01 9 11.01" />
     </svg>
   );
 }
@@ -51,25 +39,6 @@ export default function RiskAssessment() {
   const [scoreRef, scoreVisible] = useInView();
   const [modelRef, modelVisible] = useInView();
 
-  // Accordion state
-  const [expandedIds, setExpandedIds] = useState<number[]>([1]);
-
-  const toggleQuestion = (id: number) => {
-    setExpandedIds((prev) =>
-      prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id]
-    );
-  };
-
-  const expandAll = () => {
-    setExpandedIds(surveyQuestions.map((q) => q.id));
-  };
-
-  const collapseAll = () => {
-    setExpandedIds([]);
-  };
-
-  const isAllExpanded = expandedIds.length === surveyQuestions.length;
-
   // Split into 2 clean columns
   const col1Questions = surveyQuestions.slice(0, 5);
   const col2Questions = surveyQuestions.slice(5, 10);
@@ -78,7 +47,7 @@ export default function RiskAssessment() {
     <>
       {/* ============================================================
           SECTION 4A: KHẢO SÁT KHẨU VỊ RỦI RO (Risk Survey)
-          Clean, document-style questionnaire layout
+          Clean, direct Question & Answer layout with points preserved
           ============================================================ */}
       <section
         className="section ra-section"
@@ -98,154 +67,85 @@ export default function RiskAssessment() {
                 </span>
               </h2>
               <p className="sw-heading__subtitle">
-                Phiếu khảo sát 10 câu hỏi đo lường hành vi tài chính và mức độ chấp nhận biến động danh mục.
+                Phiếu khảo sát 10 câu hỏi & câu trả lời thực tế đo lường khẩu vị rủi ro và hành vi tài chính của khách hàng.
               </p>
             </div>
 
-            {/* Sub-header Controls */}
+            {/* Sub-header Summary Row */}
             <div className="ra-survey-header-row">
               <span className="ra-survey-meta">
-                Bảng câu hỏi khảo sát thực tế • <strong className="font-mono">10 / 10 câu hỏi</strong>
+                Biên bản khảo sát thực tế • <strong className="font-mono">10 / 10 câu hỏi & câu trả lời</strong>
               </span>
-              <button
-                type="button"
-                className="ra-btn-link"
-                onClick={isAllExpanded ? collapseAll : expandAll}
-              >
-                {isAllExpanded ? 'Thu gọn tất cả' : 'Mở rộng tất cả'}
-              </button>
+              <div className="ra-survey-badge font-mono">
+                <span className="ra-survey-badge-dot" />
+                <span>Tổng điểm khảo sát: <strong>{totalScore} / {maxScore} điểm</strong></span>
+              </div>
             </div>
 
             {/* 2-Column Clean Questions Grid */}
-            <div className="ra-survey-grid">
+            <div className="ra-qa-grid">
               {/* Column 1: Questions 1 to 5 */}
-              <div className="ra-survey-column">
-                {col1Questions.map((q) => {
-                  const isExpanded = expandedIds.includes(q.id);
-
-                  return (
-                    <div
-                      key={q.id}
-                      className={`ra-question-item ${isExpanded ? 'is-open' : ''}`}
-                    >
-                      <button
-                        type="button"
-                        className="ra-question-summary"
-                        onClick={() => toggleQuestion(q.id)}
-                        aria-expanded={isExpanded}
-                      >
-                        <div className="ra-question-info">
-                          <span className="ra-question-idx font-mono">
-                            {q.id < 10 ? `0${q.id}` : q.id}
-                          </span>
-                          <span className="ra-question-title">{q.question}</span>
-                        </div>
-                        <div className="ra-question-action">
-                          <span className="ra-choice-pill font-mono">
-                            Đáp án {q.selectedKey} ({q.selectedPoints}đ)
-                          </span>
-                          <span className="ra-chevron-icon">
-                            <IconChevron isExpanded={isExpanded} />
-                          </span>
-                        </div>
-                      </button>
-
-                      {isExpanded && (
-                        <div className="ra-question-detail">
-                          <div className="ra-choices-stack">
-                            {q.options.map((opt) => {
-                              const isSelected = opt.key === q.selectedKey;
-                              return (
-                                <div
-                                  key={opt.key}
-                                  className={`ra-choice-row ${isSelected ? 'is-selected' : ''}`}
-                                >
-                                  <div className="ra-choice-content">
-                                    <span className="ra-choice-key font-mono">{opt.key}</span>
-                                    <span className="ra-choice-text">{opt.text}</span>
-                                  </div>
-                                  <div className="ra-choice-meta">
-                                    <span className="ra-choice-pts font-mono">{opt.points}đ</span>
-                                    {isSelected && (
-                                      <span className="ra-choice-check" title="Khách hàng đã chọn">
-                                        <IconCheck />
-                                      </span>
-                                    )}
-                                  </div>
-                                </div>
-                              );
-                            })}
-                          </div>
-                        </div>
-                      )}
+              <div className="ra-qa-column">
+                {col1Questions.map((q) => (
+                  <div key={q.id} className="ra-qa-card">
+                    <div className="ra-qa-header">
+                      <div className="ra-qa-idx-wrap">
+                        <span className="ra-qa-idx font-mono">
+                          {q.id < 10 ? `0${q.id}` : q.id}
+                        </span>
+                        <span className="ra-qa-tag">Câu hỏi {q.id}</span>
+                      </div>
+                      <div className="ra-qa-points font-mono">
+                        <span>+{q.points} điểm</span>
+                      </div>
                     </div>
-                  );
-                })}
+
+                    <h4 className="ra-qa-question">{q.question}</h4>
+
+                    <div className="ra-qa-answer-box">
+                      <div className="ra-qa-answer-meta">
+                        <span className="ra-qa-answer-icon">
+                          <IconCheckCircle />
+                        </span>
+                        <span>Câu trả lời ghi nhận</span>
+                        <span className="ra-qa-option-badge font-mono">Đáp án {q.optionKey}</span>
+                      </div>
+                      <p className="ra-qa-answer-text">{q.answer}</p>
+                    </div>
+                  </div>
+                ))}
               </div>
 
               {/* Column 2: Questions 6 to 10 */}
-              <div className="ra-survey-column">
-                {col2Questions.map((q) => {
-                  const isExpanded = expandedIds.includes(q.id);
-
-                  return (
-                    <div
-                      key={q.id}
-                      className={`ra-question-item ${isExpanded ? 'is-open' : ''}`}
-                    >
-                      <button
-                        type="button"
-                        className="ra-question-summary"
-                        onClick={() => toggleQuestion(q.id)}
-                        aria-expanded={isExpanded}
-                      >
-                        <div className="ra-question-info">
-                          <span className="ra-question-idx font-mono">
-                            {q.id < 10 ? `0${q.id}` : q.id}
-                          </span>
-                          <span className="ra-question-title">{q.question}</span>
-                        </div>
-                        <div className="ra-question-action">
-                          <span className="ra-choice-pill font-mono">
-                            Đáp án {q.selectedKey} ({q.selectedPoints}đ)
-                          </span>
-                          <span className="ra-chevron-icon">
-                            <IconChevron isExpanded={isExpanded} />
-                          </span>
-                        </div>
-                      </button>
-
-                      {isExpanded && (
-                        <div className="ra-question-detail">
-                          <div className="ra-choices-stack">
-                            {q.options.map((opt) => {
-                              const isSelected = opt.key === q.selectedKey;
-                              return (
-                                <div
-                                  key={opt.key}
-                                  className={`ra-choice-row ${isSelected ? 'is-selected' : ''}`}
-                                >
-                                  <div className="ra-choice-content">
-                                    <span className="ra-choice-key font-mono">{opt.key}</span>
-                                    <span className="ra-choice-text">{opt.text}</span>
-                                  </div>
-                                  <div className="ra-choice-meta">
-                                    <span className="ra-choice-pts font-mono">{opt.points}đ</span>
-                                    {isSelected && (
-                                      <span className="ra-choice-check" title="Khách hàng đã chọn">
-                                        <IconCheck />
-                                      </span>
-                                    )}
-                                  </div>
-                                </div>
-                              );
-                            })}
-                          </div>
-                        </div>
-                      )}
+              <div className="ra-qa-column">
+                {col2Questions.map((q) => (
+                  <div key={q.id} className="ra-qa-card">
+                    <div className="ra-qa-header">
+                      <div className="ra-qa-idx-wrap">
+                        <span className="ra-qa-idx font-mono">
+                          {q.id < 10 ? `0${q.id}` : q.id}
+                        </span>
+                        <span className="ra-qa-tag">Câu hỏi {q.id}</span>
+                      </div>
+                      <div className="ra-qa-points font-mono">
+                        <span>+{q.points} điểm</span>
+                      </div>
                     </div>
-                  );
-                })}
+
+                    <h4 className="ra-qa-question">{q.question}</h4>
+
+                    <div className="ra-qa-answer-box">
+                      <div className="ra-qa-answer-meta">
+                        <span className="ra-qa-answer-icon">
+                          <IconCheckCircle />
+                        </span>
+                        <span>Câu trả lời ghi nhận</span>
+                        <span className="ra-qa-option-badge font-mono">Đáp án {q.optionKey}</span>
+                      </div>
+                      <p className="ra-qa-answer-text">{q.answer}</p>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           </div>

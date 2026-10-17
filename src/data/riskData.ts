@@ -3,18 +3,12 @@
 // Structured data from survey questionnaire and GSOEP Table 2.2
 // ============================================================
 
-export interface SurveyOption {
-  key: 'A' | 'B' | 'C' | 'D';
-  text: string;
-  points: number;
-}
-
 export interface SurveyQuestion {
   id: number;
   question: string;
-  options: SurveyOption[];
-  selectedKey: 'A' | 'B' | 'C' | 'D';
-  selectedPoints: number;
+  answer: string;
+  points: number;
+  optionKey: 'A' | 'B' | 'C' | 'D';
 }
 
 export interface RiskClassification {
@@ -32,132 +26,82 @@ export interface GSOEPRow {
   isClientCategory?: boolean;
 }
 
-// 10 Survey Questions
+// 10 Survey Questions with Client Selected Answers and Points
 export const surveyQuestions: SurveyQuestion[] = [
   {
     id: 1,
     question: 'Mục tiêu đầu tư của bạn là gì?',
-    options: [
-      { key: 'A', text: 'Bảo toàn vốn và tránh rủi ro', points: 1 },
-      { key: 'B', text: 'Tăng trưởng vốn ổn định kết hợp với bảo toàn vốn', points: 2 },
-      { key: 'C', text: 'Tăng trưởng vốn nhanh nhưng vẫn chú trọng đến an toàn một phần', points: 3 },
-      { key: 'D', text: 'Tìm kiếm lợi nhuận cực cao mặc dù có rủi ro lớn', points: 4 },
-    ],
-    selectedKey: 'B',
-    selectedPoints: 2,
+    answer: 'Tăng trưởng vốn ổn định kết hợp với bảo toàn vốn',
+    points: 2,
+    optionKey: 'B',
   },
   {
     id: 2,
     question: 'Nếu danh mục đầu tư của bạn giảm 20% trong thời gian ngắn, bạn sẽ làm gì?',
-    options: [
-      { key: 'A', text: 'Bán ra ngay để cắt lỗ', points: 1 },
-      { key: 'B', text: 'Cảm thấy lo lắng nhưng giữ nguyên danh mục và chờ phục hồi', points: 2 },
-      { key: 'C', text: 'Xem đây là cơ hội để mua vào thêm', points: 3 },
-      { key: 'D', text: 'Mua vào ngay lập tức vì tin thị trường sẽ phục hồi', points: 4 },
-    ],
-    selectedKey: 'B',
-    selectedPoints: 2,
+    answer: 'Cảm thấy lo lắng nhưng giữ nguyên danh mục và chờ phục hồi',
+    points: 2,
+    optionKey: 'B',
   },
   {
     id: 3,
     question: 'Mức độ hiểu biết của bạn về thị trường tài chính là:',
-    options: [
-      { key: 'A', text: 'Rất ít kinh nghiệm', points: 1 },
-      { key: 'B', text: 'Hiểu biết cơ bản, mới bắt đầu đầu tư', points: 2 },
-      { key: 'C', text: 'Trung bình – theo dõi và nghiên cứu thường xuyên', points: 3 },
-      { key: 'D', text: 'Rất hiểu biết, có chiến lược đầu tư riêng', points: 4 },
-    ],
-    selectedKey: 'C',
-    selectedPoints: 3,
+    answer: 'Trung bình – theo dõi và nghiên cứu thường xuyên',
+    points: 3,
+    optionKey: 'C',
   },
   {
     id: 4,
     question: 'Khoản tiền bạn sẵn sàng đầu tư (mà nếu mất đi vẫn đảm bảo cuộc sống) chiếm bao nhiêu % tổng tài sản?',
-    options: [
-      { key: 'A', text: 'Dưới 10%', points: 1 },
-      { key: 'B', text: 'Từ 10% đến 25%', points: 2 },
-      { key: 'C', text: 'Từ 25% đến 50%', points: 3 },
-      { key: 'D', text: 'Trên 50%', points: 4 },
-    ],
-    selectedKey: 'B',
-    selectedPoints: 2,
+    answer: 'Từ 10% đến 25%',
+    points: 2,
+    optionKey: 'B',
   },
   {
     id: 5,
     question: 'Khi nghe tin về cơ hội đầu tư với lợi nhuận cao nhưng rủi ro lớn, bạn sẽ:',
-    options: [
-      { key: 'A', text: 'Không đầu tư vì quá rủi ro', points: 1 },
-      { key: 'B', text: 'Đầu tư với số tiền nhỏ để thử nghiệm', points: 2 },
-      { key: 'C', text: 'Đầu tư một phần nếu có đủ thông tin và nghiên cứu kỹ', points: 3 },
-      { key: 'D', text: 'Đầu tư mạnh mẽ vì tin rằng lợi nhuận sẽ bù đắp rủi ro', points: 4 },
-    ],
-    selectedKey: 'C',
-    selectedPoints: 3,
+    answer: 'Đầu tư một phần nếu có đủ thông tin và nghiên cứu kỹ',
+    points: 3,
+    optionKey: 'C',
   },
   {
     id: 6,
     question: 'Khi thị trường biến động mạnh, bạn thường:',
-    options: [
-      { key: 'A', text: 'Hoảng loạn và bán ra ngay', points: 1 },
-      { key: 'B', text: 'Cảm thấy lo lắng nhưng giữ bình tĩnh', points: 2 },
-      { key: 'C', text: 'Theo dõi sát sao và tìm cơ hội mua vào', points: 3 },
-      { key: 'D', text: 'Tận dụng biến động để đầu tư thêm', points: 4 },
-    ],
-    selectedKey: 'C',
-    selectedPoints: 3,
+    answer: 'Theo dõi sát sao và tìm cơ hội mua vào',
+    points: 3,
+    optionKey: 'C',
   },
   {
     id: 7,
     question: 'Mục tiêu đầu tư về thời gian của bạn là:',
-    options: [
-      { key: 'A', text: 'Ngắn hạn (dưới 3 năm)', points: 1 },
-      { key: 'B', text: 'Trung hạn (3-5 năm)', points: 2 },
-      { key: 'C', text: 'Dài hạn (5-10 năm)', points: 3 },
-      { key: 'D', text: 'Rất dài hạn (trên 10 năm)', points: 4 },
-    ],
-    selectedKey: 'C',
-    selectedPoints: 3,
+    answer: 'Dài hạn (5-10 năm)',
+    points: 3,
+    optionKey: 'C',
   },
   {
     id: 8,
     question: 'Trong bối cảnh kinh tế không ổn định, bạn sẽ:',
-    options: [
-      { key: 'A', text: 'Chuyển sang tài sản an toàn (tiền mặt, trái phiếu)', points: 1 },
-      { key: 'B', text: 'Giữ nguyên danh mục và theo dõi tình hình', points: 2 },
-      { key: 'C', text: 'Tìm cơ hội đầu tư vào cổ phiếu bị giảm giá', points: 3 },
-      { key: 'D', text: 'Mua vào thêm vì tin thị trường sẽ phục hồi', points: 4 },
-    ],
-    selectedKey: 'B',
-    selectedPoints: 2,
+    answer: 'Giữ nguyên danh mục và theo dõi tình hình',
+    points: 2,
+    optionKey: 'B',
   },
   {
     id: 9,
     question: 'Khi có cơ hội đầu tư mạo hiểm với tiềm năng lợi nhuận lớn, bạn sẽ:',
-    options: [
-      { key: 'A', text: 'Từ chối vì không muốn mạo hiểm', points: 1 },
-      { key: 'B', text: 'Cân nhắc và đầu tư một phần nhỏ', points: 2 },
-      { key: 'C', text: 'Đầu tư nếu có sự tư vấn và nghiên cứu đầy đủ', points: 3 },
-      { key: 'D', text: 'Đầu tư mà không do dự', points: 4 },
-    ],
-    selectedKey: 'C',
-    selectedPoints: 3,
+    answer: 'Đầu tư nếu có sự tư vấn và nghiên cứu đầy đủ',
+    points: 3,
+    optionKey: 'C',
   },
   {
     id: 10,
     question: 'Bạn tự đánh giá khả năng chấp nhận rủi ro của mình là:',
-    options: [
-      { key: 'A', text: 'Rất thấp – ưu tiên an toàn tuyệt đối', points: 1 },
-      { key: 'B', text: 'Thấp – không muốn biến động quá lớn', points: 2 },
-      { key: 'C', text: 'Trung bình – sẵn sàng chịu rủi ro vừa phải để có lợi nhuận tốt hơn', points: 3 },
-      { key: 'D', text: 'Cao – sẵn sàng mạo hiểm để đạt được lợi nhuận vượt trội', points: 4 },
-    ],
-    selectedKey: 'C',
-    selectedPoints: 3,
+    answer: 'Trung bình – sẵn sàng chịu rủi ro vừa phải để có lợi nhuận tốt hơn',
+    points: 3,
+    optionKey: 'C',
   },
 ];
 
 // Total Score Calculation
-export const totalScore = surveyQuestions.reduce((acc, q) => acc + q.selectedPoints, 0); // 26
+export const totalScore = surveyQuestions.reduce((acc, q) => acc + q.points, 0); // 26
 export const maxScore = 40;
 
 // Risk Classifications
