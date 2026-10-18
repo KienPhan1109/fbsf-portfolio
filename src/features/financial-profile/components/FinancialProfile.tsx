@@ -4,7 +4,9 @@ import {
   familyMembers,
   additionalInfo,
   financialGoals,
+  assets,
   totalAssets,
+  liabilities,
   totalLiabilities,
   netWorth,
   expenses,
@@ -194,6 +196,143 @@ export function FinancialProfile() {
                   <div className="fp-balance-label font-mono">NET CASH FLOW</div>
                   <div className="fp-balance-val fp-balance-val--red font-mono">{formatVND(cashFlow.monthlySurplus)}</div>
                   <div className="fp-balance-sub">Mỗi tháng · thâm hụt 99.6 tr/năm</div>
+                </div>
+              </div>
+
+              {/* CARD 3B: BALANCE SHEET DETAIL DUAL PANEL (Option 1) */}
+              <div className="fp-balance-detail">
+                {/* Left Panel (60%): Breakdown Table */}
+                <div className="fp-bd-table-panel">
+                  <div className="fp-bd-header">
+                    <span className="fp-bd-title font-mono">DANH MỤC TÀI SẢN &amp; CÔNG NỢ CHI TIẾT</span>
+                    <span className="fp-bd-badge font-mono">FIDUCIARY AUDIT</span>
+                  </div>
+
+                  <div className="fp-bd-table">
+                    {/* Group I: Assets */}
+                    <div className="fp-bd-group">
+                      <div className="fp-bd-group-header">
+                        <span className="fp-bd-group-title">I. TỔNG TÀI SẢN</span>
+                        <span className="fp-bd-group-val font-mono">{formatVND(totalAssets)}</span>
+                      </div>
+
+                      <div className="fp-bd-row">
+                        <div className="fp-bd-cell-name">
+                          <span className="fp-bd-dot" style={{ backgroundColor: '#10B981' }} />
+                          <span className="fp-bd-item-name">{assets[0]?.name}</span>
+                          <span className="fp-bd-cell-desc">({assets[0]?.detail})</span>
+                        </div>
+                        <div className="fp-bd-cell-val font-mono">
+                          <span>{formatVND(assets[0]?.value)}</span>
+                          <span className="fp-bd-cell-pct">21.4%</span>
+                        </div>
+                      </div>
+
+                      <div className="fp-bd-row">
+                        <div className="fp-bd-cell-name">
+                          <span className="fp-bd-dot" style={{ backgroundColor: '#3B82F6' }} />
+                          <span className="fp-bd-item-name">{assets[1]?.name}</span>
+                          <span className="fp-bd-cell-desc">({assets[1]?.detail} — thu hồi tháng 60 cho OCP)</span>
+                        </div>
+                        <div className="fp-bd-cell-val font-mono">
+                          <span>{formatVND(assets[1]?.value)}</span>
+                          <span className="fp-bd-cell-pct">7.1%</span>
+                        </div>
+                      </div>
+
+                      <div className="fp-bd-row">
+                        <div className="fp-bd-cell-name">
+                          <span className="fp-bd-dot" style={{ backgroundColor: '#062C1E' }} />
+                          <span className="fp-bd-item-name">{assets[2]?.name}</span>
+                          <span className="fp-bd-cell-desc">({assets[2]?.detail})</span>
+                        </div>
+                        <div className="fp-bd-cell-val font-mono">
+                          <span>{formatVND(assets[2]?.value)}</span>
+                          <span className="fp-bd-cell-pct">71.4%</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Group II: Liabilities */}
+                    <div className="fp-bd-group">
+                      <div className="fp-bd-group-header">
+                        <span className="fp-bd-group-title">II. TỔNG NỢ PHẢI TRẢ</span>
+                        <span className="fp-bd-group-val font-mono" style={{ color: '#EF4444' }}>
+                          {formatVND(totalLiabilities)}
+                        </span>
+                      </div>
+
+                      <div className="fp-bd-row">
+                        <div className="fp-bd-cell-name">
+                          <span className="fp-bd-dot" style={{ backgroundColor: '#EF4444' }} />
+                          <span className="fp-bd-item-name">{liabilities[0]?.name}</span>
+                          <span className="fp-bd-cell-desc">({liabilities[0]?.detail} · Trả 8.300.000 đ/tháng)</span>
+                        </div>
+                        <div className="fp-bd-cell-val font-mono">
+                          <span>{formatVND(liabilities[0]?.value)}</span>
+                          <span className="fp-bd-cell-pct" style={{ color: '#EF4444' }}>Đòn bẩy 32.1%</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Group III: Net Worth Summary */}
+                    <div className="fp-bd-summary-row">
+                      <span className="fp-bd-summary-label">III. TÀI SẢN RÒNG (NET WORTH):</span>
+                      <span className="fp-bd-summary-val font-mono">{formatVND(netWorth)}</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Right Panel (40%): Donut Chart & Legend */}
+                <div className="fp-bd-chart-panel">
+                  <div className="fp-bd-header">
+                    <span className="fp-bd-title font-mono">CƠ CẤU PHÂN BỔ TÀI SẢN</span>
+                  </div>
+
+                  <div className="fp-bd-donut-wrap">
+                    <div
+                      className="fp-bd-donut"
+                      style={{
+                        background: `conic-gradient(
+                          #10B981 0deg 77.04deg,
+                          #3B82F6 77.04deg 102.6deg,
+                          #062C1E 102.6deg 360deg
+                        )`,
+                      }}
+                    >
+                      <div className="fp-bd-donut-center">
+                        <span className="fp-bd-donut-val font-mono">1,4 Tỷ</span>
+                        <span className="fp-bd-donut-label font-mono">TỔNG TS</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Legend */}
+                  <div className="fp-bd-legend">
+                    <div className="fp-bd-legend-item">
+                      <div className="fp-bd-legend-left">
+                        <span className="fp-bd-legend-dot" style={{ backgroundColor: '#10B981' }} />
+                        <span className="fp-bd-legend-name">Tiền mặt &amp; tiền gửi</span>
+                      </div>
+                      <span className="fp-bd-legend-val font-mono">21.4% (300M)</span>
+                    </div>
+
+                    <div className="fp-bd-legend-item">
+                      <div className="fp-bd-legend-left">
+                        <span className="fp-bd-legend-dot" style={{ backgroundColor: '#3B82F6' }} />
+                        <span className="fp-bd-legend-name">Khoản phải thu</span>
+                      </div>
+                      <span className="fp-bd-legend-val font-mono">7.1% (100M)</span>
+                    </div>
+
+                    <div className="fp-bd-legend-item">
+                      <div className="fp-bd-legend-left">
+                        <span className="fp-bd-legend-dot" style={{ backgroundColor: '#062C1E' }} />
+                        <span className="fp-bd-legend-name">Đất nền Bảo Lộc</span>
+                      </div>
+                      <span className="fp-bd-legend-val font-mono">71.4% (1.000M)</span>
+                    </div>
+                  </div>
                 </div>
               </div>
 

@@ -263,6 +263,261 @@
 }
 
 /* ============================================================
+   CARD 3B: BALANCE SHEET DETAIL DUAL PANEL (Option 1)
+   Breakdown Table (60%) ⇄ Donut Chart Visual (40%)
+   ============================================================ */
+
+.fp-balance-detail {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 8px;
+  padding: 30px 34px;
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  gap: 36px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+.fp-bd-table-panel {
+  display: flex;
+  flex-direction: column;
+}
+
+.fp-bd-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #F1F5F9;
+}
+
+.fp-bd-title {
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #64748B;
+  text-transform: uppercase;
+}
+
+.fp-bd-badge {
+  font-size: 10.5px;
+  font-weight: 700;
+  color: #059669;
+  background: rgba(5, 150, 105, 0.08);
+  border: 1px solid rgba(5, 150, 105, 0.2);
+  padding: 2px 8px;
+  border-radius: 4px;
+  letter-spacing: 0.04em;
+}
+
+.fp-bd-table {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.fp-bd-group {
+  background: #F8FAF9;
+  border: 1px solid #E2ECE7;
+  border-radius: 6px;
+  padding: 10px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.fp-bd-group-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #E2ECE7;
+}
+
+.fp-bd-group-title {
+  font-size: 11.5px;
+  font-weight: 800;
+  color: #062C1E;
+  letter-spacing: 0.04em;
+}
+
+.fp-bd-group-val {
+  font-size: 12.5px;
+  font-weight: 800;
+  color: #062C1E;
+}
+
+.fp-bd-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  padding: 2px 0;
+  gap: 12px;
+}
+
+.fp-bd-cell-name {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+  min-width: 0;
+}
+
+.fp-bd-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.fp-bd-item-name {
+  font-weight: 600;
+  color: #1E293B;
+  white-space: nowrap;
+}
+
+.fp-bd-cell-desc {
+  color: #64748B;
+  font-size: 11px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.fp-bd-cell-val {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  font-weight: 700;
+  font-size: 12.5px;
+  color: #0A1628;
+  flex-shrink: 0;
+}
+
+.fp-bd-cell-pct {
+  font-size: 11px;
+  font-weight: 600;
+  color: #64748B;
+  min-width: 38px;
+  text-align: right;
+}
+
+.fp-bd-summary-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 9px 14px;
+  background: rgba(5, 150, 105, 0.05);
+  border: 1px solid rgba(5, 150, 105, 0.22);
+  border-radius: 6px;
+  font-size: 12px;
+}
+
+.fp-bd-summary-label {
+  font-weight: 800;
+  color: #047857;
+  letter-spacing: 0.02em;
+}
+
+.fp-bd-summary-val {
+  font-weight: 800;
+  font-size: 13.5px;
+  color: #047857;
+}
+
+/* Right Panel: Donut Chart & Legend */
+.fp-bd-chart-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-left: 20px;
+  border-left: 1px solid #F1F5F9;
+}
+
+.fp-bd-donut-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0 16px;
+}
+
+.fp-bd-donut {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+}
+
+.fp-bd-donut-center {
+  width: 96px;
+  height: 96px;
+  background: #FFFFFF;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+.fp-bd-donut-val {
+  font-size: 16px;
+  font-weight: 800;
+  color: #062C1E;
+  line-height: 1.1;
+}
+
+.fp-bd-donut-label {
+  font-size: 9.5px;
+  font-weight: 700;
+  color: #64748B;
+  letter-spacing: 0.06em;
+  margin-top: 3px;
+}
+
+.fp-bd-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border-top: 1px solid #F1F5F9;
+  padding-top: 12px;
+}
+
+.fp-bd-legend-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11.5px;
+}
+
+.fp-bd-legend-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.fp-bd-legend-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.fp-bd-legend-name {
+  color: #475569;
+}
+
+.fp-bd-legend-val {
+  font-weight: 700;
+  color: #0F172A;
+}
+
+/* ============================================================
    CARD 4: LIGHT SAGE CASH FLOW & EXPENSES (media_1792322975444.png Bottom)
    Background #EDF3F0, 2 Columns (Left numbers vs Right 6 bars)
    ============================================================ */
@@ -395,6 +650,18 @@
     border-right: none;
   }
 
+  .fp-balance-detail {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .fp-bd-chart-panel {
+    border-left: none;
+    padding-left: 0;
+    border-top: 1px solid #F1F5F9;
+    padding-top: 24px;
+  }
+
   .fp-cashflow-card {
     grid-template-columns: 1fr;
     gap: 32px;
@@ -444,6 +711,20 @@
 
   .fp-balance-col:last-child {
     border-bottom: none;
+  }
+
+  .fp-balance-detail {
+    padding: 22px 18px;
+  }
+
+  .fp-bd-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .fp-bd-cell-val {
+    align-self: flex-end;
   }
 
   .fp-cashflow-card {
