@@ -1,23 +1,19 @@
 import SystemOverview from './SystemOverview';
 import AdvisoryProcess from './AdvisoryProcess';
-import WorkflowBenefits from './WorkflowBenefits';
-import WorkflowFeatures from './WorkflowFeatures';
+import ServicesAndCapabilities from './ServicesAndCapabilities';
 import '../styles/SystemWorkflow.css';
 
 export function SystemWorkflow() {
   return (
     <>
-      {/* 2A: System Introduction */}
+      {/* 2A: System Introduction — Organic Blob Sphere (Preserved) */}
       <SystemOverview />
 
-      {/* 2B: 5-Step Advisory Process — Bento Grid */}
+      {/* 2B: 5-Step Advisory Process — Bento Grid (Preserved) */}
       <AdvisoryProcess />
 
-      {/* 2C: Benefits */}
-      <WorkflowBenefits />
-
-      {/* 2D: Key Features */}
-      <WorkflowFeatures />
+      {/* 2C & 2D: Merged Institutional Asymmetric Bento (Our Services & Investment Capabilities) */}
+      <ServicesAndCapabilities />
     </>
   );
 }

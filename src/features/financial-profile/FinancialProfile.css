@@ -1,847 +1,452 @@
 /* ============================================================
-   FINANCIAL PROFILE SECTIONS STYLES (Modular Sections 3A - 3D)
-   Consistent with AdvisoryProcessC, WorkflowBenefits, WorkflowFeatures
+   FINANCIAL PROFILE & BALANCE SHEET (SEPARATE SECTIONS)
+   Pixel-accurate replication of user mockups:
+   - media_1792322975440.png (Section 1: Demographics & Goals)
+   - media_1792322975444.png (Section 2: Balance Sheet & Cash Flow)
    ============================================================ */
 
-/* --- 3A: Family Info --- */
-#financial-profile .sw-heading {
-  margin-bottom: clamp(16px, 2.5vh, 26px);
-}
-
-.fp-family__grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
-  margin-bottom: 12px;
-}
-
-.fp-member-card {
-  background: #ffffff;
-  border: 1px solid rgba(226, 232, 240, 0.85);
-  border-radius: 18px;
-  padding: 14px 18px;
-  display: flex;
-  gap: 14px;
-  align-items: flex-start;
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+.fp-section {
+  padding: clamp(48px, 6vw, 80px) 0;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 4px 16px -2px rgba(10, 22, 40, 0.04);
-  transform: translateZ(0);
-  will-change: transform;
 }
 
-.fp-member-card:hover {
-  transform: translateY(-3px) translateZ(0);
-  box-shadow: 0 12px 28px -4px rgba(10, 22, 40, 0.08);
-  border-color: rgba(5, 150, 105, 0.35);
+.fp-container {
+  width: 100%;
 }
 
-.fp-member-card--dependent {
-  background: #FAFAFA;
+.fp-group {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
 }
 
-/* Avatar Initials */
-.fp-member-avatar {
-  flex-shrink: 0;
+/* ============================================================
+   CARD 1: DARK DEMOGRAPHICS CARD (media_1792322975440.png Top)
+   Background #0B1E16, 4 Columns with subtle vertical dividers
+   ============================================================ */
+
+.fp-dark-card {
+  background: #0B1E16;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  padding: 32px 36px;
+  color: #FFFFFF;
+}
+
+.fp-dark-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.fp-dark-col {
+  padding: 0 28px;
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  flex-direction: column;
+}
+
+.fp-dark-col:first-child {
+  padding-left: 0;
+}
+
+.fp-dark-col:last-child {
+  border-right: none;
+  padding-right: 0;
+}
+
+.fp-dark-badge {
   width: 44px;
   height: 44px;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #0A1628;
-  color: #ffffff;
-  font-weight: 800;
-  font-size: 14px;
-  letter-spacing: 0.04em;
-  box-shadow: 0 4px 12px rgba(10, 22, 40, 0.12);
-}
-
-.fp-member-avatar--member-nam {
-  background: linear-gradient(135deg, #0A1628 0%, #1E3A8A 100%);
-}
-
-.fp-member-avatar--member-nu {
-  background: linear-gradient(135deg, #0F766E 0%, #059669 100%);
-}
-
-.fp-member-avatar--member-child1 {
-  background: linear-gradient(135deg, #2563EB 0%, #3B82F6 100%);
-}
-
-.fp-member-avatar--member-child2 {
-  background: linear-gradient(135deg, #0284C7 0%, #06B6D4 100%);
-}
-
-.fp-member-avatar__initials {
-  line-height: 1;
-}
-
-.fp-member-card__info {
-  flex: 1;
-  min-width: 0;
-}
-
-.fp-member-card__top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 8px;
-  margin-bottom: 2px;
-}
-
-.fp-member-card__name {
-  font-size: 1.05rem;
-  font-weight: 800;
-  color: #18181B;
-}
-
-.fp-member-card__role-tag {
-  font-size: 11px;
-  font-weight: 600;
-  padding: 3px 9px;
-  border-radius: 999px;
-  background: rgba(16, 185, 129, 0.08);
-  color: #059669;
-  border: 1px solid rgba(16, 185, 129, 0.2);
-}
-
-.fp-member-card__role-tag--dependent {
-  background: #F4F4F5;
-  color: #71717A;
-  border-color: #E4E4E7;
-}
-
-.fp-member-card__role {
-  font-size: 12px;
-  color: #71717A;
-  margin-bottom: 10px;
-}
-
-.fp-member-card__details {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  margin-bottom: 12px;
-}
-
-.fp-member-card__detail {
-  font-size: 12px;
-  color: #52525B;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.fp-member-card__detail-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  color: #71717A;
-  flex-shrink: 0;
-}
-
-.fp-member-card__income {
-  font-weight: 800;
-  color: #059669;
-  font-size: 15px;
-  letter-spacing: -0.01em;
-}
-
-.fp-member-card__income-unit {
-  font-size: 12px;
-  font-weight: 500;
-  color: #71717A;
-}
-
-.fp-member-card__dependent-note {
-  font-size: 12px;
-  font-weight: 500;
-  color: #A1A1AA;
-  font-style: italic;
-}
-
-/* --- Total Income Bar --- */
-.fp-income-total {
-  background: #ffffff;
-  border: 1px solid rgba(226, 232, 240, 0.85);
-  border-radius: 18px;
-  padding: 12px 22px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 12px;
-  box-shadow: 0 4px 16px -2px rgba(10, 22, 40, 0.04);
-}
-
-.fp-income-total__left {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.fp-income-total__icon-wrap {
-  width: 38px;
-  height: 38px;
-  border-radius: 10px;
-  background: rgba(16, 185, 129, 0.1);
-  color: #059669;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
-.fp-income-total__label {
-  font-size: 13px;
-  font-weight: 700;
-  color: #18181B;
-}
-
-.fp-income-total__sublabel {
-  font-size: 11px;
-  color: #71717A;
-  margin-top: 1px;
-}
-
-.fp-income-total__value {
-  font-size: 1.35rem;
-  font-weight: 800;
-  color: #059669;
-  letter-spacing: -0.02em;
-}
-
-/* --- Additional Info Cards --- */
-.fp-additional {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
-}
-
-.fp-additional__card {
-  background: #ffffff;
-  border: 1px solid rgba(226, 232, 240, 0.85);
-  border-radius: 16px;
-  padding: 12px 16px;
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
-  box-shadow: 0 4px 14px -2px rgba(10, 22, 40, 0.03);
-  transform: translateZ(0);
-}
-
-.fp-additional__card:hover {
-  transform: translateY(-2px) translateZ(0);
-  box-shadow: 0 8px 24px -3px rgba(10, 22, 40, 0.07);
-  border-color: rgba(5, 150, 105, 0.3);
-}
-
-.fp-additional__card-icon-wrap {
-  width: 32px;
-  height: 32px;
-  border-radius: 8px;
-  background: #F4F4F5;
-  color: #18181B;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
-.fp-additional__card-content {
-  flex: 1;
-}
-
-.fp-additional__card-title {
-  font-size: 12px;
-  font-weight: 700;
-  color: #18181B;
-  margin-bottom: 2px;
-}
-
-.fp-additional__card-text {
-  font-size: 11px;
-  color: #71717A;
-  line-height: 1.45;
-}
-
-/* ============================================================
-   3B: FINANCIAL GOALS
-   ============================================================ */
-.fp-goals__grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: var(--space-6);
-  max-width: 1020px;
-  margin: 0 auto;
-  width: 100%;
-}
-
-.fp-goal-card {
-  background: #ffffff;
-  border: 1px solid rgba(226, 232, 240, 0.85);
-  border-radius: 22px;
-  padding: 32px 34px;
-  position: relative;
-  overflow: hidden;
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
-  box-shadow: 0 4px 24px -2px rgba(10, 22, 40, 0.05);
-  transform: translateZ(0);
-  will-change: transform;
-}
-
-.fp-goal-card:hover {
-  transform: translateY(-4px) translateZ(0);
-  box-shadow: 0 16px 36px -6px rgba(10, 22, 40, 0.1);
-  border-color: rgba(5, 150, 105, 0.35);
-}
-
-.fp-goal-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-}
-
-.fp-goal-card--mid::before {
-  background: var(--gradient-emerald);
-}
-
-.fp-goal-card--long::before {
-  background: linear-gradient(135deg, #0A1628 0%, #2563EB 100%);
-}
-
-.fp-goal-card__header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: var(--space-4);
-}
-
-.fp-goal-card__icon-box {
-  width: 48px;
-  height: 48px;
-  border-radius: 12px;
-  background: #F4F4F5;
-  color: #18181B;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.fp-goal-card__badge {
-  font-size: 11px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  padding: 4px 12px;
-  border-radius: 999px;
-}
-
-.fp-goal-card__badge--mid {
-  background: rgba(16, 185, 129, 0.1);
-  color: #059669;
-  border: 1px solid rgba(16, 185, 129, 0.25);
-}
-
-.fp-goal-card__badge--long {
-  background: rgba(10, 22, 40, 0.06);
-  color: #0A1628;
-  border: 1px solid rgba(10, 22, 40, 0.15);
-}
-
-.fp-goal-card__title {
-  font-size: 1.35rem;
-  font-weight: 800;
-  color: #18181B;
-  margin-bottom: 2px;
-  letter-spacing: -0.01em;
-}
-
-.fp-goal-card__timeline {
-  font-size: 12px;
-  color: #71717A;
-  margin-bottom: var(--space-3);
-}
-
-.fp-goal-card__target {
-  font-size: 1.85rem;
-  font-weight: 900;
-  color: #18181B;
-  margin-bottom: var(--space-3);
-  letter-spacing: -0.02em;
-}
-
-.fp-goal-card__description {
-  font-size: 13px;
-  color: #52525B;
-  line-height: 1.6;
-  margin-bottom: var(--space-5);
-  min-height: 42px;
-}
-
-.fp-goal-card__progress {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.fp-goal-card__progress-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.fp-goal-card__progress-label {
-  font-size: 12px;
-  font-weight: 600;
-  color: #71717A;
-}
-
-.fp-goal-card__progress-value {
-  font-size: 13px;
-  font-weight: 800;
-  color: #059669;
-}
-
-/* ============================================================
-   3C: BALANCE SHEET
-   ============================================================ */
-#financial-balance .sw-heading {
-  margin-bottom: clamp(16px, 2.5vh, 28px);
-}
-
-.fp-balance__grid {
-  display: grid;
-  grid-template-columns: 1.35fr 1fr;
-  gap: var(--space-6);
-  align-items: stretch;
-  max-width: 1040px;
-  margin: 0 auto;
-  width: 100%;
-}
-
-.fp-balance__table-wrapper {
-  background: #ffffff;
-  border-radius: 20px;
-  overflow: hidden;
-  border: 1px solid rgba(226, 232, 240, 0.85);
-  box-shadow: 0 4px 20px -2px rgba(10, 22, 40, 0.04);
-}
-
-.fp-balance__chart {
-  background: #ffffff;
-  border: 1px solid rgba(226, 232, 240, 0.85);
-  border-radius: 20px;
-  padding: 28px 24px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-  box-shadow: 0 4px 20px -2px rgba(10, 22, 40, 0.04);
-}
-
-.fp-balance__chart-title {
-  font-size: 12px;
-  font-weight: 800;
-  color: #18181B;
-  text-align: center;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-}
-
-.fp-balance__legend {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  width: 100%;
-  max-width: 260px;
-}
-
-.fp-balance__legend-item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 12px;
-}
-
-.fp-balance__legend-color {
-  width: 10px;
-  height: 10px;
-  border-radius: 3px;
-  flex-shrink: 0;
-}
-
-.fp-balance__legend-label {
-  flex: 1;
-  color: #52525B;
-  font-weight: 500;
-}
-
-.fp-balance__legend-value {
-  font-weight: 700;
-  color: #18181B;
-}
-
-/* --- Net Worth Card --- */
-.fp-networth {
-  background: #0A1628;
-  border-radius: 20px;
-  padding: 20px 28px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: var(--space-5);
-  position: relative;
-  overflow: hidden;
-  max-width: 1040px;
-  margin-left: auto;
-  margin-right: auto;
-  width: 100%;
-  box-shadow: 0 8px 30px rgba(10, 22, 40, 0.15);
-}
-
-.fp-networth::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  width: 4px;
-  background: var(--gradient-emerald);
-}
-
-.fp-networth__left {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-}
-
-.fp-networth__icon-wrap {
-  width: 42px;
-  height: 42px;
-  border-radius: 12px;
-  background: rgba(16, 185, 129, 0.18);
+  border-radius: 6px;
+  background: #143326;
   color: #34D399;
+  font-weight: 700;
+  font-size: 13.5px;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-shrink: 0;
+  margin-bottom: 20px;
 }
 
-.fp-networth__label {
-  font-size: 14px;
+.fp-dark-name {
+  font-size: 19px;
   font-weight: 700;
-  color: #ffffff;
-  letter-spacing: 0.01em;
-}
-
-.fp-networth__sublabel {
-  font-size: 12px;
-  color: #94A3B8;
-  margin-top: 1px;
-}
-
-.fp-networth__value {
-  font-size: 1.55rem;
-  font-weight: 900;
-  color: #34D399;
-  letter-spacing: -0.02em;
-}
-
-/* ============================================================
-   3D: CASH FLOW & BUDGET
-   ============================================================ */
-#financial-cashflow .sw-heading {
-  margin-bottom: clamp(16px, 2.5vh, 28px);
-}
-
-.fp-cashflow__grid {
-  display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  gap: var(--space-6);
-  max-width: 1040px;
-  margin: 0 auto;
-  width: 100%;
-}
-
-.fp-cashflow__panel {
-  background: #ffffff;
-  border: 1px solid rgba(226, 232, 240, 0.85);
-  border-radius: 20px;
-  padding: 26px 28px;
-  box-shadow: 0 4px 20px -2px rgba(10, 22, 40, 0.04);
-}
-
-.fp-cashflow__panel-title {
-  font-size: 14px;
-  font-weight: 700;
-  color: #18181B;
-  margin-bottom: var(--space-4);
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.fp-cashflow__panel-title-icon {
-  color: #059669;
-  display: inline-flex;
-}
-
-.fp-cashflow__subtotal {
-  margin-top: var(--space-4);
-  padding-top: var(--space-3);
-  border-top: 1px solid #E2E8F0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.fp-cashflow__subtotal-label {
-  font-weight: 600;
-  color: #52525B;
-  font-size: 13px;
-}
-
-.fp-cashflow__subtotal-val {
-  font-weight: 700;
-  color: #18181B;
-  font-size: 13px;
-}
-
-.fp-cashflow__loan-row {
-  margin-top: var(--space-2);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.fp-cashflow__loan-label {
-  font-weight: 500;
-  color: #71717A;
-  font-size: 12px;
-}
-
-.fp-cashflow__loan-val {
-  font-weight: 700;
-  color: #DC2626;
-  font-size: 12px;
-}
-
-.fp-cashflow__total-row {
-  margin-top: var(--space-2);
-  padding-top: var(--space-2);
-  border-top: 2px solid #0A1628;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.fp-cashflow__total-label {
-  font-weight: 800;
-  color: #0A1628;
-  font-size: 13px;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-}
-
-.fp-cashflow__total-val {
-  font-weight: 900;
-  color: #0A1628;
-  font-size: 15px;
-}
-
-/* --- Cash Flow Summary Card --- */
-.fp-cashflow-summary {
-  border-radius: 20px;
-  padding: 26px 28px;
-  position: relative;
-  overflow: hidden;
-  background: #ffffff;
-  border: 1px solid rgba(239, 68, 68, 0.25);
-  box-shadow: 0 4px 20px -2px rgba(239, 68, 68, 0.06);
-}
-
-.fp-cashflow-summary--deficit {
-  background: linear-gradient(180deg, #FFFFFF 0%, #FFF8F8 100%);
-}
-
-.fp-cashflow-summary__header {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: var(--space-4);
-}
-
-.fp-cashflow-summary__icon-box {
-  width: 40px;
-  height: 40px;
-  border-radius: 12px;
-  background: rgba(239, 68, 68, 0.1);
-  color: #DC2626;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
-.fp-cashflow-summary__title {
-  font-size: 15px;
-  font-weight: 800;
-  color: #18181B;
-}
-
-.fp-cashflow-summary__subtitle {
-  font-size: 12px;
-  color: #DC2626;
-  font-weight: 600;
-}
-
-.fp-cashflow-summary__row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 8px 0;
-  border-bottom: 1px dashed rgba(10, 22, 40, 0.08);
-}
-
-.fp-cashflow-summary__row-label {
-  font-size: 12px;
-  color: #52525B;
-  font-weight: 500;
-}
-
-.fp-cashflow-summary__row-value {
-  font-size: 14px;
-  font-weight: 700;
-}
-
-.fp-cashflow-summary__row-value--income {
-  color: #059669;
-}
-
-.fp-cashflow-summary__row-value--expense {
-  color: #DC2626;
-}
-
-.fp-cashflow-summary__divider {
-  height: 1px;
-  background: rgba(10, 22, 40, 0.08);
-  margin: var(--space-3) 0;
-}
-
-.fp-cashflow-summary__deficit {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px 16px;
-  background: rgba(239, 68, 68, 0.08);
-  border-radius: 12px;
-  margin-bottom: var(--space-4);
-  border: 1px solid rgba(239, 68, 68, 0.2);
-}
-
-.fp-cashflow-summary__deficit-label {
-  font-size: 12px;
-  font-weight: 700;
-  color: #DC2626;
-}
-
-.fp-cashflow-summary__deficit-value {
-  font-size: 1.15rem;
-  font-weight: 900;
-  color: #DC2626;
-  letter-spacing: -0.01em;
-}
-
-.fp-cashflow-summary__note {
-  background: #ffffff;
-  border: 1px solid rgba(239, 68, 68, 0.2);
-  border-radius: 14px;
-  padding: 14px 16px;
-  font-size: 11.5px;
-  color: #52525B;
-  line-height: 1.6;
-}
-
-.fp-cashflow-summary__note-header {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  color: #DC2626;
-  font-weight: 700;
-  font-size: 11.5px;
+  color: #FFFFFF;
   margin-bottom: 6px;
+  line-height: 1.2;
 }
 
-.fp-cashflow-summary__note p {
-  margin: 0;
+.fp-dark-sub {
+  font-size: 12.5px;
+  color: #8E9F97;
+  margin-bottom: 14px;
+  line-height: 1.4;
 }
 
-.fp-cashflow-summary__note strong {
-  color: #DC2626;
+.fp-dark-income {
+  font-size: 14px;
   font-weight: 700;
+  color: #FFFFFF;
+  letter-spacing: -0.01em;
+  margin-top: auto;
+}
+
+.fp-dark-status {
+  font-size: 13px;
+  color: #8E9F97;
+  margin-top: auto;
+}
+
+/* Family Context Strip */
+.fp-dark-context {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 18px;
+  margin-top: 26px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.fp-dark-context-label {
+  color: #10B981;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  flex-shrink: 0;
+}
+
+.fp-dark-context-text {
+  color: #8E9F97;
+  font-size: 12.5px;
+  line-height: 1.5;
 }
 
 /* ============================================================
-   RESPONSIVE DESIGN
+   CARD 2: WHITE STRATEGIC GOALS CARD (media_1792322975440.png Bottom)
+   Pure White #FFFFFF, 2 Columns with vertical hairline divider
    ============================================================ */
+
+.fp-goals-card {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 8px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+.fp-goal-col {
+  padding: 36px 40px;
+  display: flex;
+  flex-direction: column;
+}
+
+.fp-goal-col:first-child {
+  border-right: 1px solid #E2E8F0;
+}
+
+.fp-goal-tag {
+  color: #10B981;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  margin-bottom: 12px;
+}
+
+.fp-goal-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #0F172A;
+  margin-bottom: 8px;
+}
+
+.fp-goal-amount {
+  font-size: 28px;
+  font-weight: 800;
+  color: #0F172A;
+  letter-spacing: -0.02em;
+  margin-bottom: 24px;
+}
+
+.fp-goal-bar-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: auto;
+}
+
+.fp-goal-bar-track {
+  width: 100%;
+  height: 8px;
+  background: #E2E8F0;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.fp-goal-bar-fill {
+  height: 100%;
+  background: #10B981;
+  border-radius: 4px;
+  transition: width 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.fp-goal-bar-label {
+  font-size: 12.5px;
+  color: #64748B;
+}
+
+/* ============================================================
+   CARD 3: WHITE BALANCE SHEET STRIP (media_1792322975444.png Top)
+   Pure White #FFFFFF, 4 Columns with green/red bottom accent borders
+   ============================================================ */
+
+.fp-balance-strip {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 8px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+  overflow: hidden;
+}
+
+.fp-balance-col {
+  padding: 28px 32px;
+  border-right: 1px solid #E2E8F0;
+  display: flex;
+  flex-direction: column;
+}
+
+.fp-balance-col:last-child {
+  border-right: none;
+}
+
+.fp-balance-col--networth {
+  border-bottom: 3px solid #10B981;
+}
+
+.fp-balance-col--cashflow {
+  border-bottom: 3px solid #EF4444;
+}
+
+.fp-balance-label {
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #64748B;
+  margin-bottom: 12px;
+}
+
+.fp-balance-val {
+  font-size: 22px;
+  font-weight: 800;
+  color: #0F172A;
+  letter-spacing: -0.01em;
+  margin-bottom: 12px;
+}
+
+.fp-balance-val--green {
+  color: #10B981;
+}
+
+.fp-balance-val--red {
+  color: #EF4444;
+}
+
+.fp-balance-sub {
+  font-size: 12px;
+  color: #64748B;
+  line-height: 1.4;
+  margin-top: auto;
+}
+
+/* ============================================================
+   CARD 4: LIGHT SAGE CASH FLOW & EXPENSES (media_1792322975444.png Bottom)
+   Background #EDF3F0, 2 Columns (Left numbers vs Right 6 bars)
+   ============================================================ */
+
+.fp-cashflow-card {
+  background: #EDF3F0;
+  border: 1px solid #DCE6E0;
+  border-radius: 8px;
+  padding: 40px 44px;
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.fp-cf-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.fp-cf-label {
+  color: #10B981;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  margin-bottom: 24px;
+}
+
+.fp-cf-stat {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.fp-cf-stat:last-child {
+  margin-bottom: 0;
+}
+
+.fp-cf-num {
+  font-size: 34px;
+  font-weight: 800;
+  color: #0F172A;
+  letter-spacing: -0.02em;
+}
+
+.fp-cf-tag {
+  font-size: 13.5px;
+  color: #64748B;
+}
+
+.fp-cf-right {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.fp-bar-row {
+  display: flex;
+  align-items: center;
+}
+
+.fp-bar-label {
+  font-size: 12.5px;
+  color: #475569;
+  font-weight: 500;
+  width: 85px;
+  flex-shrink: 0;
+}
+
+.fp-bar-track {
+  flex: 1;
+  height: 6px;
+  background: rgba(0, 0, 0, 0.06);
+  border-radius: 3px;
+  overflow: hidden;
+  margin: 0 16px;
+}
+
+.fp-bar-fill {
+  height: 100%;
+  background: #10B981;
+  border-radius: 3px;
+  transition: width 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.fp-bar-pct {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #0F172A;
+  width: 45px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+/* ============================================================
+   RESPONSIVE DESIGN (1024px & 640px Breakpoints)
+   ============================================================ */
+
 @media (max-width: 1023px) {
-  .fp-family__grid {
+  .fp-dark-grid {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 24px;
+  }
+
+  .fp-dark-col:nth-child(2) {
+    border-right: none;
+    padding-right: 0;
+  }
+
+  .fp-dark-col:nth-child(3) {
+    padding-left: 0;
+  }
+
+  .fp-goals-card {
     grid-template-columns: 1fr;
   }
 
-  .fp-goals__grid {
-    grid-template-columns: 1fr;
+  .fp-goal-col:first-child {
+    border-right: none;
+    border-bottom: 1px solid #E2E8F0;
   }
 
-  .fp-balance__grid {
-    grid-template-columns: 1fr;
+  .fp-balance-strip {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 16px;
   }
 
-  .fp-cashflow__grid {
-    grid-template-columns: 1fr;
+  .fp-balance-col:nth-child(2) {
+    border-right: none;
   }
 
-  .fp-additional {
+  .fp-cashflow-card {
     grid-template-columns: 1fr;
+    gap: 32px;
   }
 }
 
-@media (max-width: 767px) {
-  .fp-income-total {
-    flex-direction: column;
-    gap: var(--space-3);
-    text-align: center;
-  }
-
-  .fp-income-total__left {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .fp-networth {
-    flex-direction: column;
-    gap: var(--space-3);
-    text-align: center;
-  }
-
-  .fp-networth__left {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .fp-goal-card {
+@media (max-width: 640px) {
+  .fp-dark-card {
     padding: 24px 20px;
   }
 
-  .fp-cashflow__panel,
-  .fp-cashflow-summary {
-    padding: 20px 18px;
+  .fp-dark-grid {
+    grid-template-columns: 1fr;
+    row-gap: 20px;
+  }
+
+  .fp-dark-col {
+    padding: 0 0 16px 0;
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .fp-dark-col:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .fp-dark-context {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .fp-goal-col {
+    padding: 28px 20px;
+  }
+
+  .fp-balance-strip {
+    grid-template-columns: 1fr;
+  }
+
+  .fp-balance-col {
+    padding: 20px;
+    border-right: none;
+    border-bottom: 1px solid #E2E8F0;
+  }
+
+  .fp-balance-col:last-child {
+    border-bottom: none;
+  }
+
+  .fp-cashflow-card {
+    padding: 28px 20px;
   }
 }

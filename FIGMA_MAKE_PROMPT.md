@@ -138,36 +138,44 @@ Bạn là Giám đốc Thiết kế Hệ thống Giao diện Cấp cao (Principa
 
 ---
 
-#### SECTION 4: HỒ SƠ TÀI CHÍNH GIA ĐÌNH (FINANCIAL PROFILE)
-- Bố cục: 2 Cột dữ liệu đối chiếu lớn, Padding: 96px 80px.
-- Tiêu đề Section (H2): "HỒ SƠ TÀI CHÍNH GIA ĐÌNH" (Khách hàng khảo sát: Gia đình Anh Nam & Chị Nữ).
-- **4A. THÀNH VIÊN GIA ĐÌNH & BỐI CẢNH (BẢO TOÀN ĐỦ 4 THÀNH VIÊN):**
-  * Anh Nam (Chồng - Trụ cột chính): 41 tuổi (1985), Trưởng phòng Kế toán PGD Ngân hàng | Thu nhập: 45.000.000 đ/tháng (540.000.000 đ/năm).
-  * Chị Nữ (Vợ - Trụ cột phụ): 36 tuổi (1990), Nhân viên Kế toán PGD Ngân hàng | Thu nhập: 20.000.000 đ/tháng (240.000.000 đ/năm).
-  * Bé lớn (Con thứ 1): 12 tuổi (2014), Học sinh Trường Tuệ Đức (Quận 2).
-  * Bé nhỏ (Con thứ 2): 5 tuổi (2021), Mẫu giáo Trường Vườn Hồng (Quận 2).
-  * Bối cảnh thực tế: Thuê nhà tại Lương Đình Của Q2 (20M/tháng); Chưa có Bảo hiểm Nhân thọ; Bố mẹ hai bên có lương hưu độc lập.
-- **4B. 2 MỤC TIÊU TÀI CHÍNH CỐT LÕI:**
-  * Mục tiêu 1 (Trung hạn 3 năm): "Mua xe hơi" | Giá trị: 800.000.000 đ | Tiến độ tích lũy: 37.5%.
-  * Mục tiêu 2 (Dài hạn 10 năm): "Mua nhà đất an cư" | Giá trị: 3.900.000.000 đ (Đất 70m² đường Lê Văn Việt, Q9 cũ) | Tiến độ: 24.4%.
-- **4C. BẢNG CÂN ĐỐI TÀI SẢN & NỢ (BALANCE SHEET):**
-  * Tổng tài sản: 1.400.000.000 đ (Tiền mặt & gửi: 300M - 21.4%; Phải thu cho mượn: 100M - 7.1%; Đất Bảo Lộc: 1.000M - 71.4%).
-  * Tổng nợ phải trả: 450.000.000 đ (Vay mua đất Bảo Lộc, lãi 10%/năm, còn 12 năm, trả gốc & lãi 8.300.000 đ/tháng).
-  * **TÀI SẢN RÒNG (NET WORTH): "950.000.000 Đ" (CON SỐ LỚN NHẤT CỦA BẢNG TÀI SẢN ➔ ĐẠI TỰ 32px BOLD 800, MÀU DEEP FOREST #062C1E)**.
-- **4D. BÁO CÁO DÒNG TIỀN & CHẨN ĐOÁN THÂM HỤT (CASH FLOW):**
-  * Tổng thu nhập: 65.000.000 đ/tháng (780.000.000 đ/năm).
-  * Tổng chi tiêu: 73.300.000 đ/tháng (879.600.000 đ/năm).
-  * Chi tiết 6 khoản chi phí hàng tháng:
-    1. Tiền thuê nhà: 20.000.000 đ/tháng (27.3%)
-    2. Chi phí giáo dục 2 con: 20.000.000 đ/tháng (27.3%)
-    3. Sinh hoạt gia đình thiết yếu: 15.000.000 đ/tháng (20.5%)
-    4. Trả nợ vay ngân hàng: 8.300.000 đ/tháng (11.3%)
-    5. Giải trí & đối ngoại: 8.000.000 đ/tháng (10.9%)
-    6. Biếu tặng gia đình: 2.000.000 đ/tháng (2.7%)
-  * So sánh Dòng tiền Trước & Sau:
-    - Ban đầu: "-8.300.000 đ/tháng" (-99.6M/năm — Thâm hụt nặng do gánh nặng thuê nhà và trả nợ, chữ đỏ #E11D48 cỡ 18px).
-    - Sau tối ưu: "+3.700.000 đ/tháng" (+44.4M/năm — Thặng dư an toàn, cỡ 18px Slate).
-    - **CHỈ SỐ CAO NHẤT / ĐỘT PHÁ TOÀN SECTION 4: "+12.000.000 Đ/THÁNG" — CẢI THIỆN DÒNG TIỀN RÒNG (+144.000.000 Đ/NĂM ➔ ĐẠI TỰ 34px BOLD 800, MÀU EMERALD #10B981, ĐÓNG THẺ NỀN MINT #ECFDF5 VIỀN 1px SẮC NÉT)**.
+#### SECTION 4: HỒ SƠ TÀI CHÍNH GIA ĐÌNH & BẢNG CÂN ĐỐI KẾ TOÁN (HOUSEHOLD FINANCIAL PROFILE & BALANCE SHEET)
+- Bố cục chính thức: **INSTITUTIONAL FIDUCIARY MEGA-BENTO (4 TẦNG LIỀN MẠCH)**, kế thừa nhịp tương phản Deep Forest ⇄ Pure White ⇄ Alabaster từ mockup Stripe Wealth / Sequoia Capital. Padding: 96px 80px.
+- Tiêu đề Section (H2): "HỒ SƠ TÀI CHÍNH GIA ĐÌNH & BẢNG CÂN ĐỐI KẾ TOÁN" (Khách hàng khảo sát: Gia đình Anh Nam & Chị Nữ).
+- Subtitle: "Báo cáo kiểm toán định chế về nhân khẩu học, mục tiêu cột mốc cuộc đời, cân đối tài sản - công nợ và chẩn đoán thâm hụt dòng tiền."
+
+**CẤU TRÚC 4 TẦNG CHI TIẾT:**
+
+- **TẦNG 1: DEEP FOREST DEMOGRAPHIC MATRIX (Nền tối Primary #062C1E, Bo góc 20px, Viền hairline 1px rgba(255,255,255,0.1)):**
+  * Lưới 4 thẻ thành viên đối xứng (4-Column Grid) với Initials Badge hình vuông bo góc, thông tin nhân thân & thu nhập:
+    - **Thẻ 1 [AN]:** Anh Nam | 41 tuổi (1985) · Chồng / Trụ cột chính · Trưởng phòng Kế toán · PGD Ngân hàng | Thu nhập: **`45.000.000 đ / tháng`** (`540.000.000 đ / năm`).
+    - **Thẻ 2 [NỮ]:** Chị Nữ | 36 tuổi (1990) · Vợ / Trụ cột phụ · Nhân viên Kế toán · PGD Ngân hàng | Thu nhập: **`20.000.000 đ / tháng`** (`240.000.000 đ / năm`).
+    - **Thẻ 3 [12]:** Bé lớn | 12 tuổi (2014) · Học sinh cấp 2 · Trường Tuệ Đức (Quận 2) | Tag: *Người phụ thuộc*.
+    - **Thẻ 4 [05]:** Bé nhỏ | 5 tuổi (2021) · Mẫu giáo · Trường Vườn Hồng (Quận 2) | Tag: *Người phụ thuộc*.
+  * **Family Context Strip (Chân thẻ Tầng 1):** `FAMILY CONTEXT: Đang thuê nhà tại Lương Đình Của, Quận 2 (20 tr/tháng) · Đã có BHXH, BHYT (Chưa có BHNT) · Bố mẹ hai bên có lương hưu tự chủ tài chính`.
+  * **Badge Tổng thu nhập gia đình:** `Tổng thu nhập: 65.000.000 đ / tháng (780.000.000 đ / năm)`.
+
+- **TẦNG 2: STRATEGIC FINANCIAL GOALS (Pure White Surface #FFFFFF, Bo góc 16px, Viền 1px #E2ECE7, 2 Cột 50/50):**
+  * **Cột Trái — [TRUNG HẠN — 03 NĂM TỚI]:** Mua xe hơi phục vụ đưa đón các con an toàn | Mục tiêu: **`800.000.000 đ`** (JetBrains Mono 28px Bold) | Thanh tiến độ: **`37.5% tiến độ hiện tại`** (300M tiền mặt / 800M).
+  * **Cột Phải — [DÀI HẠN — 10 NĂM TỚI]:** Mua nhà đất an cư 70m² tại Lê Văn Việt, TP. Thủ Đức (Quận 9 cũ) | Mục tiêu: **`3.900.000.000 đ`** (JetBrains Mono 28px Bold) | Thanh tiến độ: **`24.4% tiến độ hiện tại`** (950M tài sản ròng / 3.9 tỷ).
+
+- **TẦNG 3: FIDUCIARY BALANCE SHEET STRIP (Pure White Card, Bo góc 16px, 4 Cột KPI Thống kê chuẩn mực):**
+  * **Cột 1: TỔNG TÀI SẢN (TOTAL ASSETS):** **`1.400.000.000 đ`** | Cơ cấu tài sản đủ 100%: *Tiền gửi/tiền mặt 21.4% (300M) · BĐS Đất nền Bảo Lộc 71.4% (1.000M) · Khoản phải thu bạn bè 7.1% (100M - thu hồi tháng 60 để đầu tư OCP)*.
+  * **Cột 2: TỔNG NỢ PHẢI TRẢ (LIABILITIES):** **`450.000.000 đ`** | Chi tiết: *Vay thế chấp mua BĐS Bảo Lộc · Lãi suất 10%/năm · Còn lại 12 năm · Trả góp 8.300.000 đ/tháng*.
+  * **Cột 3: TÀI SẢN RÒNG (NET WORTH) — [CHỈ SỐ THỐNG TRỊ TẦNG 3]:** **`950.000.000 đ`** (JetBrains Mono 28px Bold 800, màu Deep Forest #062C1E) | Ghi chú: *Tài sản trừ tổng nợ phải trả (Vốn tự có thực tế)*.
+  * **Cột 4: DÒNG TIỀN RÒNG (NET CASH FLOW):** **`-8.300.000 đ / tháng`** (Màu Crimson #E11D48, JetBrains Mono 24px Bold) | Ghi chú: *Mỗi tháng · Thâm hụt 99.6 tr/năm (Báo động đỏ thâm hụt cấu trúc ngân sách)*.
+
+- **TẦNG 4: CASH FLOW & BUDGET AUDIT (Nền Alabaster #F8FAF9, Bo góc 16px, Viền 1px #E2ECE7):**
+  * **Cột Trái (1/3 chiều rộng) — Cân đối Thu vs Chi & Chẩn đoán:**
+    - MONTHLY CASH FLOW: Thu nhập **`65.0m`** (780 tr/năm) vs Chi tiêu **`73.3m`** (879.6 tr/năm).
+    - Fiduciary Diagnostic Alert: Chi vượt thu **`112.8%`**, thâm hụt ròng **`-8.3m/tháng`** (`-99.6m/năm`). Nguy cơ xói mòn tài sản nghiêm trọng nếu không tái cấu trúc.
+  * **Cột Phải (2/3 chiều rộng) — Chi tiết 6 Hạng mục Ngân sách thực tế (Kèm đầy đủ VNĐ/tháng, VNĐ/năm và %):**
+    1. Thuê nhà: **`20.000.000 đ / tháng`** (`240.000.000 đ / năm`) — **`27.3%`** [Thanh tiến độ ngang]
+    2. Chi phí giáo dục: **`20.000.000 đ / tháng`** (`240.000.000 đ / năm`) — **`27.3%`** [Thanh tiến độ ngang] *(Bóc tách: Bé lớn 10M · Bé nhỏ 5M · Học thêm ngoại khóa 5M)*
+    3. Sinh hoạt thiết yếu: **`15.000.000 đ / tháng`** (`180.000.000 đ / năm`) — **`20.5%`** [Thanh tiến độ ngang]
+    4. Chi trả nợ vay ngân hàng: **`8.300.000 đ / tháng`** (`99.600.000 đ / năm`) — **`11.3%`** [Thanh tiến độ ngang]
+    5. Giải trí, mua sắm: **`8.000.000 đ / tháng`** (`96.000.000 đ / năm`) — **`10.9%`** [Thanh tiến độ ngang]
+    6. Biếu tặng & Đối ngoại: **`2.000.000 đ / tháng`** (`24.000.000 đ / năm`) — **`2.7%`** [Thanh tiến độ ngang]
+  * **Chỉ số cải thiện sau tư vấn FBSF:** Cải thiện dòng tiền ròng **`+12.000.000 đ / tháng`** (`+144.000.000 đ / năm`), đưa dòng tiền từ thâm hụt `-8.3M` lên thặng dư an toàn `+3.7M/tháng`.
 
 ---
 
