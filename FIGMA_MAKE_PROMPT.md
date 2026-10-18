@@ -120,18 +120,21 @@ Bạn là Giám đốc Thiết kế Hệ thống Giao diện Cấp cao (Principa
     - Thẻ 03: "03. Sàng lọc Cổ phiếu Định chế" (Equity Screening ➔ #equity-analysis)
     - Thẻ 04: "04. Tối ưu hóa Danh mục Markowitz" (Portfolio Optimization ➔ #markowitz)
     - Thẻ 05: "05. Bàn giao Văn kiện IPS" (IPS Report Delivery ➔ #ips-report)
-- **3C. DỊCH VỤ CỐT LÕI (OUR SERVICES - ĐỦ 4 TRỤ CỘT):**
-  * Lưới 4 thẻ dịch vụ, viền 1px hairline, icon monoline 1.75px:
-    1. "Tái cấu trúc & Quản trị Dòng tiền Hộ gia đình": Chẩn đoán các khoản chi tiêu thất thoát, xóa bỏ thâm hụt và thiết lập dòng tiền thặng dư tự động hàng tháng.
-    2. "Phân bổ Tài sản theo Mô hình Markowitz MPT": Xây dựng Danh mục Rủi ro Tối ưu (ORP) phù hợp với mức độ e ngại rủi ro và mục tiêu đầu tư cá nhân hóa.
-    3. "Hoạch định Tài chính Đa giai đoạn": Thiết lập lộ trình tài chính cụ thể cho các mục tiêu cuộc đời lớn: mua xe (3 năm) và mua nhà an cư dài hạn (10 năm).
-    4. "Giám sát & Đánh giá Hiệu suất VN-Index": Liên tục theo dõi, kiểm soát rủi ro danh mục và so sánh chuẩn đối sánh hiệu suất thị trường.
-- **3D. NĂNG LỰC ĐẦU TƯ HỆ THỐNG (INVESTMENT CAPABILITIES - ĐỦ 4 TÍNH NĂNG):**
-  * Lưới 4 thẻ tính năng hệ thống:
-    1. "Khảo sát & Đánh giá Rủi ro": Khảo sát và lượng hóa năng lực chịu đựng rủi ro theo chuẩn kinh tế lượng.
-    2. "Sàng lọc & Phân tích Cổ phiếu": Sàng lọc cổ phiếu niêm yết dựa trên sức khỏe tài chính, định giá, thanh khoản và ESG.
-    3. "Tối ưu hóa Danh mục": Phân tích lợi nhuận kỳ vọng, độ biến động và tương quan để tìm đường biên hiệu quả.
-    4. "Danh mục Hoàn hảo Tối ưu (OCP)": Kết hợp ORP với Trái phiếu Chính phủ Việt Nam 10 năm để bảo vệ tuyệt đối an toàn vốn.
+- **3C & 3D. BỐ CỤC ASYMMETRIC BENTO: DỊCH VỤ CỐT LÕI & NĂNG LỰC HỆ THỐNG (OUR SERVICES & INVESTMENT CAPABILITIES):**
+  * **Bố cục Asymmetric Bento (Tỷ lệ 5 cột / 7 cột) tích hợp trọn vẹn 8 mục giá trị trong 1 khung nhìn (viewport):**
+  * **Cột Trái (5/12 cột) — Hero Card Deep Forest "DỊCH VỤ CỐT LÕI (OUR SERVICES)":**
+    - Khung thẻ đơn khối uy quyền màu Deep Forest `#062C1E`, viền 1px hairline mờ, bo góc 20px.
+    - Chứa danh sách hairline phân tầng 4 dịch vụ:
+      1. "Tái cấu trúc & Quản trị Dòng tiền Hộ gia đình": Chẩn đoán các khoản chi tiêu thất thoát, xóa bỏ thâm hụt và thiết lập dòng tiền thặng dư tự động hàng tháng.
+      2. "Phân bổ Tài sản theo Mô hình Markowitz MPT": Xây dựng Danh mục Rủi ro Tối ưu (ORP) phù hợp với mức độ e ngại rủi ro và mục tiêu đầu tư cá nhân hóa.
+      3. "Hoạch định Tài chính Đa giai đoạn": Thiết lập lộ trình tài chính cụ thể cho các mục tiêu cuộc đời lớn: mua xe (3 năm) và mua nhà an cư dài hạn (10 năm).
+      4. "Giám sát & Đánh giá Hiệu suất VN-Index": Liên tục theo dõi, kiểm soát rủi ro danh mục và so sánh chuẩn đối sánh hiệu suất thị trường.
+  * **Cột Phải (7/12 cột) — Bento Grid 2x2 Pure White "NĂNG LỰC ĐẦU TƯ HỆ THỐNG (INVESTMENT CAPABILITIES)":**
+    - Lưới 4 thẻ bề mặt Pure White `#FFFFFF` viền hairline 1px `#E2ECE7`, bo góc 16px, nhãn overline kỹ thuật:
+      1. "Khảo sát & Đánh giá Rủi ro" (Overline: `ANALYTICS ENGINE`): Khảo sát và lượng hóa năng lực chịu đựng rủi ro theo chuẩn kinh tế lượng.
+      2. "Sàng lọc & Phân tích Cổ phiếu" (Overline: `SCREENING PIPELINE`): Sàng lọc cổ phiếu niêm yết dựa trên sức khỏe tài chính, định giá, thanh khoản và ESG.
+      3. "Tối ưu hóa Danh mục" (Overline: `MPT OPTIMIZER`): Phân tích lợi nhuận kỳ vọng, độ biến động và tương quan để tìm đường biên hiệu quả.
+      4. "Danh mục Hoàn hảo Tối ưu (OCP)" (Overline: `FIDUCIARY OCP` - Highlight Emerald #10B981): Kết hợp ORP với Trái phiếu Chính phủ Việt Nam 10 năm để bảo vệ tuyệt đối an toàn vốn.
 
 ---
 
