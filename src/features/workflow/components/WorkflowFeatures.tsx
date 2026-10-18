@@ -79,7 +79,7 @@ const KEY_FEATURES: readonly FeatureItem[] = [
     num: "04",
     title: "Optimal Complete Portfolio",
     description:
-      "Combine the optimal risky portfolio with the 10-year Vietnamese Government Bond to construct the optimal complete portfolio.",
+      "Combine the Optimal Risky Portfolio (ORP) with a risk-free asset to construct a complete portfolio aligned with the client's risk preferences.",
     icon: (
       <svg
         viewBox="0 0 24 24"

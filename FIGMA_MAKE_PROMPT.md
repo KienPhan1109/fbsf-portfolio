@@ -23,6 +23,7 @@ Bạn là Giám đốc Thiết kế Hệ thống Giao diện Cấp cao (Principa
 
 ### YÊU CẦU NỀN TẢNG & NGUYÊN TẮC BẤT BIẾN (CORE MANDATES)
 1. **BẢO TOÀN TUYỆT ĐỐI NỘI DUNG & THỨ TỰ 10 SECTION (KHÔNG THÊM BỚT):**
+   - Chỉ thay đổi giao diện của section 5-STEP ADVISORY PROCESS trở xuống còn section 5-STEP ADVISORY PROCESS trở lên thì giữ nguyên
    - Giữ nguyên 100% tất cả các dữ kiện, bảng biểu, danh mục 4 thành viên gia đình, 10 câu hỏi khảo sát, 7 tiêu chí sàng lọc, 5 mã cổ phiếu, ma trận tương quan 4x4, các mục tiêu tài chính và văn kiện IPS.
    - TUYỆT ĐỐI KHÔNG tự ý xóa bỏ bất kỳ mục nội dung nào, và KHÔNG tự ý chèn thêm các section hay thành phần ngoại lai ngoài đặc tả.
    - Giữ nguyên vị trí tuyến tính từ Section 1 đến Section 10. Tên Section chuẩn xác, lược bỏ phụ đề dài dòng.
