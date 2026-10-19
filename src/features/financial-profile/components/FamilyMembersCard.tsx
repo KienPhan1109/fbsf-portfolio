@@ -84,7 +84,7 @@ export function FamilyMembersCard() {
               </span>
             </h2>
             <p className="sw-heading__subtitle">
-              Thu thập và phân tích dữ liệu nhân khẩu, cơ cấu thu nhập và điều kiện sống của gia đình Anh Nam & Chị Nữ.
+              Collect and analyze household financial data, income structure, and living conditions for Mr. Nam and Mrs. Nu.
             </p>
           </div>
 
@@ -96,7 +96,7 @@ export function FamilyMembersCard() {
               >
                 <div className={`fp-member-avatar fp-member-avatar--${member.id}`}>
                   <span className="fp-member-avatar__initials">
-                    {member.name === "Anh Nam" ? "AN" : member.name === "Chị Nữ" ? "CN" : member.name === "Bé lớn" ? "B1" : "B2"}
+                    {member.name === "Mr. Nam" ? "MN" : member.name === "Mrs. Nu" ? "NU" : member.id === "member-child1" ? "C1" : "C2"}
                   </span>
                 </div>
                 <div className="fp-member-card__info">
@@ -107,7 +107,7 @@ export function FamilyMembersCard() {
                     </span>
                   </div>
                   <div className="fp-member-card__role">
-                    {member.role} • Sinh năm {member.birthYear} ({member.age} tuổi)
+                    {member.role} • Born in {member.birthYear} ({member.age} years old)
                   </div>
                   <div className="fp-member-card__details">
                     <span className="fp-member-card__detail">
@@ -122,11 +122,11 @@ export function FamilyMembersCard() {
                   {member.monthlyIncome ? (
                     <div className="fp-member-card__income">
                       {formatVND(member.monthlyIncome)}
-                      <span className="fp-member-card__income-unit"> / tháng</span>
+                      <span className="fp-member-card__income-unit"> / month</span>
                     </div>
                   ) : (
                     <div className="fp-member-card__dependent-note">
-                      Người phụ thuộc — Chưa có thu nhập
+                      Dependent — No Income
                     </div>
                   )}
                 </div>
@@ -142,10 +142,10 @@ export function FamilyMembersCard() {
               </div>
               <div>
                 <div className="fp-income-total__label">
-                  Tổng thu nhập hàng tháng
+                  Total Monthly Household Income
                 </div>
                 <div className="fp-income-total__sublabel">
-                  Đóng góp tích lũy từ 2 trụ cột thu nhập gia đình
+                  Combined monthly income from the two primary earners.
                 </div>
               </div>
             </div>
@@ -179,7 +179,7 @@ export function FamilyMembersCard() {
                 <IconUsers size={18} />
               </div>
               <div className="fp-additional__card-content">
-                <div className="fp-additional__card-title">Gia đình hai bên</div>
+                <div className="fp-additional__card-title">Extended Family Support</div>
                 <div className="fp-additional__card-text">{additionalInfo.parents}</div>
               </div>
             </div>

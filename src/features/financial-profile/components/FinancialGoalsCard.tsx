@@ -44,7 +44,7 @@ export function FinancialGoalsCard() {
               </span>
             </h2>
             <p className="sw-heading__subtitle">
-              Định vị các mục tiêu trọng điểm theo khung thời gian trung và dài hạn, xác lập quy mô vốn và lộ trình tích lũy.
+              Define key financial objectives over the medium and long term, establishing funding requirements and accumulation milestones.
             </p>
           </div>
 
@@ -61,7 +61,7 @@ export function FinancialGoalsCard() {
                   <span
                     className={`fp-goal-card__badge ${goal.type === "mid-term" ? "fp-goal-card__badge--mid" : "fp-goal-card__badge--long"}`}
                   >
-                    {goal.type === "mid-term" ? "Trung hạn • 3 năm" : "Dài hạn • 10 năm"}
+                    {goal.type === "mid-term" ? "MEDIUM-TERM • 3 YEARS" : "LONG-TERM • 10 YEARS"}
                   </span>
                 </div>
                 <h3 className="fp-goal-card__title">{goal.title}</h3>
@@ -73,7 +73,7 @@ export function FinancialGoalsCard() {
                 <div className="fp-goal-card__progress">
                   <div className="fp-goal-card__progress-header">
                     <span className="fp-goal-card__progress-label">
-                      Tiến độ tích lũy hiện tại
+                      Current Savings Progress
                     </span>
                     <span className="fp-goal-card__progress-value font-mono">
                       {goal.progress}%

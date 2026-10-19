@@ -104,14 +104,14 @@ export function OrpDonutChartCard() {
             </div>
 
             <p className="orp-concept-card__desc">
-              Optimized asset weights based on risk and expected return.
+              Optimized asset weights based on expected returns and risk characteristics.
             </p>
           </div>
 
           <div className="orp-grid">
             <div className="orp-panel orp-panel--chart">
               <div className="orp-panel__header">
-                <h4 className="orp-panel__title">Cơ Cấu Tỷ Trọng ORP</h4>
+                <h4 className="orp-panel__title">Optimal Risky Portfolio Allocation</h4>
               </div>
 
               <div className="orp-chart-box">
@@ -189,19 +189,19 @@ export function OrpDonutChartCard() {
 
             <div className="orp-panel orp-panel--table">
               <div className="orp-panel__header">
-                <h4 className="orp-panel__title">Phân Bổ Tài Sản Tối Ưu</h4>
+                <h4 className="orp-panel__title">Optimal Asset Allocation</h4>
               </div>
 
               <div className="orp-table-wrap">
                 <table className="orp-table">
                   <thead>
                     <tr>
-                      <th style={{ width: '40%' }}>Mã</th>
+                      <th style={{ width: '40%' }}>Ticker</th>
                       <th style={{ width: '30%', textAlign: 'center' }}>
-                        w trong ORP
+                        Weight in ORP
                       </th>
                       <th style={{ width: '30%', textAlign: 'right' }}>
-                        Trên TỔNG tài sản
+                        Weight in Total Assets
                       </th>
                     </tr>
                   </thead>

@@ -98,13 +98,13 @@ export interface FinancialProfile {
 export const familyMembers: FamilyMember[] = [
     {
         id: "member-nam",
-        name: "Anh Nam",
-        role: "Chồng",
-        relationship: "Trụ cột chính",
+        name: "Mr. Nam",
+        role: "Husband",
+        relationship: "Primary Income Earner",
         birthYear: 1985,
         age: 41,
-        occupation: "Trưởng phòng Kế toán",
-        workplace: "Phòng giao dịch Ngân hàng",
+        occupation: "Accounting Manager",
+        workplace: "Bank Branch",
         monthlyIncome: 45_000_000,
         annualIncome: 540_000_000,
         isDependent: false,
@@ -112,13 +112,13 @@ export const familyMembers: FamilyMember[] = [
     },
     {
         id: "member-nu",
-        name: "Chị Nữ",
-        role: "Vợ",
-        relationship: "Trụ cột phụ",
+        name: "Mrs. Nu",
+        role: "Wife",
+        relationship: "Secondary Income Earner",
         birthYear: 1990,
         age: 36,
-        occupation: "Nhân viên Kế toán",
-        workplace: "Phòng giao dịch Ngân hàng",
+        occupation: "Accountant",
+        workplace: "Bank Branch",
         monthlyIncome: 20_000_000,
         annualIncome: 240_000_000,
         isDependent: false,
@@ -126,13 +126,13 @@ export const familyMembers: FamilyMember[] = [
     },
     {
         id: "member-child1",
-        name: "Bé lớn",
-        role: "Con thứ 1",
-        relationship: "Phụ thuộc",
+        name: "First Child",
+        role: "First Child",
+        relationship: "Dependent",
         birthYear: 2014,
         age: 12,
-        occupation: "Học sinh cấp 2",
-        workplace: "Trường Tuệ Đức (Quận 2)",
+        occupation: "Middle School Student",
+        workplace: "Tue Duc School (District 2)",
         monthlyIncome: null,
         annualIncome: null,
         isDependent: true,
@@ -140,13 +140,13 @@ export const familyMembers: FamilyMember[] = [
     },
     {
         id: "member-child2",
-        name: "Bé nhỏ",
-        role: "Con thứ 2",
-        relationship: "Phụ thuộc",
+        name: "Second Child",
+        role: "Second Child",
+        relationship: "Dependent",
         birthYear: 2021,
         age: 5,
-        occupation: "Học sinh mẫu giáo",
-        workplace: "Trường Vườn Hồng (Quận 2)",
+        occupation: "Kindergarten Student",
+        workplace: "Vuon Hong Kindergarten (District 2)",
         monthlyIncome: null,
         annualIncome: null,
         isDependent: true,
@@ -155,37 +155,37 @@ export const familyMembers: FamilyMember[] = [
 ];
 
 export const additionalInfo: AdditionalInfo = {
-    housing: "Chưa có nhà riêng",
-    housingDetail: "Đang thuê nhà tại đường Lương Đình Của, Quận 2",
-    insurance: "Có BHXH, BHYT — Chưa có BHNT",
+    housing: "No Owner-Occupied Property",
+    housingDetail: "Currently renting a property on Luong Dinh Cua Street, District 2",
+    insurance: "Social Insurance and Health Insurance Coverage — No Private Health Insurance",
     insuranceDetail:
-        "Cả hai vợ chồng đều có Bảo hiểm xã hội và Bảo hiểm y tế, nhưng chưa có Bảo hiểm nhân thọ",
+        "Both spouses are covered by social and health insurance, but neither has life insurance coverage.",
     parents:
-        "Bố mẹ nội ngoại đều còn khỏe, có lương hưu và tự trang trải, chưa cần chu cấp",
+        "Both sets of parents are in good health and receive pensions and financial support, with no current need for financial assistance from the household.",
 };
 
 export const financialGoals: FinancialGoal[] = [
     {
         id: "goal-car",
-        title: "Mua xe hơi",
-        timeline: "Trung hạn — 3 năm tới",
+        title: "Vehicle Purchase",
+        timeline: "Medium-term goal — within the next 3 years",
         timelineYears: 3,
         targetAmount: 800_000_000,
         description:
-            "Mua xe hơi trị giá khoảng 800 triệu đ để thuận tiện đưa đón các con đi học.",
-        progress: 37.5, // 300tr tiền mặt / 800tr target
+            "Purchase a vehicle valued at approximately VND 800 million to facilitate the children’s daily school transportation.",
+        progress: 37.5,
         icon: "🚗",
         type: "mid-term",
     },
     {
         id: "goal-house",
-        title: "Mua nhà đất",
-        timeline: "Dài hạn — 10 năm tới",
+        title: "Home Purchase",
+        timeline: "Long-term goal — within the next 10 years",
         timelineYears: 10,
-        targetAmount: 3_400_000_000, // ước tính giá nhà đất 60m² Q2/Q9
+        targetAmount: 3_400_000_000,
         description:
-            "Mua nhà đất diện tích khoảng 60m² tại đường Lê Văn Việt Quận 9 cũ để ổn định chỗ ở, thuận tiện đi làm và cho con đi học.",
-        progress: 27.9, // 950tr net worth / ~3.4 tỷ target (950 / 3400 = 27.94%)
+            "Purchase a residential property of approximately 60 square meters on Le Van Viet Street, former District 9, to establish a stable home and provide convenient access to work and the children’s schools.",
+        progress: 24.4,
         icon: "🏠",
         type: "long-term",
     },
@@ -194,24 +194,24 @@ export const financialGoals: FinancialGoal[] = [
 export const assets: Asset[] = [
     {
         id: "asset-cash",
-        name: "Tiền mặt hiện có",
-        detail: "Tiền mặt và tiền gửi ngân hàng",
+        name: "Cash and Bank Deposits",
+        detail: "Cash and Bank Deposits",
         value: 300_000_000,
         category: "liquid",
         color: "#10B981",
     },
     {
         id: "asset-receivable",
-        name: "Khoản phải thu",
-        detail: "Tiền cho bạn bè mượn",
+        name: "Accounts Receivable",
+        detail: "Loans Receivable from Friends",
         value: 100_000_000,
         category: "receivable",
         color: "#3B82F6",
     },
     {
         id: "asset-land",
-        name: "Đất nền Bảo Lộc",
-        detail: "01 lô đất nền 6×30m, mua năm 2022",
+        name: "Bảo Lộc Land Plot",
+        detail: "One 6 × 30-meter land plot, acquired in 2022",
         value: 1_000_000_000,
         category: "investment",
         color: "#0A1628",
@@ -221,8 +221,8 @@ export const assets: Asset[] = [
 export const liabilities: Liability[] = [
     {
         id: "liability-loan",
-        name: "Vay ngân hàng",
-        detail: "Dư nợ vay mua đất Bảo Lộc, lãi suất 10%/năm, còn 12 năm",
+        name: "Bank Loan",
+        detail: "Outstanding loan for the Bảo Lộc land purchase, at an annual interest rate of 10%, with 12 years remaining",
         value: 450_000_000,
         interestRate: 10,
         remainingYears: 12,
@@ -233,8 +233,8 @@ export const liabilities: Liability[] = [
 export const expenses: Expense[] = [
     {
         id: "expense-rent",
-        category: "Chi phí thuê nhà",
-        detail: "Thuê nhà tại đường Lương Đình Của, Quận 2",
+        category: "Rent",
+        detail: "Currently renting a property on Luong Dinh Cua Street, District 2",
         monthly: 20_000_000,
         annual: 240_000_000,
         percentage: 27.3,
@@ -243,8 +243,8 @@ export const expenses: Expense[] = [
     },
     {
         id: "expense-education",
-        category: "Chi phí giáo dục",
-        detail: "Học phí bé lớn (10tr) + bé nhỏ (5tr) + học thêm (5tr)",
+        category: "Education",
+        detail: "Tuition for first child + second child + extra tutoring",
         monthly: 20_000_000,
         annual: 240_000_000,
         percentage: 27.3,
@@ -253,8 +253,8 @@ export const expenses: Expense[] = [
     },
     {
         id: "expense-living",
-        category: "Sinh hoạt thiết yếu",
-        detail: "Ăn uống, điện nước, sinh hoạt phí cơ bản",
+        category: "Essential Living Expenses",
+        detail: "Food, utilities, essential daily living expenses",
         monthly: 15_000_000,
         annual: 180_000_000,
         percentage: 20.5,
@@ -263,8 +263,8 @@ export const expenses: Expense[] = [
     },
     {
         id: "expense-entertainment",
-        category: "Giải trí & Giao tiếp",
-        detail: "Đi chơi, ăn ngoài, du lịch, giao tiếp, hiếu hỷ",
+        category: "Entertainment & Social Activities",
+        detail: "Dining out, travel, entertainment, and social activities",
         monthly: 8_000_000,
         annual: 96_000_000,
         percentage: 10.9,
@@ -273,8 +273,8 @@ export const expenses: Expense[] = [
     },
     {
         id: "expense-gifts",
-        category: "Biếu tặng & Đối ngoại",
-        detail: "Biếu bố mẹ hai bên, đối ngoại",
+        category: "Gifts & External Relations",
+        detail: "Gifts to both sets of parents and external relations",
         monthly: 2_000_000,
         annual: 24_000_000,
         percentage: 2.7,
@@ -283,8 +283,8 @@ export const expenses: Expense[] = [
     },
     {
         id: "expense-loan",
-        category: "Chi trả nợ vay",
-        detail: "Thanh toán gốc và lãi vay mua đất Bảo Lộc",
+        category: "Debt Repayment Obligations — Bảo Lộc Land Loan",
+        detail: "Principal and interest payments for the Bảo Lộc land loan",
         monthly: 8_300_000,
         annual: 99_600_000,
         percentage: 11.3,
@@ -332,15 +332,15 @@ export function formatVND(value: number): string {
         const billions = absValue / 1_000_000_000;
         const formatted =
             billions % 1 === 0 ? billions.toFixed(0) : billions.toFixed(1);
-        return `${value < 0 ? "-" : ""}${formatted} tỷ đ`;
+        return `${value < 0 ? "-" : ""}VND ${formatted} billion`;
     }
     if (absValue >= 1_000_000) {
         const millions = absValue / 1_000_000;
         const formatted =
             millions % 1 === 0 ? millions.toFixed(0) : millions.toFixed(1);
-        return `${value < 0 ? "-" : ""}${formatted} triệu đ`;
+        return `${value < 0 ? "-" : ""}VND ${formatted} million`;
     }
-    return `${value < 0 ? "-" : ""}${absValue.toLocaleString("vi-VN")} đ`;
+    return `${value < 0 ? "-" : ""}VND ${absValue.toLocaleString("en-US")}`;
 }
 
 export function formatVNDShort(value: number): string {
@@ -351,14 +351,26 @@ export function formatVNDShort(value: number): string {
     if (absValue >= 1_000_000) {
         return `${value < 0 ? "-" : ""}${(absValue / 1_000_000).toFixed(0)}M`;
     }
-    return `${value < 0 ? "-" : ""}${absValue.toLocaleString("vi-VN")}`;
+    return `${value < 0 ? "-" : ""}${absValue.toLocaleString("en-US")}`;
 }
 
 export function formatFullVND(value: number): string {
     const absValue = Math.abs(value);
-    return `${value < 0 ? "-" : ""}${absValue.toLocaleString("vi-VN")} đ`;
+    if (absValue >= 1_000_000_000) {
+        const billions = absValue / 1_000_000_000;
+        const formatted =
+            billions % 1 === 0 ? billions.toFixed(0) : billions.toFixed(1);
+        return `${value < 0 ? "-" : ""}VND ${formatted} billion`;
+    }
+    if (absValue >= 1_000_000) {
+        const millions = absValue / 1_000_000;
+        const formatted =
+            millions % 1 === 0 ? millions.toFixed(0) : millions.toFixed(1);
+        return `${value < 0 ? "-" : ""}VND ${formatted} million`;
+    }
+    return `${value < 0 ? "-" : ""}VND ${absValue.toLocaleString("en-US")}`;
 }
 
 export function formatNumber(value: number): string {
-    return Math.abs(value).toLocaleString("vi-VN");
+    return Math.abs(value).toLocaleString("en-US");
 }

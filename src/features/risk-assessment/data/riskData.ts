@@ -107,25 +107,25 @@ export const maxScore = 40;
 // Risk Classifications
 export const riskClassifications: RiskClassification[] = [
   {
-    range: '10 – 17 điểm',
+    range: '10–17 points',
     minPoints: 10,
     maxPoints: 17,
-    level: 'Rủi ro thấp',
-    description: 'Ưu tiên bảo toàn vốn, đầu tư vào các tài sản an toàn như trái phiếu, tiền gửi và cổ phiếu ổn định với cổ tức đều đặn.',
+    level: 'Low Risk Tolerance',
+    description: 'Prioritizes capital preservation, with investments concentrated in safer assets such as bonds, savings deposits, and stable equities with predictable cash flows.',
   },
   {
-    range: '18 – 27 điểm',
+    range: '18–27 points',
     minPoints: 18,
     maxPoints: 27,
-    level: 'Rủi ro trung bình',
-    description: 'Danh mục kết hợp cổ phiếu và trái phiếu, chú trọng cả tăng trưởng vốn và bảo toàn vốn.',
+    level: 'Moderate Risk Tolerance',
+    description: 'A balanced portfolio combining equities and bonds, with an emphasis on both long-term capital growth and capital preservation.',
   },
   {
-    range: '28 – 40 điểm',
+    range: '28–40 points',
     minPoints: 28,
     maxPoints: 40,
-    level: 'Rủi ro cao',
-    description: 'Ưu tiên đầu tư vào cổ phiếu tăng trưởng và các sản phẩm tài chính mạo hiểm với mục tiêu lợi nhuận cao.',
+    level: 'High Risk Tolerance',
+    description: 'Prioritizes growth-oriented equities and higher-risk financial assets, with a greater focus on long-term capital appreciation.',
   },
 ];
 
@@ -155,11 +155,11 @@ export const clientRiskProfile = {
   score: 26,
   maxScore: 40,
   scorePercentage: (26 / 40) * 100, // 65%
-  classification: 'Khả năng chấp nhận rủi ro Trung bình',
+  classification: 'Moderate Risk Tolerance',
   willingnessScore: 4, // 4/10
   gsoepRange: '[4 – 6)',
   riskAversionA: 5.07,
   utilityFormula: 'U = E(r) - ½ · A · σ²',
   commentary:
-    'Điểm khảo sát của Anh Nam là 26/40 điểm, tương ứng với khẩu vị rủi ro Trung bình và mức độ sẵn sàng chấp nhận rủi ro chuẩn hóa 4/10. Theo bảng phân loại GSOEP (Hochmuth et al., 2025), giá trị tham số hệ số ngại rủi ro CRRA được xác lập là A = 5.07. Điều này thể hiện gia đình đặc biệt coi trọng việc bảo vệ vốn và kiểm soát tổn thất, song vẫn sẵn sàng đón nhận mức độ biến động vừa phải để tối ưu hóa tỷ suất sinh lời dài hạn trong mô hình Markowitz MPT.',
+    'Mr. Nam’s willingness-to-take-risk score of 4/10 places the household in the [4–6] risk-aversion group, representing the most prevalent group in the sample (53%). The corresponding CRRA risk aversion coefficient is A = 5.07. The household prioritizes capital preservation and risk control while remaining willing to accept a reasonable level of volatility to achieve long-term financial goals.',
 };

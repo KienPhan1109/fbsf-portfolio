@@ -116,7 +116,7 @@ export function CashFlowDiagnostics() {
               </span>
             </h2>
             <p className="sw-heading__subtitle">
-              Phân tích định lượng các dòng tiền ra vào hàng tháng và cảnh báo rủi ro thâm hụt ngân sách gia đình.
+              Quantify monthly cash inflows and outflows and identify potential household budget deficits.
             </p>
           </div>
 
@@ -131,13 +131,13 @@ export function CashFlowDiagnostics() {
                     <line x1="6" y1="20" x2="6" y2="14" />
                   </svg>
                 </span>
-                Cơ cấu chi phí sinh hoạt hàng tháng
+                Monthly Living Expense Breakdown
               </h3>
               <ExpenseBarChart isVisible={cashflowVisible} />
 
               <div className="fp-cashflow__subtotal">
                 <span className="fp-cashflow__subtotal-label">
-                  Chi phí sinh hoạt gia đình
+                  Total Household Living Expenses
                 </span>
                 <span className="font-mono fp-cashflow__subtotal-val">
                   {formatVND(65_000_000)}
@@ -145,7 +145,7 @@ export function CashFlowDiagnostics() {
               </div>
               <div className="fp-cashflow__loan-row">
                 <span className="fp-cashflow__loan-label">
-                  + Nghĩa vụ trả nợ vay mua đất Bảo Lộc
+                  + Debt Repayment Obligations — Bảo Lộc Land Loan
                 </span>
                 <span className="font-mono fp-cashflow__loan-val">
                   {formatVND(8_300_000)}
@@ -153,7 +153,7 @@ export function CashFlowDiagnostics() {
               </div>
               <div className="fp-cashflow__total-row">
                 <span className="fp-cashflow__total-label">
-                  TỔNG CHI PHÍ THỰC TẾ
+                  TOTAL ACTUAL EXPENSES
                 </span>
                 <span className="font-mono fp-cashflow__total-val">
                   {formatVND(cashFlow.totalMonthlyExpense)}
@@ -169,17 +169,17 @@ export function CashFlowDiagnostics() {
                 </div>
                 <div>
                   <div className="fp-cashflow-summary__title">
-                    Phân tích Cân đối Dòng tiền
+                    Cash Flow Balance Assessment
                   </div>
                   <div className="fp-cashflow-summary__subtitle">
-                    Cảnh báo thâm hụt ngân sách hàng tháng
+                    Monthly Budget Deficit Alert
                   </div>
                 </div>
               </div>
 
               <div className="fp-cashflow-summary__row">
                 <span className="fp-cashflow-summary__row-label">
-                  Tổng thu nhập / tháng
+                  Total Monthly Income
                 </span>
                 <span className="fp-cashflow-summary__row-value fp-cashflow-summary__row-value--income font-mono">
                   {formatVND(cashFlow.totalMonthlyIncome)}
@@ -188,7 +188,7 @@ export function CashFlowDiagnostics() {
 
               <div className="fp-cashflow-summary__row">
                 <span className="fp-cashflow-summary__row-label">
-                  Tổng chi phí / tháng
+                  Total Monthly Expenses
                 </span>
                 <span className="fp-cashflow-summary__row-value fp-cashflow-summary__row-value--expense font-mono">
                   {formatVND(cashFlow.totalMonthlyExpense)}
@@ -199,7 +199,7 @@ export function CashFlowDiagnostics() {
 
               <div className="fp-cashflow-summary__deficit">
                 <span className="fp-cashflow-summary__deficit-label">
-                  Thâm hụt dòng tiền hàng tháng
+                  Monthly Cash Flow Deficit
                 </span>
                 <span className="fp-cashflow-summary__deficit-value font-mono">
                   {formatVND(cashFlow.monthlySurplus)}
@@ -209,10 +209,13 @@ export function CashFlowDiagnostics() {
               <div className="fp-cashflow-summary__note">
                 <div className="fp-cashflow-summary__note-header">
                   <IconAlertTriangle />
-                  <span>Assessment & Recommendations for Rebalancing</span>
+                  <span>Assessment &amp; Recommendations for Budget Rebalancing</span>
                 </div>
                 <p>
-                  The household's current expenditures exceed its income by VND 8.3 million per month (VND 99.6 million annually), due to high combined living expenses and bank loan repayments. The household should restructure its budget and reallocate spending to reduce the deficit and establish a sustainable cash flow surplus.
+                  The household’s monthly expenses exceed its income by VND 8.3 million (approximately VND 99.6 million annually), primarily due to elevated living expenses and bank loan repayments.
+                </p>
+                <p style={{ marginTop: '8px' }}>
+                  The household should restructure its budget and reallocate spending to reduce the deficit and establish a sustainable cash flow surplus.
                 </p>
               </div>
             </div>

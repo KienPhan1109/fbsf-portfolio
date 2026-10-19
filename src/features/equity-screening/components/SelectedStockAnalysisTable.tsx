@@ -31,11 +31,11 @@ export function SelectedStockAnalysisTable() {
               <table className="equity-table">
                 <thead>
                   <tr>
-                    <th style={{ width: '10%' }}>Mã</th>
-                    <th style={{ width: '14%' }}>Ngành</th>
-                    <th style={{ width: '22%' }}>Vai trò</th>
-                    <th style={{ width: '26%' }}>Động lực lợi nhuận chính</th>
-                    <th>Nhu cầu của gia đình mà mã đáp ứng</th>
+                    <th style={{ width: '10%' }}>Ticker</th>
+                    <th style={{ width: '14%' }}>Sector</th>
+                    <th style={{ width: '22%' }}>Investment Role</th>
+                    <th style={{ width: '26%' }}>Key Return Drivers</th>
+                    <th>Household Financial Objective</th>
                   </tr>
                 </thead>
                 <tbody>

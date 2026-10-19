@@ -64,13 +64,13 @@ export const completePortfolioTable: CompletePortfolioItem[] = [
     weightTotal: '7.45%',
   },
   {
-    name: 'Trái phiếu / tiền gửi',
+    name: 'Bonds / Cash Deposits',
     weightOrp: '—',
     weightTotal: '78.84%',
     isRiskFree: true,
   },
   {
-    name: 'Tổng kiểm tra',
+    name: 'Total',
     weightOrp: '—',
     weightTotal: '100.00%',
     isTotal: true,

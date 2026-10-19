@@ -46,8 +46,8 @@ function DonutChart() {
       }}
     >
       <div className="donut-chart__center" style={{ width: '92px', height: '92px' }}>
-        <span className="donut-chart__center-value" style={{ fontSize: '16px', fontWeight: 800 }}>1,4 Tỷ</span>
-        <span className="donut-chart__center-label" style={{ fontSize: '10px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Tổng TS</span>
+        <span className="donut-chart__center-value" style={{ fontSize: '16px', fontWeight: 800 }}>1.4B</span>
+        <span className="donut-chart__center-label" style={{ fontSize: '10px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Total Assets</span>
       </div>
     </div>
   );
@@ -60,7 +60,7 @@ export function BalanceSheetCard() {
     <section
       className="section"
       id="financial-balance"
-      aria-label="Bảng cân đối tài sản"
+      aria-label="Household Balance Sheet"
     >
       <div className="container">
         <div
@@ -74,7 +74,7 @@ export function BalanceSheetCard() {
               </span>
             </h2>
             <p className="sw-heading__subtitle">
-              Đánh giá toàn diện cơ cấu tài sản, nguồn vốn nợ và xác định giá trị tài sản ròng thực tế của gia đình.
+              Assess the household’s asset and liability structure to determine its actual net worth.
             </p>
           </div>
 
@@ -84,9 +84,9 @@ export function BalanceSheetCard() {
               <table className="data-table">
                 <thead>
                   <tr>
-                    <th style={{ padding: "10px 16px" }}>Danh mục tài sản & Nợ</th>
-                    <th style={{ padding: "10px 16px" }}>Chi tiết phân loại</th>
-                    <th style={{ textAlign: "right", padding: "10px 16px" }}>Giá trị (VNĐ)</th>
+                    <th style={{ padding: "10px 16px" }}>Assets &amp; Liabilities</th>
+                    <th style={{ padding: "10px 16px" }}>Description</th>
+                    <th style={{ textAlign: "right", padding: "10px 16px" }}>Value (VND)</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -101,7 +101,7 @@ export function BalanceSheetCard() {
                         padding: "8px 16px",
                       }}
                     >
-                      I. TỔNG TÀI SẢN
+                      I. Total Assets
                     </td>
                     <td
                       className="data-table__value data-table__value--positive font-mono"
@@ -134,7 +134,7 @@ export function BalanceSheetCard() {
                         padding: "8px 16px",
                       }}
                     >
-                      II. TỔNG NỢ PHẢI TRẢ
+                      II. Total Liabilities
                     </td>
                     <td
                       className="data-table__value data-table__value--negative font-mono"
@@ -159,7 +159,7 @@ export function BalanceSheetCard() {
                   {/* Net Worth */}
                   <tr className="data-table__total">
                     <td colSpan={2} style={{ padding: "10px 16px" }}>
-                      III. TÀI SẢN RÒNG (NET WORTH)
+                      III. Net Worth
                     </td>
                     <td
                       className="data-table__value data-table__value--positive font-mono"
@@ -174,7 +174,7 @@ export function BalanceSheetCard() {
 
             {/* Chart */}
             <div className="fp-balance__chart">
-              <h4 className="fp-balance__chart-title">Cơ cấu Phân bổ Tài sản</h4>
+              <h4 className="fp-balance__chart-title">Asset Allocation</h4>
               <DonutChart />
               <div className="fp-balance__legend">
                 {assets.map((asset) => (
@@ -198,10 +198,10 @@ export function BalanceSheetCard() {
               </div>
               <div>
                 <div className="fp-networth__label">
-                  Tài sản ròng thực tế (Net Worth)
+                  Actual Net Worth
                 </div>
                 <div className="fp-networth__sublabel">
-                  Tổng tài sản (1,4 tỷ) trừ dư nợ vay ngân hàng (450 triệu)
+                  Total assets (VND 1.4 billion) less bank debt (VND 450 million)
                 </div>
               </div>
             </div>

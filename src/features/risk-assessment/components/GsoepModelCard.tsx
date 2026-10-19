@@ -25,7 +25,7 @@ export function GsoepModelCard() {
               </span>
             </h2>
             <p className="sw-heading__subtitle">
-              Xác lập hệ số ngại rủi ro A = 5.07 theo chuẩn GSOEP 2025 và ứng dụng hàm hữu dụng Mean-Variance trong tối ưu hóa danh mục.
+              Establish a risk aversion coefficient of A = 5.07 based on the 2025 GSOEP framework and apply the Mean-Variance utility function to portfolio optimization.
             </p>
           </div>
 
@@ -37,7 +37,7 @@ export function GsoepModelCard() {
                   Table 2.2. Risk Aversion Coefficient Classification (GSOEP)
                 </h3>
                 <p className="ra-academic-card__subtitle">
-                  Phân loại tham số ngại rủi ro chuẩn hóa theo khảo sát kinh tế xã hội Đức
+                  Standardized classification of risk aversion parameters based on the German Socio-Economic Panel (GSOEP).
                 </p>
               </div>
 
@@ -60,7 +60,7 @@ export function GsoepModelCard() {
                           <span className="font-mono">{row.range}</span>
                           {row.isClientCategory && (
                             <span className="ra-client-tag">
-                              Điểm 4/10 (Anh Nam)
+                              Survey Score: 4/10 (Mr. Nam)
                             </span>
                           )}
                         </td>
@@ -77,7 +77,7 @@ export function GsoepModelCard() {
               </div>
 
               <div className="ra-academic-footnote">
-                Nguồn trích dẫn: <em>Hochmuth, Merz, & Prettensthaler (2025)</em>, based on GSOEP.
+                Source: <em>Hochmuth, Merz, &amp; Prettensthaler (2025)</em>, based on GSOEP.
               </div>
             </div>
 
@@ -85,34 +85,34 @@ export function GsoepModelCard() {
             <div className="ra-academic-card">
               <div className="ra-academic-card__header">
                 <h3 className="ra-academic-card__title">
-                  Hàm Hữu Dụng & Đánh Giá Danh Mục
+                  Utility Function &amp; Portfolio Evaluation
                 </h3>
                 <p className="ra-academic-card__subtitle">
-                  Tham số đầu vào cho thuật toán tối ưu hóa Mean-Variance Markowitz MPT
+                  Input parameters for the Mean-Variance Markowitz portfolio optimization model.
                 </p>
               </div>
 
               {/* Clean Academic Math Box */}
               <div className="ra-math-card">
-                <div className="ra-math-card__label">Hàm hữu dụng nhà đầu tư (Utility Function):</div>
+                <div className="ra-math-card__label">Investor Utility Function:</div>
                 <div className="ra-math-card__equation font-mono">
                   U = E(r) - ½ · A · σ²
                 </div>
                 <div className="ra-math-card__meta font-mono">
-                  Hệ số ngại rủi ro chuẩn hóa: <strong>A = 5.07</strong>
+                  Standardized Risk Aversion Coefficient: <strong>A = 5.07</strong>
                 </div>
               </div>
 
               {/* Editorial Professional Financial Commentary */}
               <div className="ra-academic-editorial">
                 <p>
-                  <strong>1. Phân vị khảo sát:</strong> Điểm sẵn sàng chịu rủi ro <strong>4/10</strong> của Anh Nam xếp gia đình vào nhóm <strong>[4–6)</strong> — nhóm phổ biến nhất (53% mẫu dữ liệu toàn cầu), tương ứng hệ số CRRA là <strong>A = 5.07</strong>.
+                  <strong>1. Survey-Based Assessment:</strong> Mr. Nam’s willingness-to-take-risk score of <strong>4/10</strong> places the household in the <strong>[4–6]</strong> risk-aversion group, representing the most prevalent group in the sample (53%). The corresponding CRRA risk aversion coefficient is <strong>A = 5.07</strong>.
                 </p>
                 <p>
-                  <strong>2. Khẩu vị đầu tư:</strong> Gia đình đặt trọng tâm hàng đầu vào việc bảo toàn tài sản và kiểm soát phương sai rủi ro (σ²), nhưng hoàn toàn sẵn sàng đón nhận mức độ biến động hợp lý để tối ưu hóa tỷ suất sinh lời dài hạn.
+                  <strong>2. Investment Philosophy:</strong> The household prioritizes capital preservation and risk control while remaining willing to accept a reasonable level of volatility to achieve long-term financial goals.
                 </p>
                 <p>
-                  <strong>3. Tham số mô hình Markowitz:</strong> Hệ số <strong>A = 5.07</strong> đóng vai trò là trọng số đánh đổi rủi ro cốt lõi để nạp vào mô hình Efficient Frontier ở bước tiếp theo, nhằm thiết lập danh mục tối ưu giúp gia đình đạt được mục tiêu mua nhà 3.4 tỷ và xe 800 triệu.
+                  <strong>3. Markowitz Model Parameter:</strong> The risk aversion coefficient <strong>A = 5.07</strong> serves as the risk-weighting parameter in the Mean-Variance Markowitz optimization model, supporting the identification of an optimal portfolio aligned with the household’s financial objectives.
                 </p>
               </div>
             </div>

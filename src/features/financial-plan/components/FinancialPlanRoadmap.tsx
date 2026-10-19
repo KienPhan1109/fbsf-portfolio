@@ -29,9 +29,7 @@ export function FinancialPlanRoadmap() {
               </span>
             </h2>
             <p className="sw-heading__subtitle">
-              The evaluation shows that the investment plan is fully capable of
-              meeting the 10-year housing goal without relying on financial
-              leverage.
+              The evaluation indicates that the investment plan is projected to meet the household’s 10-year housing goal without relying on additional financial leverage.
             </p>
           </div>
 
@@ -40,14 +38,14 @@ export function FinancialPlanRoadmap() {
               <table className="plan-eval-table">
                 <thead>
                   <tr>
-                    <th className="plan-eval-th-goal">GOAL</th>
+                    <th className="plan-eval-th-goal">Goal</th>
                     <th className="plan-eval-th-val">
-                      GOAL VALUE( VND MILLION )
+                      Goal Value (VND million)
                     </th>
                     <th className="plan-eval-th-source">
-                      ACQUIRED CAPITAL SOURCE
+                      Accumulated Capital (VND million)
                     </th>
-                    <th className="plan-eval-th-result">RESULT</th>
+                    <th className="plan-eval-th-result">Status</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -74,6 +72,17 @@ export function FinancialPlanRoadmap() {
                 </tbody>
               </table>
             </div>
+            <p
+              style={{
+                fontSize: '13px',
+                color: 'var(--color-slate-500, #64748b)',
+                marginTop: '12px',
+                fontStyle: 'italic',
+                lineHeight: '1.5',
+              }}
+            >
+              The investment plan is projected to meet the 10-year housing goal, subject to the achievement of intermediate savings targets and the maintenance of adequate liquidity.
+            </p>
           </div>
 
           <div className="plan-highlights">
@@ -83,8 +92,7 @@ export function FinancialPlanRoadmap() {
                 {planAssumptions.capitalSurplus}
               </span>
               <p className="plan-highlight-desc">
-                Tài sản tích lũy ({planAssumptions.totalAvailableAssetYear10}) vượt
-                giá trị nhà ({planAssumptions.targetHousingValueYear10}).
+                Accumulated assets ({planAssumptions.totalAvailableAssetYear10}) exceed the projected home purchase value ({planAssumptions.targetHousingValueYear10}).
               </p>
             </div>
 
@@ -94,7 +102,7 @@ export function FinancialPlanRoadmap() {
                 {planAssumptions.emergencyFund}
               </span>
               <p className="plan-highlight-desc">
-                Bảo lưu dự phòng thanh khoản an toàn, không đem toàn bộ tiền mặt đi đầu tư rủi ro.
+                Maintain a liquid emergency reserve and avoid committing all available cash to risk-bearing investments.
               </p>
             </div>
 
@@ -104,7 +112,7 @@ export function FinancialPlanRoadmap() {
                 {planAssumptions.expectedReturnAnnual}
               </span>
               <p className="plan-highlight-desc">
-                Tỷ suất sinh lời kỳ vọng OCP ({planAssumptions.expectedReturnMonthly}) tạo nền tảng tăng trưởng bền vững.
+                The expected OCP return ({planAssumptions.expectedReturnMonthly}) provides a foundation for sustainable long-term growth.
               </p>
             </div>
           </div>
