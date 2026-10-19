@@ -31,13 +31,14 @@ export function RiskSurveyQuestionnaire() {
     <section
       className="section ra-section"
       id="risk-assessment"
-      aria-label="Phiếu khảo sát khả năng chấp nhận rủi ro"
+      aria-label="Risk Tolerance Questionnaire"
     >
       <div className="container container--wide">
         <div
           className={`ra-wrapper animate-on-scroll ${surveyVisible ? 'is-visible' : ''}`}
           ref={surveyRef as React.RefObject<HTMLDivElement>}
         >
+          {/* Section Heading */}
           <div className="section-heading sw-heading">
             <h2 className="sw-heading__title">
               <span className="sw-heading__title-highlight">
@@ -49,75 +50,123 @@ export function RiskSurveyQuestionnaire() {
             </p>
           </div>
 
-          <div className="ra-survey-header-row">
-            <span className="ra-survey-meta">
-              Official Survey Record • <strong className="font-mono">10 / 10 Questions &amp; Answers</strong>
-            </span>
-            <div className="ra-survey-badge font-mono">
-              <span className="ra-survey-badge-dot" />
-              <span>Total Score: <strong>{totalScore}/{maxScore} points</strong></span>
+          {/* Dossier Summary Bar */}
+          <div className="ra-dossier-bar">
+            <div className="ra-dossier-left">
+              <span className="ra-dossier-tag font-mono">
+                OFFICIAL SURVEY RECORD · GSOEP 2025 COMPLIANT
+              </span>
+              <div className="ra-dossier-client">
+                Respondent: <strong>Mr. Nam</strong>
+                <span className="ra-dossier-meta">
+                  {' '}· Primary Earner (Age 41) · 10/10 Questions Completed
+                </span>
+              </div>
+            </div>
+
+            <div className="ra-dossier-right">
+              <div className="ra-dossier-score-wrap">
+                <span className="ra-dossier-score-label font-mono">SURVEY SCORE</span>
+                <div className="ra-dossier-score font-mono">
+                  <span className="ra-dossier-score-val">{totalScore}</span>
+                  <span className="ra-dossier-score-max">/{maxScore}</span>
+                  <span className="ra-dossier-score-pct">
+                    ({((totalScore / maxScore) * 100).toFixed(0)}%)
+                  </span>
+                </div>
+              </div>
+              <div className="ra-dossier-class-badge font-mono">
+                MODERATE
+              </div>
             </div>
           </div>
 
-          <div className="ra-qa-grid">
-            {/* Column 1: Questions 1 to 5 */}
-            <div className="ra-qa-column">
+          {/* 10-Question Matrix Grid: 2 Columns */}
+          <div className="ra-matrix-grid">
+            {/* Column 1: Questions 01 - 05 */}
+            <div className="ra-matrix-col">
               {col1Questions.map((q) => (
-                <div key={q.id} className="ra-qa-card">
-                  <div className="ra-qa-header">
-                    <div className="ra-qa-idx-wrap">
-                      <span className="ra-qa-idx font-mono">
+                <div key={q.id} className="ra-matrix-card">
+                  <div className="ra-matrix-card__top">
+                    <div className="ra-matrix-card__idx-wrap">
+                      <span className="ra-matrix-card__idx font-mono">
                         {q.id < 10 ? `0${q.id}` : q.id}
                       </span>
-                      <span className="ra-qa-tag">Question {q.id}</span>
+                      <span className="ra-matrix-card__tag font-mono">
+                        QUESTION {q.id < 10 ? `0${q.id}` : q.id}
+                      </span>
                     </div>
-                    <div className="ra-qa-points font-mono">
-                      <span>+{q.points} points</span>
+                    <div className="ra-matrix-card__points font-mono">
+                      +{q.points} PTS
                     </div>
                   </div>
 
-                  <h4 className="ra-qa-question">{q.question}</h4>
+                  <h4 className="ra-matrix-card__question">{q.question}</h4>
 
-                  <div className="ra-qa-answer-box">
-                    <div className="ra-qa-answer-meta">
-                      <span className="ra-qa-answer-icon"><IconCheckCircle /></span>
-                      <span>Recorded Answer</span>
-                      <span className="ra-qa-option-badge font-mono">Option {q.optionKey}</span>
+                  <div className="ra-matrix-card__answer-box">
+                    <div className="ra-matrix-card__answer-header">
+                      <div className="ra-matrix-card__answer-badge">
+                        <IconCheckCircle />
+                        <span>RECORDED ANSWER</span>
+                      </div>
+                      <span className="ra-matrix-card__opt-badge font-mono">
+                        OPTION {q.optionKey}
+                      </span>
                     </div>
-                    <p className="ra-qa-answer-text">{q.answer}</p>
+                    <p className="ra-matrix-card__answer-text">{q.answer}</p>
                   </div>
                 </div>
               ))}
             </div>
 
-            {/* Column 2: Questions 6 to 10 */}
-            <div className="ra-qa-column">
+            {/* Column 2: Questions 06 - 10 */}
+            <div className="ra-matrix-col">
               {col2Questions.map((q) => (
-                <div key={q.id} className="ra-qa-card">
-                  <div className="ra-qa-header">
-                    <div className="ra-qa-idx-wrap">
-                      <span className="ra-qa-idx font-mono">
+                <div key={q.id} className="ra-matrix-card">
+                  <div className="ra-matrix-card__top">
+                    <div className="ra-matrix-card__idx-wrap">
+                      <span className="ra-matrix-card__idx font-mono">
                         {q.id < 10 ? `0${q.id}` : q.id}
                       </span>
-                      <span className="ra-qa-tag">Question {q.id}</span>
+                      <span className="ra-matrix-card__tag font-mono">
+                        QUESTION {q.id < 10 ? `0${q.id}` : q.id}
+                      </span>
                     </div>
-                    <div className="ra-qa-points font-mono">
-                      <span>+{q.points} points</span>
+                    <div className="ra-matrix-card__points font-mono">
+                      +{q.points} PTS
                     </div>
                   </div>
 
-                  <h4 className="ra-qa-question">{q.question}</h4>
+                  <h4 className="ra-matrix-card__question">{q.question}</h4>
 
-                  <div className="ra-qa-answer-box">
-                    <div className="ra-qa-answer-meta">
-                      <span className="ra-qa-answer-icon"><IconCheckCircle /></span>
-                      <span>Recorded Answer</span>
-                      <span className="ra-qa-option-badge font-mono">Option {q.optionKey}</span>
+                  <div className="ra-matrix-card__answer-box">
+                    <div className="ra-matrix-card__answer-header">
+                      <div className="ra-matrix-card__answer-badge">
+                        <IconCheckCircle />
+                        <span>RECORDED ANSWER</span>
+                      </div>
+                      <span className="ra-matrix-card__opt-badge font-mono">
+                        OPTION {q.optionKey}
+                      </span>
                     </div>
-                    <p className="ra-qa-answer-text">{q.answer}</p>
+                    <p className="ra-matrix-card__answer-text">{q.answer}</p>
                   </div>
                 </div>
               ))}
+            </div>
+          </div>
+
+          {/* Bottom Transition / Synthesis Banner */}
+          <div className="ra-survey-footer-strip">
+            <div className="ra-sfs-left">
+              <span className="ra-sfs-label font-mono">EMPIRICAL SYNTHESIS</span>
+              <p className="ra-sfs-desc">
+                The household’s normalized score of <strong>{totalScore}/{maxScore} ({((totalScore / maxScore) * 100).toFixed(0)}%)</strong> establishes a <strong>Moderate Risk Tolerance</strong> baseline, prioritizing capital preservation with calculated risk exposure for subsequent asset allocation modeling.
+              </p>
+            </div>
+            <div className="ra-sfs-right font-mono">
+              <span className="ra-sfs-stat-label">ASSESSMENT OUTCOME</span>
+              <span className="ra-sfs-stat-val">MODERATE (SCORE {totalScore})</span>
             </div>
           </div>
         </div>

@@ -18,45 +18,106 @@
    SECTION 4A: SURVEY QUESTIONNAIRE
    ============================================================ */
 
-.ra-survey-header-row {
+/* ============================================================
+   SECTION 4A: SURVEY QUESTIONNAIRE (Phần 11 - Fiduciary Matrix)
+   ============================================================ */
+
+.ra-dossier-bar {
+  background: #FFFFFF;
+  border: 1px solid #E2ECE7;
+  border-radius: 14px;
+  padding: 18px 24px;
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  margin-bottom: 22px;
-  padding: 0 4px;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
 }
 
-.ra-survey-meta {
-  font-size: 13px;
-  color: #64748B;
+.ra-dossier-left {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
-.ra-survey-meta strong {
+.ra-dossier-tag {
+  font-size: 11px;
+  font-weight: 700;
+  color: #059669;
+  letter-spacing: 0.06em;
+}
+
+.ra-dossier-client {
+  font-size: 13.5px;
   color: #0F172A;
 }
 
-.ra-survey-badge {
-  display: inline-flex;
+.ra-dossier-meta {
+  color: #64748B;
+  font-size: 13px;
+}
+
+.ra-dossier-right {
+  display: flex;
   align-items: center;
-  gap: 8px;
-  font-size: 12.5px;
-  font-weight: 600;
-  color: #047857;
+  gap: 18px;
+}
+
+.ra-dossier-score-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+}
+
+.ra-dossier-score-label {
+  font-size: 10.5px;
+  font-weight: 700;
+  color: #64748B;
+  letter-spacing: 0.05em;
+}
+
+.ra-dossier-score {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.ra-dossier-score-val {
+  font-size: 24px;
+  font-weight: 800;
+  color: #062C1E;
+  line-height: 1;
+}
+
+.ra-dossier-score-max {
+  font-size: 15px;
+  font-weight: 700;
+  color: #64748B;
+}
+
+.ra-dossier-score-pct {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #059669;
+  margin-left: 4px;
+}
+
+.ra-dossier-class-badge {
   background: #ECFDF5;
   border: 1px solid #A7F3D0;
-  padding: 5px 14px;
-  border-radius: 20px;
+  color: #047857;
+  font-size: 12px;
+  font-weight: 800;
+  padding: 6px 14px;
+  border-radius: 6px;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
 }
 
-.ra-survey-badge-dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: #059669;
-  display: inline-block;
-}
-
-/* 2 Columns Clean Q&A Grid */
+/* 2-Column Fiduciary Matrix Grid */
+.ra-matrix-grid,
 .ra-qa-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -64,6 +125,7 @@
   align-items: stretch;
 }
 
+.ra-matrix-col,
 .ra-qa-column {
   display: flex;
   flex-direction: column;
@@ -71,135 +133,211 @@
 }
 
 /* Question & Answer Card */
+.ra-matrix-card,
 .ra-qa-card {
-  background: #ffffff;
-  border: 1px solid rgba(226, 232, 240, 0.9);
-  border-radius: 16px;
+  background: #FFFFFF;
+  border: 1px solid #E2ECE7;
+  border-radius: 14px;
   padding: 20px 22px;
-  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.02);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
   transition:
-    border-color 0.25s ease,
-    box-shadow 0.25s ease,
-    transform 0.25s ease;
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
 }
 
+.ra-matrix-card:hover,
 .ra-qa-card:hover {
-  border-color: rgba(5, 150, 105, 0.35);
-  box-shadow: 0 8px 24px rgba(5, 150, 105, 0.08);
+  border-color: #10B981;
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.08);
   transform: translateY(-2px);
 }
 
+.ra-matrix-card__top,
 .ra-qa-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 
+.ra-matrix-card__idx-wrap,
 .ra-qa-idx-wrap {
   display: flex;
   align-items: center;
   gap: 8px;
 }
 
+.ra-matrix-card__idx,
 .ra-qa-idx {
-  background: #0F172A;
-  color: #ffffff;
+  background: #062C1E;
+  color: #FFFFFF;
   font-size: 11px;
   font-weight: 700;
-  padding: 2.5px 8px;
-  border-radius: 6px;
+  padding: 2px 7px;
+  border-radius: 4px;
   letter-spacing: 0.02em;
 }
 
+.ra-matrix-card__tag,
 .ra-qa-tag {
-  font-size: 11.5px;
+  font-size: 11px;
   font-weight: 700;
   color: #64748B;
-  text-transform: uppercase;
   letter-spacing: 0.05em;
 }
 
+.ra-matrix-card__points,
 .ra-qa-points {
-  font-size: 12px;
+  font-size: 11.5px;
   font-weight: 700;
   color: #047857;
   background: #ECFDF5;
   border: 1px solid #A7F3D0;
-  padding: 3px 10px;
-  border-radius: 20px;
+  padding: 2.5px 8px;
+  border-radius: 4px;
   flex-shrink: 0;
-  box-shadow: 0 1px 2px rgba(5, 150, 105, 0.06);
+  letter-spacing: 0.02em;
 }
 
+.ra-matrix-card__question,
 .ra-qa-question {
-  font-size: 14.5px;
+  font-size: 14px;
   font-weight: 600;
   color: #0F172A;
   line-height: 1.5;
-  margin: 0 0 14px 0;
+  margin: 0 0 12px 0;
   flex: 1;
 }
 
 /* Dedicated Answer Box */
+.ra-matrix-card__answer-box,
 .ra-qa-answer-box {
-  background: #F8FAFC;
-  border: 1px solid #E2E8F0;
+  background: #F8FAF9;
+  border: 1px solid #E2ECE7;
   border-left: 3.5px solid #059669;
-  border-radius: 10px;
-  padding: 12px 14px;
+  border-radius: 8px;
+  padding: 11px 13px;
   display: flex;
   flex-direction: column;
   gap: 6px;
-  transition: background 0.2s ease;
+  transition: background 0.2s ease, border-color 0.2s ease;
 }
 
+.ra-matrix-card:hover .ra-matrix-card__answer-box,
 .ra-qa-card:hover .ra-qa-answer-box {
   background: #F0FDF4;
   border-color: #BBF7D0;
   border-left-color: #059669;
 }
 
+.ra-matrix-card__answer-header,
 .ra-qa-answer-meta {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 7px;
-  font-size: 11.5px;
-  font-weight: 600;
-  color: #059669;
+  gap: 8px;
 }
 
+.ra-matrix-card__answer-badge,
 .ra-qa-answer-icon {
-  color: #059669;
   display: flex;
   align-items: center;
-}
-
-.ra-qa-option-badge {
-  margin-left: auto;
-  background: #E2E8F0;
-  color: #334155;
+  gap: 6px;
   font-size: 11px;
   font-weight: 700;
-  padding: 2px 7px;
-  border-radius: 4px;
+  color: #059669;
+  letter-spacing: 0.04em;
 }
 
+.ra-matrix-card__opt-badge,
+.ra-qa-option-badge {
+  background: #E2ECE7;
+  color: #062C1E;
+  font-size: 10.5px;
+  font-weight: 700;
+  padding: 1px 6px;
+  border-radius: 4px;
+  letter-spacing: 0.03em;
+}
+
+.ra-matrix-card:hover .ra-matrix-card__opt-badge,
 .ra-qa-card:hover .ra-qa-option-badge {
   background: #D1FAE5;
   color: #065F46;
 }
 
+.ra-matrix-card__answer-text,
 .ra-qa-answer-text {
-  font-size: 13.5px;
+  font-size: 13px;
   color: #0F172A;
   font-weight: 600;
   line-height: 1.45;
   margin: 0;
+}
+
+/* Survey Footer / Milestone Strip */
+.ra-survey-footer-strip {
+  background: #F8FAF9;
+  border: 1px solid #E2ECE7;
+  border-radius: 12px;
+  padding: 16px 22px;
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+}
+
+.ra-sfs-left {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+  min-width: 0;
+}
+
+.ra-sfs-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: #059669;
+  letter-spacing: 0.06em;
+}
+
+.ra-sfs-desc {
+  font-size: 12.5px;
+  color: #475569;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.ra-sfs-desc strong {
+  color: #0F172A;
+}
+
+.ra-sfs-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+  flex-shrink: 0;
+}
+
+.ra-sfs-stat-label {
+  font-size: 10.5px;
+  font-weight: 700;
+  color: #64748B;
+  letter-spacing: 0.05em;
+}
+
+.ra-sfs-stat-val {
+  font-size: 13.5px;
+  font-weight: 800;
+  color: #062C1E;
 }
 
 /* ============================================================
@@ -583,8 +721,31 @@
    RESPONSIVE DESIGN
    ============================================================ */
 @media (max-width: 1024px) {
+  .ra-matrix-grid,
   .ra-qa-grid {
     grid-template-columns: 1fr;
+  }
+
+  .ra-dossier-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 16px 18px;
+  }
+
+  .ra-dossier-right {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .ra-survey-footer-strip {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .ra-sfs-right {
+    align-items: flex-start;
   }
 
   .ra-score-card__top {
