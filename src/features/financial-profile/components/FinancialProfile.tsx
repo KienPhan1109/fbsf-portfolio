@@ -9,7 +9,6 @@ import {
   liabilities,
   totalLiabilities,
   netWorth,
-  expenses,
   cashFlow,
   formatVND,
   formatFullVND,
