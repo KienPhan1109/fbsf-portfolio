@@ -112,7 +112,7 @@ export function GsoepModelCard() {
                   <strong>2. Khẩu vị đầu tư:</strong> Gia đình đặt trọng tâm hàng đầu vào việc bảo toàn tài sản và kiểm soát phương sai rủi ro (σ²), nhưng hoàn toàn sẵn sàng đón nhận mức độ biến động hợp lý để tối ưu hóa tỷ suất sinh lời dài hạn.
                 </p>
                 <p>
-                  <strong>3. Tham số mô hình Markowitz:</strong> Hệ số <strong>A = 5.07</strong> đóng vai trò là trọng số đánh đổi rủi ro cốt lõi để nạp vào mô hình Efficient Frontier ở bước tiếp theo, nhằm thiết lập danh mục tối ưu giúp gia đình đạt được mục tiêu mua nhà 3.9 tỷ và xe 800 triệu.
+                  <strong>3. Tham số mô hình Markowitz:</strong> Hệ số <strong>A = 5.07</strong> đóng vai trò là trọng số đánh đổi rủi ro cốt lõi để nạp vào mô hình Efficient Frontier ở bước tiếp theo, nhằm thiết lập danh mục tối ưu giúp gia đình đạt được mục tiêu mua nhà 3.4 tỷ và xe 800 triệu.
                 </p>
               </div>
             </div>

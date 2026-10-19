@@ -202,8 +202,8 @@ Dự án áp dụng ngôn ngữ thiết kế **Institutional Fiduciary & Private
   * Giá trị mục tiêu: `800.000.000 đ` | Tiến độ tích lũy: `37.5%`
   * Mô tả: Mua xe phục vụ đưa đón các con và đi lại gia đình.
 * **Mục tiêu 2 (Dài hạn - 10 năm tới):** `Mua nhà đất`
-  * Giá trị mục tiêu: `3.900.000.000 đ` (3.9 tỷ đồng hiện giá) | Tiến độ: `24.4%`
-  * Mô tả: Mua nhà đất diện tích khoảng **70m²** tại đường Lê Văn Việt (Quận 9 cũ) để an cư dài hạn.
+  * Giá trị mục tiêu: `3.400.000.000 đ` (3.4 tỷ đồng hiện giá) | Tiến độ: `27.9%`
+  * Mô tả: Mua nhà đất diện tích khoảng **60m²** tại đường Lê Văn Việt (Quận 9 cũ) để an cư dài hạn.
 
 #### 4C. Bảng Cân Đối Tài Sản & Giá Trị Ròng (Balance Sheet & Net Worth)
 * **Tổng tài sản (Total Assets):** `1.400.000.000 đ` (1.4 tỷ đồng)

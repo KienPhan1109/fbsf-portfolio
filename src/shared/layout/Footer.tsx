@@ -146,7 +146,7 @@ export default function Footer() {
                                     <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
                                     <circle cx="12" cy="7" r="4" />
                                 </svg>
-                                Chủ sở hữu: Trương Đoàn Anh Thư
+                                Chủ sở hữu: Group 03
                             </span>
                             <span className="footer__link">
                                 <svg

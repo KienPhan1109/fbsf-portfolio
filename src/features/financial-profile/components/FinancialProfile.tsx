@@ -12,6 +12,7 @@ import {
   expenses,
   cashFlow,
   formatVND,
+  formatFullVND,
 } from '../data/profileData';
 import '../../../shared/ui/ui.css';
 import '../../workflow/styles/SystemWorkflow.css';
@@ -114,7 +115,7 @@ export function FinancialProfile() {
                       <div className="fp-goal-tag font-mono">{tag}</div>
                       <h3 className="fp-goal-title">{goal.title}</h3>
                       <div className="fp-goal-amount font-mono">
-                        {formatVND(goal.targetAmount)}
+                        {formatFullVND(goal.targetAmount)}
                       </div>
 
                       <div className="fp-goal-bar-wrap">
@@ -173,28 +174,28 @@ export function FinancialProfile() {
                 {/* Total Assets */}
                 <div className="fp-balance-col">
                   <div className="fp-balance-label font-mono">TOTAL ASSETS</div>
-                  <div className="fp-balance-val font-mono">{formatVND(totalAssets)}</div>
+                  <div className="fp-balance-val font-mono">{formatFullVND(totalAssets)}</div>
                   <div className="fp-balance-sub">Tiền gửi 21.4% · BĐS 71.4% · Phải thu 7.1%</div>
                 </div>
 
                 {/* Liabilities */}
                 <div className="fp-balance-col">
                   <div className="fp-balance-label font-mono">LIABILITIES</div>
-                  <div className="fp-balance-val font-mono">{formatVND(totalLiabilities)}</div>
+                  <div className="fp-balance-val font-mono">{formatFullVND(totalLiabilities)}</div>
                   <div className="fp-balance-sub">Lãi suất 10% · 12 năm còn lại</div>
                 </div>
 
                 {/* Net Worth (Green Accent Border Underline) */}
                 <div className="fp-balance-col fp-balance-col--networth">
                   <div className="fp-balance-label font-mono">NET WORTH</div>
-                  <div className="fp-balance-val fp-balance-val--green font-mono">{formatVND(netWorth)}</div>
+                  <div className="fp-balance-val fp-balance-val--green font-mono">{formatFullVND(netWorth)}</div>
                   <div className="fp-balance-sub">Tài sản trừ tổng nợ phải trả</div>
                 </div>
 
                 {/* Net Cash Flow (Red Accent Border Underline) */}
                 <div className="fp-balance-col fp-balance-col--cashflow">
                   <div className="fp-balance-label font-mono">NET CASH FLOW</div>
-                  <div className="fp-balance-val fp-balance-val--red font-mono">{formatVND(cashFlow.monthlySurplus)}</div>
+                  <div className="fp-balance-val fp-balance-val--red font-mono">{formatFullVND(cashFlow.monthlySurplus)}</div>
                   <div className="fp-balance-sub">Mỗi tháng · thâm hụt 99.6 tr/năm</div>
                 </div>
               </div>

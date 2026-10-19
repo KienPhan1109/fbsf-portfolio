@@ -182,10 +182,10 @@ export const financialGoals: FinancialGoal[] = [
         title: "Mua nhà đất",
         timeline: "Dài hạn — 10 năm tới",
         timelineYears: 10,
-        targetAmount: 3_900_000_000, // ước tính giá nhà đất 70m² Q2/Q9
+        targetAmount: 3_400_000_000, // ước tính giá nhà đất 60m² Q2/Q9
         description:
-            "Mua nhà đất diện tích khoảng 70m² tại đường Lê Văn Việt Quận 9 cũ để ổn định chỗ ở, thuận tiện đi làm và cho con đi học.",
-        progress: 24.4, // 950tr net worth / ~3.9 tỷ target
+            "Mua nhà đất diện tích khoảng 60m² tại đường Lê Văn Việt Quận 9 cũ để ổn định chỗ ở, thuận tiện đi làm và cho con đi học.",
+        progress: 27.9, // 950tr net worth / ~3.4 tỷ target (950 / 3400 = 27.94%)
         icon: "🏠",
         type: "long-term",
     },
@@ -352,6 +352,11 @@ export function formatVNDShort(value: number): string {
         return `${value < 0 ? "-" : ""}${(absValue / 1_000_000).toFixed(0)}M`;
     }
     return `${value < 0 ? "-" : ""}${absValue.toLocaleString("vi-VN")}`;
+}
+
+export function formatFullVND(value: number): string {
+    const absValue = Math.abs(value);
+    return `${value < 0 ? "-" : ""}${absValue.toLocaleString("vi-VN")} đ`;
 }
 
 export function formatNumber(value: number): string {

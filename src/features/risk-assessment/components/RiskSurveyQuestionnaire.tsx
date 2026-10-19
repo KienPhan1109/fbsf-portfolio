@@ -45,17 +45,17 @@ export function RiskSurveyQuestionnaire() {
               </span>
             </h2>
             <p className="sw-heading__subtitle">
-              Phiếu khảo sát 10 câu hỏi & câu trả lời thực tế đo lường khẩu vị rủi ro và hành vi tài chính của khách hàng.
+              Comprehensive 10-question risk profiling questionnaire evaluating client risk tolerance, loss appetite, and investment behavior.
             </p>
           </div>
 
           <div className="ra-survey-header-row">
             <span className="ra-survey-meta">
-              Biên bản khảo sát thực tế • <strong className="font-mono">10 / 10 câu hỏi & câu trả lời</strong>
+              Official Survey Record • <strong className="font-mono">10 / 10 Questions &amp; Answers</strong>
             </span>
             <div className="ra-survey-badge font-mono">
               <span className="ra-survey-badge-dot" />
-              <span>Tổng điểm khảo sát: <strong>{totalScore} / {maxScore} điểm</strong></span>
+              <span>Total Score: <strong>{totalScore}/{maxScore} points</strong></span>
             </div>
           </div>
 
@@ -69,10 +69,10 @@ export function RiskSurveyQuestionnaire() {
                       <span className="ra-qa-idx font-mono">
                         {q.id < 10 ? `0${q.id}` : q.id}
                       </span>
-                      <span className="ra-qa-tag">Câu hỏi {q.id}</span>
+                      <span className="ra-qa-tag">Question {q.id}</span>
                     </div>
                     <div className="ra-qa-points font-mono">
-                      <span>+{q.points} điểm</span>
+                      <span>+{q.points} points</span>
                     </div>
                   </div>
 
@@ -81,8 +81,8 @@ export function RiskSurveyQuestionnaire() {
                   <div className="ra-qa-answer-box">
                     <div className="ra-qa-answer-meta">
                       <span className="ra-qa-answer-icon"><IconCheckCircle /></span>
-                      <span>Câu trả lời ghi nhận</span>
-                      <span className="ra-qa-option-badge font-mono">Đáp án {q.optionKey}</span>
+                      <span>Recorded Answer</span>
+                      <span className="ra-qa-option-badge font-mono">Option {q.optionKey}</span>
                     </div>
                     <p className="ra-qa-answer-text">{q.answer}</p>
                   </div>
@@ -99,10 +99,10 @@ export function RiskSurveyQuestionnaire() {
                       <span className="ra-qa-idx font-mono">
                         {q.id < 10 ? `0${q.id}` : q.id}
                       </span>
-                      <span className="ra-qa-tag">Câu hỏi {q.id}</span>
+                      <span className="ra-qa-tag">Question {q.id}</span>
                     </div>
                     <div className="ra-qa-points font-mono">
-                      <span>+{q.points} điểm</span>
+                      <span>+{q.points} points</span>
                     </div>
                   </div>
 
@@ -111,8 +111,8 @@ export function RiskSurveyQuestionnaire() {
                   <div className="ra-qa-answer-box">
                     <div className="ra-qa-answer-meta">
                       <span className="ra-qa-answer-icon"><IconCheckCircle /></span>
-                      <span>Câu trả lời ghi nhận</span>
-                      <span className="ra-qa-option-badge font-mono">Đáp án {q.optionKey}</span>
+                      <span>Recorded Answer</span>
+                      <span className="ra-qa-option-badge font-mono">Option {q.optionKey}</span>
                     </div>
                     <p className="ra-qa-answer-text">{q.answer}</p>
                   </div>

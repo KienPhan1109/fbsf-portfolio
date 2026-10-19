@@ -132,9 +132,9 @@ graph TD
      * Thanh tiến độ Fiduciary: **`37.5% tiến độ hiện tại`** (cơ sở: 300 triệu tiền mặt / 800 triệu mục tiêu).
    - **Cột Phải — Mục tiêu 2 [DÀI HẠN — 10 NĂM TỚI]:**
      * Tiêu đề: **Mua nhà đất an cư**
-     * Mô tả: Nhà phố 70m² tại đường Lê Văn Việt, TP. Thủ Đức (Quận 9 cũ) để ổn định chỗ ở lâu dài.
-     * Số tiền mục tiêu: **`3.900.000.000 đ`** (Font JetBrains Mono 28px Bold).
-     * Thanh tiến độ Fiduciary: **`24.4% tiến độ hiện tại`** (cơ sở: 950 triệu tài sản ròng / 3.9 tỷ mục tiêu).
+     * Mô tả: Nhà phố 60m² tại đường Lê Văn Việt, TP. Thủ Đức (Quận 9 cũ) để ổn định chỗ ở lâu dài.
+     * Số tiền mục tiêu: **`3.400.000.000 đ`** (Font JetBrains Mono 28px Bold).
+     * Thanh tiến độ Fiduciary: **`27.9% tiến độ hiện tại`** (cơ sở: 950 triệu tài sản ròng / 3.4 tỷ mục tiêu).
 
 3. **TẦNG 3: FIDUCIARY BALANCE SHEET STRIP (Pure White Card, 4 Cột KPI Thống kê chuẩn mực):**
    - **Cột 1: TOTAL ASSETS (Tổng tài sản):**
