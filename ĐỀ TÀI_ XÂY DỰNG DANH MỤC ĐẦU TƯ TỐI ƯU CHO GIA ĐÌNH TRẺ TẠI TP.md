@@ -244,13 +244,13 @@ The risk aversion coefficient A \= 5.07 serves as the risk-weighting parameter i
 
 Main heading: SELECTED STOCK ANALYSIS
 
-| Ticker | Sector | Investment Role | Key Return Drivers | Household Financial Objective |
-| ----- | ----- | ----- | ----- | ----- |
-| VCB | Banking | Defensive — Core Holding | Credit growth and interest rates | Capital preservation and long-term wealth accumulation |
-| DHG | Pharmaceuticals | Defensive | Healthcare demand and cyclical industry trends | Reduce volatility and preserve portfolio value |
-| GAS | Energy | Defensive — Cash Flow Generation | Production volumes and energy prices | Stable cash flow and sector diversification |
-| MWG | Retail | Growth | Consumer purchasing power | Support long-term housing and education goals |
-| SSI | Securities | Growth — Cyclical | Market liquidity and investor sentiment | Capital appreciation under favorable market conditions |
+| Ticker | Sector | Role in the Portfolio | Client Needs Met |
+| ----- | ----- | ----- | ----- |
+| VCB | Banking | Defensive, stable base | Capital preservation, long-term accumulation |
+| DHG | Pharmaceuticals | Defensive, risk reduction | Volatility reduction, value preservation |
+| GAS | Energy | Defensive, steady cash flow | Steady cash flow, sector diversification |
+| MWG | Retail | Consumer growth | Housing goal and long-term education fund |
+| SSI | Securities | Cyclical growth | Capital appreciation in favourable markets |
 
 ## **9\. Optimal Risky Portfolio**
 
@@ -297,15 +297,15 @@ Subtitle: The evaluation indicates that the investment plan is projected to meet
 | ----- | ----- | ----- | ----- |
 | Vehicle Purchase (Year 3\) | 912.93 | 442.16 | Not Achieved |
 | Loan Repayment | 100 | 100 | Achieved |
-| Home Purchase (Year 10\) | 6,056.60 | 6,066.96 | Achieved |
+| Home Purchase (Year 10\) | 5,280.10 | 6,066.96 | Achieved |
 
 ### **Key performance indicators**
 
 | Vietnamese | English |
 | ----- | ----- |
 | 10-Year Housing Goal | 10-Year Housing Goal |
-| \+10.38 triệu đ | \+VND 10.38 million |
-| Tài sản tích lũy (6,066.96 triệu đ) vượt giá trị nhà (6,056.60 triệu đ). | Accumulated assets (VND 6,066.96 million) exceed the projected home purchase value (VND 6,056.60 million). |
+| \+786.86 triệu đ | \+VND 786.86 million |
+| Tài sản tích lũy (6,066.96 triệu đ) vượt giá trị nhà (5,280.10 triệu đ). | Accumulated assets (VND 6,066.96 million) exceed the projected home purchase value (VND 5,280.10 million). |
 | Emergency Reserve | Emergency Reserve |
 | 150 triệu đ | VND 150 million |
 | Bảo lưu dự phòng thanh khoản an toàn, không đem toàn bộ tiền mặt đi đầu tư rủi ro. | Maintain a liquid emergency reserve and avoid committing all available cash to risk-bearing investments. |

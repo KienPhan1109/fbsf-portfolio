@@ -277,13 +277,13 @@ Bao gồm 10 câu hỏi trắc nghiệm A, B, C, D (thang điểm 1, 2, 3, 4) d�
 #### 6B. Phân Tích Danh Mục 5 Mã Cổ Phiếu Lựa Chọn (Selected Stock Analysis)
 * **Section Heading:** `SELECTED STOCK ANALYSIS`
 * **Bảng thông tin 5 mã cổ phiếu trụ cột:**
-  | Mã | Ngành | Vai trò trong danh mục | Động lực lợi nhuận chính | Nhu cầu gia đình đáp ứng |
-  | :--- | :--- | :--- | :--- | :--- |
-  | **VCB** | Ngân hàng | Phòng thủ nền tảng | Tăng trưởng tín dụng, CASA cao, kiểm soát rủi ro số 1 | Bảo toàn vốn, tích lũy dài hạn |
-  | **DHG** | Dược phẩm | Phòng thủ | Nhu cầu thuốc thiết yếu, ít biến động theo chu kỳ | Giảm biến động danh mục |
-  | **GAS** | Năng lượng | Phòng thủ tạo dòng tiền | Khai thác và phân phối khí, cổ tức tiền mặt dồi dào | Dòng tiền cổ tức, phòng hộ lạm phát |
-  | **MWG** | Bán lẻ | Tăng trưởng | Phục hồi sức mua tiêu dùng, chuỗi Bách Hóa Xanh sinh lời | Tăng tốc vốn cho mục tiêu mua nhà |
-  | **SSI** | Chứng khoán | Tăng trưởng chu kỳ | Thanh khoản thị trường tài chính, nâng hạng thị trường | Tối đa hóa lợi nhuận khi thị trường bùng nổ |
+  | Ticker | Sector | Role in the Portfolio | Client Needs Met |
+  | :--- | :--- | :--- | :--- |
+  | **VCB** | Banking | Defensive, stable base | Capital preservation, long-term accumulation |
+  | **DHG** | Pharmaceuticals | Defensive, risk reduction | Volatility reduction, value preservation |
+  | **GAS** | Energy | Defensive, steady cash flow | Steady cash flow, sector diversification |
+  | **MWG** | Retail | Consumer growth | Housing goal and long-term education fund |
+  | **SSI** | Securities | Cyclical growth | Capital appreciation in favourable markets |
 
 #### 6C. Đánh Giá Hiệu Suất Cổ Phiếu Chuẩn Hóa (Performance Evaluation)
 * **Section Heading:** `PERFORMANCE EVALUATION`
@@ -395,10 +395,10 @@ Mỗi ô dữ liệu được bố trí thành một section con trang nhã, că
   | :--- | :---: | :---: | :---: |
   | **Vehicle Purchase (Year 3)** | `912.93` | `442.16` | **Unachieved** *(Màu đỏ/rose `#E11D48`)* |
   | **Loan Recovery** | `100.00` | `100.00` | **Achieved** *(Màu xanh ngọc `#10B981`)* |
-  | **Housing Purchase (Year 10)** | `6,056.60` | `6,066.96` | **Achieved** *(Màu xanh ngọc `#10B981`)* |
+  | **Housing Purchase (Year 10)** | `5,280.10` | `6,066.96` | **Achieved** *(Màu xanh ngọc `#10B981`)* |
 
 #### 2. Thẻ Chỉ Số Trọng Tâm (Institutional Highlights)
-* **10-Year Housing Goal Surplus:** Thặng dư vốn `+10.38M VNĐ` (Tích lũy 6,066.96M so với mục tiêu lạm phát 6,056.60M VNĐ, đạt 100.17% mục tiêu).
+* **10-Year Housing Goal Surplus:** Thặng dư vốn `+786.86M VNĐ` (Tích lũy 6,066.96M so với mục tiêu lạm phát 5,280.10M VNĐ, đạt 114.90% mục tiêu).
 * **Zero Financial Leverage:** Khẳng định đạt mục tiêu an cư hoàn toàn bằng sức mạnh lãi kép và kỷ luật dòng tiền, **không cần vay thêm nợ ngân hàng**.
 * **Emergency Reserve Bảo Lưu:** Bảo lưu `150M VNĐ` làm quỹ dự phòng thanh khoản khẩn cấp (không đem toàn bộ vốn đi đầu tư).
 
@@ -446,6 +446,6 @@ Trước khi bàn giao hoặc triển khai code, hãy kiểm tra danh sách tiê
 - [ ] **Thứ tự Section:** Đảm bảo đúng 10 section theo thứ tự 1 → 10, không có section ngoại lai.
 - [ ] **Tiêu đề Section:** Tất cả các H1, H2, Subtitle đều chính xác từng từ theo đặc tả.
 - [ ] **Không có Badge phát sáng / Đổ bóng:** Mọi thẻ nhãn đều dùng hairline phẳng, không hiệu ứng glow, không pulsing dot, không bóng neon.
-- [ ] **Chính xác dữ liệu tài chính:** Tài sản 1.4B, Nợ 450M, Net Worth 950M, Thâm hụt ban đầu -8.3M, Điểm rủi ro 23/34 (hoặc 26/40), Hệ số A = 5.07, ORP (MWG 42%, GAS 35%, VCB 12%, SSI 10%), OCP (78.84% Bond, 21.16% ORP), Thặng dư mua nhà +10.38M VNĐ.
+- [ ] **Chính xác dữ liệu tài chính:** Tài sản 1.4B, Nợ 450M, Net Worth 950M, Thâm hụt ban đầu -8.3M, Điểm rủi ro 23/34 (hoặc 26/40), Hệ số A = 5.07, ORP (MWG 42%, GAS 35%, VCB 12%, SSI 10%), OCP (78.84% Bond, 21.16% ORP), Thặng dư mua nhà +786.86M VNĐ.
 - [ ] **Typography Monospace:** Toàn bộ %, số tiền VNĐ và mã cổ phiếu hiển thị bằng font `JetBrains Mono` với thuộc tính `tabular-nums`.
 - [ ] **Độ nhạy Responsive:** Tương thích hoàn hảo từ Mobile (375px), Tablet (768px) đến Desktop (1440px+).

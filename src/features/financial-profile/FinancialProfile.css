@@ -273,7 +273,7 @@
   border-radius: 8px;
   padding: 30px 34px;
   display: grid;
-  grid-template-columns: 1.35fr 1fr;
+  grid-template-columns: minmax(0, 1fr) 300px;
   gap: 36px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
 }
@@ -281,6 +281,7 @@
 .fp-bd-table-panel {
   display: flex;
   flex-direction: column;
+  min-width: 0;
 }
 
 .fp-bd-header {
@@ -355,6 +356,7 @@
   font-size: 12px;
   padding: 2px 0;
   gap: 12px;
+  min-width: 0;
 }
 
 .fp-bd-cell-name {
@@ -363,6 +365,7 @@
   gap: 8px;
   flex: 1;
   min-width: 0;
+  overflow: hidden;
 }
 
 .fp-bd-dot {
@@ -376,6 +379,7 @@
   font-weight: 600;
   color: #1E293B;
   white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .fp-bd-cell-desc {
@@ -384,6 +388,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  min-width: 0;
 }
 
 .fp-bd-cell-val {
@@ -432,8 +437,9 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding-left: 20px;
+  padding-left: 28px;
   border-left: 1px solid #F1F5F9;
+  min-width: 0;
 }
 
 .fp-bd-donut-wrap {
@@ -441,6 +447,7 @@
   justify-content: center;
   align-items: center;
   padding: 10px 0 16px;
+  width: 100%;
 }
 
 .fp-bd-donut {
@@ -451,6 +458,7 @@
   align-items: center;
   justify-content: center;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+  flex-shrink: 0;
 }
 
 .fp-bd-donut-center {
@@ -483,9 +491,10 @@
 .fp-bd-legend {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
   border-top: 1px solid #F1F5F9;
-  padding-top: 12px;
+  padding-top: 14px;
+  width: 100%;
 }
 
 .fp-bd-legend-item {
@@ -493,12 +502,15 @@
   justify-content: space-between;
   align-items: center;
   font-size: 11.5px;
+  gap: 10px;
 }
 
 .fp-bd-legend-left {
   display: flex;
   align-items: center;
   gap: 8px;
+  min-width: 0;
+  flex: 1;
 }
 
 .fp-bd-legend-dot {
@@ -510,11 +522,17 @@
 
 .fp-bd-legend-name {
   color: #475569;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .fp-bd-legend-val {
   font-weight: 700;
   color: #0F172A;
+  white-space: nowrap;
+  flex-shrink: 0;
+  text-align: right;
 }
 
 /* ============================================================
@@ -660,6 +678,9 @@
     padding-left: 0;
     border-top: 1px solid #F1F5F9;
     padding-top: 24px;
+    max-width: 360px;
+    margin: 0 auto;
+    width: 100%;
   }
 
   .fp-cashflow-card {

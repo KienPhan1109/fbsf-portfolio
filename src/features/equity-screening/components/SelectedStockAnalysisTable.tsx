@@ -31,11 +31,10 @@ export function SelectedStockAnalysisTable() {
               <table className="equity-table">
                 <thead>
                   <tr>
-                    <th style={{ width: '10%' }}>Ticker</th>
-                    <th style={{ width: '14%' }}>Sector</th>
-                    <th style={{ width: '22%' }}>Investment Role</th>
-                    <th style={{ width: '26%' }}>Key Return Drivers</th>
-                    <th>Household Financial Objective</th>
+                    <th style={{ width: '12%' }}>Ticker</th>
+                    <th style={{ width: '18%' }}>Sector</th>
+                    <th style={{ width: '32%' }}>Role in the Portfolio</th>
+                    <th>Client Needs Met</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -46,7 +45,7 @@ export function SelectedStockAnalysisTable() {
                           {s.ticker}
                         </strong>
                       </td>
-                      <td className="equity-td-industry">{s.industry}</td>
+                      <td className="equity-td-industry">{s.sector}</td>
                       <td className="equity-td-role">
                         <span
                           className={`equity-role-pill ${
@@ -58,8 +57,7 @@ export function SelectedStockAnalysisTable() {
                           {s.role}
                         </span>
                       </td>
-                      <td className="equity-td-driver">{s.profitDriver}</td>
-                      <td className="equity-td-need">{s.familyNeed}</td>
+                      <td className="equity-td-need">{s.clientNeedsMet}</td>
                     </tr>
                   ))}
                 </tbody>

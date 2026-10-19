@@ -291,10 +291,10 @@ graph TD
   * Bảng đánh giá 3 mốc mục tiêu:
     1. *Mua xe hơi (Năm 3 - Tháng 36):* Giá trị 912,93 tr vs Tích lũy 442,16 tr -> Chưa đạt / Hoãn mua xe để dồn vốn mua nhà.
     2. *Thu hồi nợ (Năm 5 - Tháng 60):* Thu hồi 100 tr khoản bạn mượn -> Đạt mục tiêu, tái đầu tư vào OCP.
-    3. *Mua nhà đất (Năm 10 - Tháng 120):* Cần 6.056,60 tr vs Tích lũy 6.066,96 tr -> **Đạt mục tiêu, thặng dư +10,38 triệu đ**.
+    3. *Mua nhà đất (Năm 10 - Tháng 120):* Cần 5.280,10 tr vs Tích lũy 6.066,96 tr -> **Đạt mục tiêu, thặng dư +786,86 triệu đ**.
   * Bảng 17 tham số giả định kinh tế vĩ mô & tăng trưởng tài sản (Lạm phát 4.5%, Thu nhập tăng 8.02%, Chi tiêu tăng 4.5%, BĐS Bảo Lộc tăng 10%/năm đạt 2.593,74 tr, Danh mục OCP sau thuế 3.473,22 tr, Tổng tài sản 6.066,96 tr).
 - **Thiết kế mới & Quy tắc số liệu bất đối xứng:**
-  * Thẻ chiến thắng mua nhà 10 năm (Hero Card): Con số thống trị tuyệt đối **`+₫10.380.000`** thặng dư vốn và **`₫6.066.960.000`** tổng tài sản (Emerald `#10B981` 38px Bold 800).
+  * Thẻ chiến thắng mua nhà 10 năm (Hero Card): Con số thống trị tuyệt đối **`+₫786.860.000`** thặng dư vốn và **`₫6.066.960.000`** tổng tài sản (Emerald `#10B981` 38px Bold 800).
   * 3 Cột thời gian độc lập với nhãn trạng thái Mint `ACHIEVED` và Slate `POSTPONED`.
 
 ---
@@ -345,7 +345,7 @@ graph TD
 | **Equity Screening** | Sàng lọc Cổ phiếu | **`GAS (15.76% / năm)`** (Vibrant Emerald) | DHG `4.3%`, VCB `9.54%`, MWG `13.32%`, SSI `11.64%` |
 | **Portfolio Optimization**| Danh mục Rủi ro ORP | **`MWG 42%`** (Vibrant Emerald) | GAS `35%`, VCB `12%`, SSI `10%` |
 | **Portfolio Optimization**| Danh mục Hoàn chỉnh OCP | **`78.84%`** Trái phiếu (Deep Forest) | ORP `21.16%`, Return `0.5653%`, Risk `1.6232%` |
-| **Financial Plan** | Mục tiêu 10 Năm | **`+₫10.380.000`** Thặng dư (Vibrant Emerald) | Tổng TS `₫6.066,96M`, Nhà đất `₫6.056,60M` |
+| **Financial Plan** | Mục tiêu 10 Năm | **`+₫786.860.000`** Thặng dư (Vibrant Emerald) | Tổng TS `₫6.066,96M`, Nhà đất `₫5.280,10M` |
 | **IPS Report** | Báo cáo Văn kiện IPS | **`+₫12.000.000 / tháng`** Cải thiện (Emerald) | Sau tối ưu `+₫3.7M`, Trước tối ưu `-₫8.3M` |
 
 ---

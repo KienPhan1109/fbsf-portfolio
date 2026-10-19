@@ -59,12 +59,12 @@ export const planEvaluationRows: EvaluationRow[] = [
   {
     id: 'home-purchase',
     goal: 'Home Purchase (Year 10)',
-    goalValue: '6,056.60',
+    goalValue: '5,280.10',
     acquiredCapital: '6,066.96',
     result: 'Achieved',
     presentValue: '3,900.00',
     timeline: 'Month 120',
-    note: 'Danh mục OCP sau thuế (3.473,22 triệu đ) kết hợp BĐS Bảo Lộc (2.593,74 triệu đ) đạt tổng 6.066,96 triệu đ, vượt mức 6.056,60 triệu đ với thặng dư vốn +10,38 triệu đ.',
+    note: 'Danh mục OCP sau thuế (3.473,22 triệu đ) kết hợp BĐS Bảo Lộc (2.593,74 triệu đ) đạt tổng 6.066,96 triệu đ, vượt mức 5.280,10 triệu đ với thặng dư vốn +786,86 triệu đ.',
   },
 ];
 
@@ -86,6 +86,6 @@ export const planAssumptions: FinancialPlanAssumptions = {
   securitiesTax: 'VND 3.48 million (0.1%)',
   portfolioAfterTaxYear10: 'VND 3,473.22 million',
   totalAvailableAssetYear10: 'VND 6,066.96 million',
-  targetHousingValueYear10: 'VND 6,056.60 million',
-  capitalSurplus: '+VND 10.38 million',
+  targetHousingValueYear10: 'VND 5,280.10 million',
+  capitalSurplus: '+VND 786.86 million',
 };

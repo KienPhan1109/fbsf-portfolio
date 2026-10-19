@@ -47,52 +47,46 @@ export const stockSelectionCriteria: StockCriterion[] = [
 
 export interface SelectedStock {
   ticker: string;
-  industry: string;
+  sector: string;
   role: string;
-  profitDriver: string;
-  familyNeed: string;
+  clientNeedsMet: string;
   isDefensive?: boolean;
 }
 
 export const selectedStocks: SelectedStock[] = [
   {
     ticker: 'VCB',
-    industry: 'Banking',
-    role: 'Defensive — Core Holding',
-    profitDriver: 'Credit growth and interest rates',
-    familyNeed: 'Capital preservation and long-term wealth accumulation',
+    sector: 'Banking',
+    role: 'Defensive, stable base',
+    clientNeedsMet: 'Capital preservation, long-term accumulation',
     isDefensive: true,
   },
   {
     ticker: 'DHG',
-    industry: 'Pharmaceuticals',
-    role: 'Defensive',
-    profitDriver: 'Healthcare demand and cyclical industry trends',
-    familyNeed: 'Reduce volatility and preserve portfolio value',
+    sector: 'Pharmaceuticals',
+    role: 'Defensive, risk reduction',
+    clientNeedsMet: 'Volatility reduction, value preservation',
     isDefensive: true,
   },
   {
     ticker: 'GAS',
-    industry: 'Energy',
-    role: 'Defensive — Cash Flow Generation',
-    profitDriver: 'Production volumes and energy prices',
-    familyNeed: 'Stable cash flow and sector diversification',
+    sector: 'Energy',
+    role: 'Defensive, steady cash flow',
+    clientNeedsMet: 'Steady cash flow, sector diversification',
     isDefensive: true,
   },
   {
     ticker: 'MWG',
-    industry: 'Retail',
-    role: 'Growth',
-    profitDriver: 'Consumer purchasing power',
-    familyNeed: 'Support long-term housing and education goals',
+    sector: 'Retail',
+    role: 'Consumer growth',
+    clientNeedsMet: 'Housing goal and long-term education fund',
     isDefensive: false,
   },
   {
     ticker: 'SSI',
-    industry: 'Securities',
-    role: 'Growth — Cyclical',
-    profitDriver: 'Market liquidity and investor sentiment',
-    familyNeed: 'Capital appreciation under favorable market conditions',
+    sector: 'Securities',
+    role: 'Cyclical growth',
+    clientNeedsMet: 'Capital appreciation in favourable markets',
     isDefensive: false,
   },
 ];

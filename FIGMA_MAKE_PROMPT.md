@@ -256,9 +256,9 @@ Bạn là Giám đốc Thiết kế Hệ thống Giao diện Cấp cao (Principa
 - **8A. BẢNG ĐÁNH GIÁ 3 MỤC TIÊU TÀI CHÍNH (BẢO TOÀN ĐỦ DỮ LIỆU GỐC):**
   * Mục tiêu 1: Mua xe hơi (Năm 3) | Giá trị mục tiêu: 912.93 Triệu VNĐ | Vốn đạt được: 442.16 Triệu VNĐ | Kết quả: **Chưa đạt (Unachieved - Nhãn đỏ phẳng #E11D48)**.
   * Mục tiêu 2: Thu hồi nợ vay (Năm 1) | Giá trị mục tiêu: 100.00 Triệu VNĐ | Vốn đạt được: 100.00 Triệu VNĐ | Kết quả: **Đạt (Achieved - Nhãn xanh phẳng #10B981)**.
-  * Mục tiêu 3: Mua nhà đất an cư (Năm 10) | Giá trị mục tiêu: 6.056,60 Triệu VNĐ | Vốn tích lũy đạt được: 6.066,96 Triệu VNĐ | Kết quả: **Đạt (Achieved - Nhãn xanh phẳng #10B981)**.
+  * Mục tiêu 3: Mua nhà đất an cư (Năm 10) | Giá trị mục tiêu: 5.280,10 Triệu VNĐ | Vốn tích lũy đạt được: 6.066,96 Triệu VNĐ | Kết quả: **Đạt (Achieved - Nhãn xanh phẳng #10B981)**.
 - **8B. CHỈ SỐ VÀNG ĐỘT PHÁ DUY NHẤT (KING METRIC CỦA TOÀN BỘ KẾ HOẠCH):**
-  * **"+10.380.000 Đ" — THẶNG DƯ TÍCH LŨY MUA NHÀ AN CƯ (TỔNG VỐN 6.066,96 TRIỆU VƯỢT MỤC TIÊU LẠM PHÁT 6.056,60 TRIỆU ➔ ĐẠI TỰ 34px MÀU EMERALD #10B981 ĐẶT TRONG THẺ NỔI TRUNG TÂM)**.
+  * **"+786.860.000 Đ" — THẶNG DƯ TÍCH LŨY MUA NHÀ AN CƯ (TỔNG VỐN 6.066,96 TRIỆU VƯỢT MỤC TIÊU LẠM PHÁT 5.280,10 TRIỆU ➔ ĐẠI TỰ 34px MÀU EMERALD #10B981 ĐẶT TRONG THẺ NỔI TRUNG TÂM)**.
   * Cam kết cốt lõi: **100% KHÔNG CẦN VAY NỢ NGÂN HÀNG (Zero Financial Leverage)** cho mục tiêu mua nhà.
   * Bảo lưu Quỹ thanh khoản khẩn cấp: **150.000.000 đ** an toàn tuyệt đối.
 
@@ -325,7 +325,7 @@ Bạn là Giám đốc Thiết kế Hệ thống Giao diện Cấp cao (Principa
 | **07A** | Danh mục ORP | **`MWG: 42.0%`** (Tỷ trọng áp đảo) | 34px Bold 800 · Emerald `#10B981` | GAS (35%), VCB (12%), SSI (10%) (16px Slate) |
 | **07A** | Hiệu suất ORP | **`SHARPE: 2.41`** (Quy đổi năm) | 32px Bold 800 · Emerald `#10B981` | Expected return 1.06%/tháng, Risk 7.67%/tháng (16px Slate) |
 | **07B** | Danh mục OCP | **`78.84% TRÁI PHIẾU CP`** (Tỷ trọng an toàn) | 34px Bold 800 · White on `#062C1E` | Cổ phiếu ORP 21.16%, Risk 1.62%/tháng, Return 0.56%/tháng |
-| **08** | Kế hoạch đầu tư | **`+10.380.000 Đ`** (Thặng dư vốn an cư 10 năm) | 34px Bold 800 · Mint Box `#10B981` | Xe hơi 442/912M (Chưa đạt), Thu hồi nợ 100M (16px) |
+| **08** | Kế hoạch đầu tư | **`+786.860.000 Đ`** (Thặng dư vốn an cư 10 năm) | 34px Bold 800 · Mint Box `#10B981` | Xe hơi 442/912M (Chưa đạt), Thu hồi nợ 100M (16px) |
 | **09** | Văn kiện IPS | **`78.84% PHÒNG HỘ TRÁI PHIẾU`** | 28px Bold 700 · Deep Forest `#062C1E` | Tài sản ròng 950M, Cải thiện dòng tiền +12M (16px Slate) |
 
 ---
