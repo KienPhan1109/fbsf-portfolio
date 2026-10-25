@@ -4,6 +4,7 @@
    ============================================================ */
 
 .footer-wrapper {
+  border-radius: 70px 70px 0px 0px;
   background: #062C1E;
   background: linear-gradient(180deg, #062C1E 0%, #031811 100%);
   padding-top: 0;
@@ -108,7 +109,7 @@
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 13px;
 }
 
 .footer__nav-link {
@@ -116,17 +117,26 @@
   font-size: 14px;
   color: #CBD5E1;
   text-decoration: none;
-  transition: all 0.2s ease;
-  display: inline-block;
-  line-height: 1.45;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  line-height: 1.4;
 }
 
 .footer__nav-link:hover {
   color: #34D399;
-  transform: translateX(4px);
+  transform: translateX(6px);
 }
 
-/* Column 3: Contact List */
+.footer__nav-link:hover::before {
+  background: #34D399;
+  box-shadow: 0 0 6px #34D399;
+}
+
+/* ============================================================
+   COLUMN 3: CONTACT LIST (CLEAN, REFINED & UNCLUTTERED)
+   ============================================================ */
 .footer__contact-list {
   list-style: none;
   padding: 0;
@@ -142,86 +152,96 @@
   color: #CBD5E1;
   display: flex;
   align-items: center;
-  gap: 10px;
-  line-height: 1.45;
-}
-
-.footer__contact-icon {
-  font-size: 15px;
-  color: #34D399;
-  flex-shrink: 0;
-}
-
-.footer__contact-hotline {
-  color: #34D399;
-  font-size: 14.5px;
-}
-
-.footer__contact-hotline strong {
-  color: #FFFFFF;
-  font-weight: 700;
-  letter-spacing: 0.02em;
+  gap: 12px;
+  line-height: 1.4;
+  text-decoration: none;
+  transition: color 0.35s ease;
 }
 
 .footer__contact-link {
-  color: #CBD5E1;
-  text-decoration: none;
-  transition: color 0.2s ease;
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
+  cursor: pointer;
 }
 
-.footer__contact-link:hover {
+.footer__contact-link:hover .footer__contact-text {
   color: #34D399;
 }
 
-.footer__contact-info strong {
-  color: #FFFFFF;
-  font-weight: 600;
+.footer__contact-link:hover .footer__contact-icon-box {
+  background: rgba(52, 211, 153, 0.2);
+  border-color: rgba(52, 211, 153, 0.4);
+  transform: scale(1.08) translateY(-2px);
 }
 
-.footer__contact-hours {
+.footer__contact-icon-box {
+  width: 28px;
+  height: 28px;
+  border-radius: 7px;
+  background: rgba(52, 211, 153, 0.08);
+  border: 1px solid rgba(52, 211, 153, 0.18);
+  color: #34D399;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   font-size: 13px;
-  color: #94A3B8;
+  flex-shrink: 0;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.footer__contact-disclaimer {
+.footer__contact-text {
+  color: #CBD5E1;
+  font-size: 13.5px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.35s ease;
+}
+
+.footer__contact-text strong {
+  color: #FFFFFF;
+  font-weight: 700;
+}
+
+.footer__disclaimer {
   font-size: 12px;
   color: #64748B;
-  margin-top: 6px;
-  line-height: 1.45;
+  line-height: 1.5;
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px dashed rgba(255, 255, 255, 0.08);
+  max-width: 320px;
 }
 
 /* ============================================================
    BOTTOM GIANT WATERMARK TEXT
+   Unified with Footer Background & Sunk 10% Below Edge
    ============================================================ */
 .footer__watermark-wrap {
-  background: rgba(0, 0, 0, 0.22);
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
-  padding: 24px 0 0 0;
+  background: transparent;
+  border: none;
+  padding: 0;
   overflow: hidden;
   display: flex;
   justify-content: center;
-  align-items: flex-end;
-  margin-top: 56px;
+  align-items: flex-start;
+  margin-top: clamp(28px, 4vw, 44px);
+  width: 100%;
+  height: clamp(38px, 8.8vw, 120px); /* Forces exact ~10% bottom clipping */
 }
 
 .footer__watermark-text {
   font-family: var(--font-heading);
-  font-size: clamp(56px, 12.5vw, 185px);
+  font-size: clamp(44px, 11.2vw, 205px);
   font-weight: 900;
-  letter-spacing: 0.05em;
-  color: rgba(255, 255, 255, 0.06);
-  line-height: 0.8;
+  letter-spacing: 0.06em;
+  color: rgba(255, 255, 255, 0.05);
+  line-height: 0.88;
   text-transform: uppercase;
   text-align: center;
   user-select: none;
   pointer-events: none;
   white-space: nowrap;
   width: 100%;
-  margin-bottom: -6px;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  display: block;
 }
 
 /* ============================================================
@@ -238,7 +258,7 @@
   }
 
   .footer__watermark-wrap {
-    margin-top: 48px;
+    margin-top: 28px;
   }
 }
 
@@ -265,12 +285,11 @@
   }
 
   .footer__watermark-wrap {
-    margin-top: 36px;
-    padding-top: 18px;
+    margin-top: 24px;
+    height: clamp(32px, 9vw, 54px);
   }
 
   .footer__watermark-text {
-    font-size: clamp(40px, 13vw, 72px);
-    margin-bottom: -4px;
+    font-size: clamp(36px, 11vw, 64px);
   }
 }

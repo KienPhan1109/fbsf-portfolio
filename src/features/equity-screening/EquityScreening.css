@@ -379,7 +379,7 @@
 .ssa-grid {
   display: grid;
   grid-template-columns: 1fr 380px;
-  gap: 40px;
+  gap: 36px;
   align-items: stretch;
 }
 
@@ -387,14 +387,17 @@
 .ssa-list {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   width: 100%;
+  height: 100%;
 }
 
 .ssa-row {
+  flex: 1;
   display: grid;
   grid-template-columns: 110px 180px 1fr 28px;
   align-items: center;
-  padding: 22px 28px;
+  padding: 18px 24px;
   border: none;
   background: transparent;
   text-align: left;
@@ -404,6 +407,7 @@
   font-family: inherit;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   position: relative;
+  min-height: 64px;
 }
 
 .ssa-row:last-child {
@@ -439,7 +443,7 @@
 }
 
 .ssa-row:hover:not(.is-active) {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.06);
   border-radius: 8px;
 }
 
@@ -477,19 +481,21 @@
 .ssa-profile-card {
   background: #F4F6F3;
   border-radius: 14px;
-  padding: 38px 36px 42px;
+  padding: 28px 32px 30px;
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
   box-shadow: 0 16px 36px rgba(0, 0, 0, 0.16);
   color: #062C1E;
-  min-height: 400px;
+  height: 100%;
+  box-sizing: border-box;
 }
 
 .ssa-profile-card__header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 48px;
+  margin-bottom: 24px;
 }
 
 .ssa-profile-card__tag {
@@ -511,30 +517,32 @@
 .ssa-profile-card__content {
   display: flex;
   flex-direction: column;
+  flex: 1;
+  justify-content: center;
 }
 
 .ssa-profile-card__ticker {
-  font-size: clamp(3.2rem, 4.5vw, 4.2rem);
+  font-size: clamp(2.8rem, 4vw, 3.6rem);
   font-weight: 800;
   color: #047857;
   line-height: 1;
-  margin: 0 0 14px;
+  margin: 0 0 10px;
   letter-spacing: -0.02em;
 }
 
 .ssa-profile-card__role {
   font-style: italic;
-  font-size: clamp(1.4rem, 1.8vw, 1.7rem);
+  font-size: clamp(1.3rem, 1.6vw, 1.55rem);
   font-weight: 600;
   color: #062C1E;
   line-height: 1.3;
-  margin-bottom: 22px;
+  margin-bottom: 16px;
   letter-spacing: -0.01em;
 }
 
 .ssa-profile-card__desc {
-  font-size: 14.5px;
-  line-height: 1.7;
+  font-size: 14px;
+  line-height: 1.65;
   color: #52665B;
   margin: 0;
   font-weight: 400;
@@ -649,143 +657,181 @@
   text-align: right;
 }
 
-/* 2-Column Combined Card Container */
-.pe-container {
+/* ============================================================
+   PERFORMANCE EVALUATION (INSTITUTIONAL METRIC SPEC TABLE)
+   Unified with Current Fiduciary Green Design Language
+   ============================================================ */
+
+.sec-perf-eval {
+  padding-top: var(--space-16, 64px);
+  padding-bottom: var(--space-24, 96px);
+  box-sizing: border-box;
+}
+
+.perf-card {
   background: #FFFFFF;
-  border: 1px solid #D8E0DA;
-  border-radius: 14px;
+  border-radius: 20px;
   overflow: hidden;
-  display: grid;
-  grid-template-columns: 1fr 340px;
-  box-shadow: 0 10px 30px -4px rgba(15, 23, 42, 0.04);
+  transition: box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
-/* Left: Chart Pane */
-.pe-chart-pane {
-  padding: 32px 32px 28px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  background: #FFFFFF;
+.perf-card:hover {
+  box-shadow: 0 20px 48px -8px rgba(6, 44, 30, 0.1);
+  border-color: rgba(7, 135, 90, 0.25);
 }
 
-.pe-svg-wrapper {
+.perf-table-wrap {
   width: 100%;
-  position: relative;
+  overflow-x: auto;
 }
 
-.pe-svg {
+.perf-table {
   width: 100%;
-  height: auto;
-  display: block;
+  border-collapse: collapse;
+  text-align: left;
 }
 
-.pe-point-group {
-  transition: opacity 0.2s ease;
-}
-
-.pe-point-dot {
-  transition: r 0.2s cubic-bezier(0.16, 1, 0.3, 1), fill 0.2s ease;
-}
-
-.pe-point-group:hover .pe-point-dot {
-  r: 9;
-}
-
-.pe-point-halo {
-  animation: pe-halo-pulse 2.5s infinite ease-in-out;
-}
-
-@keyframes pe-halo-pulse {
-  0%, 100% {
-    r: 18;
-    opacity: 0.8;
-  }
-  50% {
-    r: 22;
-    opacity: 0.4;
-  }
-}
-
-/* Right: Dark Forest Green Card */
-.pe-side-card {
+/* Table Header matching Correlation Matrix & System Workflow */
+.perf-table thead tr {
   background: #062C1E;
-  color: #FFFFFF;
-  padding: 44px 34px 36px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
 }
 
-.pe-side-card__top {
-  display: flex;
-  flex-direction: column;
-}
-
-.pe-side-card__tag {
-  font-size: 10.5px;
+.perf-table th {
+  padding: 18px 24px;
+  font-family: var(--font-mono);
+  font-size: 11.5px;
   font-weight: 700;
-  letter-spacing: 0.14em;
-  color: #34D399;
+  letter-spacing: 0.08em;
+  color: #FFFFFF;
   text-transform: uppercase;
-  margin-bottom: 36px;
+  border: none;
+  white-space: nowrap;
 }
 
-.pe-side-card__ticker {
-  font-size: clamp(3rem, 4.2vw, 4rem);
-  font-weight: 800;
-  color: #FFFFFF;
-  line-height: 1;
-  margin: 0 0 12px;
-  letter-spacing: -0.02em;
+.perf-th-ticker {
+  width: 26%;
+  text-align: left;
 }
 
-.pe-side-card__subtitle {
-  font-size: 13.5px;
-  color: rgba(255, 255, 255, 0.72);
-  font-weight: 450;
-  margin-bottom: 42px;
-  line-height: 1.45;
+.perf-th-num {
+  text-align: right;
+  width: 18.5%;
 }
 
-.pe-metrics {
+/* Row Styling */
+.perf-row {
+  border-bottom: 1px solid rgba(226, 232, 240, 0.85);
+  transition: background-color 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.perf-row:last-child {
+  border-bottom: none;
+}
+
+.perf-row:hover {
+  background-color: #F0FAF4;
+}
+
+.perf-table td {
+  padding: 18px 24px;
+  vertical-align: middle;
+}
+
+.perf-td-ticker {
+  text-align: left;
+}
+
+.perf-td-num {
+  text-align: right;
+}
+
+/* Cell Elements */
+.perf-stock-cell {
   display: flex;
-  flex-direction: column;
-  margin-bottom: 32px;
+  align-items: center;
+  gap: 14px;
 }
 
-.pe-metric-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  padding: 16px 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
-}
-
-.pe-metric-row:last-child {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-}
-
-.pe-metric-label {
-  font-size: 13px;
-  color: rgba(255, 255, 255, 0.7);
-  font-weight: 450;
-}
-
-.pe-metric-val {
+.perf-ticker {
+  font-family: var(--font-heading);
   font-size: 16px;
-  font-weight: 700;
+  font-weight: 800;
+  color: #062C1E;
+  letter-spacing: -0.01em;
+  background: #F0FAF4;
+  border: 1px solid #D6EFE0;
+  padding: 4px 12px;
+  border-radius: 8px;
+  display: inline-block;
+  min-width: 54px;
+  text-align: center;
+  transition: all 0.2s ease;
+}
+
+.perf-row:hover .perf-ticker {
+  background: #07875A;
   color: #FFFFFF;
+  border-color: #07875A;
 }
 
-.pe-disclaimer {
-  font-size: 10.5px;
+.perf-sector {
+  font-family: var(--font-primary);
+  font-size: 13.5px;
+  color: #64748B;
+  font-weight: 500;
+}
+
+.perf-num {
+  font-size: 14.5px;
+  font-weight: 700;
+  color: #062C1E;
+}
+
+.perf-num--vol {
+  color: #07875A;
+}
+
+.perf-num--highlight {
+  color: #07875A;
+  font-weight: 800;
+  font-size: 15px;
+}
+
+/* Table Footer */
+.perf-table-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 16px 24px;
+  background: #F8FAF9;
+  border-top: 1px solid rgba(226, 232, 240, 0.85);
+  font-size: 12.5px;
+  color: #64748B;
+}
+
+.perf-footer-note {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   line-height: 1.45;
-  color: rgba(255, 255, 255, 0.45);
-  margin: 0;
 }
 
-/* Responsive */
+.perf-note-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #10B981;
+  flex-shrink: 0;
+}
+
+.perf-footer-meta {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: #047857;
+  white-space: nowrap;
+}
+
 @media (max-width: 1024px) {
   .pe-header {
     flex-direction: column;
@@ -793,17 +839,19 @@
     gap: 16px;
     margin-bottom: 36px;
   }
+}
 
-  .pe-container {
-    grid-template-columns: 1fr;
+@media (max-width: 768px) {
+  .perf-table-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 14px 16px;
   }
 
-  .pe-chart-pane {
-    padding: 24px 16px 20px;
-  }
-
-  .pe-side-card {
-    padding: 32px 24px;
+  .perf-table th,
+  .perf-table td {
+    padding: 14px 16px;
   }
 }
 
@@ -906,3 +954,102 @@
     margin-right: 6px;
   }
 }
+
+/* ============================================================
+   TABLE & CHART ENTRANCE ANIMATIONS (STAGGERED REVEALS)
+   ============================================================ */
+
+/* 1. Stock Selection Criteria Grid Cells Cascade */
+.equity-wrapper:not(.is-visible) .ssc-cell {
+  opacity: 0;
+  transform: translateY(28px) scale(0.95);
+  transition: opacity 0.85s ease, transform 0.85s ease;
+}
+
+.equity-wrapper.is-visible .ssc-cell {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 1.2s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.35s ease,
+              background-color 0.35s ease,
+              box-shadow 0.35s ease;
+}
+
+.equity-wrapper.is-visible .ssc-cell:nth-child(1) { transition-delay: 0.12s; }
+.equity-wrapper.is-visible .ssc-cell:nth-child(2) { transition-delay: 0.24s; }
+.equity-wrapper.is-visible .ssc-cell:nth-child(3) { transition-delay: 0.36s; }
+.equity-wrapper.is-visible .ssc-cell:nth-child(4) { transition-delay: 0.48s; }
+.equity-wrapper.is-visible .ssc-cell:nth-child(5) { transition-delay: 0.60s; }
+.equity-wrapper.is-visible .ssc-cell:nth-child(6) { transition-delay: 0.72s; }
+.equity-wrapper.is-visible .ssc-cell:nth-child(7) { transition-delay: 0.84s; }
+
+/* 2. Selected Stock Analysis Table Rows & Profile Card */
+.equity-wrapper:not(.is-visible) .ssa-row {
+  opacity: 0;
+  transform: translateX(-32px);
+  transition: opacity 0.85s ease, transform 0.85s ease;
+}
+
+.equity-wrapper.is-visible .ssa-row {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 1.2s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.35s ease;
+}
+
+.equity-wrapper.is-visible .ssa-row:nth-child(1) { transition-delay: 0.15s; }
+.equity-wrapper.is-visible .ssa-row:nth-child(2) { transition-delay: 0.30s; }
+.equity-wrapper.is-visible .ssa-row:nth-child(3) { transition-delay: 0.45s; }
+.equity-wrapper.is-visible .ssa-row:nth-child(4) { transition-delay: 0.60s; }
+.equity-wrapper.is-visible .ssa-row:nth-child(5) { transition-delay: 0.75s; }
+
+.equity-wrapper:not(.is-visible) .ssa-profile-card {
+  opacity: 0;
+  transform: translateX(36px) scale(0.95);
+  transition: opacity 0.85s ease, transform 0.85s ease;
+}
+
+.equity-wrapper.is-visible .ssa-profile-card {
+  opacity: 1;
+  transform: translateX(0) scale(1);
+  transition: opacity 1.3s cubic-bezier(0.16, 1, 0.3, 1) 0.3s,
+              transform 1.3s cubic-bezier(0.16, 1, 0.3, 1) 0.3s,
+              box-shadow 0.45s ease;
+}
+
+/* 3. Performance Evaluation Table Rows */
+.equity-wrapper:not(.is-visible) .perf-table thead tr {
+  opacity: 0;
+  transform: translateY(-16px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.equity-wrapper.is-visible .perf-table thead tr {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 1.1s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 1.1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.equity-wrapper:not(.is-visible) .perf-row {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.85s ease, transform 0.85s ease;
+}
+
+.equity-wrapper.is-visible .perf-row {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 1.2s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.35s ease;
+}
+
+.equity-wrapper.is-visible .perf-row:nth-child(1) { transition-delay: 0.15s; }
+.equity-wrapper.is-visible .perf-row:nth-child(2) { transition-delay: 0.30s; }
+.equity-wrapper.is-visible .perf-row:nth-child(3) { transition-delay: 0.45s; }
+.equity-wrapper.is-visible .perf-row:nth-child(4) { transition-delay: 0.60s; }
+.equity-wrapper.is-visible .perf-row:nth-child(5) { transition-delay: 0.75s; }
+

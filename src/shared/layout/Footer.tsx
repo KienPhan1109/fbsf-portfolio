@@ -1,9 +1,9 @@
 import React from 'react';
 import {
-  TeamOutlined,
+  PhoneOutlined,
   MailOutlined,
+  TeamOutlined,
   EnvironmentOutlined,
-  ClockCircleOutlined,
 } from '@ant-design/icons';
 import logoImg from '../../assets/Logo.png';
 import './Footer.css';
@@ -22,11 +22,10 @@ export default function Footer() {
 
   return (
     <footer className="footer-wrapper" id="footer" role="contentinfo">
-      {/* Curved Card Container matching reference mockup */}
       <div className="footer-card">
         <div className="footer__container">
           <div className="footer__grid">
-            {/* Column 1: Brand & Socials */}
+            {/* Column 1: Brand & Description */}
             <div className="footer__brand">
               <a
                 href="#hero"
@@ -46,8 +45,8 @@ export default function Footer() {
               </a>
 
               <p className="footer__description">
-                Hệ thống tối ưu hóa dòng tiền &amp; danh mục đầu tư khoa học
-                theo phương pháp Markowitz MPT chuyên sâu cho gia đình Việt.
+                Institutional cash flow optimization and quantitative portfolio management
+                based on advanced Modern Portfolio Theory (MPT) for family wealth.
               </p>
 
               {/* Copyright */}
@@ -56,26 +55,17 @@ export default function Footer() {
               </div>
             </div>
 
-            {/* Column 2: Khám phá (Navigation Links) */}
+            {/* Column 2: Explore (Exactly 5 Core Project Stages) */}
             <div className="footer__col">
-              <h4 className="footer__col-title font-heading">Khám phá</h4>
+              <h4 className="footer__col-title font-heading">Explore</h4>
               <ul className="footer__links-list">
-                <li>
-                  <a
-                    href="#system-workflow"
-                    className="footer__nav-link"
-                    onClick={(e) => handleNavClick(e, 'system-workflow')}
-                  >
-                    Khung đầu tư &amp; Quy trình 5 bước
-                  </a>
-                </li>
                 <li>
                   <a
                     href="#financial-profile"
                     className="footer__nav-link"
                     onClick={(e) => handleNavClick(e, 'financial-profile')}
                   >
-                    Hồ sơ tài chính &amp; Mục tiêu gia đình
+                    Financial Profiling
                   </a>
                 </li>
                 <li>
@@ -84,7 +74,7 @@ export default function Footer() {
                     className="footer__nav-link"
                     onClick={(e) => handleNavClick(e, 'risk-assessment')}
                   >
-                    Đánh giá rủi ro &amp; Hệ số CRRA (A = 5.07)
+                    Risk Assessment
                   </a>
                 </li>
                 <li>
@@ -93,7 +83,7 @@ export default function Footer() {
                     className="footer__nav-link"
                     onClick={(e) => handleNavClick(e, 'equity-analysis')}
                   >
-                    Sàng lọc &amp; Phân tích cổ phiếu
+                    Equity Screening
                   </a>
                 </li>
                 <li>
@@ -102,16 +92,7 @@ export default function Footer() {
                     className="footer__nav-link"
                     onClick={(e) => handleNavClick(e, 'markowitz')}
                   >
-                    Tối ưu hóa danh mục ORP &amp; OCP
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#financial-plan"
-                    className="footer__nav-link"
-                    onClick={(e) => handleNavClick(e, 'financial-plan')}
-                  >
-                    Đánh giá kế hoạch mục tiêu (IPE)
+                    Portfolio Optimization
                   </a>
                 </li>
                 <li>
@@ -120,52 +101,62 @@ export default function Footer() {
                     className="footer__nav-link"
                     onClick={(e) => handleNavClick(e, 'ips-report')}
                   >
-                    Văn kiện &amp; Báo cáo chính sách IPS
+                    IPS Report Delivery
                   </a>
                 </li>
               </ul>
             </div>
 
-            {/* Column 3: Liên hệ (Contact Details) */}
+            {/* Column 3: Contact Details (Clean, Uncluttered & Refined) */}
             <div className="footer__col">
-              <h4 className="footer__col-title font-heading">Liên hệ</h4>
+              <h4 className="footer__col-title font-heading">Contact</h4>
               <ul className="footer__contact-list">
-                <li className="footer__contact-item">
-                  <span className="footer__contact-hotline">
-                    Hotline: <strong className="font-mono">1900 xxxx xx</strong>
-                  </span>
+                <li>
+                  <a
+                    href="tel:1900xxxxxx"
+                    className="footer__contact-item footer__contact-link"
+                  >
+                    <span className="footer__contact-icon-box">
+                      <PhoneOutlined />
+                    </span>
+                    <span className="footer__contact-text">
+                      Hotline: <strong className="font-mono">1900 xxxx xx</strong>
+                    </span>
+                  </a>
                 </li>
-                <li className="footer__contact-item">
+                <li>
                   <a
                     href="mailto:contact@fbsf-fund.vn"
-                    className="footer__contact-link"
+                    className="footer__contact-item footer__contact-link"
                   >
-                    <MailOutlined className="footer__contact-icon" />
-                    contact@fbsf-fund.vn
+                    <span className="footer__contact-icon-box">
+                      <MailOutlined />
+                    </span>
+                    <span className="footer__contact-text">contact@fbsf-fund.vn</span>
                   </a>
                 </li>
                 <li className="footer__contact-item">
-                  <span className="footer__contact-info">
-                    <TeamOutlined className="footer__contact-icon" />
-                    Chủ sở hữu: <strong>Group 06</strong> ↗
+                  <span className="footer__contact-icon-box">
+                    <TeamOutlined />
+                  </span>
+                  <span className="footer__contact-text">
+                    Ownership: <strong>Group 06</strong>
                   </span>
                 </li>
                 <li className="footer__contact-item">
-                  <span className="footer__contact-info">
-                    <EnvironmentOutlined className="footer__contact-icon" />
-                    TP. Hồ Chí Minh, Việt Nam
+                  <span className="footer__contact-icon-box">
+                    <EnvironmentOutlined />
                   </span>
-                </li>
-                <li className="footer__contact-item">
-                  <span className="footer__contact-hours font-mono">
-                    <ClockCircleOutlined className="footer__contact-icon" />
-                    08:00 – 17:30 (T2 – T6)
+                  <span className="footer__contact-text">
+                    Ho Chi Minh City, Vietnam
                   </span>
-                </li>
-                <li className="footer__contact-item footer__contact-disclaimer">
-                  Dự án công ty quỹ giả lập phục vụ học thuật &amp; nghiên cứu.
                 </li>
               </ul>
+
+              {/* Clean Academic Disclaimer */}
+              <div className="footer__disclaimer">
+                Academic simulation fund project for educational &amp; research purposes.
+              </div>
             </div>
           </div>
         </div>

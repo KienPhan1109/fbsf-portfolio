@@ -1,6 +1,7 @@
 /* ============================================================
    INVESTMENT POLICY STATEMENT (IPS) REPORT SECTION STYLES
    Minimalist, Executive Institutional Wealth Charter
+   Zero Container Inception · Pure Hairline Divided Dossier
    ============================================================ */
 
 .sec-ips-report {
@@ -15,7 +16,95 @@
   margin: 0 auto;
 }
 
-/* --- Main Section Header --- */
+/* ============================================================
+   EXECUTIVE 2-COLUMN SECTION HEADER
+   Unified with Profile & Stock Screening Sections
+   ============================================================ */
+.ips-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 32px;
+  margin-bottom: 36px;
+}
+
+.ips-header__title-wrap {
+  flex: 1;
+}
+
+.ips-header__tag {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #07875A;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.ips-title {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 3.6vw, 3.2rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: 0.05em;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.ips-title__line1 {
+  color: #062C1E;
+}
+
+.ips-title__line2 {
+  color: #07875A;
+}
+
+.ips-header__desc-wrap {
+  max-width: 480px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+  margin-left: auto;
+}
+
+.ips-header__pills {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
+.ips-header__pill {
+  background: #FFFFFF;
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  border-radius: 6px;
+  padding: 5px 12px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #062C1E;
+  letter-spacing: 0.04em;
+  box-shadow: 0 1px 3px rgba(6, 44, 30, 0.04);
+}
+
+.ips-header__pill--emerald {
+  background: #EFF9F3;
+  border-color: #A7F3D0;
+  color: #07875A;
+}
+
+.ips-desc {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #64748B;
+  margin: 0;
+}
+
+/* Backwards compatibility for legacy centered header */
 .ips-main-header {
   text-align: center;
   margin-bottom: 36px;
@@ -48,52 +137,70 @@
 }
 
 /* ============================================================
-   MASTER INSTITUTIONAL EXECUTIVE DOSSIER CARD
+   MASTER INSTITUTIONAL EXECUTIVE DOSSIER CANVAS
+   Independent modular card stack for ultra-spacious layout
    ============================================================ */
-.ips-doc-card {
-  background: #FFFFFF;
-  border-radius: 24px;
-  border: 1px solid rgba(226, 232, 240, 0.85);
-  box-shadow: 0 16px 40px -8px rgba(6, 44, 30, 0.06),
-              0 2px 6px rgba(0, 0, 0, 0.02);
-  padding: clamp(24px, 3.2vw, 40px);
+.ips-content-stack {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 28px;
+  width: 100%;
+}
+
+.ips-card {
+  background: #FFFFFF;
+  border-radius: 18px;
+  border: 1px solid #E2E8F0;
+  box-shadow: 0 4px 20px -4px rgba(6, 44, 30, 0.05),
+              0 1px 3px rgba(0, 0, 0, 0.02);
+  padding: 32px 38px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  transition: box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.ips-card:hover {
+  box-shadow: 0 8px 30px -6px rgba(6, 44, 30, 0.08),
+              0 2px 6px rgba(0, 0, 0, 0.03);
 }
 
 /* ============================================================
-   ROW 1: 4 CLEAN, PURE KPI METRIC CARDS
+   BOX 1: 4 Symmetrical Institutional KPI Metric Columns
    ============================================================ */
+.ips-card--kpi {
+  padding: 0;
+  overflow: hidden;
+}
+
 .ips-kpi-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
+  background: #FFFFFF;
 }
 
 .ips-kpi-card {
-  background: #F8FAF9;
-  border-radius: 16px;
-  padding: 20px 22px;
+  background: transparent;
+  border: none;
+  border-right: 1px solid #E2E8F0;
+  border-radius: 0;
+  padding: 24px 28px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  border: 1px solid rgba(226, 232, 240, 0.85);
-  min-height: 120px;
-  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1),
-              box-shadow 0.2s ease,
-              border-color 0.2s ease;
+  min-height: 110px;
+  box-shadow: none;
+  transition: background-color 0.2s ease;
+}
+
+.ips-kpi-card:last-child {
+  border-right: none;
 }
 
 .ips-kpi-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px -4px rgba(6, 44, 30, 0.06);
-  border-color: rgba(7, 135, 90, 0.3);
-}
-
-.ips-kpi-card--highlight {
-  background: #F0FAF4;
-  border-color: #D6EFE0;
+  background-color: #F8FAF9;
+  transform: none;
+  box-shadow: none;
 }
 
 .ips-kpi-label {
@@ -102,16 +209,21 @@
   letter-spacing: 0.08em;
   color: #64748B;
   text-transform: uppercase;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
 }
 
 .ips-kpi-val {
-  font-size: clamp(24px, 2vw, 30px);
+  font-size: clamp(22px, 1.8vw, 28px);
   font-weight: 800;
   color: #062C1E;
   letter-spacing: -0.02em;
   line-height: 1.15;
   margin-bottom: 6px;
+}
+
+.ips-kpi-val--strategy {
+  font-size: clamp(18px, 1.45vw, 22px);
+  white-space: nowrap;
 }
 
 .ips-kpi-val--emerald {
@@ -125,16 +237,8 @@
   margin-left: 2px;
 }
 
-.ips-kpi-val__sub {
-  font-size: 13px;
-  font-weight: 700;
-  color: #07875A;
-  margin-left: 8px;
-  vertical-align: middle;
-}
-
 .ips-kpi-desc {
-  font-size: 12.5px;
+  font-size: 12px;
   color: #64748B;
   line-height: 1.4;
   margin: 0;
@@ -146,113 +250,196 @@
 }
 
 /* ============================================================
-   ROW 2: DUAL CORE VISUAL CHARTS (50/50 BALANCED GRID)
+   SHARED PANEL HEADERS & FOOTER NOTES
    ============================================================ */
-.ips-charts-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-}
-
-.ips-panel {
-  background: #FFFFFF;
-  border: 1px solid rgba(226, 232, 240, 0.85);
-  border-radius: 18px;
-  padding: 24px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  box-shadow: 0 4px 14px -2px rgba(6, 44, 30, 0.03);
-  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1),
-              box-shadow 0.2s ease,
-              border-color 0.2s ease;
-}
-
-.ips-panel:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 28px -4px rgba(6, 44, 30, 0.07);
-  border-color: rgba(7, 135, 90, 0.25);
-}
-
 .ips-panel-header {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
   gap: 16px;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
 }
 
 .ips-panel-title {
   color: #062C1E;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 700;
   letter-spacing: -0.015em;
-  margin: 0 0 3px 0;
+  margin: 0 0 4px 0;
 }
 
 .ips-panel-subtitle {
   color: #64748B;
-  font-size: 12.5px;
+  font-size: 13.5px;
   margin: 0;
   line-height: 1.4;
 }
 
-.ips-panel-metric {
-  font-size: 11.5px;
-  font-weight: 700;
-  color: #07875A;
-  background: #EFF9F3;
-  border: 1px solid #D1FAE5;
-  padding: 4px 10px;
-  border-radius: var(--radius-full);
-  white-space: nowrap;
-}
-
-/* --- Bar Chart Elements --- */
-.ips-bars-list {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.ips-bar-group {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  background: #F8FAF9;
-  border: 1px solid rgba(226, 232, 240, 0.75);
-  border-radius: 12px;
-  padding: 10px 14px;
-}
-
-.ips-bar-meta {
+/* Panel Footer Note - Flat Clean Caption */
+.ips-panel-footer-note {
+  font-size: 13px;
+  color: #64748B;
+  background: transparent;
+  border: none;
+  border-top: 1px dashed rgba(226, 232, 240, 0.9);
+  border-radius: 0;
+  padding: 16px 0 0 0;
+  margin-top: 20px;
+  line-height: 1.5;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 12px;
+  gap: 8px;
 }
 
-.ips-bar-label {
-  font-size: 13px;
+.ips-note-bullet {
+  color: #07875A;
+  font-size: 11px;
+}
+
+.ips-panel-footer-note strong {
+  color: #07875A;
+  font-weight: 700;
+}
+
+/* ============================================================
+   BOX 2: CASH FLOW TRANSFORMATION (SPACIOUS FULL-WIDTH BOX)
+   ============================================================ */
+.ips-cf-legend {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #64748B;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.ips-cf-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.ips-cf-legend-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.ips-cf-legend-dot--before {
+  background: #94A3B8;
+}
+
+.ips-cf-legend-dot--after {
+  background: #07875A;
+}
+
+.ips-cf-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 4px 0;
+}
+
+.ips-cf-item {
+  display: grid;
+  grid-template-columns: 240px 1fr 270px;
+  align-items: center;
+  gap: 32px;
+  padding: 18px 24px;
+  background: #F8FAF9;
+  border: 1px solid rgba(226, 232, 240, 0.85);
+  border-radius: 12px;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.ips-cf-item:hover {
+  background: #EFF9F3;
+  border-color: #A7F3D0;
+}
+
+.ips-cf-item-left {
+  display: flex;
+  align-items: center;
+}
+
+.ips-cf-item-title {
+  font-size: 15px;
   font-weight: 700;
   color: #062C1E;
 }
 
-.ips-bar-vals {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 12px;
-  font-weight: 700;
+.ips-cf-item-center {
+  width: 100%;
 }
 
-.ips-bar-val {
+.ips-cf-track-pair {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  width: 100%;
+}
+
+.ips-cf-track {
+  width: 100%;
+  height: 8px;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.ips-cf-bar {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 1s cubic-bezier(0.16, 1, 0.3, 1);
+  min-width: 6px;
+}
+
+.ips-cf-bar--before {
+  background: #94A3B8;
+}
+
+.ips-cf-bar--negative {
+  background: #EF4444;
+}
+
+.ips-cf-bar--after {
+  background: #07875A;
+}
+
+.ips-cf-item-right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  font-size: 13.5px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.ips-cf-val-before {
   color: #64748B;
 }
 
-.ips-bar-vals__arrow {
+.ips-cf-arrow {
   color: #94A3B8;
-  font-size: 11px;
+  font-size: 12px;
+}
+
+.ips-cf-val-after {
+  color: #07875A;
+}
+
+.ips-cf-diff {
+  font-size: 12px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 5px;
+  background: #EFF9F3;
+  border: 1px solid #D1FAE5;
+  color: #07875A;
 }
 
 .text-danger {
@@ -263,77 +450,35 @@
   color: #07875A !important;
 }
 
-.ips-dual-bar-track {
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-}
-
-.ips-bar-subgroup {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.ips-bar-sublabel {
-  font-size: 9px;
+/* ============================================================
+   BOX 3: ASSET ALLOCATION (OCP) (SPACIOUS FULL-WIDTH BOX)
+   ============================================================ */
+.ips-alloc-mandate {
+  font-size: 12px;
   font-weight: 700;
-  color: #94A3B8;
-  width: 42px;
+  color: #07875A;
+  background: #EFF9F3;
+  border: 1px solid #A7F3D0;
+  padding: 5px 12px;
+  border-radius: 6px;
   letter-spacing: 0.04em;
+  white-space: nowrap;
 }
 
-.ips-bar-shell {
-  flex: 1;
-  height: 16px;
-  background: rgba(0, 0, 0, 0.04);
-  border-radius: 5px;
-  overflow: hidden;
-  position: relative;
-}
-
-.ips-bar-fill {
-  height: 100%;
-  border-radius: 5px;
-  display: flex;
+.ips-alloc-body {
+  display: grid;
+  grid-template-columns: 190px 1fr;
   align-items: center;
-  justify-content: flex-end;
-  padding-right: 6px;
-  transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1);
-  min-width: 28px;
-}
-
-.ips-bar-fill--before {
-  background: #CBD5E1;
-}
-
-.ips-bar-fill--negative {
-  background: linear-gradient(90deg, #F87171, #EF4444);
-}
-
-.ips-bar-fill--positive {
-  background: linear-gradient(90deg, #10B981, #07875A);
-}
-
-.ips-bar-fill-text {
-  font-size: 10px;
-  font-weight: 700;
-  color: #FFFFFF;
-}
-
-/* --- Donut Chart Elements --- */
-.ips-donut-container {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  align-items: center;
+  gap: 52px;
+  margin: 12px 0 16px 0;
 }
 
 .ips-donut-visual-wrap {
   position: relative;
-  width: 150px;
-  height: 150px;
-  margin: 4px 0;
+  width: 160px;
+  height: 160px;
+  flex-shrink: 0;
+  margin: 0 auto;
 }
 
 .ips-donut-svg {
@@ -354,17 +499,17 @@
   transition: stroke-width 0.25s ease, filter 0.25s ease;
 }
 
-.ips-donut-slice--bonds {
-  stroke: #34D399;
-}
-
 .ips-donut-slice--orp {
   stroke: #07875A;
 }
 
+.ips-donut-slice--bonds {
+  stroke: #34D399;
+}
+
 .ips-donut-slice:hover {
   stroke-width: 22;
-  filter: drop-shadow(0 0 6px rgba(7, 135, 90, 0.4));
+  filter: drop-shadow(0 0 8px rgba(7, 135, 90, 0.35));
 }
 
 .ips-donut-center {
@@ -378,85 +523,127 @@
   pointer-events: none;
 }
 
-.ips-donut-center-label {
-  font-size: 8.5px;
-  color: #64748B;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-}
-
 .ips-donut-center-val {
-  font-size: 20px;
+  font-size: 24px;
   font-weight: 800;
   color: #062C1E;
   line-height: 1.1;
   letter-spacing: -0.02em;
 }
 
-.ips-donut-center-sub {
+.ips-donut-center-label {
   font-size: 10px;
-  color: #07875A;
+  color: #64748B;
   font-weight: 700;
+  letter-spacing: 0.08em;
+  margin-top: 3px;
 }
 
-.ips-donut-legend {
-  width: 100%;
+.ips-alloc-list {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 16px;
+  width: 100%;
 }
 
-.ips-donut-legend-row {
+.ips-alloc-card-item {
+  background: #F8FAF9;
+  border: 1px solid rgba(226, 232, 240, 0.85);
+  border-radius: 12px;
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.ips-alloc-card-item:hover {
+  background: #EFF9F3;
+  border-color: #A7F3D0;
+}
+
+.ips-alloc-item-top {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 8px 12px;
-  background: #F8FAF9;
-  border: 1px solid rgba(226, 232, 240, 0.8);
-  border-radius: 10px;
+  gap: 16px;
+}
+
+.ips-alloc-title-group {
+  display: flex;
+  align-items: center;
   gap: 12px;
 }
 
-.ips-legend-left {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.ips-donut-dot {
-  width: 8px;
-  height: 8px;
+.ips-alloc-dot {
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
   flex-shrink: 0;
 }
 
-.ips-donut-name {
-  font-size: 12.5px;
-  font-weight: 600;
-  color: #062C1E;
+.ips-alloc-dot--orp {
+  background: #07875A;
+  box-shadow: 0 0 0 3px rgba(7, 135, 90, 0.15);
 }
 
-.ips-donut-pct {
-  font-size: 13.5px;
+.ips-alloc-dot--bonds {
+  background: #34D399;
+  box-shadow: 0 0 0 3px rgba(52, 211, 153, 0.2);
+}
+
+.ips-alloc-name {
+  font-size: 15px;
+  font-weight: 700;
+  color: #062C1E;
+  display: block;
+  margin-bottom: 2px;
+}
+
+.ips-alloc-desc {
+  font-size: 12px;
+  color: #64748B;
+  display: block;
+}
+
+.ips-alloc-pct {
+  font-size: 16px;
   font-weight: 800;
   color: #07875A;
 }
 
-.ips-ticker-summary {
-  font-size: 11.5px;
-  color: #64748B;
-  background: #F0FAF4;
-  border: 1px dashed #D6EFE0;
-  border-radius: 8px;
-  padding: 6px 12px;
-  text-align: center;
+.ips-alloc-bar-track {
+  width: 100%;
+  height: 8px;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.ips-alloc-bar {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ips-alloc-bar--orp {
+  background: linear-gradient(90deg, #07875A, #34D399);
+}
+
+.ips-alloc-bar--bonds {
+  background: linear-gradient(90deg, #34D399, #A7F3D0);
 }
 
 /* ============================================================
-   ROW 3: BIỂU ĐỒ ĐƯỜNG (10-YEAR WEALTH TRAJECTORY PROJECTION)
+   ROW 3: 10-YEAR WEALTH TRAJECTORY PROJECTION (FLAT TIER)
+   Integrated chart canvas and sleek segmented timeline control
    ============================================================ */
 .ips-panel--line {
-  background: #FFFFFF;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 30px 32px 34px 32px;
 }
 
 .ips-line-legend {
@@ -491,14 +678,14 @@
 
 .ips-linechart-wrap {
   width: 100%;
-  margin: 10px 0 12px 0;
+  margin: 10px 0 16px 0;
   overflow-x: auto;
 }
 
 .ips-linechart-svg {
   width: 100%;
   height: auto;
-  min-height: 200px;
+  min-height: 220px;
   display: block;
 }
 
@@ -524,7 +711,7 @@
 .ips-opt-line {
   fill: none;
   stroke: #07875A;
-  stroke-width: 3;
+  stroke-width: 3.5;
   stroke-linecap: round;
   stroke-linejoin: round;
 }
@@ -536,111 +723,166 @@
 }
 
 .ips-opt-dot {
-  fill: #07875A;
-  stroke: #FFFFFF;
-  stroke-width: 2;
+  fill: #FFFFFF;
+  stroke: #07875A;
+  stroke-width: 2.5;
   cursor: pointer;
   transition: all 0.2s ease;
 }
 
 .ips-opt-dot.is-active,
 .ips-opt-dot:hover {
-  fill: #34D399;
-  stroke: #062C1E;
+  fill: #07875A;
+  stroke: #FFFFFF;
   stroke-width: 2.5;
 }
 
 .ips-opt-dot-pulse {
   fill: none;
-  stroke: rgba(7, 135, 90, 0.35);
+  stroke: rgba(7, 135, 90, 0.45);
   stroke-width: 2;
-  animation: dotPulse 2s infinite ease-out;
+  transform-origin: center;
+  animation: ipsPulseRing 2.4s infinite cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-@keyframes dotPulse {
+@keyframes ipsPulseRing {
   0% {
-    r: 6;
-    opacity: 0.8;
+    transform: scale(0.6);
+    opacity: 0.9;
   }
   100% {
-    r: 14;
+    transform: scale(1.6);
     opacity: 0;
   }
 }
 
-.ips-axis-label {
-  fill: #64748B;
-  font-size: 10.5px;
-  font-weight: 600;
+.ips-node-val {
+  fill: #062C1E;
+  font-size: 10px;
+  font-weight: 700;
+  opacity: 0.75;
+  pointer-events: none;
 }
 
-.ips-axis-label.is-active {
+/* Callout Bubble for Active Node */
+.ips-callout-group {
+  pointer-events: none;
+}
+
+.ips-callout-bg {
   fill: #07875A;
+  filter: drop-shadow(0 3px 8px rgba(7, 135, 90, 0.35));
+}
+
+.ips-callout-arrow {
+  fill: #07875A;
+}
+
+.ips-callout-text {
+  fill: #FFFFFF;
+  font-size: 11px;
   font-weight: 800;
+  letter-spacing: -0.01em;
 }
 
 .ips-point-group {
   cursor: pointer;
 }
 
-/* Timeline Year Pills */
+/* --- Timeline Year Selector - Seamless Segmented Control --- */
 .ips-year-pills {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  gap: 8px;
-  margin-top: 10px;
-  padding-top: 12px;
-  border-top: 1px solid rgba(226, 232, 240, 0.7);
-}
-
-.ips-year-pill {
+  gap: 6px;
+  margin-top: 14px;
+  padding: 5px;
   background: #F8FAF9;
   border: 1px solid rgba(226, 232, 240, 0.9);
   border-radius: 10px;
-  padding: 8px 10px;
+}
+
+.ips-year-pill {
+  background: transparent;
+  border: none;
+  border-radius: 7px;
+  padding: 8px 12px;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 2px;
+  justify-content: center;
   cursor: pointer;
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.ips-year-pill:hover,
-.ips-year-pill.is-active {
-  background: #EFF9F3;
-  border-color: #07875A;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px -2px rgba(6, 44, 30, 0.08);
+.ips-year-pill:hover {
+  background: rgba(7, 135, 90, 0.08);
+  transform: none;
+  box-shadow: none;
 }
 
-.ips-year-pill.is-active .ips-yp-val {
-  color: #07875A;
-  font-weight: 800;
+.ips-year-pill.is-active {
+  background: #07875A;
+  transform: none;
+  box-shadow: 0 2px 8px rgba(7, 135, 90, 0.25);
 }
 
 .ips-yp-year {
-  font-size: 10.5px;
+  font-size: 13px;
   color: #64748B;
-  font-weight: 600;
+  font-weight: 700;
 }
 
-.ips-yp-val {
-  font-size: 12px;
+.ips-year-pill:hover .ips-yp-year {
   color: #062C1E;
-  font-weight: 700;
+}
+
+.ips-year-pill.is-active .ips-yp-year {
+  color: #FFFFFF;
+  font-weight: 800;
 }
 
 /* ============================================================
    RESPONSIVE DESIGN
    ============================================================ */
 @media (max-width: 1080px) {
+  .ips-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .ips-header__desc-wrap {
+    align-items: flex-start;
+    text-align: left;
+    margin-left: 0;
+    max-width: 100%;
+  }
+
+  .ips-header__pills {
+    justify-content: flex-start;
+  }
+
   .ips-kpi-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .ips-charts-grid {
-    grid-template-columns: 1fr;
+  .ips-kpi-card:nth-child(2) {
+    border-right: none;
+  }
+
+  .ips-kpi-card:nth-child(1),
+  .ips-kpi-card:nth-child(2) {
+    border-bottom: 1px solid #E2E8F0;
+  }
+
+  .ips-cf-item {
+    grid-template-columns: 200px 1fr 240px;
+    gap: 20px;
+    padding: 16px 20px;
+  }
+
+  .ips-alloc-body {
+    grid-template-columns: 160px 1fr;
+    gap: 36px;
   }
 
   .ips-year-pills {
@@ -648,27 +890,196 @@
   }
 }
 
+@media (max-width: 900px) {
+  .ips-cf-item {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .ips-cf-item-right {
+    justify-content: flex-start;
+  }
+
+  .ips-alloc-body {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .ips-donut-visual-wrap {
+    margin: 0 auto;
+  }
+}
+
 @media (max-width: 767px) {
-  .ips-doc-card {
-    padding: 20px 16px;
-    border-radius: 18px;
+  .ips-card {
+    border-radius: 14px;
+    padding: 22px 20px;
+  }
+
+  .ips-panel-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
   }
 
   .ips-kpi-grid {
     grid-template-columns: 1fr;
   }
 
+  .ips-kpi-card {
+    border-right: none;
+    border-bottom: 1px solid #E2E8F0;
+    padding: 18px 20px;
+  }
+
+  .ips-kpi-card:last-child {
+    border-bottom: none;
+  }
+
+  .ips-cf-item {
+    padding: 14px 16px;
+  }
+
+  .ips-cf-item-right {
+    flex-wrap: wrap;
+    font-size: 12.5px;
+  }
+
   .ips-year-pills {
     grid-template-columns: repeat(2, 1fr);
   }
+}
 
-  .ips-panel {
-    padding: 18px 14px;
+/* ============================================================
+   TABLE & CHART ENTRANCE ANIMATIONS (IPS REPORT)
+   ============================================================ */
+
+/* 1. Cash Flow Comparison Bars Expansion (Slow 1.6s reveal) */
+.ips-wrapper:not(.is-visible) .ips-cf-bar {
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.85s ease;
+}
+
+.ips-wrapper.is-visible .ips-cf-bar {
+  transform: scaleX(1);
+  transform-origin: left;
+  transition: transform 1.6s cubic-bezier(0.16, 1, 0.3, 1) 0.3s;
+}
+
+/* 2. Donut Chart Entrance & Allocation Stagger (Slow 1.5s reveal) */
+.ips-wrapper:not(.is-visible) .ips-donut-visual-wrap {
+  opacity: 0;
+  transform: scale(0.8) rotate(-40deg);
+  transition: opacity 0.85s ease, transform 0.85s ease;
+}
+
+.ips-wrapper.is-visible .ips-donut-visual-wrap {
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
+  transition: opacity 1.5s cubic-bezier(0.16, 1, 0.3, 1) 0.15s,
+              transform 1.5s cubic-bezier(0.16, 1, 0.3, 1) 0.15s;
+}
+
+.ips-wrapper:not(.is-visible) .ips-alloc-card-item {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.85s ease, transform 0.85s ease;
+}
+
+.ips-wrapper.is-visible .ips-alloc-card-item {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.ips-wrapper.is-visible .ips-alloc-card-item:nth-child(1) { transition-delay: 0.25s; }
+.ips-wrapper.is-visible .ips-alloc-card-item:nth-child(2) { transition-delay: 0.48s; }
+
+.ips-wrapper:not(.is-visible) .ips-alloc-bar {
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.85s ease;
+}
+
+.ips-wrapper.is-visible .ips-alloc-bar {
+  transform: scaleX(1);
+  transform-origin: left;
+  transition: transform 1.6s cubic-bezier(0.16, 1, 0.3, 1) 0.35s;
+}
+
+/* 3. 10-Year Wealth Trajectory SVG Path Draw-In Animation (Slow 2.4s draw-in) */
+@keyframes ipsDrawLine {
+  from {
+    stroke-dashoffset: 1400;
   }
-
-  .ips-bar-meta {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 4px;
+  to {
+    stroke-dashoffset: 0;
   }
 }
+
+@keyframes ipsFadeArea {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.ips-wrapper:not(.is-visible) .ips-opt-line {
+  stroke-dasharray: 1400;
+  stroke-dashoffset: 1400;
+  opacity: 0;
+  transition: opacity 0.85s ease;
+}
+
+.ips-wrapper.is-visible .ips-opt-line {
+  stroke-dasharray: 1400;
+  stroke-dashoffset: 0;
+  opacity: 1;
+  animation: ipsDrawLine 2.4s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.3s;
+}
+
+.ips-wrapper:not(.is-visible) .ips-baseline-line {
+  opacity: 0;
+  stroke-dasharray: 6 5;
+  transition: opacity 0.85s ease;
+}
+
+.ips-wrapper.is-visible .ips-baseline-line {
+  opacity: 0.85;
+  transition: opacity 1.2s ease 0.5s;
+}
+
+.ips-wrapper:not(.is-visible) polygon[fill="url(#optAreaGrad)"] {
+  opacity: 0;
+  transition: opacity 0.85s ease;
+}
+
+.ips-wrapper.is-visible polygon[fill="url(#optAreaGrad)"] {
+  opacity: 1;
+  animation: ipsFadeArea 1.8s ease forwards 0.7s;
+}
+
+.ips-wrapper:not(.is-visible) .ips-point-group {
+  opacity: 0;
+  transform: scale(0.5);
+  transform-origin: center;
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.ips-wrapper.is-visible .ips-point-group {
+  opacity: 1;
+  transform: scale(1);
+  transform-origin: center;
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.ips-wrapper.is-visible .ips-point-group:nth-of-type(1) { transition-delay: 0.3s; }
+.ips-wrapper.is-visible .ips-point-group:nth-of-type(2) { transition-delay: 0.6s; }
+.ips-wrapper.is-visible .ips-point-group:nth-of-type(3) { transition-delay: 0.9s; }
+.ips-wrapper.is-visible .ips-point-group:nth-of-type(4) { transition-delay: 1.2s; }
+.ips-wrapper.is-visible .ips-point-group:nth-of-type(5) { transition-delay: 1.5s; }
+.ips-wrapper.is-visible .ips-point-group:nth-of-type(6) { transition-delay: 1.8s; }
+

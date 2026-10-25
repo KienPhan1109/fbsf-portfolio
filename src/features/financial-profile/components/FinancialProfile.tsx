@@ -49,16 +49,19 @@ export function FinancialProfile() {
             ref={profileRef as React.RefObject<HTMLDivElement>}
             className={`fp-container animate-on-scroll ${profileVisible ? 'is-visible' : ''}`}
           >
-            {/* Section Heading */}
-            <div className="section-heading sw-heading">
-              <h2 className="sw-heading__title">
-                <span className="sw-heading__title-highlight">
-                  HOUSEHOLD FINANCIAL PROFILE
-                </span>
-              </h2>
-              <p className="sw-heading__subtitle">
-                Collect and analyze household financial data, income structure, and living conditions for Mr. Nam and Mrs. Nu.
-              </p>
+            {/* Executive 2-Column Section Header */}
+            <div className="fp-header">
+              <div className="fp-header__title-wrap">
+                <h2 className="fp-title">
+                  <span className="fp-title__line1">HOUSEHOLD FINANCIAL</span>
+                  <span className="fp-title__line2">PROFILE</span>
+                </h2>
+              </div>
+              <div className="fp-header__desc-wrap">
+                <p className="fp-desc">
+                  Collect and analyze household financial data, income structure, and living conditions for Mr. Nam and Mrs. Nu.
+                </p>
+              </div>
             </div>
 
             <div className="fp-group">
@@ -159,16 +162,19 @@ export function FinancialProfile() {
             ref={balanceRef as React.RefObject<HTMLDivElement>}
             className={`fp-container animate-on-scroll ${balanceVisible ? 'is-visible' : ''}`}
           >
-            {/* Section Heading */}
-            <div className="section-heading sw-heading">
-              <h2 className="sw-heading__title">
-                <span className="sw-heading__title-highlight">
-                  HOUSEHOLD BALANCE SHEET &amp; CASH FLOW
-                </span>
-              </h2>
-              <p className="sw-heading__subtitle">
-                Assess the household’s asset and liability structure to determine its actual net worth.
-              </p>
+            {/* Executive 2-Column Section Header */}
+            <div className="fp-header">
+              <div className="fp-header__title-wrap">
+                <h2 className="fp-title">
+                  <span className="fp-title__line1">HOUSEHOLD BALANCE SHEET</span>
+                  <span className="fp-title__line2"> &amp; CASH FLOW</span>
+                </h2>
+              </div>
+              <div className="fp-header__desc-wrap">
+                <p className="fp-desc">
+                  Assess the household’s asset and liability structure to determine its actual net worth and financial runway.
+                </p>
+              </div>
             </div>
 
             <div className="fp-group">

@@ -1405,3 +1405,73 @@
     padding: 24px 20px;
   }
 }
+
+/* ============================================================
+   RISK ASSESSMENT ENTRANCE, EXIT & INTERACTION ANIMATIONS
+   Deliberate, slow, luxury motion for high readability
+   ============================================================ */
+.ra-wrapper:not(.is-visible) .ra-score-card {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.85s ease, transform 0.85s ease;
+}
+
+.ra-wrapper.is-visible .ra-score-card {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 1.3s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 1.3s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.45s ease;
+}
+
+.ra-wrapper:not(.is-visible) .ra-academic-card {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.85s ease, transform 0.85s ease;
+}
+
+.ra-wrapper.is-visible .ra-academic-card {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 1.3s cubic-bezier(0.16, 1, 0.3, 1) 0.2s,
+              transform 1.3s cubic-bezier(0.16, 1, 0.3, 1) 0.2s,
+              box-shadow 0.45s ease;
+}
+
+.ra-wrapper:not(.is-visible) .ra-quiz-item {
+  opacity: 0;
+  transform: translateX(-24px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.ra-wrapper.is-visible .ra-quiz-item {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.ra-wrapper.is-visible .ra-quiz-item:nth-child(1) { transition-delay: 0.12s; }
+.ra-wrapper.is-visible .ra-quiz-item:nth-child(2) { transition-delay: 0.24s; }
+.ra-wrapper.is-visible .ra-quiz-item:nth-child(3) { transition-delay: 0.36s; }
+.ra-wrapper.is-visible .ra-quiz-item:nth-child(4) { transition-delay: 0.48s; }
+.ra-wrapper.is-visible .ra-quiz-item:nth-child(5) { transition-delay: 0.60s; }
+
+.ra-score-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px -8px rgba(6, 44, 30, 0.1);
+}
+
+.ra-academic-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px -8px rgba(6, 44, 30, 0.1);
+}
+
+.ra-quiz-item {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.ra-quiz-item:hover {
+  transform: translateX(4px);
+  border-color: rgba(7, 135, 90, 0.35);
+  box-shadow: 0 4px 16px rgba(7, 135, 90, 0.06);
+}

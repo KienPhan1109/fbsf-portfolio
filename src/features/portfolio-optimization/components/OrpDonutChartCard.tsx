@@ -1,7 +1,6 @@
 import { useState, useMemo } from 'react';
 import { useInView } from '../../../shared/hooks/useAnimations';
 import {
-  orpSelectedStocks,
   orpStockAllocations,
   completePortfolioTable,
   type CompletePortfolioItem,
@@ -9,6 +8,8 @@ import {
 import '../../../shared/ui/ui.css';
 import '../../workflow/styles/SystemWorkflow.css';
 import '../MarkowitzOptimization.css';
+
+
 
 function getSectorPath(
   cx: number,
@@ -60,7 +61,7 @@ export function OrpDonutChartCard() {
 
       return {
         ...item,
-        path: getSectorPath(140, 140, 118, 76, startAngle, endAngle),
+        path: getSectorPath(140, 140, 126, 78, startAngle, endAngle),
       };
     });
   }, [totalWeight]);
@@ -78,23 +79,16 @@ export function OrpDonutChartCard() {
             orpVisible ? 'is-visible' : ''
           }`}
         >
-          {/* Header matching reference mockup */}
+          {/* Header matching reference mockup with (ORP) appended */}
           <div className="orp-header">
             <div className="orp-header__title-wrap">
               <h2 className="orp-title">
                 <span className="orp-title__line1">OPTIMAL RISKY</span>
-                <span className="orp-title__line2">PORTFOLIO</span>
+                <span className="orp-title__line2">PORTFOLIO (ORP)</span>
               </h2>
             </div>
             <div className="orp-header__desc-wrap">
-              <div className="orp-header__tag font-mono">SELECTED STOCKS</div>
-              <div className="orp-header__pills">
-                {orpSelectedStocks.map((ticker) => (
-                  <span key={ticker} className="orp-header__pill font-mono">
-                    {ticker}
-                  </span>
-                ))}
-              </div>
+        
               <p className="orp-desc">
                 Optimized asset weights based on expected returns and risk characteristics.
               </p>
@@ -129,88 +123,28 @@ export function OrpDonutChartCard() {
                   {/* Donut Center */}
                   <text
                     x="140"
-                    y="136"
+                    y="135"
                     textAnchor="middle"
                     fill="#FFFFFF"
                     fontFamily="var(--font-heading)"
                     fontWeight="800"
-                    fontSize="32"
+                    fontSize="36"
                   >
                     100%
                   </text>
                   <text
                     x="140"
-                    y="156"
+                    y="158"
                     textAnchor="middle"
                     fill="rgba(255, 255, 255, 0.7)"
                     fontFamily="var(--font-mono)"
                     fontWeight="600"
-                    fontSize="11"
+                    fontSize="12"
                     letterSpacing="0.08em"
                   >
                     ORP
                   </text>
                 </svg>
-              </div>
-
-              {/* 2x2 Legend Grid with cross borders */}
-              <div className="orp-legend-box">
-                <div
-                  className={`orp-legend-cell ${
-                    hoveredTicker === 'MWG' ? 'is-hovered' : ''
-                  }`}
-                  onMouseEnter={() => setHoveredTicker('MWG')}
-                  onMouseLeave={() => setHoveredTicker(null)}
-                >
-                  <span
-                    className="orp-legend-dot"
-                    style={{ backgroundColor: '#047857' }}
-                  />
-                  <span className="orp-legend-ticker font-heading">MWG</span>
-                  <span className="orp-legend-pct font-mono">42%</span>
-                </div>
-                <div
-                  className={`orp-legend-cell ${
-                    hoveredTicker === 'GAS' ? 'is-hovered' : ''
-                  }`}
-                  onMouseEnter={() => setHoveredTicker('GAS')}
-                  onMouseLeave={() => setHoveredTicker(null)}
-                >
-                  <span
-                    className="orp-legend-dot"
-                    style={{ backgroundColor: '#6EE7B7' }}
-                  />
-                  <span className="orp-legend-ticker font-heading">GAS</span>
-                  <span className="orp-legend-pct font-mono">35%</span>
-                </div>
-                <div
-                  className={`orp-legend-cell ${
-                    hoveredTicker === 'VCB' ? 'is-hovered' : ''
-                  }`}
-                  onMouseEnter={() => setHoveredTicker('VCB')}
-                  onMouseLeave={() => setHoveredTicker(null)}
-                >
-                  <span
-                    className="orp-legend-dot"
-                    style={{ backgroundColor: '#059669' }}
-                  />
-                  <span className="orp-legend-ticker font-heading">VCB</span>
-                  <span className="orp-legend-pct font-mono">12%</span>
-                </div>
-                <div
-                  className={`orp-legend-cell ${
-                    hoveredTicker === 'SSI' ? 'is-hovered' : ''
-                  }`}
-                  onMouseEnter={() => setHoveredTicker('SSI')}
-                  onMouseLeave={() => setHoveredTicker(null)}
-                >
-                  <span
-                    className="orp-legend-dot"
-                    style={{ backgroundColor: '#ECFDF5' }}
-                  />
-                  <span className="orp-legend-ticker font-heading">SSI</span>
-                  <span className="orp-legend-pct font-mono">10%</span>
-                </div>
               </div>
             </div>
 
@@ -219,11 +153,11 @@ export function OrpDonutChartCard() {
               <table className="orp-v2-table">
                 <thead>
                   <tr>
-                    <th style={{ width: '44%' }}>ASSET</th>
-                    <th style={{ width: '28%', textAlign: 'center' }}>
+                    <th style={{ width: '46%' }}>ASSET</th>
+                    <th style={{ width: '27%', textAlign: 'center' }}>
                       WEIGHT IN ORP
                     </th>
-                    <th style={{ width: '28%', textAlign: 'right' }}>
+                    <th style={{ width: '27%', textAlign: 'right' }}>
                       WEIGHT IN TOTAL ASSETS
                     </th>
                   </tr>
@@ -235,39 +169,64 @@ export function OrpDonutChartCard() {
                         (s) => s.ticker === row.name
                       );
                       const isSpecial = row.isRiskFree || row.isTotal;
+                      const isHovered = hoveredTicker === row.name;
 
                       return (
                         <tr
                           key={idx}
                           className={`orp-v2-tr ${
                             row.isTotal ? 'orp-v2-tr--total' : ''
-                          } ${row.isRiskFree ? 'orp-v2-tr--rf' : ''}`}
+                          } ${row.isRiskFree ? 'orp-v2-tr--rf' : ''} ${
+                            isHovered ? 'is-hovered' : ''
+                          } ${stockAllocation ? 'orp-v2-tr--stock' : ''}`}
+                          onMouseEnter={() =>
+                            stockAllocation && setHoveredTicker(row.name)
+                          }
+                          onMouseLeave={() =>
+                            stockAllocation && setHoveredTicker(null)
+                          }
                         >
                           <td className="orp-v2-td-name">
-                            {stockAllocation && (
+                            {stockAllocation ? (
+                              <div className="orp-table-stock-cell">
+                                <span
+                                  className="orp-table-swatch"
+                                  style={{
+                                    backgroundColor: stockAllocation.color,
+                                  }}
+                                />
+                                <span className="orp-stock-name font-heading">
+                                  {row.name}
+                                </span>
+                              </div>
+                            ) : (
                               <span
-                                className="orp-table-dot"
-                                style={{
-                                  backgroundColor: stockAllocation.color,
-                                }}
-                              />
+                                className={
+                                  !isSpecial ? 'font-heading font-bold' : ''
+                                }
+                              >
+                                {row.name}
+                              </span>
                             )}
-                            <span
-                              className={
-                                !isSpecial ? 'font-heading font-bold' : ''
-                              }
-                            >
-                              {row.name}
-                            </span>
                           </td>
                           <td
-                            className="orp-v2-td-orp font-mono"
+                            className={`orp-v2-td-orp font-mono ${
+                              stockAllocation ? 'orp-v2-td-orp--prominent' : ''
+                            }`}
                             style={{ textAlign: 'center' }}
                           >
-                            {row.weightOrp}
+                            {stockAllocation ? (
+                              <span className="orp-weight-chip font-heading font-mono">
+                                {row.weightOrp}
+                              </span>
+                            ) : (
+                              row.weightOrp
+                            )}
                           </td>
                           <td
-                            className="orp-v2-td-total font-mono"
+                            className={`orp-v2-td-total font-mono ${
+                              stockAllocation ? 'orp-v2-td-total--prominent' : ''
+                            }`}
                             style={{ textAlign: 'right' }}
                           >
                             {row.weightTotal}
@@ -279,12 +238,6 @@ export function OrpDonutChartCard() {
                 </tbody>
               </table>
             </div>
-          </div>
-
-          {/* Bottom Footnote */}
-          <div className="orp-footnote font-mono">
-            The Optimal Risky Portfolio represents 21.16% of total assets, balanced by
-            78.84% in bonds and cash deposits.
           </div>
         </div>
       </div>

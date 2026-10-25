@@ -342,3 +342,54 @@
     padding: 14px 0;
   }
 }
+
+/* ============================================================
+   SERVICES & CAPABILITIES ENTRANCE, EXIT & INTERACTION ANIMATIONS
+   Deliberate, slow, luxury motion for high readability
+   ============================================================ */
+.sc-bento-matrix:not(.is-visible) .sc-services-hero {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 0.85s ease, transform 0.85s ease;
+}
+
+.sc-bento-matrix.is-visible .sc-services-hero {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 1.3s cubic-bezier(0.16, 1, 0.3, 1) 0.15s,
+              transform 1.3s cubic-bezier(0.16, 1, 0.3, 1) 0.15s,
+              box-shadow 0.45s ease;
+}
+
+.sc-bento-matrix:not(.is-visible) .sc-cap-card {
+  opacity: 0;
+  transform: translateY(36px);
+  transition: opacity 0.85s ease, transform 0.85s ease;
+}
+
+.sc-bento-matrix.is-visible .sc-cap-card {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 1.2s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.45s ease,
+              border-color 0.45s ease;
+}
+.sc-bento-matrix.is-visible .sc-cap-card:nth-child(1) { transition-delay: 0.18s; }
+.sc-bento-matrix.is-visible .sc-cap-card:nth-child(2) { transition-delay: 0.34s; }
+.sc-bento-matrix.is-visible .sc-cap-card:nth-child(3) { transition-delay: 0.50s; }
+.sc-bento-matrix.is-visible .sc-cap-card:nth-child(4) { transition-delay: 0.66s; }
+
+.sc-cap-card:hover {
+  transform: translateY(-8px) scale(1.015);
+  box-shadow: 0 16px 36px -8px rgba(6, 44, 30, 0.12);
+  border-color: rgba(7, 135, 90, 0.3);
+}
+
+.sc-service-item {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.35s ease;
+}
+
+.sc-service-item:hover {
+  transform: translateX(6px);
+}

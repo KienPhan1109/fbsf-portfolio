@@ -27,7 +27,7 @@ export function ScrollProgressWidget() {
         aria-valuenow={progress}
         aria-valuemin={0}
         aria-valuemax={100}
-        aria-label="Tiến độ cuộn trang"
+        aria-label="Page scroll progress"
       >
         <div
           className="global-scroll-progress__fill"
@@ -40,8 +40,8 @@ export function ScrollProgressWidget() {
         type="button"
         className={`scroll-top-widget ${isScrolled ? 'scroll-top-widget--visible' : ''}`}
         onClick={scrollToTop}
-        aria-label="Cuộn về đầu trang"
-        title="Về đầu trang"
+        aria-label="Scroll to top"
+        title="Back to top"
       >
         <svg
           className="scroll-top-widget__svg"
@@ -71,7 +71,7 @@ export function ScrollProgressWidget() {
 
         {/* Hover Micro Tooltip */}
         <span className="scroll-top-widget__tooltip" aria-hidden="true">
-          Đầu trang <span className="scroll-top-widget__tooltip-pct">{progress}%</span>
+          Top <span className="scroll-top-widget__tooltip-pct">{progress}%</span>
         </span>
       </button>
     </>

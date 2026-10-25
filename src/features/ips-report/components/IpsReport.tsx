@@ -11,11 +11,11 @@ export function IpsReport() {
 
   // Projection Line Chart SVG Dimensions
   const chartW = 760;
-  const chartH = 240;
+  const chartH = 250;
   const padL = 54;
   const padR = 30;
-  const padT = 24;
-  const padB = 34;
+  const padT = 38;
+  const padB = 20;
   const plotW = chartW - padL - padR;
   const plotH = chartH - padT - padB;
 
@@ -64,204 +64,247 @@ export function IpsReport() {
             visible ? 'is-visible' : ''
           }`}
         >
-          {/* Main Section Header */}
-          <div className="ips-main-header text-center">
-            <h2 className="ips-main-title font-heading">
-              <span className="ips-main-title__dark">INVESTMENT POLICY </span>
-              <span className="ips-main-title__emerald">STATEMENT</span>
-            </h2>
-            <p className="ips-main-subtitle">
-              The Nam–Nu Family · A disciplined 10-year strategy for balanced growth and financial security.
-            </p>
+          {/* Executive 2-Column Section Header */}
+          <div className="ips-header">
+            <div className="ips-header__title-wrap">
+              <h2 className="ips-title">
+                <span className="ips-title__line1">INVESTMENT POLICY</span>
+                <span className="ips-title__line2">STATEMENT</span>
+              </h2>
+            </div>
+            <div className="ips-header__desc-wrap">
+              <p className="ips-desc">
+                The Nam–Nu Family · A disciplined 10-year strategy for balanced growth, cash flow turnaround, and long-term financial security.
+              </p>
+            </div>
           </div>
 
-          {/* Master Institutional Card */}
-          <div className="ips-doc-card">
-            {/* ROW 1: 4 Clean, Pure KPI Metric Cards */}
-            <div className="ips-kpi-grid">
-              <div className="ips-kpi-card">
-                <span className="ips-kpi-label">TOTAL NET WORTH</span>
-                <div className="ips-kpi-val font-heading">{ipsData.netWorth}</div>
-                <div className="ips-kpi-desc">{ipsData.netWorthDesc}</div>
-              </div>
-
-              <div className="ips-kpi-card ips-kpi-card--highlight">
-                <span className="ips-kpi-label">MONTHLY NET CASH FLOW</span>
-                <div className="ips-kpi-val ips-kpi-val--emerald font-heading">
-                  {ipsData.cashFlow.mainHighlight}
-                  <span className="ips-kpi-unit">/mo</span>
+          {/* Master Institutional Dossier Stack */}
+          <div className="ips-content-stack">
+            {/* BOX 1: 4 Symmetrical Institutional KPI Metric Columns */}
+            <div className="ips-card ips-card--kpi">
+              <div className="ips-kpi-grid">
+                <div className="ips-kpi-card">
+                  <span className="ips-kpi-label">TOTAL NET WORTH</span>
+                  <div className="ips-kpi-val font-heading">{ipsData.netWorth}</div>
+                  <div className="ips-kpi-desc">{ipsData.netWorthDesc}</div>
                 </div>
-                <div className="ips-kpi-desc">
-                  Net turnaround: <strong>{ipsData.cashFlow.monthlyImprovement}</strong>
-                </div>
-              </div>
 
-              <div className="ips-kpi-card">
-                <span className="ips-kpi-label">RISK PROFILE</span>
-                <div className="ips-kpi-val font-heading">
-                  {ipsData.riskProfile}
-                  <span className="ips-kpi-val__sub font-mono">A = {ipsData.riskAversion}</span>
-                </div>
-                <div className="ips-kpi-desc">{ipsData.riskProfileDesc}</div>
-              </div>
-
-              <div className="ips-kpi-card">
-                <span className="ips-kpi-label">STRATEGY MANDATE</span>
-                <div className="ips-kpi-val font-heading">{ipsData.strategy.title}</div>
-                <div className="ips-kpi-desc">10-Yr Horizon · 15% Target Return</div>
-              </div>
-            </div>
-
-            {/* ROW 2: DUAL VISUAL CHARTS (BAR & DONUT) */}
-            <div className="ips-charts-grid">
-              {/* CHART 1: BIỂU ĐỒ CỘT (CASH FLOW) */}
-              <div className="ips-panel">
-                <div className="ips-panel-header">
-                  <div>
-                    <h4 className="ips-panel-title font-heading">Cash Flow Transformation</h4>
-                    <p className="ips-panel-subtitle">Monthly before vs. after optimization comparison</p>
+                <div className="ips-kpi-card">
+                  <span className="ips-kpi-label">MONTHLY NET CASH FLOW</span>
+                  <div className="ips-kpi-val ips-kpi-val--emerald font-heading">
+                    {ipsData.cashFlow.mainHighlight}
+                    <span className="ips-kpi-unit">/mo</span>
                   </div>
-                  <div className="ips-panel-metric font-mono">+₫12M/mo Swing</div>
-                </div>
-
-                <div className="ips-bars-list">
-                  {ipsData.cashFlowComparison.map((item) => (
-                    <div key={item.label} className="ips-bar-group">
-                      <div className="ips-bar-meta">
-                        <span className="ips-bar-label">{item.label}</span>
-                        <div className="ips-bar-vals font-mono">
-                          <span className={`ips-bar-val ${item.before < 0 ? 'text-danger' : 'text-muted'}`}>
-                            {item.before > 0 ? `+₫${item.before}${item.unit}` : `−₫${Math.abs(item.before)}${item.unit}`}
-                          </span>
-                          <span className="ips-bar-vals__arrow">→</span>
-                          <span className="ips-bar-val text-success">
-                            {item.after > 0 ? `+₫${item.after}${item.unit}` : `−₫${Math.abs(item.after)}${item.unit}`}
-                          </span>
-                        </div>
-                      </div>
-
-                      <div className="ips-dual-bar-track">
-                        <div className="ips-bar-subgroup">
-                          <span className="ips-bar-sublabel font-mono">BEFORE</span>
-                          <div className="ips-bar-shell">
-                            <div
-                              className={`ips-bar-fill ${item.before < 0 ? 'ips-bar-fill--negative' : 'ips-bar-fill--before'}`}
-                              style={{ width: `${Math.min(Math.abs(item.before) * 1.8, 100)}%` }}
-                            >
-                              <span className="ips-bar-fill-text font-mono">
-                                {Math.abs(item.before)}{item.unit}
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-
-                        <div className="ips-bar-subgroup">
-                          <span className="ips-bar-sublabel font-mono">AFTER</span>
-                          <div className="ips-bar-shell">
-                            <div
-                              className="ips-bar-fill ips-bar-fill--positive"
-                              style={{ width: `${Math.min(Math.abs(item.after) * 1.8, 100)}%` }}
-                            >
-                              <span className="ips-bar-fill-text font-mono">
-                                {Math.abs(item.after)}{item.unit}
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* CHART 2: BIỂU ĐỒ TRÒN / DONUT (ASSET ALLOCATION) */}
-              <div className="ips-panel">
-                <div className="ips-panel-header">
-                  <div>
-                    <h4 className="ips-panel-title font-heading">Asset Allocation (OCP)</h4>
-                    <p className="ips-panel-subtitle">Optimal Complete Portfolio recommended mix</p>
+                  <div className="ips-kpi-desc">
+                    Net turnaround: <strong>{ipsData.cashFlow.monthlyImprovement}</strong>
                   </div>
                 </div>
 
-                <div className="ips-donut-container">
-                  <div className="ips-donut-visual-wrap">
-                    <svg className="ips-donut-svg" viewBox="0 0 160 160">
-                      <circle
-                        className="ips-donut-bg-ring"
-                        cx="80"
-                        cy="80"
-                        r={donutR}
-                      />
-                      {/* Bonds Slice */}
-                      <circle
-                        className="ips-donut-slice ips-donut-slice--bonds"
-                        cx="80"
-                        cy="80"
-                        r={donutR}
-                        strokeDasharray={`${bondDash} ${donutCirc}`}
-                        strokeDashoffset={-orpDash}
-                      />
-                      {/* ORP Slice */}
-                      <circle
-                        className="ips-donut-slice ips-donut-slice--orp"
-                        cx="80"
-                        cy="80"
-                        r={donutR}
-                        strokeDasharray={`${orpDash} ${donutCirc}`}
-                        strokeDashoffset="0"
-                      />
-                    </svg>
-
-                    <div className="ips-donut-center">
-                      <span className="ips-donut-center-label font-mono">RISKY RATIO</span>
-                      <span className="ips-donut-center-val font-heading">{ipsData.allocation.riskyWeight}</span>
-                      <span className="ips-donut-center-sub font-mono">Bonds 78.84%</span>
-                    </div>
+                <div className="ips-kpi-card">
+                  <span className="ips-kpi-label">RISK PROFILE</span>
+                  <div className="ips-kpi-val font-heading">
+                    {ipsData.riskProfile}
                   </div>
-
-                  <div className="ips-donut-legend">
-                    <div className="ips-donut-legend-row">
-                      <div className="ips-legend-left">
-                        <span className="ips-donut-dot" style={{ backgroundColor: '#07875A' }} />
-                        <span className="ips-donut-name">Optimal Risky Portfolio (ORP)</span>
-                      </div>
-                      <span className="ips-donut-pct font-mono">{ipsData.allocation.riskyWeight}</span>
-                    </div>
-
-                    <div className="ips-donut-legend-row">
-                      <div className="ips-legend-left">
-                        <span className="ips-donut-dot" style={{ backgroundColor: '#34D399' }} />
-                        <span className="ips-donut-name">Vietnam Government Bonds</span>
-                      </div>
-                      <span className="ips-donut-pct font-mono">{ipsData.allocation.riskFreeWeight}</span>
-                    </div>
-
-                    <div className="ips-ticker-summary font-mono">
-                      Equities: VCB · SSI · MWG · GAS
-                    </div>
+                  <div className="ips-kpi-desc">
+                    Risk aversion: <strong>A = {ipsData.riskAversion}</strong>
                   </div>
+                </div>
+
+                <div className="ips-kpi-card">
+                  <span className="ips-kpi-label">STRATEGY MANDATE</span>
+                  <div className="ips-kpi-val ips-kpi-val--strategy font-heading">
+                    {ipsData.strategy.title}
+                  </div>
+                  <div className="ips-kpi-desc">10-Yr Horizon · 15% Target Return</div>
                 </div>
               </div>
             </div>
 
-            {/* ROW 3: BIỂU ĐỒ ĐƯỜNG (10-YEAR WEALTH TRAJECTORY) */}
-            <div className="ips-panel ips-panel--line">
+            {/* BOX 2: CASH FLOW TRANSFORMATION (BOX RIÊNG BIỆT TRÊN - RỘNG VÀ THOÁNG) */}
+            <div className="ips-card ips-card--cf">
+              <div className="ips-panel-header">
+                <div>
+                  <h4 className="ips-panel-title font-heading">Cash Flow Transformation</h4>
+                  <p className="ips-panel-subtitle">Monthly before vs. after optimization comparison</p>
+                </div>
+                <div className="ips-cf-legend">
+                  <span className="ips-cf-legend-item font-mono">
+                    <span className="ips-cf-legend-dot ips-cf-legend-dot--before" />
+                    Baseline
+                  </span>
+                  <span className="ips-cf-legend-item font-mono">
+                    <span className="ips-cf-legend-dot ips-cf-legend-dot--after" />
+                    Optimized
+                  </span>
+                </div>
+              </div>
+
+              <div className="ips-cf-list">
+                {ipsData.cashFlowComparison.map((item) => {
+                  const diff = item.after - item.before;
+                  const isPositive = diff > 0;
+                  const diffStr = isPositive
+                    ? `+₫${diff.toFixed(1)}M`
+                    : `−₫${Math.abs(diff).toFixed(1)}M`;
+
+                  return (
+                    <div key={item.label} className="ips-cf-item">
+                      <div className="ips-cf-item-left">
+                        <span className="ips-cf-item-title">{item.label}</span>
+                      </div>
+
+                      {/* Dual sleek comparison bars */}
+                      <div className="ips-cf-item-center">
+                        <div className="ips-cf-track-pair">
+                          <div className="ips-cf-track">
+                            <div
+                              className={`ips-cf-bar ${item.before < 0 ? 'ips-cf-bar--negative' : 'ips-cf-bar--before'}`}
+                              style={{ width: `${Math.min(Math.abs(item.before) * 1.6, 100)}%` }}
+                            />
+                          </div>
+                          <div className="ips-cf-track">
+                            <div
+                              className="ips-cf-bar ips-cf-bar--after"
+                              style={{ width: `${Math.min(Math.abs(item.after) * 1.6, 100)}%` }}
+                            />
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="ips-cf-item-right font-mono">
+                        <span className={`ips-cf-val-before ${item.before < 0 ? 'text-danger' : ''}`}>
+                          {item.before > 0 ? `₫${item.before}${item.unit}` : `−₫${Math.abs(item.before)}${item.unit}`}
+                        </span>
+                        <span className="ips-cf-arrow">→</span>
+                        <span className="ips-cf-val-after text-success">
+                          {item.after > 0 ? `₫${item.after}${item.unit}` : `−₫${Math.abs(item.after)}${item.unit}`}
+                        </span>
+                        <span className="ips-cf-diff font-mono text-success">
+                          ({diffStr})
+                        </span>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+
+              <div className="ips-panel-footer-note">
+                <span>Net Turnaround: <strong>+₫12M/month</strong> redirected into wealth accumulation</span>
+              </div>
+            </div>
+
+            {/* BOX 3: ASSET ALLOCATION (OCP) (BOX RIÊNG BIỆT DƯỚI - RỘNG VÀ THOÁNG) */}
+            <div className="ips-card ips-card--alloc">
+              <div className="ips-panel-header">
+                <div>
+                  <h4 className="ips-panel-title font-heading">Asset Allocation (OCP)</h4>
+                  <p className="ips-panel-subtitle">Optimal Complete Portfolio recommended mix</p>
+                </div>
+                <div className="ips-alloc-mandate font-mono">
+                  A = {ipsData.riskAversion}
+                </div>
+              </div>
+
+              <div className="ips-alloc-body">
+                <div className="ips-donut-visual-wrap">
+                  <svg className="ips-donut-svg" viewBox="0 0 160 160">
+                    <circle
+                      className="ips-donut-bg-ring"
+                      cx="80"
+                      cy="80"
+                      r={donutR}
+                    />
+                    {/* Bonds Slice */}
+                    <circle
+                      className="ips-donut-slice ips-donut-slice--bonds"
+                      cx="80"
+                      cy="80"
+                      r={donutR}
+                      strokeDasharray={`${bondDash} ${donutCirc}`}
+                      strokeDashoffset={-orpDash}
+                    />
+                    {/* ORP Slice */}
+                    <circle
+                      className="ips-donut-slice ips-donut-slice--orp"
+                      cx="80"
+                      cy="80"
+                      r={donutR}
+                      strokeDasharray={`${orpDash} ${donutCirc}`}
+                      strokeDashoffset="0"
+                    />
+                  </svg>
+
+                  <div className="ips-donut-center">
+                    <span className="ips-donut-center-val font-heading">{ipsData.allocation.riskyWeight}</span>
+                    <span className="ips-donut-center-label font-mono">ORP SHARE</span>
+                  </div>
+                </div>
+
+                <div className="ips-alloc-list">
+                  <div className="ips-alloc-card-item">
+                    <div className="ips-alloc-item-top">
+                      <div className="ips-alloc-title-group">
+                        <span className="ips-alloc-dot ips-alloc-dot--orp" />
+                        <div>
+                          <span className="ips-alloc-name">Optimal Risky Portfolio (ORP)</span>
+                          <span className="ips-alloc-desc font-mono">Equities: VCB · SSI · MWG · GAS</span>
+                        </div>
+                      </div>
+                      <span className="ips-alloc-pct font-mono">{ipsData.allocation.riskyWeight}</span>
+                    </div>
+                    <div className="ips-alloc-bar-track">
+                      <div
+                        className="ips-alloc-bar ips-alloc-bar--orp"
+                        style={{ width: ipsData.allocation.riskyWeight }}
+                      />
+                    </div>
+                  </div>
+
+                  <div className="ips-alloc-card-item">
+                    <div className="ips-alloc-item-top">
+                      <div className="ips-alloc-title-group">
+                        <span className="ips-alloc-dot ips-alloc-dot--bonds" />
+                        <div>
+                          <span className="ips-alloc-name">Vietnam Government Bonds</span>
+                          <span className="ips-alloc-desc font-mono">10-Year Sovereign Risk-Free Anchor</span>
+                        </div>
+                      </div>
+                      <span className="ips-alloc-pct font-mono">{ipsData.allocation.riskFreeWeight}</span>
+                    </div>
+                    <div className="ips-alloc-bar-track">
+                      <div
+                        className="ips-alloc-bar ips-alloc-bar--bonds"
+                        style={{ width: ipsData.allocation.riskFreeWeight }}
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="ips-panel-footer-note">
+                <span>Policy Mandate: Balanced risk-return optimized under Markowitz utility theory</span>
+              </div>
+            </div>
+
+            {/* BOX 4: 10-YEAR WEALTH TRAJECTORY */}
+            <div className="ips-card ips-card--trajectory">
               <div className="ips-panel-header">
                 <div>
                   <h4 className="ips-panel-title font-heading">10-Year Wealth Trajectory</h4>
                   <p className="ips-panel-subtitle">
-                    Projected capital accumulation: FBSF Strategy ({activePoint.year}: <strong>₫{activePoint.optimized.toFixed(2)}B</strong> · {activePoint.milestone})
+                    Projected capital accumulation · Milestone: <strong>{activePoint.milestone}</strong>
                   </p>
                 </div>
 
                 <div className="ips-line-legend">
                   <div className="ips-line-legend-item">
                     <span className="ips-line-swatch ips-line-swatch--opt" />
-                    <span>FBSF Strategy (₫3.85B)</span>
+                    <span>FBSF Strategy</span>
                   </div>
                   <div className="ips-line-legend-item">
                     <span className="ips-line-swatch ips-line-swatch--base" />
-                    <span>Baseline (₫1.42B)</span>
+                    <span>Baseline</span>
                   </div>
                 </div>
               </div>
@@ -313,7 +356,7 @@ export function IpsReport() {
                   {/* Optimized Growth Line */}
                   <polyline points={optPoints} className="ips-opt-line" />
 
-                  {/* Interactive Milestone Nodes */}
+                  {/* Interactive Milestone Nodes with Prominent Monetary Values Above */}
                   {ipsData.wealthProjection.map((pt, i) => {
                     const cx = getX(i);
                     const cyOpt = getY(pt.optimized);
@@ -326,31 +369,61 @@ export function IpsReport() {
                         className="ips-point-group"
                         onClick={() => setActiveYearIndex(i)}
                       >
+                        {/* Baseline Node */}
                         <circle cx={cx} cy={cyBase} r={3} className="ips-base-dot" />
+
+                        {/* Optimized Node */}
                         {isActive && (
-                          <circle cx={cx} cy={cyOpt} r={9} className="ips-opt-dot-pulse" />
+                          <circle cx={cx} cy={cyOpt} r={10} className="ips-opt-dot-pulse" />
                         )}
                         <circle
                           cx={cx}
                           cy={cyOpt}
-                          r={isActive ? 5.5 : 4}
+                          r={isActive ? 6 : 4}
                           className={`ips-opt-dot ${isActive ? 'is-active' : ''}`}
                         />
-                        <text
-                          x={cx}
-                          y={chartH - 12}
-                          className={`ips-axis-label font-mono ${isActive ? 'is-active' : ''}`}
-                          textAnchor="middle"
-                        >
-                          {pt.year}
-                        </text>
+
+                        {/* Prominent Monetary Value Above Node */}
+                        {isActive ? (
+                          <g className="ips-callout-group">
+                            <rect
+                              x={cx - 36}
+                              y={cyOpt - 32}
+                              width={72}
+                              height={22}
+                              rx={11}
+                              className="ips-callout-bg"
+                            />
+                            <polygon
+                              points={`${cx - 4},${cyOpt - 10} ${cx + 4},${cyOpt - 10} ${cx},${cyOpt - 6}`}
+                              className="ips-callout-arrow"
+                            />
+                            <text
+                              x={cx}
+                              y={cyOpt - 17}
+                              className="ips-callout-text font-mono font-heading"
+                              textAnchor="middle"
+                            >
+                              ₫{pt.optimized.toFixed(2)}B
+                            </text>
+                          </g>
+                        ) : (
+                          <text
+                            x={cx}
+                            y={cyOpt - 11}
+                            className="ips-node-val font-mono"
+                            textAnchor="middle"
+                          >
+                            ₫{pt.optimized.toFixed(2)}B
+                          </text>
+                        )}
                       </g>
                     );
                   })}
                 </svg>
               </div>
 
-              {/* Clean Timeline Year Pills */}
+              {/* Clean Timeline Year Selector - ONLY THE YEARS */}
               <div className="ips-year-pills">
                 {ipsData.wealthProjection.map((pt, i) => (
                   <button
@@ -360,7 +433,6 @@ export function IpsReport() {
                     onClick={() => setActiveYearIndex(i)}
                   >
                     <span className="ips-yp-year font-mono">{pt.year}</span>
-                    <span className="ips-yp-val font-mono">₫{pt.optimized.toFixed(2)}B</span>
                   </button>
                 ))}
               </div>

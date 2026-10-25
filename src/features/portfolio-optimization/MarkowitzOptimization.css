@@ -33,10 +33,10 @@
 .orp-title {
   display: flex;
   flex-direction: column;
-  font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+  font-size: clamp(2.1rem, 3.8vw, 3.4rem);
   font-weight: 800;
   line-height: 1.05;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   margin: 0;
   text-transform: uppercase;
   font-family: var(--font-heading);
@@ -73,19 +73,50 @@
 
 .orp-header__pills {
   display: flex;
-  gap: 8px;
+  gap: 10px;
   margin-bottom: 14px;
   justify-content: flex-end;
+  flex-wrap: wrap;
 }
 
 .orp-header__pill {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: 6px;
-  padding: 4px 12px;
-  font-size: 12px;
-  font-weight: 700;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(167, 243, 208, 0.25);
+  border-radius: 8px;
+  padding: 6px 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.orp-header__pill:hover,
+.orp-header__pill.is-hovered {
+  background: rgba(7, 135, 90, 0.35);
+  border-color: #34D399;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px -2px rgba(52, 211, 153, 0.3);
+}
+
+.orp-header__pill-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.orp-header__pill-ticker {
+  font-size: 14px;
+  font-weight: 800;
   color: #FFFFFF;
+  letter-spacing: 0.04em;
+}
+
+.orp-header__pill-weight {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #A7F3D0;
 }
 
 .orp-desc {
@@ -100,18 +131,16 @@
 /* 2-Column Main Container */
 .orp-main-container {
   display: grid;
-  grid-template-columns: 420px 1fr;
+  grid-template-columns: 460px 1fr;
   border-radius: 14px;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.16);
   align-items: stretch;
 }
 
 /* Left: Chart Pane */
 .orp-chart-pane {
   background: #083424;
-  padding: 40px 36px 32px;
+  padding: 36px 32px 30px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -119,10 +148,10 @@
 }
 
 .orp-donut-wrapper {
-  width: 260px;
-  height: 260px;
+  width: 320px;
+  height: 320px;
   position: relative;
-  margin-bottom: 32px;
+  margin-bottom: 24px;
 }
 
 .orp-svg {
@@ -139,30 +168,30 @@
 
 .orp-sector-slice:hover,
 .orp-sector-slice.is-hovered {
-  transform: scale(1.03);
+  transform: scale(1.08);
   filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.25));
 }
 
-/* 2x2 Legend Grid with cross borders */
+/* 2x2 Legend Grid with prominent stock tags */
 .orp-legend-box {
   width: 100%;
-  max-width: 320px;
+  max-width: 340px;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  background: rgba(0, 0, 0, 0.18);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.22);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
   overflow: hidden;
 }
 
 .orp-legend-cell {
-  padding: 12px 16px;
+  padding: 13px 16px;
   display: flex;
   align-items: center;
   gap: 10px;
   border-right: 1px solid rgba(255, 255, 255, 0.08);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  transition: background 0.15s ease;
+  transition: all 0.2s ease;
   cursor: pointer;
 }
 
@@ -177,27 +206,44 @@
 
 .orp-legend-cell:hover,
 .orp-legend-cell.is-hovered {
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(7, 135, 90, 0.28);
 }
 
 .orp-legend-dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
+  width: 9px;
+  height: 9px;
+  border-radius: 3px;
   flex-shrink: 0;
 }
 
-.orp-legend-ticker {
-  font-size: 12.5px;
-  font-weight: 700;
-  color: #FFFFFF;
+.orp-legend-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
   flex: 1;
+  min-width: 0;
+}
+
+.orp-legend-ticker {
+  font-size: 14.5px;
+  font-weight: 800;
+  color: #FFFFFF;
+  line-height: 1.1;
+}
+
+.orp-legend-sector {
+  font-size: 9.5px;
+  color: rgba(255, 255, 255, 0.6);
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .orp-legend-pct {
-  font-size: 12.5px;
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.85);
+  font-size: 14.5px;
+  font-weight: 800;
+  color: #A7F3D0;
 }
 
 /* Right: Table Pane */
@@ -236,22 +282,60 @@
   background: #F8FAF9;
 }
 
-.orp-v2-td-name {
-  padding: 22px 32px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  color: #062C1E;
-  font-size: 15px;
-  font-weight: 700;
+.orp-v2-tr--stock {
+  cursor: pointer;
 }
 
-.orp-table-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
+.orp-v2-tr--stock:hover,
+.orp-v2-tr--stock.is-hovered {
+  background: #F0FAF4 !important;
+}
+
+.orp-v2-td-name {
+  padding: 22px 32px;
+  color: #062C1E;
+}
+
+.orp-table-stock-cell {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.orp-table-swatch {
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
   flex-shrink: 0;
-  border: 1px solid rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(6, 44, 30, 0.18);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  display: inline-block;
+}
+
+.orp-stock-name {
+  font-size: 22px;
+  font-weight: 800;
+  color: #062C1E;
+  letter-spacing: 0.03em;
+  line-height: 1;
+}
+
+.orp-stock-tag {
+  font-size: 9.5px;
+  font-weight: 700;
+  color: #07875A;
+  background: #EFF9F3;
+  border: 1px solid #D1FAE5;
+  padding: 2px 7px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.orp-stock-sector {
+  font-size: 11.5px;
+  color: #64748B;
+  line-height: 1.3;
 }
 
 .orp-v2-td-orp {
@@ -261,11 +345,28 @@
   font-weight: 600;
 }
 
+.orp-weight-chip {
+  display: inline-block;
+  font-size: 16.5px;
+  font-weight: 800;
+  color: #07875A;
+  background: #EFF9F3;
+  border: 1px solid #D1FAE5;
+  padding: 5px 14px;
+  border-radius: 7px;
+}
+
 .orp-v2-td-total {
   padding: 22px 32px;
   color: #062C1E;
   font-size: 15px;
   font-weight: 600;
+}
+
+.orp-v2-td-total--prominent {
+  font-size: 16.5px;
+  font-weight: 700;
+  color: #062C1E;
 }
 
 .orp-v2-tr--rf {
@@ -274,7 +375,7 @@
 }
 
 .orp-v2-tr--rf .orp-v2-td-name {
-  font-size: 14.5px;
+  font-size: 16px;
   color: #062C1E;
   font-weight: 600;
 }
@@ -705,7 +806,7 @@
   grid-template-columns: 410px 1fr;
   border-radius: 24px;
   overflow: hidden;
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.05);
   align-items: stretch;
   max-width: var(--container-max);
   margin: 0 auto;
@@ -939,6 +1040,139 @@
     border-bottom: 1px solid rgba(255, 255, 255, 0.12);
   }
 }
+
+/* ============================================================
+   TABLE & CHART ENTRANCE ANIMATIONS (PORTFOLIO OPTIMIZATION)
+   ============================================================ */
+
+/* 1. ORP Donut Chart Entrance & Legend Stagger (Slow 1.5s reveal) */
+.markowitz-wrapper:not(.is-visible) .orp-svg {
+  opacity: 0;
+  transform: scale(0.82) rotate(-35deg);
+  transition: opacity 0.85s ease, transform 0.85s ease;
+}
+
+.markowitz-wrapper.is-visible .orp-svg {
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
+  transition: opacity 1.5s cubic-bezier(0.16, 1, 0.3, 1) 0.15s,
+              transform 1.5s cubic-bezier(0.16, 1, 0.3, 1) 0.15s;
+}
+
+.markowitz-wrapper:not(.is-visible) .orp-legend-cell {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.markowitz-wrapper.is-visible .orp-legend-cell {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 1.1s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 1.1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.markowitz-wrapper.is-visible .orp-legend-cell:nth-child(1) { transition-delay: 0.18s; }
+.markowitz-wrapper.is-visible .orp-legend-cell:nth-child(2) { transition-delay: 0.32s; }
+.markowitz-wrapper.is-visible .orp-legend-cell:nth-child(3) { transition-delay: 0.46s; }
+.markowitz-wrapper.is-visible .orp-legend-cell:nth-child(4) { transition-delay: 0.60s; }
+
+/* 2. ORP Asset Allocation Table Staggered Row Slide-In (Slow 1.3s cascade) */
+.markowitz-wrapper:not(.is-visible) .orp-v2-table tbody tr {
+  opacity: 0;
+  transform: translateX(32px);
+  transition: opacity 0.85s ease, transform 0.85s ease;
+}
+
+.markowitz-wrapper.is-visible .orp-v2-table tbody tr {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 1.3s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 1.3s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.35s ease;
+}
+.markowitz-wrapper.is-visible .orp-v2-table tbody tr:nth-child(1) { transition-delay: 0.14s; }
+.markowitz-wrapper.is-visible .orp-v2-table tbody tr:nth-child(2) { transition-delay: 0.28s; }
+.markowitz-wrapper.is-visible .orp-v2-table tbody tr:nth-child(3) { transition-delay: 0.42s; }
+.markowitz-wrapper.is-visible .orp-v2-table tbody tr:nth-child(4) { transition-delay: 0.56s; }
+.markowitz-wrapper.is-visible .orp-v2-table tbody tr:nth-child(5) { transition-delay: 0.70s; }
+.markowitz-wrapper.is-visible .orp-v2-table tbody tr:nth-child(6) { transition-delay: 0.84s; }
+
+/* 3. Correlation Matrix Table Reveal (Slow 1.2s reveal) */
+.markowitz-wrapper:not(.is-visible) .corr-matrix-table thead tr {
+  opacity: 0;
+  transform: translateY(-16px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.markowitz-wrapper.is-visible .corr-matrix-table thead tr {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 1.1s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 1.1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.markowitz-wrapper:not(.is-visible) .corr-matrix-table tbody tr {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.85s ease, transform 0.85s ease;
+}
+
+.markowitz-wrapper.is-visible .corr-matrix-table tbody tr {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.markowitz-wrapper.is-visible .corr-matrix-table tbody tr:nth-child(1) { transition-delay: 0.15s; }
+.markowitz-wrapper.is-visible .corr-matrix-table tbody tr:nth-child(2) { transition-delay: 0.30s; }
+.markowitz-wrapper.is-visible .corr-matrix-table tbody tr:nth-child(3) { transition-delay: 0.45s; }
+.markowitz-wrapper.is-visible .corr-matrix-table tbody tr:nth-child(4) { transition-delay: 0.60s; }
+
+/* 4. Portfolio Performance Right-Side Panels (Slow 1.3s reveal) */
+.markowitz-wrapper:not(.is-visible) .perf-kpi-card,
+.markowitz-wrapper:not(.is-visible) .corr-perf-kpi-card {
+  opacity: 0;
+  transform: translateX(36px);
+  transition: opacity 0.85s ease, transform 0.85s ease;
+}
+
+.markowitz-wrapper.is-visible .perf-kpi-card,
+.markowitz-wrapper.is-visible .corr-perf-kpi-card {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 1.3s cubic-bezier(0.16, 1, 0.3, 1) 0.2s,
+              transform 1.3s cubic-bezier(0.16, 1, 0.3, 1) 0.2s;
+}
+
+.markowitz-wrapper:not(.is-visible) .perf-obj-card,
+.markowitz-wrapper:not(.is-visible) .corr-perf-obj-card {
+  opacity: 0;
+  transform: translateY(28px) scale(0.95);
+  transition: opacity 0.85s ease, transform 0.85s ease;
+}
+
+.markowitz-wrapper.is-visible .perf-obj-card,
+.markowitz-wrapper.is-visible .corr-perf-obj-card {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  transition: opacity 1.3s cubic-bezier(0.16, 1, 0.3, 1) 0.35s,
+              transform 1.3s cubic-bezier(0.16, 1, 0.3, 1) 0.35s;
+}
+
+/* 5. OCP Bento Grid Gauge & Metrics */
+.markowitz-wrapper:not(.is-visible) .ocp-donut-ring {
+  stroke-dashoffset: 400;
+  opacity: 0;
+  transition: stroke-dashoffset 0.85s ease, opacity 0.85s ease;
+}
+
+.markowitz-wrapper.is-visible .ocp-donut-ring {
+  stroke-dashoffset: 0;
+  opacity: 1;
+  transition: stroke-dashoffset 1.8s cubic-bezier(0.16, 1, 0.3, 1) 0.25s,
+              opacity 0.8s ease 0.15s;
+}
+
 
 
 
