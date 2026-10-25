@@ -1,3 +1,4 @@
+import { AccountBookOutlined } from '@ant-design/icons';
 import { useInView } from '../../../shared/hooks/useAnimations';
 import {
   assets,
@@ -11,15 +12,7 @@ import '../../../shared/ui/ui.css';
 import '../../workflow/styles/SystemWorkflow.css';
 import '../FinancialProfile.css';
 
-function IconScale() {
-  return (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
-      <path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z" />
-      <path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z" />
-      <path d="M7 21h10M12 3v18M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2" />
-    </svg>
-  );
-}
+
 
 function DonutChart() {
   const total = totalAssets;
@@ -101,7 +94,7 @@ export function BalanceSheetCard() {
                         padding: "8px 16px",
                       }}
                     >
-                      I. Total Assets
+                      Total Assets
                     </td>
                     <td
                       className="data-table__value data-table__value--positive font-mono"
@@ -134,7 +127,7 @@ export function BalanceSheetCard() {
                         padding: "8px 16px",
                       }}
                     >
-                      II. Total Liabilities
+                      Total Liabilities
                     </td>
                     <td
                       className="data-table__value data-table__value--negative font-mono"
@@ -159,7 +152,7 @@ export function BalanceSheetCard() {
                   {/* Net Worth */}
                   <tr className="data-table__total">
                     <td colSpan={2} style={{ padding: "10px 16px" }}>
-                      III. Net Worth
+                      Net Worth
                     </td>
                     <td
                       className="data-table__value data-table__value--positive font-mono"
@@ -194,7 +187,7 @@ export function BalanceSheetCard() {
           <div className="fp-networth">
             <div className="fp-networth__left">
               <div className="fp-networth__icon-wrap">
-                <IconScale />
+                <AccountBookOutlined style={{ fontSize: 20, color: '#047857' }} />
               </div>
               <div>
                 <div className="fp-networth__label">

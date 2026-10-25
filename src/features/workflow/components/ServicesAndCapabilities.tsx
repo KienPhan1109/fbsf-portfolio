@@ -1,4 +1,10 @@
 import React from 'react';
+import {
+  FileSearchOutlined,
+  StockOutlined,
+  SlidersOutlined,
+  SafetyCertificateOutlined,
+} from '@ant-design/icons';
 import { useInView } from '../../../shared/hooks/useAnimations';
 import '../../../shared/ui/ui.css';
 import '../styles/ServicesAndCapabilities.css';
@@ -7,6 +13,7 @@ interface ServiceItem {
   readonly num: string;
   readonly title: string;
   readonly desc: string;
+  readonly href?: string;
 }
 
 interface CapabilityItem {
@@ -26,6 +33,7 @@ const SERVICES: readonly ServiceItem[] = [
     num: "2",
     title: "Markowitz Mean-Variance Asset Allocation",
     desc: "Construct an Optimal Risky Portfolio (ORP) tailored to each client's risk aversion and investment objectives.",
+    href: "#financial-profile",
   },
   {
     num: "3",
@@ -44,86 +52,43 @@ const CAPABILITIES: readonly CapabilityItem[] = [
     num: "01",
     title: "Financial & Risk Assessment",
     desc: "Assess the client’s financial position, investment horizon and risk tolerance to establish an appropriate investment framework.",
-    icon: (
-      <svg
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.75"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <path d="M3 3v18h18" />
-        <path d="m19 9-5 5-4-4-3 3" />
-        <circle cx="19" cy="9" r="2" />
-        <circle cx="14" cy="14" r="2" />
-        <circle cx="10" cy="10" r="2" />
-      </svg>
-    ),
+    icon: <FileSearchOutlined style={{ fontSize: 24, color: '#047857' }} />,
   },
   {
     num: "02",
     title: "Equity Screening & Analysis",
     desc: "Screen listed companies based on financial strength, valuation, liquidity, growth potential and diversification requirements.",
-    icon: (
-      <svg
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.75"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <path d="M18 20V10" />
-        <path d="M12 20V4" />
-        <path d="M6 20v-6" />
-        <circle cx="18" cy="7" r="2" />
-        <circle cx="6" cy="11" r="2" />
-      </svg>
-    ),
+    icon: <StockOutlined style={{ fontSize: 24, color: '#047857' }} />,
   },
   {
     num: "03",
     title: "Portfolio Optimization",
     desc: "Analyze expected returns, volatility and correlations to identify the optimal risky portfolio using Modern Portfolio Theory.",
-    icon: (
-      <svg
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.75"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <circle cx="12" cy="12" r="10" />
-        <circle cx="12" cy="12" r="6" />
-        <circle cx="12" cy="12" r="2" />
-      </svg>
-    ),
+    icon: <SlidersOutlined style={{ fontSize: 24, color: '#047857' }} />,
   },
   {
     num: "04",
     title: "Optimal Complete Portfolio",
     desc: "Combine the Optimal Risky Portfolio (ORP) with a risk-free asset to construct a complete portfolio aligned with the client's risk preferences.",
-    icon: (
-      <svg
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.75"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" />
-        <polyline points="14 2 14 8 20 8" />
-        <path d="m9 15 2 2 4-4" />
-      </svg>
-    ),
+    icon: <SafetyCertificateOutlined style={{ fontSize: 24, color: '#047857' }} />,
   },
 ];
 
 export function ServicesAndCapabilities() {
   const [sectionRef, sectionVisible] = useInView();
+
+  const handleServiceClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href?: string
+  ) => {
+    if (!href) return;
+    e.preventDefault();
+    const id = href.replace('#', '');
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <section
@@ -150,15 +115,35 @@ export function ServicesAndCapabilities() {
             </div>
 
             <div className="sc-services-list">
-              {SERVICES.map((service) => (
-                <div key={service.num} className="sc-service-item">
-                  <span className="sc-service-num">{service.num}</span>
-                  <div className="sc-service-content">
-                    <h3 className="sc-service-title">{service.title}</h3>
-                    <p className="sc-service-desc">{service.desc}</p>
+              {SERVICES.map((service) => {
+                if (service.href) {
+                  return (
+                    <a
+                      key={service.num}
+                      href={service.href}
+                      onClick={(e) => handleServiceClick(e, service.href)}
+                      className="sc-service-item sc-service-item--link"
+                      title="Xem Household Financial Profile"
+                    >
+                      <span className="sc-service-num">{service.num}</span>
+                      <div className="sc-service-content">
+                        <h3 className="sc-service-title">{service.title}</h3>
+                        <p className="sc-service-desc">{service.desc}</p>
+                      </div>
+                    </a>
+                  );
+                }
+
+                return (
+                  <div key={service.num} className="sc-service-item">
+                    <span className="sc-service-num">{service.num}</span>
+                    <div className="sc-service-content">
+                      <h3 className="sc-service-title">{service.title}</h3>
+                      <p className="sc-service-desc">{service.desc}</p>
+                    </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
 

@@ -6,11 +6,15 @@
   position: relative;
 }
 
+.wf-section .sw-heading__title {
+  letter-spacing: 0.08em;
+}
+
 .wf-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 24px;
-  max-width: 1060px;
+  max-width: var(--container-max);
   margin: 0 auto;
 }
 

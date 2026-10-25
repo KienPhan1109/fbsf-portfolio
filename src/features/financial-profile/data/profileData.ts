@@ -15,7 +15,7 @@ export interface FamilyMember {
     monthlyIncome: number | null;
     annualIncome: number | null;
     isDependent: boolean;
-    emoji: string;
+    emoji?: string;
 }
 
 export interface FinancialGoal {
@@ -26,7 +26,7 @@ export interface FinancialGoal {
     targetAmount: number;
     description: string;
     progress: number;
-    icon: string;
+    icon?: string;
     type: "mid-term" | "long-term";
 }
 
@@ -57,7 +57,7 @@ export interface Expense {
     annual: number;
     percentage: number;
     color: string;
-    icon: string;
+    icon?: string;
 }
 
 export interface AdditionalInfo {
@@ -108,7 +108,6 @@ export const familyMembers: FamilyMember[] = [
         monthlyIncome: 45_000_000,
         annualIncome: 540_000_000,
         isDependent: false,
-        emoji: "👨‍💼",
     },
     {
         id: "member-nu",
@@ -122,7 +121,6 @@ export const familyMembers: FamilyMember[] = [
         monthlyIncome: 20_000_000,
         annualIncome: 240_000_000,
         isDependent: false,
-        emoji: "👩‍💼",
     },
     {
         id: "member-child1",
@@ -136,7 +134,6 @@ export const familyMembers: FamilyMember[] = [
         monthlyIncome: null,
         annualIncome: null,
         isDependent: true,
-        emoji: "👦",
     },
     {
         id: "member-child2",
@@ -150,7 +147,6 @@ export const familyMembers: FamilyMember[] = [
         monthlyIncome: null,
         annualIncome: null,
         isDependent: true,
-        emoji: "👧",
     },
 ];
 
@@ -174,7 +170,6 @@ export const financialGoals: FinancialGoal[] = [
         description:
             "Purchase a vehicle valued at approximately VND 800 million to facilitate the children’s daily school transportation.",
         progress: 37.5,
-        icon: "🚗",
         type: "mid-term",
     },
     {
@@ -186,7 +181,6 @@ export const financialGoals: FinancialGoal[] = [
         description:
             "Purchase a residential property of approximately 60 square meters on Le Van Viet Street, former District 9, to establish a stable home and provide convenient access to work and the children’s schools.",
         progress: 24.4,
-        icon: "🏠",
         type: "long-term",
     },
 ];
@@ -206,7 +200,7 @@ export const assets: Asset[] = [
         detail: "Loans Receivable from Friends",
         value: 100_000_000,
         category: "receivable",
-        color: "#3B82F6",
+        color: "#07875A",
     },
     {
         id: "asset-land",
@@ -214,7 +208,7 @@ export const assets: Asset[] = [
         detail: "One 6 × 30-meter land plot, acquired in 2022",
         value: 1_000_000_000,
         category: "investment",
-        color: "#0A1628",
+        color: "#062C1E",
     },
 ];
 
@@ -238,8 +232,7 @@ export const expenses: Expense[] = [
         monthly: 20_000_000,
         annual: 240_000_000,
         percentage: 27.3,
-        color: "#0A1628",
-        icon: "🏠",
+        color: "#062C1E",
     },
     {
         id: "expense-education",
@@ -249,7 +242,6 @@ export const expenses: Expense[] = [
         annual: 240_000_000,
         percentage: 27.3,
         color: "#059669",
-        icon: "📚",
     },
     {
         id: "expense-living",
@@ -258,8 +250,7 @@ export const expenses: Expense[] = [
         monthly: 15_000_000,
         annual: 180_000_000,
         percentage: 20.5,
-        color: "#3B82F6",
-        icon: "🛒",
+        color: "#07875A",
     },
     {
         id: "expense-entertainment",
@@ -268,8 +259,7 @@ export const expenses: Expense[] = [
         monthly: 8_000_000,
         annual: 96_000_000,
         percentage: 10.9,
-        color: "#8B5CF6",
-        icon: "🎭",
+        color: "#10B981",
     },
     {
         id: "expense-gifts",
@@ -278,8 +268,7 @@ export const expenses: Expense[] = [
         monthly: 2_000_000,
         annual: 24_000_000,
         percentage: 2.7,
-        color: "#F59E0B",
-        icon: "🎁",
+        color: "#34D399",
     },
     {
         id: "expense-loan",
@@ -289,7 +278,6 @@ export const expenses: Expense[] = [
         annual: 99_600_000,
         percentage: 11.3,
         color: "#EF4444",
-        icon: "🏦",
     },
 ];
 

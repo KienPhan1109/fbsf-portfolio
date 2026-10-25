@@ -44,7 +44,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: 1440px;
+  max-width: var(--container-wide, 1290px);
   margin: 0 auto;
   padding: 0 var(--space-6);
   gap: var(--space-4);
@@ -81,9 +81,9 @@
 .navbar__logo-brand {
   display: flex;
   align-items: baseline;
-  font-family: var(--font-sans);
+  font-family: var(--font-heading);
   font-size: 1.65rem;
-  font-weight: 900;
+  font-weight: 800;
   letter-spacing: -0.035em;
   line-height: 1;
 }

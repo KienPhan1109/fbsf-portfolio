@@ -1,17 +1,13 @@
 import RiskSurveyQuestionnaire from './RiskSurveyQuestionnaire';
-import RiskScoreSummary from './RiskScoreSummary';
 import GsoepModelCard from './GsoepModelCard';
 
 export function RiskAssessment() {
   return (
     <>
-      {/* 4A: Risk Questionnaire */}
+      {/* 5A & 5B: Risk Questionnaire with Split Assessment Result */}
       <RiskSurveyQuestionnaire />
 
-      {/* 4B: Risk Score Classification */}
-      <RiskScoreSummary />
-
-      {/* 4C: CRRA Model & Utility */}
+      {/* 5C: Academic GSOEP Model & Table 2.2 */}
       <GsoepModelCard />
     </>
   );

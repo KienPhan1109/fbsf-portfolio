@@ -13,46 +13,36 @@ export interface CompletePortfolioItem {
   isRiskFree?: boolean;
 }
 
-export const orpSelectedStocks: string[] = ['VCB', 'SSI', 'MWG', 'GAS'];
+export const orpSelectedStocks: string[] = ['MWG', 'GAS', 'VCB', 'SSI'];
 
 export const orpStockAllocations: OrpStock[] = [
   {
     ticker: 'MWG',
     weightOrp: 42,
     weightTotal: 8.98,
-    color: '#059669', // Emerald
+    color: '#047857', // Deep emerald
   },
   {
     ticker: 'GAS',
     weightOrp: 35,
     weightTotal: 7.45,
-    color: '#2563EB', // Royal Blue
+    color: '#6EE7B7', // Mint green (Emerald-300)
   },
   {
     ticker: 'VCB',
     weightOrp: 12,
     weightTotal: 2.62,
-    color: '#10B981', // Mint Green
+    color: '#059669', // Emerald-600
   },
   {
     ticker: 'SSI',
     weightOrp: 10,
     weightTotal: 2.12,
-    color: '#7C3AED', // Purple
+    color: '#ECFDF5', // Pale mint cream (Emerald-50)
   },
 ];
 
 export const completePortfolioTable: CompletePortfolioItem[] = [
-  {
-    name: 'VCB',
-    weightOrp: '12%',
-    weightTotal: '2.62%',
-  },
-  {
-    name: 'SSI',
-    weightOrp: '10%',
-    weightTotal: '2.12%',
-  },
   {
     name: 'MWG',
     weightOrp: '42%',
@@ -62,6 +52,16 @@ export const completePortfolioTable: CompletePortfolioItem[] = [
     name: 'GAS',
     weightOrp: '35%',
     weightTotal: '7.45%',
+  },
+  {
+    name: 'VCB',
+    weightOrp: '12%',
+    weightTotal: '2.62%',
+  },
+  {
+    name: 'SSI',
+    weightOrp: '10%',
+    weightTotal: '2.12%',
   },
   {
     name: 'Bonds / Cash Deposits',
@@ -137,7 +137,7 @@ export interface PortfolioPerformanceData {
 export const orpPerformance: PortfolioPerformanceData = {
   expectedReturn: '1.0628% / month',
   portfolioRisk: '7.6695% / month',
-  sharpeRatio: '0.0824',
+  sharpeRatio: '0.0823',
 };
 
 export interface OptimizationObjectiveData {

@@ -1,4 +1,5 @@
 import { Navbar, Footer } from './shared/layout';
+import { ScrollProgressWidget } from './shared/ui/ScrollProgressWidget';
 import { Hero } from './features/hero';
 import { SystemWorkflow } from './features/workflow';
 import { FinancialProfile } from './features/financial-profile';
@@ -12,6 +13,7 @@ import './App.css';
 export default function App() {
   return (
     <div className="app">
+      <ScrollProgressWidget />
       <Navbar />
       <main className="app__main">
         <Hero />

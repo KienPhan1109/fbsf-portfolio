@@ -12,141 +12,139 @@ export function FinancialPlanRoadmap() {
   const [ref, visible] = useInView();
 
   return (
-      <section
-          className="section sec-financial-plan"
-          id="financial-plan"
-          aria-label="Financial Plan and Goal Implementation Roadmap"
-      >
-          <div className="container">
-              <div
-                  ref={ref as React.RefObject<HTMLDivElement>}
-                  className={`plan-eval-wrapper animate-on-scroll ${visible ? "is-visible" : ""}`}
-              >
-                  <div className="section-heading sw-heading">
-                      <h2 className="sw-heading__title">
-                          <span className="sw-heading__title-highlight">
-                              INVESTMENT PLAN EVALUATION
-                          </span>
-                      </h2>
-                      <p className="sw-heading__subtitle">
-                          The financial plan evaluates the family's ability to
-                          achieve its financial goals over the next 10 years,
-                          based on projected cash flows, portfolio returns, and
-                          existing assets.
-                      </p>
-                  </div>
-
-                  <div className="plan-eval-card">
-                      <div className="plan-eval-table-wrap">
-                          <table className="plan-eval-table">
-                              <thead>
-                                  <tr>
-                                      <th className="plan-eval-th-goal">
-                                          Goal
-                                      </th>
-                                      <th className="plan-eval-th-val">
-                                          Goal Value (VND million)
-                                      </th>
-                                      <th className="plan-eval-th-source">
-                                          Accumulated Capital (VND million)
-                                      </th>
-                                      <th className="plan-eval-th-result">
-                                          Status
-                                      </th>
-                                  </tr>
-                              </thead>
-                              <tbody>
-                                  {planEvaluationRows.map(
-                                      (row: EvaluationRow) => (
-                                          <tr key={row.id}>
-                                              <td className="plan-eval-td-goal">
-                                                  {row.goal}
-                                              </td>
-                                              <td className="plan-eval-td-val font-mono">
-                                                  {row.goalValue}
-                                              </td>
-                                              <td className="plan-eval-td-source font-mono">
-                                                  {row.acquiredCapital}
-                                              </td>
-                                              <td
-                                                  className={`plan-eval-td-result ${
-                                                      row.result === "Achieved"
-                                                          ? "plan-result--achieved"
-                                                          : "plan-result--unachieved"
-                                                  }`}
-                                              >
-                                                  {row.result}
-                                              </td>
-                                          </tr>
-                                      ),
-                                  )}
-                              </tbody>
-                          </table>
-                      </div>
-                      <p
-                          style={{
-                              fontSize: "13px",
-                              color: "var(--color-slate-500, #64748b)",
-                              marginTop: "12px",
-                              fontStyle: "italic",
-                              lineHeight: "1.5",
-                              padding: "20px"
-                          }}
-                      >
-                          The financial plan is projected to achieve the
-                          family's loan repayment and 10-year home purchase
-                          goals. However, the vehicle purchase goal is not
-                          feasible within three years and should be postponed.
-                      </p>
-                  </div>
-
-                  <div className="plan-highlights">
-                      <div className="plan-highlight-card">
-                          <span className="plan-highlight-label">
-                              10-Year Housing Goal
-                          </span>
-                          <span className="plan-highlight-val plan-highlight-val--surplus font-mono">
-                              {planAssumptions.capitalSurplus}
-                          </span>
-                          <p className="plan-highlight-desc">
-                              Accumulated assets (
-                              {planAssumptions.totalAvailableAssetYear10})
-                              exceed the projected home purchase value (
-                              {planAssumptions.targetHousingValueYear10}).
-                          </p>
-                      </div>
-
-                      <div className="plan-highlight-card">
-                          <span className="plan-highlight-label">
-                              Emergency Reserve
-                          </span>
-                          <span className="plan-highlight-val font-mono">
-                              {planAssumptions.emergencyFund}
-                          </span>
-                          <p className="plan-highlight-desc">
-                              Maintain a liquid emergency reserve and avoid
-                              committing all available cash to risk-bearing
-                              investments.
-                          </p>
-                      </div>
-
-                      <div className="plan-highlight-card">
-                          <span className="plan-highlight-label">
-                              Compound Growth
-                          </span>
-                          <span className="plan-highlight-val font-mono">
-                              {planAssumptions.expectedReturnAnnual}
-                          </span>
-                          <p className="plan-highlight-desc">
-                              The expected OCP return (
-                              {planAssumptions.expectedReturnMonthly}) provides
-                              a foundation for sustainable long-term growth.
-                          </p>
-                      </div>
-                  </div>
-              </div>
+    <section
+      className="section sec-financial-plan"
+      id="financial-plan"
+      aria-label="Financial Plan and Goal Implementation Roadmap"
+    >
+      <div className="container container--wide">
+        <div
+          ref={ref as React.RefObject<HTMLDivElement>}
+          className={`plan-eval-wrapper animate-on-scroll ${
+            visible ? 'is-visible' : ''
+          }`}
+        >
+          {/* Editorial Section Header matching project standard */}
+          <div className="plan-eval-header">
+            <div className="plan-eval-header__title-wrap">
+              <h2 className="plan-eval-title">
+                <span className="plan-eval-title__dark">INVESTMENT PLAN</span>
+                <span className="plan-eval-title__emerald">EVALUATION</span>
+              </h2>
+            </div>
+            <div className="plan-eval-header__desc-wrap">
+              <p className="plan-eval-desc">
+                The financial plan evaluates the family's ability to achieve its goals over the next 10 years.
+              </p>
+            </div>
           </div>
-      </section>
+
+          {/* Institutional Table Card */}
+          <div className="plan-eval-card">
+            <div className="plan-eval-table-wrap">
+              <table className="plan-eval-table">
+                <thead>
+                  <tr>
+                    <th className="plan-eval-th-goal">GOAL</th>
+                    <th className="plan-eval-th-val">GOAL VALUE (VND MILLION)</th>
+                    <th className="plan-eval-th-capital">ACCUMULATED CAPITAL</th>
+                    <th className="plan-eval-th-status">STATUS</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {planEvaluationRows.map((row: EvaluationRow, idx: number) => (
+                    <tr key={row.id}>
+                      <td className="plan-eval-td-goal">
+                        <div className="plan-goal-item">
+                          <span className="plan-goal-idx font-mono">0{idx + 1}</span>
+                          <span className="plan-goal-name">{row.goal}</span>
+                        </div>
+                      </td>
+                      <td className="plan-eval-td-val font-mono">{row.goalValue}</td>
+                      <td className="plan-eval-td-capital">
+                        <div className="plan-progress-pill">
+                          <div
+                            className={`plan-progress-fill ${
+                              row.result === 'Achieved'
+                                ? 'plan-progress-fill--achieved'
+                                : 'plan-progress-fill--pending'
+                            }`}
+                            style={{
+                              width: `${Math.min(row.progressPercent, 100)}%`,
+                            }}
+                          />
+                          <span className="plan-progress-text font-mono">
+                            {row.acquiredCapital}
+                          </span>
+                          <span className="plan-progress-pct font-mono">
+                            {row.progressPercent}%
+                          </span>
+                        </div>
+                      </td>
+                      <td className="plan-eval-td-status">
+                        <span
+                          className={`plan-status-pill ${
+                            row.result === 'Achieved'
+                              ? 'plan-status-pill--achieved'
+                              : 'plan-status-pill--not-achieved'
+                          }`}
+                        >
+                          <span className="plan-status-pill__dot" />
+                          {row.result}
+                        </span>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+
+            <div className="plan-eval-footer-note">
+              <div className="plan-eval-footer-badge font-mono">AUDIT SUMMARY</div>
+              <p className="plan-eval-footer-text">
+                The loan repayment and 10-year home purchase goals are projected to be achieved. The vehicle purchase goal should be postponed.
+              </p>
+            </div>
+          </div>
+
+          {/* Bottom 3 Cards Row */}
+          <div className="plan-highlights-grid">
+            {/* Card 1: Lush Deep Forest Green Card */}
+            <div className="plan-highlight-card plan-highlight-card--emerald">
+              <span className="plan-card-tag font-mono">10-YEAR HOUSING GOAL</span>
+              <div className="plan-card-val font-heading">
+                {planAssumptions.capitalSurplus}
+              </div>
+              <p className="plan-card-desc">
+                Accumulated assets exceed the projected home purchase value.
+              </p>
+            </div>
+
+            {/* Card 2: Emergency Reserve */}
+            <div className="plan-highlight-card plan-highlight-card--white">
+              <span className="plan-card-tag font-mono">EMERGENCY RESERVE</span>
+              <div className="plan-card-val font-heading">
+                {planAssumptions.emergencyFund}
+              </div>
+              <p className="plan-card-desc">
+                Maintain a liquid reserve and avoid committing all available cash.
+              </p>
+            </div>
+
+            {/* Card 3: Compound Growth */}
+            <div className="plan-highlight-card plan-highlight-card--white">
+              <span className="plan-card-tag font-mono">COMPOUND GROWTH</span>
+              <div className="plan-card-val font-heading">
+                {planAssumptions.expectedReturnAnnual}
+              </div>
+              <p className="plan-card-desc">
+                The expected OCP return provides a foundation for sustainable growth.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }
 

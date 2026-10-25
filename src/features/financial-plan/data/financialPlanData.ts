@@ -9,6 +9,7 @@ export interface EvaluationRow {
   goalValue: string; // VND Million
   acquiredCapital: string; // VND Million
   result: 'Achieved' | 'Not Achieved';
+  progressPercent: number; // 0 - 100
   presentValue?: string;
   timeline?: string;
   note?: string;
@@ -40,12 +41,13 @@ export const planEvaluationRows: EvaluationRow[] = [
   {
     id: 'vehicle-purchase',
     goal: 'Vehicle Purchase (Year 3)',
-    goalValue: '912.93',
+    goalValue: '812.93',
     acquiredCapital: '442.16',
     result: 'Not Achieved',
+    progressPercent: 54.4,
     presentValue: '800.00',
     timeline: 'Month 36',
-    note: 'Quỹ đầu tư tại tháng 36 đạt khoảng 442,16 triệu đ, thấp hơn mức 912,93 triệu đ cần thiết sau lạm phát. Gia đình ưu tiên hoãn mua xe để bảo toàn sức mạnh lãi kép cho mục tiêu mua nhà.',
+    note: 'Quỹ đầu tư tại tháng 36 đạt khoảng 442,16 triệu đ, thấp hơn mức 812,93 triệu đ cần thiết sau lạm phát. Gia đình ưu tiên hoãn mua xe để bảo toàn sức mạnh lãi kép cho mục tiêu mua nhà.',
   },
   {
     id: 'loan-repayment',
@@ -53,6 +55,7 @@ export const planEvaluationRows: EvaluationRow[] = [
     goalValue: '100',
     acquiredCapital: '100',
     result: 'Achieved',
+    progressPercent: 100,
     timeline: 'Month 60',
     note: 'Khoản cho mượn cá nhân 100 triệu đ được thu hồi tại tháng 60 và tái đầu tư toàn bộ vào danh mục OCP.',
   },
@@ -62,6 +65,7 @@ export const planEvaluationRows: EvaluationRow[] = [
     goalValue: '5,280.10',
     acquiredCapital: '6,066.96',
     result: 'Achieved',
+    progressPercent: 100,
     presentValue: '3,900.00',
     timeline: 'Month 120',
     note: 'Danh mục OCP sau thuế (3.473,22 triệu đ) kết hợp BĐS Bảo Lộc (2.593,74 triệu đ) đạt tổng 6.066,96 triệu đ, vượt mức 5.280,10 triệu đ với thặng dư vốn +786,86 triệu đ.',

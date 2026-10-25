@@ -198,436 +198,598 @@
 }
 
 /* ============================================================
-   CARD 3: WHITE BALANCE SHEET STRIP (media_1792322975444.png Top)
-   Pure White #FFFFFF, 4 Columns with green/red bottom accent borders
+   SECTION 2: HOUSEHOLD BALANCE SHEET & CASH FLOW
+   Replicating the exact luxury modern institutional style from user screenshot
    ============================================================ */
 
-.fp-balance-strip {
-  background: #FFFFFF;
-  border: 1px solid #E2E8F0;
-  border-radius: 8px;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
-  overflow: hidden;
+/* --- Card Headers & Typography --- */
+.fp-card-header {
+  margin-bottom: 24px;
 }
 
-.fp-balance-col {
-  padding: 28px 32px;
-  border-right: 1px solid #E2E8F0;
-  display: flex;
-  flex-direction: column;
-}
-
-.fp-balance-col:last-child {
-  border-right: none;
-}
-
-.fp-balance-col--networth {
-  border-bottom: 3px solid #10B981;
-}
-
-.fp-balance-col--cashflow {
-  border-bottom: 3px solid #EF4444;
-}
-
-.fp-balance-label {
-  font-size: 11.5px;
+.fp-card-tag {
+  display: block;
+  font-size: 11px;
   font-weight: 700;
-  letter-spacing: 0.06em;
-  color: #64748B;
-  margin-bottom: 12px;
+  letter-spacing: 0.12em;
+  color: #059669;
+  text-transform: uppercase;
+  margin-bottom: 6px;
 }
 
-.fp-balance-val {
-  font-size: 22px;
+.fp-card-title {
+  font-family: var(--font-heading);
+  font-size: clamp(22px, 2vw, 26px);
   font-weight: 800;
-  color: #0F172A;
+  color: #062C1E;
+  line-height: 1.25;
+  margin: 0;
+  letter-spacing: -0.015em;
+}
+
+.fp-card-title--serif {
+  font-family: var(--font-serif);
+  font-size: clamp(24px, 2.2vw, 28px);
+  font-weight: 700;
+  color: #062C1E;
+  line-height: 1.25;
+  margin: 0;
   letter-spacing: -0.01em;
-  margin-bottom: 12px;
-}
-
-.fp-balance-val--green {
-  color: #10B981;
-}
-
-.fp-balance-val--red {
-  color: #EF4444;
-}
-
-.fp-balance-sub {
-  font-size: 12px;
-  color: #64748B;
-  line-height: 1.4;
-  margin-top: auto;
 }
 
 /* ============================================================
-   CARD 3B: BALANCE SHEET DETAIL DUAL PANEL (Option 1)
-   Breakdown Table (60%) ⇄ Donut Chart Visual (40%)
+   ROW 1: 4 TOP KPI CARDS (.fp-kpi-grid)
    ============================================================ */
-
-.fp-balance-detail {
-  background: #FFFFFF;
-  border: 1px solid #E2E8F0;
-  border-radius: 8px;
-  padding: 30px 34px;
+.fp-kpi-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 300px;
-  gap: 36px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
 }
 
-.fp-bd-table-panel {
+.fp-kpi-card {
+  background: #FFFFFF;
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  border-radius: 16px;
+  padding: 24px 26px 20px;
   display: flex;
   flex-direction: column;
-  min-width: 0;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.02);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
 }
 
-.fp-bd-header {
+.fp-kpi-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.05);
+}
+
+.fp-kpi-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #64748B;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.fp-kpi-value {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.fp-kpi-num {
+  font-size: clamp(26px, 2.2vw, 32px);
+  font-weight: 800;
+  color: #0F172A;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.fp-kpi-num--red {
+  color: #EF4444;
+}
+
+.fp-kpi-unit {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #475569;
+}
+
+.fp-kpi-sub {
+  font-size: 11.5px;
+  color: #64748B;
+  line-height: 1.45;
+  margin-top: auto;
+}
+
+.fp-kpi-accent {
+  width: 56px;
+  height: 3px;
+  border-radius: 2px;
+  margin: 16px auto 0;
+}
+
+.fp-kpi-accent--green {
+  background: #10B981;
+}
+
+.fp-kpi-accent--red {
+  background: #EF4444;
+}
+
+/* Card 3: Hero Dark Green Card */
+.fp-kpi-card--hero {
+  background: #085038;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #FFFFFF;
+  box-shadow: 0 10px 28px -4px rgba(8, 80, 56, 0.35);
+}
+
+.fp-kpi-card--hero .fp-kpi-label {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.fp-kpi-card--hero .fp-kpi-num {
+  color: #FFFFFF;
+}
+
+.fp-kpi-card--hero .fp-kpi-unit {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.fp-kpi-card--hero .fp-kpi-sub {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* ============================================================
+   ROW 2: ASSET ALLOCATION — "I. Total assets" (.fp-asset-card)
+   ============================================================ */
+.fp-asset-card {
+  background: #FFFFFF;
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  border-radius: 20px;
+  padding: 36px 44px;
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.03);
+}
+
+.fp-asset-layout {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 56px;
+  align-items: center;
+}
+
+.fp-donut-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fp-donut-chart {
+  width: 210px;
+  height: 210px;
+  border-radius: 50%;
+  background: conic-gradient(
+    #047857 0deg 257.04deg,
+    #10B981 257.04deg 334.08deg,
+    #6EE7B7 334.08deg 360deg
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-shadow: 0 8px 24px rgba(4, 120, 87, 0.12);
+  flex-shrink: 0;
+}
+
+.fp-donut-center {
+  width: 142px;
+  height: 142px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+.fp-donut-center__num {
+  font-size: 30px;
+  font-weight: 800;
+  color: #062C1E;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.fp-donut-center__label {
+  font-size: 9.5px;
+  font-weight: 700;
+  color: #64748B;
+  letter-spacing: 0.08em;
+  margin-top: 5px;
+}
+
+.fp-asset-list {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  justify-content: center;
+}
+
+.fp-asset-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 14px;
-  padding-bottom: 10px;
+  gap: 16px;
+  padding-bottom: 20px;
   border-bottom: 1px solid #F1F5F9;
 }
 
-.fp-bd-title {
-  font-size: 11.5px;
+.fp-asset-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.fp-asset-item__left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.fp-asset-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.fp-asset-name {
+  font-family: var(--font-serif);
+  font-size: 16.5px;
   font-weight: 700;
-  letter-spacing: 0.06em;
+  color: #062C1E;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+
+.fp-asset-val {
+  font-size: 12.5px;
   color: #64748B;
+  margin-top: 2px;
+  font-weight: 500;
+}
+
+.fp-asset-pct {
+  font-size: 20px;
+  font-weight: 800;
+  color: #062C1E;
+  letter-spacing: -0.01em;
+  flex-shrink: 0;
+}
+
+/* ============================================================
+   ROW 3: ASSETS & LIABILITIES BREAKDOWN (.fp-breakdown-card)
+   ============================================================ */
+.fp-breakdown-card {
+  background: #FFFFFF;
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  border-radius: 20px;
+  padding: 36px 44px;
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.03);
+}
+
+.fp-breakdown-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.fp-audit-badge {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: #047857;
+  background: #E6F7EF;
+  border: 1px solid #A7F3D0;
+  padding: 4px 14px;
+  border-radius: 9999px;
+  letter-spacing: 0.02em;
+}
+
+.fp-breakdown-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 40px;
+  align-items: stretch;
+}
+
+.fp-breakdown-panel {
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: none;
+}
+
+.fp-breakdown-panel:first-child {
+  padding-right: 40px;
+  border-right: 1px solid #E2E8F0;
+}
+
+.fp-bp-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.fp-bp-tag {
+  font-size: 11px;
+  font-weight: 700;
+  color: #047857;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
-.fp-bd-badge {
+.fp-bp-val {
+  font-size: 22px;
+  font-weight: 800;
+  color: #062C1E;
+  margin: 14px 0 16px;
+  letter-spacing: -0.01em;
+}
+
+.fp-bp-bar-track {
+  height: 20px;
+  background: #FEE2E2;
+  border-radius: 6px;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.fp-bp-bar-fill {
+  background: #F87171;
+  height: 100%;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: width 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.fp-bp-bar-text {
   font-size: 10.5px;
   font-weight: 700;
-  color: #059669;
-  background: rgba(5, 150, 105, 0.08);
-  border: 1px solid rgba(5, 150, 105, 0.2);
-  padding: 2px 8px;
-  border-radius: 4px;
-  letter-spacing: 0.04em;
+  color: #FFFFFF;
 }
 
-.fp-bd-table {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.fp-bd-group {
-  background: #F8FAF9;
-  border: 1px solid #E2ECE7;
-  border-radius: 6px;
-  padding: 10px 14px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.fp-bd-group-header {
+.fp-bp-detail {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-bottom: 6px;
-  border-bottom: 1px solid #E2ECE7;
-}
-
-.fp-bd-group-title {
+  gap: 12px;
   font-size: 11.5px;
-  font-weight: 800;
-  color: #062C1E;
-  letter-spacing: 0.04em;
+  padding-top: 10px;
+  border-top: 1px solid #F1F5F9;
 }
 
-.fp-bd-group-val {
-  font-size: 12.5px;
-  font-weight: 800;
-  color: #062C1E;
-}
-
-.fp-bd-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 12px;
-  padding: 2px 0;
-  gap: 12px;
-  min-width: 0;
-}
-
-.fp-bd-cell-name {
+.fp-bp-detail__left {
   display: flex;
   align-items: center;
   gap: 8px;
-  flex: 1;
   min-width: 0;
-  overflow: hidden;
+  flex: 1;
 }
 
-.fp-bd-dot {
+.fp-bp-dot {
   width: 7px;
   height: 7px;
   border-radius: 50%;
   flex-shrink: 0;
 }
 
-.fp-bd-item-name {
-  font-weight: 600;
-  color: #1E293B;
+.fp-bp-detail__name {
+  font-weight: 700;
+  color: #062C1E;
   white-space: nowrap;
   flex-shrink: 0;
 }
 
-.fp-bd-cell-desc {
+.fp-bp-detail__desc {
   color: #64748B;
   font-size: 11px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  min-width: 0;
 }
 
-.fp-bd-cell-val {
+.fp-bp-detail__right {
+  font-weight: 700;
+  color: #062C1E;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* Right subcard: Net worth */
+.fp-breakdown-panel--networth {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.fp-bp-networth {
   display: flex;
   align-items: baseline;
-  gap: 8px;
-  font-weight: 700;
-  font-size: 12.5px;
-  color: #0A1628;
-  flex-shrink: 0;
-}
-
-.fp-bd-cell-pct {
-  font-size: 11px;
-  font-weight: 600;
-  color: #64748B;
-  min-width: 38px;
-  text-align: right;
-}
-
-.fp-bd-summary-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 9px 14px;
-  background: rgba(5, 150, 105, 0.05);
-  border: 1px solid rgba(5, 150, 105, 0.22);
-  border-radius: 6px;
-  font-size: 12px;
-}
-
-.fp-bd-summary-label {
-  font-weight: 800;
-  color: #047857;
-  letter-spacing: 0.02em;
-}
-
-.fp-bd-summary-val {
-  font-weight: 800;
-  font-size: 13.5px;
-  color: #047857;
-}
-
-/* Right Panel: Donut Chart & Legend */
-.fp-bd-chart-panel {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding-left: 28px;
-  border-left: 1px solid #F1F5F9;
-  min-width: 0;
-}
-
-.fp-bd-donut-wrap {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 10px 0 16px;
-  width: 100%;
-}
-
-.fp-bd-donut {
-  width: 140px;
-  height: 140px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
-  flex-shrink: 0;
-}
-
-.fp-bd-donut-center {
-  width: 96px;
-  height: 96px;
-  background: #FFFFFF;
-  border-radius: 50%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06);
-}
-
-.fp-bd-donut-val {
-  font-size: 16px;
-  font-weight: 800;
-  color: #062C1E;
-  line-height: 1.1;
-}
-
-.fp-bd-donut-label {
-  font-size: 9.5px;
-  font-weight: 700;
-  color: #64748B;
-  letter-spacing: 0.06em;
-  margin-top: 3px;
-}
-
-.fp-bd-legend {
-  display: flex;
-  flex-direction: column;
   gap: 10px;
-  border-top: 1px solid #F1F5F9;
-  padding-top: 14px;
-  width: 100%;
+  margin: 14px 0 0;
 }
 
-.fp-bd-legend-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 11.5px;
-  gap: 10px;
-}
-
-.fp-bd-legend-left {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  min-width: 0;
-  flex: 1;
-}
-
-.fp-bd-legend-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  flex-shrink: 0;
-}
-
-.fp-bd-legend-name {
-  color: #475569;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.fp-bd-legend-val {
+.fp-bp-nw-prefix {
+  font-family: var(--font-mono);
+  font-size: 20px;
   font-weight: 700;
-  color: #0F172A;
-  white-space: nowrap;
-  flex-shrink: 0;
-  text-align: right;
+  color: var(--color-emerald-base);
+  letter-spacing: 0.04em;
+}
+
+.fp-bp-nw-num {
+  font-family: var(--font-mono);
+  font-size: clamp(56px, 5.8vw, 78px);
+  font-weight: 900;
+  color: var(--color-emerald-base);
+  line-height: 1;
+  letter-spacing: -0.035em;
+  text-shadow: 0 4px 24px rgba(7, 135, 90, 0.18);
+}
+
+.fp-bp-nw-suffix {
+  font-family: var(--font-mono);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--color-emerald-base);
+  letter-spacing: -0.01em;
 }
 
 /* ============================================================
-   CARD 4: LIGHT SAGE CASH FLOW & EXPENSES (media_1792322975444.png Bottom)
-   Background #EDF3F0, 2 Columns (Left numbers vs Right 6 bars)
+   ROW 4: MONTHLY CASH FLOW — "Income & expenses" (.fp-cashflow-card-v2)
    ============================================================ */
+.fp-cashflow-card-v2 {
+  background: #FFFFFF;
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  border-radius: 20px;
+  padding: 36px 44px;
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.03);
+}
 
-.fp-cashflow-card {
-  background: #EDF3F0;
-  border: 1px solid #DCE6E0;
-  border-radius: 8px;
-  padding: 40px 44px;
-  display: grid;
-  grid-template-columns: 280px 1fr;
-  gap: 48px;
+.fp-cf-summary-panel {
+  background: #F8FAF9;
+  border: 1px solid #E2ECE7;
+  border-radius: 14px;
+  padding: 24px 36px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.fp-cf-metrics {
+  display: flex;
+  gap: 64px;
   align-items: center;
 }
 
-.fp-cf-left {
+.fp-cf-metric-item {
   display: flex;
   flex-direction: column;
 }
 
-.fp-cf-label {
-  color: #10B981;
-  font-size: 11.5px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  margin-bottom: 24px;
-}
-
-.fp-cf-stat {
-  display: flex;
-  align-items: baseline;
-  gap: 10px;
-  margin-bottom: 14px;
-}
-
-.fp-cf-stat:last-child {
-  margin-bottom: 0;
-}
-
-.fp-cf-num {
-  font-size: 34px;
-  font-weight: 800;
-  color: #0F172A;
-  letter-spacing: -0.02em;
-}
-
-.fp-cf-tag {
-  font-size: 13.5px;
+.fp-cf-metric-label {
+  font-size: 12px;
   color: #64748B;
+  margin-bottom: 4px;
 }
 
-.fp-cf-right {
+.fp-cf-metric-val {
+  font-size: 30px;
+  font-weight: 800;
+  color: #062C1E;
+  letter-spacing: -0.01em;
+}
+
+.fp-cf-chart-wrap {
+  display: flex;
+  gap: 20px;
+  align-items: flex-end;
+}
+
+.fp-cf-bar-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.fp-cf-bar {
+  border-radius: 6px;
+  width: 64px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.fp-cf-bar--income {
+  background: #10B981;
+  height: 86px;
+}
+
+.fp-cf-bar--expense {
+  background: #E57373;
+  height: 98px;
+}
+
+.fp-cf-bar-val {
+  font-size: 11px;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
+.fp-cf-bar-label {
+  font-size: 11.5px;
+  color: #64748B;
+  margin-top: 8px;
+}
+
+/* Horizontal expense rows */
+.fp-cf-expense-list {
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
 
-.fp-bar-row {
+.fp-expense-row {
   display: flex;
   align-items: center;
 }
 
-.fp-bar-label {
-  font-size: 12.5px;
-  color: #475569;
-  font-weight: 500;
-  width: 85px;
+.fp-expense-label {
+  width: 190px;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #334155;
   flex-shrink: 0;
 }
 
-.fp-bar-track {
+.fp-expense-track {
   flex: 1;
-  height: 6px;
-  background: rgba(0, 0, 0, 0.06);
-  border-radius: 3px;
+  height: 10px;
+  background: #E2ECE7;
+  border-radius: 5px;
   overflow: hidden;
   margin: 0 16px;
 }
 
-.fp-bar-fill {
+.fp-expense-fill {
+  background: #047857;
   height: 100%;
-  background: #10B981;
-  border-radius: 3px;
+  border-radius: 5px;
   transition: width 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.fp-bar-pct {
-  font-size: 12.5px;
-  font-weight: 700;
-  color: #0F172A;
-  width: 45px;
+.fp-expense-pct {
+  width: 48px;
   text-align: right;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #64748B;
   flex-shrink: 0;
 }
 
@@ -659,33 +821,31 @@
     border-bottom: 1px solid #E2E8F0;
   }
 
-  .fp-balance-strip {
+  .fp-kpi-grid {
     grid-template-columns: repeat(2, 1fr);
-    row-gap: 16px;
   }
 
-  .fp-balance-col:nth-child(2) {
-    border-right: none;
-  }
-
-  .fp-balance-detail {
+  .fp-asset-layout {
     grid-template-columns: 1fr;
-    gap: 28px;
+    gap: 36px;
   }
 
-  .fp-bd-chart-panel {
-    border-left: none;
-    padding-left: 0;
-    border-top: 1px solid #F1F5F9;
-    padding-top: 24px;
-    max-width: 360px;
-    margin: 0 auto;
-    width: 100%;
-  }
-
-  .fp-cashflow-card {
+  .fp-breakdown-grid {
     grid-template-columns: 1fr;
     gap: 32px;
+  }
+
+  .fp-breakdown-panel:first-child {
+    padding-right: 0;
+    padding-bottom: 28px;
+    border-right: none;
+    border-bottom: 1px solid #E2E8F0;
+  }
+
+  .fp-cf-summary-panel {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
   }
 }
 
@@ -720,35 +880,31 @@
     padding: 28px 20px;
   }
 
-  .fp-balance-strip {
+  .fp-kpi-grid {
     grid-template-columns: 1fr;
   }
 
-  .fp-balance-col {
-    padding: 20px;
-    border-right: none;
-    border-bottom: 1px solid #E2E8F0;
+  .fp-asset-card,
+  .fp-breakdown-card,
+  .fp-cashflow-card-v2 {
+    padding: 24px 20px;
   }
 
-  .fp-balance-col:last-child {
-    border-bottom: none;
-  }
-
-  .fp-balance-detail {
-    padding: 22px 18px;
-  }
-
-  .fp-bd-row {
+  .fp-cf-metrics {
     flex-direction: column;
-    align-items: flex-start;
-    gap: 4px;
+    gap: 16px;
   }
 
-  .fp-bd-cell-val {
-    align-self: flex-end;
+  .fp-expense-row {
+    flex-wrap: wrap;
+    gap: 8px;
   }
 
-  .fp-cashflow-card {
-    padding: 28px 20px;
+  .fp-expense-label {
+    width: 100%;
+  }
+
+  .fp-expense-track {
+    margin: 0;
   }
 }

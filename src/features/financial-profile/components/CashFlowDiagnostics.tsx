@@ -1,65 +1,33 @@
+import {
+  WarningOutlined,
+  HomeOutlined,
+  ReadOutlined,
+  ShoppingCartOutlined,
+  CustomerServiceOutlined,
+  GiftOutlined,
+  BankOutlined,
+  BarChartOutlined,
+} from '@ant-design/icons';
 import { useInView } from '../../../shared/hooks/useAnimations';
 import { expenses, cashFlow, formatVND } from '../data/profileData';
 import '../../../shared/ui/ui.css';
 import '../../workflow/styles/SystemWorkflow.css';
 import '../FinancialProfile.css';
 
-function IconAlertTriangle() {
-  return (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
-      <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z" />
-      <line x1="12" y1="9" x2="12" y2="13" />
-      <line x1="12" y1="17" x2="12.01" y2="17" />
-    </svg>
-  );
-}
-
 function getExpenseIcon(id: string) {
   switch (id) {
     case 'expense-rent':
-      return (
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
-          <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
-        </svg>
-      );
+      return <HomeOutlined style={{ fontSize: 13 }} />;
     case 'expense-education':
-      return (
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z" />
-          <path d="M6 6h10M6 10h10" />
-        </svg>
-      );
+      return <ReadOutlined style={{ fontSize: 13 }} />;
     case 'expense-living':
-      return (
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
-          <circle cx="8" cy="21" r="1" />
-          <circle cx="19" cy="21" r="1" />
-          <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" />
-        </svg>
-      );
+      return <ShoppingCartOutlined style={{ fontSize: 13 }} />;
     case 'expense-entertainment':
-      return (
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
-          <circle cx="12" cy="12" r="10" />
-          <path d="M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01" />
-        </svg>
-      );
+      return <CustomerServiceOutlined style={{ fontSize: 13 }} />;
     case 'expense-gifts':
-      return (
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
-          <polyline points="20 12 20 22 4 22 4 12" />
-          <rect width="20" height="5" x="2" y="7" />
-          <line x1="12" x2="12" y1="22" y2="7" />
-          <path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z" />
-          <path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z" />
-        </svg>
-      );
+      return <GiftOutlined style={{ fontSize: 13 }} />;
     default:
-      return (
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
-          <circle cx="12" cy="12" r="10" />
-        </svg>
-      );
+      return <BankOutlined style={{ fontSize: 13 }} />;
   }
 }
 
@@ -125,11 +93,7 @@ export function CashFlowDiagnostics() {
             <div className="fp-cashflow__panel">
               <h3 className="fp-cashflow__panel-title">
                 <span className="fp-cashflow__panel-title-icon">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
-                    <line x1="18" y1="20" x2="18" y2="10" />
-                    <line x1="12" y1="20" x2="12" y2="4" />
-                    <line x1="6" y1="20" x2="6" y2="14" />
-                  </svg>
+                  <BarChartOutlined style={{ fontSize: 16, color: '#047857' }} />
                 </span>
                 Monthly Living Expense Breakdown
               </h3>
@@ -165,7 +129,7 @@ export function CashFlowDiagnostics() {
             <div className="fp-cashflow-summary fp-cashflow-summary--deficit">
               <div className="fp-cashflow-summary__header">
                 <div className="fp-cashflow-summary__icon-box">
-                  <IconAlertTriangle />
+                  <WarningOutlined style={{ fontSize: 20, color: '#DC2626' }} />
                 </div>
                 <div>
                   <div className="fp-cashflow-summary__title">
@@ -208,7 +172,7 @@ export function CashFlowDiagnostics() {
 
               <div className="fp-cashflow-summary__note">
                 <div className="fp-cashflow-summary__note-header">
-                  <IconAlertTriangle />
+                  <WarningOutlined style={{ color: '#DC2626', fontSize: 16 }} />
                   <span>Assessment &amp; Recommendations for Budget Rebalancing</span>
                 </div>
                 <p>

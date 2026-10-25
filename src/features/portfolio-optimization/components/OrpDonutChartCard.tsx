@@ -4,7 +4,6 @@ import {
   orpSelectedStocks,
   orpStockAllocations,
   completePortfolioTable,
-  type OrpStock,
   type CompletePortfolioItem,
 } from '../data/markowitzData';
 import '../../../shared/ui/ui.css';
@@ -49,7 +48,7 @@ export function OrpDonutChartCard() {
   );
 
   const sectors = useMemo(() => {
-    const gap = 0.04;
+    const gap = 0.025;
     return orpStockAllocations.map((item, index) => {
       const prevSpan = orpStockAllocations
         .slice(0, index)
@@ -61,187 +60,231 @@ export function OrpDonutChartCard() {
 
       return {
         ...item,
-        path: getSectorPath(120, 120, 100, 68, startAngle, endAngle),
+        path: getSectorPath(140, 140, 118, 76, startAngle, endAngle),
       };
     });
   }, [totalWeight]);
 
-  const activeStock = orpStockAllocations.find(
-    (s) => s.ticker === hoveredTicker
-  );
-
   return (
     <section
-      className="section sec-markowitz"
+      className="section sec-orp"
       id="markowitz"
       aria-label="Optimal Risky Portfolio"
     >
-      <div className="container">
+      <div className="container container--wide">
         <div
           ref={orpRef as React.RefObject<HTMLDivElement>}
-          className={`markowitz-wrapper animate-on-scroll ${orpVisible ? 'is-visible' : ''}`}
+          className={`markowitz-wrapper animate-on-scroll ${
+            orpVisible ? 'is-visible' : ''
+          }`}
         >
-          <div className="section-heading sw-heading">
-            <h2 className="sw-heading__title">
-              <span className="sw-heading__title-highlight">
-                OPTIMAL RISKY PORTFOLIO
-              </span>
-            </h2>
-          </div>
-
-          <div className="orp-concept-card">
-            <h3 className="orp-concept-card__title">
-              Optimal Risky Portfolio
-            </h3>
-            <div className="orp-concept-card__label">Selected Stocks</div>
-
-            <div className="orp-concept-card__badges">
-              {orpSelectedStocks.map((ticker) => (
-                <span key={ticker} className="orp-concept-badge font-mono">
-                  {ticker}
-                </span>
-              ))}
+          {/* Header matching reference mockup */}
+          <div className="orp-header">
+            <div className="orp-header__title-wrap">
+              <h2 className="orp-title">
+                <span className="orp-title__line1">OPTIMAL RISKY</span>
+                <span className="orp-title__line2">PORTFOLIO</span>
+              </h2>
             </div>
-
-            <p className="orp-concept-card__desc">
-              Optimized asset weights based on expected returns and risk characteristics.
-            </p>
+            <div className="orp-header__desc-wrap">
+              <div className="orp-header__tag font-mono">SELECTED STOCKS</div>
+              <div className="orp-header__pills">
+                {orpSelectedStocks.map((ticker) => (
+                  <span key={ticker} className="orp-header__pill font-mono">
+                    {ticker}
+                  </span>
+                ))}
+              </div>
+              <p className="orp-desc">
+                Optimized asset weights based on expected returns and risk characteristics.
+              </p>
+            </div>
           </div>
 
-          <div className="orp-grid">
-            <div className="orp-panel orp-panel--chart">
-              <div className="orp-panel__header">
-                <h4 className="orp-panel__title">Optimal Risky Portfolio Allocation</h4>
-              </div>
-
-              <div className="orp-chart-box">
-                <div className="orp-svg-wrap">
-                  <svg
-                    viewBox="0 0 240 240"
-                    className="orp-svg"
-                    role="img"
-                    aria-label="ORP Stock Allocation Donut Chart"
-                  >
-                    {sectors.map((sector) => {
-                      const isHovered = hoveredTicker === sector.ticker;
-                      return (
-                        <path
-                          key={sector.ticker}
-                          d={sector.path}
-                          fill={sector.color}
-                          className={`orp-sector-slice ${isHovered ? 'is-hovered' : ''}`}
-                          onMouseEnter={() => setHoveredTicker(sector.ticker)}
-                          onMouseLeave={() => setHoveredTicker(null)}
-                        />
-                      );
-                    })}
-                  </svg>
-
-                  <div className="orp-donut-center">
-                    {activeStock ? (
-                      <>
-                        <span
-                          className="orp-center-val font-mono"
-                          style={{ color: activeStock.color }}
-                        >
-                          {activeStock.weightOrp}%
-                        </span>
-                        <span className="orp-center-sub font-mono">
-                          {activeStock.ticker}
-                        </span>
-                      </>
-                    ) : (
-                      <>
-                        <span className="orp-center-val font-mono">100%</span>
-                        <span className="orp-center-sub font-mono">ORP</span>
-                      </>
-                    )}
-                  </div>
-                </div>
-
-                <div className="orp-legend">
-                  {orpStockAllocations.map((item: OrpStock) => {
-                    const isHovered = hoveredTicker === item.ticker;
+          {/* 2-Column Main Container */}
+          <div className="orp-main-container">
+            {/* Left: Donut Chart Pane */}
+            <div className="orp-chart-pane">
+              <div className="orp-donut-wrapper">
+                <svg
+                  viewBox="0 0 280 280"
+                  className="orp-svg"
+                  role="img"
+                  aria-label="Optimal Risky Portfolio Donut Chart"
+                >
+                  {sectors.map((sector) => {
+                    const isHovered = hoveredTicker === sector.ticker;
                     return (
-                      <button
-                        type="button"
-                        key={item.ticker}
-                        className={`orp-legend-item ${isHovered ? 'is-active' : ''}`}
-                        onMouseEnter={() => setHoveredTicker(item.ticker)}
+                      <path
+                        key={sector.ticker}
+                        d={sector.path}
+                        fill={sector.color}
+                        className={`orp-sector-slice ${isHovered ? 'is-hovered' : ''}`}
+                        onMouseEnter={() => setHoveredTicker(sector.ticker)}
                         onMouseLeave={() => setHoveredTicker(null)}
-                      >
-                        <span
-                          className="orp-legend-dot"
-                          style={{ backgroundColor: item.color }}
-                        />
-                        <strong className="orp-legend-ticker font-mono">
-                          {item.ticker}
-                        </strong>
-                        <span className="orp-legend-pct font-mono">
-                          {item.weightOrp}%
-                        </span>
-                      </button>
+                      />
                     );
                   })}
+
+                  {/* Donut Center */}
+                  <text
+                    x="140"
+                    y="136"
+                    textAnchor="middle"
+                    fill="#FFFFFF"
+                    fontFamily="var(--font-heading)"
+                    fontWeight="800"
+                    fontSize="32"
+                  >
+                    100%
+                  </text>
+                  <text
+                    x="140"
+                    y="156"
+                    textAnchor="middle"
+                    fill="rgba(255, 255, 255, 0.7)"
+                    fontFamily="var(--font-mono)"
+                    fontWeight="600"
+                    fontSize="11"
+                    letterSpacing="0.08em"
+                  >
+                    ORP
+                  </text>
+                </svg>
+              </div>
+
+              {/* 2x2 Legend Grid with cross borders */}
+              <div className="orp-legend-box">
+                <div
+                  className={`orp-legend-cell ${
+                    hoveredTicker === 'MWG' ? 'is-hovered' : ''
+                  }`}
+                  onMouseEnter={() => setHoveredTicker('MWG')}
+                  onMouseLeave={() => setHoveredTicker(null)}
+                >
+                  <span
+                    className="orp-legend-dot"
+                    style={{ backgroundColor: '#047857' }}
+                  />
+                  <span className="orp-legend-ticker font-heading">MWG</span>
+                  <span className="orp-legend-pct font-mono">42%</span>
+                </div>
+                <div
+                  className={`orp-legend-cell ${
+                    hoveredTicker === 'GAS' ? 'is-hovered' : ''
+                  }`}
+                  onMouseEnter={() => setHoveredTicker('GAS')}
+                  onMouseLeave={() => setHoveredTicker(null)}
+                >
+                  <span
+                    className="orp-legend-dot"
+                    style={{ backgroundColor: '#6EE7B7' }}
+                  />
+                  <span className="orp-legend-ticker font-heading">GAS</span>
+                  <span className="orp-legend-pct font-mono">35%</span>
+                </div>
+                <div
+                  className={`orp-legend-cell ${
+                    hoveredTicker === 'VCB' ? 'is-hovered' : ''
+                  }`}
+                  onMouseEnter={() => setHoveredTicker('VCB')}
+                  onMouseLeave={() => setHoveredTicker(null)}
+                >
+                  <span
+                    className="orp-legend-dot"
+                    style={{ backgroundColor: '#059669' }}
+                  />
+                  <span className="orp-legend-ticker font-heading">VCB</span>
+                  <span className="orp-legend-pct font-mono">12%</span>
+                </div>
+                <div
+                  className={`orp-legend-cell ${
+                    hoveredTicker === 'SSI' ? 'is-hovered' : ''
+                  }`}
+                  onMouseEnter={() => setHoveredTicker('SSI')}
+                  onMouseLeave={() => setHoveredTicker(null)}
+                >
+                  <span
+                    className="orp-legend-dot"
+                    style={{ backgroundColor: '#ECFDF5' }}
+                  />
+                  <span className="orp-legend-ticker font-heading">SSI</span>
+                  <span className="orp-legend-pct font-mono">10%</span>
                 </div>
               </div>
             </div>
 
-            <div className="orp-panel orp-panel--table">
-              <div className="orp-panel__header">
-                <h4 className="orp-panel__title">Optimal Asset Allocation</h4>
-              </div>
+            {/* Right: Asset Allocation Table */}
+            <div className="orp-table-pane">
+              <table className="orp-v2-table">
+                <thead>
+                  <tr>
+                    <th style={{ width: '44%' }}>ASSET</th>
+                    <th style={{ width: '28%', textAlign: 'center' }}>
+                      WEIGHT IN ORP
+                    </th>
+                    <th style={{ width: '28%', textAlign: 'right' }}>
+                      WEIGHT IN TOTAL ASSETS
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {completePortfolioTable.map(
+                    (row: CompletePortfolioItem, idx: number) => {
+                      const stockAllocation = orpStockAllocations.find(
+                        (s) => s.ticker === row.name
+                      );
+                      const isSpecial = row.isRiskFree || row.isTotal;
 
-              <div className="orp-table-wrap">
-                <table className="orp-table">
-                  <thead>
-                    <tr>
-                      <th style={{ width: '40%' }}>Ticker</th>
-                      <th style={{ width: '30%', textAlign: 'center' }}>
-                        Weight in ORP
-                      </th>
-                      <th style={{ width: '30%', textAlign: 'right' }}>
-                        Weight in Total Assets
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {completePortfolioTable.map(
-                      (row: CompletePortfolioItem, idx: number) => (
+                      return (
                         <tr
                           key={idx}
-                          className={`orp-tr ${row.isTotal ? 'orp-tr--total' : ''} ${row.isRiskFree ? 'orp-tr--rf' : ''}`}
+                          className={`orp-v2-tr ${
+                            row.isTotal ? 'orp-v2-tr--total' : ''
+                          } ${row.isRiskFree ? 'orp-v2-tr--rf' : ''}`}
                         >
-                          <td className="orp-td-name">
-                            <strong
+                          <td className="orp-v2-td-name">
+                            {stockAllocation && (
+                              <span
+                                className="orp-table-dot"
+                                style={{
+                                  backgroundColor: stockAllocation.color,
+                                }}
+                              />
+                            )}
+                            <span
                               className={
-                                !row.isRiskFree && !row.isTotal
-                                  ? 'font-mono'
-                                  : ''
+                                !isSpecial ? 'font-heading font-bold' : ''
                               }
                             >
                               {row.name}
-                            </strong>
+                            </span>
                           </td>
                           <td
-                            className="orp-td-orp font-mono"
+                            className="orp-v2-td-orp font-mono"
                             style={{ textAlign: 'center' }}
                           >
                             {row.weightOrp}
                           </td>
                           <td
-                            className={`orp-td-total font-mono ${row.isTotal ? 'orp-td-total--highlight' : ''}`}
+                            className="orp-v2-td-total font-mono"
                             style={{ textAlign: 'right' }}
                           >
                             {row.weightTotal}
                           </td>
                         </tr>
-                      )
-                    )}
-                  </tbody>
-                </table>
-              </div>
+                      );
+                    }
+                  )}
+                </tbody>
+              </table>
             </div>
+          </div>
+
+          {/* Bottom Footnote */}
+          <div className="orp-footnote font-mono">
+            The Optimal Risky Portfolio represents 21.16% of total assets, balanced by
+            78.84% in bonds and cash deposits.
           </div>
         </div>
       </div>

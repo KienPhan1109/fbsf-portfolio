@@ -9,122 +9,166 @@ import '../../../shared/ui/ui.css';
 import '../../workflow/styles/SystemWorkflow.css';
 import '../MarkowitzOptimization.css';
 
+function getCellHeatmapBg(valStr: string, isDiagonal: boolean): string {
+  if (isDiagonal) return '#D9EBE1';
+  const val = parseFloat(valStr);
+  if (val >= 0.5) return '#E3F1E8';
+  if (val >= 0.4) return '#E6F2EA';
+  if (val >= 0.25) return '#EBF4ED';
+  return '#EFF6F1';
+}
+
 export function CorrelationPerformanceCard() {
   const [corrRef, corrVisible] = useInView();
 
+  // Split performance strings into value and unit for clean institutional styling
+  const [retVal, retUnit] = orpPerformance.expectedReturn.split(' / ');
+  const [riskVal, riskUnit] = orpPerformance.portfolioRisk.split(' / ');
+
   return (
     <section
-      className="section section--alt sec-markowitz"
+      className="section sec-corr-perf"
       id="correlation-matrix"
       aria-label="Correlation Matrix, Portfolio Performance and Optimization Objective"
     >
-      <div className="container">
+      <div className="container container--wide">
         <div
           ref={corrRef as React.RefObject<HTMLDivElement>}
-          className={`markowitz-wrapper animate-on-scroll ${corrVisible ? 'is-visible' : ''}`}
+          className={`markowitz-wrapper animate-on-scroll ${
+            corrVisible ? 'is-visible' : ''
+          }`}
         >
-          <div className="section-heading sw-heading">
-            <h2 className="sw-heading__title">
-              <span className="sw-heading__title-highlight">
-                CORRELATION & PERFORMANCE
-              </span>
+          {/* Centered Section Header matching reference mockup */}
+          <div className="corr-perf-header text-center">
+            <h2 className="corr-perf-title">
+              <span className="corr-perf-title__part1">CORRELATION &amp; </span>
+              <span className="corr-perf-title__part2">PERFORMANCE</span>
             </h2>
-            <p className="sw-heading__subtitle">
-              Correlation Matrix, Portfolio Performance & Optimization Objective
+            <p className="corr-perf-subtitle">
+              Correlation Matrix, Portfolio Performance &amp; Optimization Objective
             </p>
           </div>
 
-          <div className="orp-eval-grid">
-            {/* Left Column: Correlation Matrix */}
-            <div className="orp-eval-col orp-eval-col--matrix">
-              <div className="corr-concept-card">
-                <h3 className="corr-concept-card__title">Correlation Matrix</h3>
-                <div className="corr-concept-card__subtitle font-mono">
-                  VCB · SSI · MWG · GAS
+          {/* 2-Column Grid */}
+          <div className="corr-perf-grid">
+            {/* Left Column: Unified Correlation Matrix Card */}
+            <div className="corr-matrix-card">
+              <div className="corr-matrix-card__header">
+                <div className="corr-matrix-card__title-wrap">
+                  <h3 className="corr-matrix-card__title">Correlation Matrix</h3>
+                  <div className="corr-matrix-card__tickers font-mono">
+                    VCB · SSI · MWG · GAS
+                  </div>
+                  <p className="corr-matrix-card__desc">
+                    Shows how stock returns move in relation to one another, supporting
+                    portfolio diversification.
+                  </p>
                 </div>
-                <p className="corr-concept-card__desc">
-                  Shows how stock returns move in relation to one another, supporting portfolio diversification.
-                </p>
               </div>
 
-              <div className="equity-card corr-card">
-                <div className="corr-table-wrap">
-                  <table className="corr-table">
-                    <thead>
-                      <tr>
-                        <th className="corr-th-corner"></th>
-                        {correlationTickers.map((t) => (
-                          <th key={t} className="corr-th font-mono">
-                            {t}
-                          </th>
-                        ))}
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {correlationMatrixData.map((row) => (
-                        <tr key={row.ticker}>
-                          <td className="corr-td-header font-mono">
-                            {row.ticker}
-                          </td>
-                          {correlationTickers.map((colTicker) => {
-                            const val =
-                              row.correlations[
-                                colTicker as keyof typeof row.correlations
-                              ];
-                            const isDiagonal = row.ticker === colTicker;
-                            return (
-                              <td
-                                key={colTicker}
-                                className={`corr-td-val font-mono ${isDiagonal ? 'corr-td-val--diag' : ''}`}
-                              >
-                                {val}
-                              </td>
-                            );
-                          })}
-                        </tr>
+              <div className="corr-matrix-table-wrap">
+                <table className="corr-matrix-table">
+                  <thead>
+                    <tr>
+                      <th className="corr-matrix-th-corner" aria-label="Corner" />
+                      {correlationTickers.map((t) => (
+                        <th key={t} className="corr-matrix-th font-mono">
+                          {t}
+                        </th>
                       ))}
-                    </tbody>
-                  </table>
-                </div>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {correlationMatrixData.map((row) => (
+                      <tr key={row.ticker}>
+                        <td className="corr-matrix-td-header font-mono">
+                          {row.ticker}
+                        </td>
+                        {correlationTickers.map((colTicker) => {
+                          const val =
+                            row.correlations[
+                              colTicker as keyof typeof row.correlations
+                            ];
+                          const isDiagonal = row.ticker === colTicker;
+                          const bg = getCellHeatmapBg(val, isDiagonal);
+
+                          return (
+                            <td
+                              key={colTicker}
+                              className={`corr-matrix-td-val font-mono ${
+                                isDiagonal ? 'is-diag' : ''
+                              }`}
+                              style={{ backgroundColor: bg }}
+                            >
+                              {val}
+                            </td>
+                          );
+                        })}
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
               </div>
             </div>
 
-            {/* Right Column: Performance + Optimization Objective */}
-            <div className="orp-eval-col orp-eval-col--metrics">
-              <div className="equity-card perf-stat-card" id="portfolio-performance">
-                <h3 className="perf-stat-card__title">Portfolio Performance</h3>
-
-                <div className="perf-stat-item">
-                  <span className="perf-stat-label">Expected Return</span>
-                  <span className="perf-stat-val font-mono">
-                    {orpPerformance.expectedReturn}
-                  </span>
+            {/* Right Column: Stacked Performance & Optimization Objective */}
+            <div className="corr-perf-right-col">
+              {/* Card 1: Portfolio Performance */}
+              <div
+                className="perf-metrics-card"
+                id="portfolio-performance"
+              >
+                <div className="perf-card-tag font-mono">
+                  PORTFOLIO PERFORMANCE
                 </div>
 
-                <div className="perf-stat-divider" />
-
-                <div className="perf-stat-item">
-                  <span className="perf-stat-label">Portfolio Risk</span>
-                  <span className="perf-stat-val font-mono">
-                    {orpPerformance.portfolioRisk}
-                  </span>
+                <div className="perf-metric-item">
+                  <span className="perf-metric-label">Expected Return</span>
+                  <div className="perf-metric-val-row">
+                    <span className="perf-metric-num font-heading">{retVal}</span>
+                    {retUnit && (
+                      <span className="perf-metric-unit font-mono">
+                        / {retUnit}
+                      </span>
+                    )}
+                  </div>
                 </div>
 
-                <div className="perf-stat-divider" />
+                <hr className="perf-metric-divider" />
 
-                <div className="perf-stat-item">
-                  <span className="perf-stat-label">Sharpe Ratio</span>
-                  <span className="perf-stat-val font-mono perf-stat-val--sharpe">
-                    {orpPerformance.sharpeRatio}
-                  </span>
+                <div className="perf-metric-item">
+                  <span className="perf-metric-label">Portfolio Risk</span>
+                  <div className="perf-metric-val-row">
+                    <span className="perf-metric-num font-heading">{riskVal}</span>
+                    {riskUnit && (
+                      <span className="perf-metric-unit font-mono">
+                        / {riskUnit}
+                      </span>
+                    )}
+                  </div>
+                </div>
+
+                <hr className="perf-metric-divider" />
+
+                <div className="perf-metric-item">
+                  <span className="perf-metric-label">Sharpe Ratio</span>
+                  <div className="perf-metric-val-row">
+                    <span className="perf-metric-num perf-metric-num--sharpe font-heading">
+                      {orpPerformance.sharpeRatio}
+                    </span>
+                  </div>
                 </div>
               </div>
 
-              <div className="opt-obj-card" id="optimization-objective">
-                <h3 className="opt-obj-card__title">
-                  {optimizationObjective.title}
-                </h3>
-                <p className="opt-obj-card__desc">
+              {/* Card 2: Optimization Objective */}
+              <div
+                className="perf-obj-card"
+                id="optimization-objective"
+              >
+                <div className="perf-obj-tag font-mono">
+                  OPTIMIZATION OBJECTIVE
+                </div>
+                <p className="perf-obj-desc">
                   {optimizationObjective.description}
                 </p>
               </div>

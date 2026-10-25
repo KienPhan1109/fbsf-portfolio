@@ -4,15 +4,19 @@ import { useEffect, useRef, useState, useCallback } from 'react';
  * Custom hook to detect when an element enters the viewport.
  * Triggers CSS animation class toggle.
  */
+/**
+ * Custom hook to detect when an element enters or leaves the viewport.
+ * Triggers CSS animation class toggle for both entrance and exit transitions.
+ */
 export function useInView(
   options: IntersectionObserverInit = {},
-  once: boolean = true
+  once: boolean = false
 ): [React.RefObject<HTMLElement | null>, boolean] {
   const ref = useRef<HTMLElement | null>(null);
   const [isVisible, setIsVisible] = useState(false);
 
-  const threshold = options.threshold ?? 0.15;
-  const rootMargin = options.rootMargin;
+  const threshold = options.threshold ?? 0.08;
+  const rootMargin = options.rootMargin ?? '0px 0px -30px 0px';
   const root = options.root;
 
   useEffect(() => {
@@ -38,6 +42,50 @@ export function useInView(
   }, [once, threshold, rootMargin, root]);
 
   return [ref, isVisible];
+}
+
+/**
+ * Custom hook to track window scroll progress from 0 to 100%.
+ * Throttled using requestAnimationFrame for buttery-smooth 60/120fps performance.
+ */
+export function useScrollProgress(): number {
+  const [progress, setProgress] = useState(0);
+
+  useEffect(() => {
+    let ticking = false;
+
+    const calculateScroll = () => {
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+
+      if (docHeight <= 0) {
+        setProgress(0);
+        return;
+      }
+
+      const scrolled = Math.min(Math.max(scrollTop / docHeight, 0), 1);
+      setProgress(Math.round(scrolled * 100)); // 0 to 100%
+      ticking = false;
+    };
+
+    const onScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(calculateScroll);
+        ticking = true;
+      }
+    };
+
+    calculateScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onScroll);
+    };
+  }, []);
+
+  return progress;
 }
 
 /**

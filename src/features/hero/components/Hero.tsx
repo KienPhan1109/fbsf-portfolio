@@ -37,9 +37,6 @@ export function Hero() {
       <div className="hero__bg" aria-hidden="true">
         <img src={bgImg} alt="" className="hero__bg-img" />
         <div className="hero__bg-gradient" />
-        <div className="hero__bg-circle hero__bg-circle--1" />
-        <div className="hero__bg-circle hero__bg-circle--2" />
-        <div className="hero__bg-circle hero__bg-circle--3" />
       </div>
 
       {/* Main Content */}
@@ -57,22 +54,6 @@ export function Hero() {
           A disciplined investment strategy balancing
           long-term growth, risk management, and financial stability
         </p>
-
-        <div className="hero__ctas">
-          <a
-            href="#financial-profile"
-            className="hero__btn hero__btn--primary"
-          >
-            <span>Bắt đầu tư vấn</span>
-            <span className="hero__btn-icon">→</span>
-          </a>
-          <a
-            href="#system-workflow"
-            className="hero__btn hero__btn--secondary"
-          >
-            <span>Tìm hiểu thêm</span>
-          </a>
-        </div>
       </div>
 
       {/* Full-Width Bottom Emerald Ribbon (Stats Strip) */}

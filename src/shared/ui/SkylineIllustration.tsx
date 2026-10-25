@@ -24,7 +24,7 @@ export default function SkylineIllustration() {
         <g stroke="#94A3B8" strokeWidth="1.15" strokeLinecap="round" strokeLinejoin="round" opacity="0.6">
           {/* Ambient Sun */}
           <circle cx="560" cy="55" r="22" strokeDasharray="3 3" fill="none" opacity="0.45" />
-          <circle cx="560" cy="55" r="14" fill="#FEF3C7" fillOpacity="0.3" stroke="#F59E0B" opacity="0.5" />
+          <circle cx="560" cy="55" r="14" fill="#D1FAE5" fillOpacity="0.4" stroke="#10B981" opacity="0.6" />
           {/* Sun rays */}
           <path d="M560 22 V28 M560 82 V88 M527 55 H533 M587 55 H593 M536 31 L541 36 M579 74 L584 79 M536 79 L541 74 M579 36 L584 31" opacity="0.4" />
 

@@ -27,7 +27,7 @@
     font-size: clamp(2rem, 3.5vw, 2.8rem);
     font-weight: 800;
     color: var(--color-navy-900);
-    letter-spacing: -0.025em;
+    letter-spacing: 0.08em;
     line-height: 1.15;
     margin: 0;
 }
@@ -48,7 +48,7 @@
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: auto auto;
     gap: 18px;
-    max-width: 1140px;
+    max-width: var(--container-max);
     margin: 0 auto;
 }
 
@@ -78,9 +78,7 @@
 
 .apc__card:hover {
     transform: translateY(-6px) translateZ(0);
-    box-shadow:
-        0 20px 48px -10px rgba(10, 22, 40, 0.48),
-        0 0 28px -2px rgba(16, 185, 129, 0.25);
+    box-shadow: 0 20px 48px -10px rgba(10, 22, 40, 0.48);
 }
 
 /* Background Image & Scrim Overlay */

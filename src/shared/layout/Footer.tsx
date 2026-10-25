@@ -1,237 +1,182 @@
-import logoImg from "../../assets/Logo.png";
-import "./Footer.css";
+import React from 'react';
+import {
+  TeamOutlined,
+  MailOutlined,
+  EnvironmentOutlined,
+  ClockCircleOutlined,
+} from '@ant-design/icons';
+import logoImg from '../../assets/Logo.png';
+import './Footer.css';
 
 export default function Footer() {
-    const handleNavClick = (
-        e: React.MouseEvent<HTMLAnchorElement>,
-        id: string,
-    ) => {
-        e.preventDefault();
-        const el = document.getElementById(id);
-        if (el) {
-            el.scrollIntoView({ behavior: "smooth" });
-        }
-    };
+  const handleNavClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    id: string
+  ) => {
+    e.preventDefault();
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
-    return (
-        <footer className="footer" id="footer" role="contentinfo">
-            <div className="footer__inner">
-                <div className="footer__top">
-                    {/* Brand */}
-                    <div className="footer__brand">
-                        <a
-                            href="#hero"
-                            className="footer__logo"
-                            onClick={(e) => handleNavClick(e, "hero")}
-                            style={{
-                                textDecoration: "none",
-                                display: "flex",
-                                alignItems: "center",
-                                gap: "12px",
-                            }}
-                            title="FBSF Fund"
-                        >
-                            <img
-                                src={logoImg}
-                                alt="FBSF Logo"
-                                className="footer__logo-img"
-                                style={{
-                                    height: "40px",
-                                    width: "auto",
-                                    objectFit: "contain",
-                                }}
-                            />
-                            <div
-                                style={{
-                                    display: "flex",
-                                    alignItems: "baseline",
-                                    fontSize: "1.5rem",
-                                    fontWeight: 900,
-                                }}
-                            >
-                                <span style={{ color: "#FFFFFF" }}>FBS</span>
-                                <span
-                                    style={{
-                                        background: "var(--gradient-emerald)",
-                                        WebkitBackgroundClip: "text",
-                                        WebkitTextFillColor: "transparent",
-                                        marginLeft: "0.5px",
-                                    }}
-                                >
-                                    F
-                                </span>
-                            </div>
-                        </a>
-                        <p className="footer__description">
-                            FBSF Cash Flow Optimization Fund — Tối ưu hóa dòng
-                            tiền, xây dựng danh mục đầu tư khoa học theo phương
-                            pháp Markowitz MPT cho gia đình Việt.
-                        </p>
-                    </div>
-
-                    {/* Quy trình */}
-                    <div>
-                        <h4 className="footer__column-title">
-                            Quy trình tư vấn
-                        </h4>
-                        <div className="footer__links">
-                            <a
-                                href="#financial-profile"
-                                className="footer__link"
-                                onClick={(e) =>
-                                    handleNavClick(e, "financial-profile")
-                                }
-                            >
-                                Hồ sơ tài chính
-                            </a>
-                            <a
-                                href="#risk-assessment"
-                                className="footer__link"
-                                onClick={(e) =>
-                                    handleNavClick(e, "risk-assessment")
-                                }
-                            >
-                                Đánh giá rủi ro
-                            </a>
-                            <a
-                                href="#equity-analysis"
-                                className="footer__link"
-                                onClick={(e) =>
-                                    handleNavClick(e, "equity-analysis")
-                                }
-                            >
-                                Phân tích cổ phiếu
-                            </a>
-                            <a
-                                href="#markowitz"
-                                className="footer__link"
-                                onClick={(e) => handleNavClick(e, "markowitz")}
-                            >
-                                Tối ưu hóa danh mục
-                            </a>
-                            <a
-                                href="#ips-report"
-                                className="footer__link"
-                                onClick={(e) => handleNavClick(e, "ips-report")}
-                            >
-                                Văn kiện & Báo cáo IPS
-                            </a>
-                        </div>
-                    </div>
-
-                    {/* Thông tin */}
-                    <div>
-                        <h4 className="footer__column-title">Thông tin</h4>
-                        <div className="footer__links">
-                            <span
-                                className="footer__link"
-                                style={{ color: "#ffffff", fontWeight: 600 }}
-                            >
-                                <svg
-                                    width="15"
-                                    height="15"
-                                    viewBox="0 0 24 24"
-                                    fill="none"
-                                    stroke="#10b981"
-                                    strokeWidth="1.75"
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    style={{
-                                        marginRight: "6px",
-                                        verticalAlign: "middle",
-                                        flexShrink: 0,
-                                    }}
-                                    aria-hidden="true"
-                                >
-                                    <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
-                                    <circle cx="12" cy="7" r="4" />
-                                </svg>
-                                Chủ sở hữu: Group 06
-                            </span>
-                            <span className="footer__link">
-                                <svg
-                                    width="15"
-                                    height="15"
-                                    viewBox="0 0 24 24"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    strokeWidth="1.75"
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    style={{
-                                        marginRight: "6px",
-                                        verticalAlign: "middle",
-                                        flexShrink: 0,
-                                    }}
-                                    aria-hidden="true"
-                                >
-                                    <rect
-                                        width="20"
-                                        height="16"
-                                        x="2"
-                                        y="4"
-                                        rx="2"
-                                    />
-                                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
-                                </svg>
-                                contact@fbsf-fund.vn
-                            </span>
-                            <span className="footer__link">
-                                <svg
-                                    width="15"
-                                    height="15"
-                                    viewBox="0 0 24 24"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    strokeWidth="1.75"
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    style={{
-                                        marginRight: "6px",
-                                        verticalAlign: "middle",
-                                        flexShrink: 0,
-                                    }}
-                                    aria-hidden="true"
-                                >
-                                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
-                                </svg>
-                                1900 xxxx xx
-                            </span>
-                            <span className="footer__link">
-                                <svg
-                                    width="15"
-                                    height="15"
-                                    viewBox="0 0 24 24"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    strokeWidth="1.75"
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    style={{
-                                        marginRight: "6px",
-                                        verticalAlign: "middle",
-                                        flexShrink: 0,
-                                    }}
-                                    aria-hidden="true"
-                                >
-                                    <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
-                                    <circle cx="12" cy="10" r="3" />
-                                </svg>
-                                TP. Hồ Chí Minh, Việt Nam
-                            </span>
-                        </div>
-                    </div>
+  return (
+    <footer className="footer-wrapper" id="footer" role="contentinfo">
+      {/* Curved Card Container matching reference mockup */}
+      <div className="footer-card">
+        <div className="footer__container">
+          <div className="footer__grid">
+            {/* Column 1: Brand & Socials */}
+            <div className="footer__brand">
+              <a
+                href="#hero"
+                className="footer__logo"
+                onClick={(e) => handleNavClick(e, 'hero')}
+                title="FBSF Cash Flow Optimization Fund"
+              >
+                <img
+                  src={logoImg}
+                  alt="FBSF Logo"
+                  className="footer__logo-img"
+                />
+                <div className="footer__logo-text font-heading">
+                  <span className="footer__logo-text-dark">FBS</span>
+                  <span className="footer__logo-text-emerald">F</span>
                 </div>
+              </a>
 
-                {/* Bottom */}
-                <div className="footer__bottom">
-                    <p className="footer__copyright">
-                        © 2026 FBSF Cash Flow Optimization Fund. All rights
-                        reserved.
-                    </p>
-                    <p className="footer__disclaimer">Công ty quỹ giả lập.</p>
-                </div>
+              <p className="footer__description">
+                Hệ thống tối ưu hóa dòng tiền &amp; danh mục đầu tư khoa học
+                theo phương pháp Markowitz MPT chuyên sâu cho gia đình Việt.
+              </p>
+
+              {/* Copyright */}
+              <div className="footer__copyright font-mono">
+                © 2026 FBSF Cash Flow Optimization Fund. All rights reserved.
+              </div>
             </div>
-        </footer>
-    );
+
+            {/* Column 2: Khám phá (Navigation Links) */}
+            <div className="footer__col">
+              <h4 className="footer__col-title font-heading">Khám phá</h4>
+              <ul className="footer__links-list">
+                <li>
+                  <a
+                    href="#system-workflow"
+                    className="footer__nav-link"
+                    onClick={(e) => handleNavClick(e, 'system-workflow')}
+                  >
+                    Khung đầu tư &amp; Quy trình 5 bước
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#financial-profile"
+                    className="footer__nav-link"
+                    onClick={(e) => handleNavClick(e, 'financial-profile')}
+                  >
+                    Hồ sơ tài chính &amp; Mục tiêu gia đình
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#risk-assessment"
+                    className="footer__nav-link"
+                    onClick={(e) => handleNavClick(e, 'risk-assessment')}
+                  >
+                    Đánh giá rủi ro &amp; Hệ số CRRA (A = 5.07)
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#equity-analysis"
+                    className="footer__nav-link"
+                    onClick={(e) => handleNavClick(e, 'equity-analysis')}
+                  >
+                    Sàng lọc &amp; Phân tích cổ phiếu
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#markowitz"
+                    className="footer__nav-link"
+                    onClick={(e) => handleNavClick(e, 'markowitz')}
+                  >
+                    Tối ưu hóa danh mục ORP &amp; OCP
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#financial-plan"
+                    className="footer__nav-link"
+                    onClick={(e) => handleNavClick(e, 'financial-plan')}
+                  >
+                    Đánh giá kế hoạch mục tiêu (IPE)
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#ips-report"
+                    className="footer__nav-link"
+                    onClick={(e) => handleNavClick(e, 'ips-report')}
+                  >
+                    Văn kiện &amp; Báo cáo chính sách IPS
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            {/* Column 3: Liên hệ (Contact Details) */}
+            <div className="footer__col">
+              <h4 className="footer__col-title font-heading">Liên hệ</h4>
+              <ul className="footer__contact-list">
+                <li className="footer__contact-item">
+                  <span className="footer__contact-hotline">
+                    Hotline: <strong className="font-mono">1900 xxxx xx</strong>
+                  </span>
+                </li>
+                <li className="footer__contact-item">
+                  <a
+                    href="mailto:contact@fbsf-fund.vn"
+                    className="footer__contact-link"
+                  >
+                    <MailOutlined className="footer__contact-icon" />
+                    contact@fbsf-fund.vn
+                  </a>
+                </li>
+                <li className="footer__contact-item">
+                  <span className="footer__contact-info">
+                    <TeamOutlined className="footer__contact-icon" />
+                    Chủ sở hữu: <strong>Group 06</strong> ↗
+                  </span>
+                </li>
+                <li className="footer__contact-item">
+                  <span className="footer__contact-info">
+                    <EnvironmentOutlined className="footer__contact-icon" />
+                    TP. Hồ Chí Minh, Việt Nam
+                  </span>
+                </li>
+                <li className="footer__contact-item">
+                  <span className="footer__contact-hours font-mono">
+                    <ClockCircleOutlined className="footer__contact-icon" />
+                    08:00 – 17:30 (T2 – T6)
+                  </span>
+                </li>
+                <li className="footer__contact-item footer__contact-disclaimer">
+                  Dự án công ty quỹ giả lập phục vụ học thuật &amp; nghiên cứu.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom Giant White Watermark Text */}
+        <div className="footer__watermark-wrap" aria-hidden="true">
+          <div className="footer__watermark-text font-heading">
+            FBSF FUND
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
 }

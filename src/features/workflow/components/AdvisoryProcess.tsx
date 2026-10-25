@@ -1,3 +1,4 @@
+import { ArrowUpOutlined } from '@ant-design/icons';
 import { useInView } from '../../../shared/hooks/useAnimations';
 import '../styles/AdvisoryProcess.css';
 import '../styles/SystemWorkflow.css';
@@ -107,7 +108,7 @@ export function AdvisoryProcess() {
                 <div className="apc__card-bottom">
                   <h4 className="apc__card-title">
                     {step.title}
-                    <span className="apc__card-arrow" aria-hidden="true"> ↗</span>
+                    <ArrowUpOutlined style={{ transform: 'rotate(45deg)', fontSize: 13, marginLeft: 6 }} aria-hidden="true" />
                   </h4>
                 </div>
               </a>

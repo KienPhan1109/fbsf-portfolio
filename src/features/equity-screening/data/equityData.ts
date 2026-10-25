@@ -1,47 +1,64 @@
 export interface StockCriterion {
   id: string;
+  idx: string;
   name: string;
   requirement: string;
   isMono?: boolean;
+  isFullWidth?: boolean;
+  tagline?: string;
+  tags?: string[];
+  subNote?: string;
 }
 
 export const stockSelectionCriteria: StockCriterion[] = [
   {
     id: 'profitability',
+    idx: '01',
     name: 'Profitability',
     requirement: 'ROE > 15%',
     isMono: true,
   },
   {
     id: 'valuation',
+    idx: '02',
     name: 'Valuation',
-    requirement: 'Forward P/E ≤ 16; P/B < 3',
+    requirement: 'Forward P/E ≤ 16 · P/B < 3',
     isMono: true,
   },
   {
     id: 'financial-health',
+    idx: '03',
     name: 'Financial Health',
-    requirement: 'D/E < 0.8; banks assessed by key risk indicators',
+    requirement: 'D/E < 0.8',
+    isMono: true,
   },
   {
     id: 'dividends',
+    idx: '04',
     name: 'Dividends',
     requirement: 'Stable payout history',
   },
   {
     id: 'liquidity',
+    idx: '05',
     name: 'Liquidity',
     requirement: 'Large-cap, highly liquid stocks',
   },
   {
     id: 'exclusions',
+    idx: '06',
     name: 'Exclusions',
-    requirement: 'Tobacco, weapons, gambling',
+    requirement: 'Tobacco · Weapons · Gambling',
   },
   {
     id: 'esg',
+    idx: '07',
     name: 'ESG',
-    requirement: 'Transparent governance and sustainable growth',
+    requirement: 'Transparent governance & sustainable growth',
+    isFullWidth: true,
+    tagline: 'Sustainable Investment Mandate',
+    tags: ['Environmental', 'Social', 'Governance'],
+    subNote: 'Strict ESG framework: Transparent corporate governance, social responsibility & sustainable growth.',
   },
 ];
 
@@ -58,35 +75,35 @@ export const selectedStocks: SelectedStock[] = [
     ticker: 'VCB',
     sector: 'Banking',
     role: 'Defensive, stable base',
-    clientNeedsMet: 'Capital preservation, long-term accumulation',
+    clientNeedsMet: "Capital preservation, long-term accumulation, while contributing to the portfolio's overall balance.",
     isDefensive: true,
   },
   {
     ticker: 'DHG',
     sector: 'Pharmaceuticals',
     role: 'Defensive, risk reduction',
-    clientNeedsMet: 'Volatility reduction, value preservation',
+    clientNeedsMet: 'Volatility reduction, value preservation for the family portfolio across market cycles.',
     isDefensive: true,
   },
   {
     ticker: 'GAS',
     sector: 'Energy',
     role: 'Defensive, steady cash flow',
-    clientNeedsMet: 'Steady cash flow, sector diversification',
+    clientNeedsMet: 'Steady cash flow, energy sector exposure and reliable dividend yield generation.',
     isDefensive: true,
   },
   {
     ticker: 'MWG',
     sector: 'Retail',
     role: 'Consumer growth',
-    clientNeedsMet: 'Housing goal and long-term education fund',
+    clientNeedsMet: 'Housing goal and long-term education fund acceleration driven by consumer demand.',
     isDefensive: false,
   },
   {
     ticker: 'SSI',
     sector: 'Securities',
     role: 'Cyclical growth',
-    clientNeedsMet: 'Capital appreciation in favourable markets',
+    clientNeedsMet: 'Capital appreciation in favourable macroeconomic markets and capital market expansion.',
     isDefensive: false,
   },
 ];

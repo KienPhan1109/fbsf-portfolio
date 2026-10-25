@@ -1,27 +1,79 @@
 /* ============================================================
    SECTION 6.3: FINANCIAL PLAN & GOAL IMPLEMENTATION ROADMAP
-   Investment Plan Evaluation Sheet Styles
+   Investment Plan Evaluation Sheet Styles (V2 Redesign)
+   Matching Reference Mockup Aesthetics
    ============================================================ */
 
 .sec-financial-plan {
-  padding-top: calc(var(--navbar-height) + 32px);
-  padding-bottom: var(--space-24);
-  background: var(--color-off-white, #f8fafc);
+  padding-top: var(--space-20);
+  padding-bottom: var(--space-20);
+  background-color: #F6FAF7;
   box-sizing: border-box;
 }
 
 /* Section Wrapper */
 .plan-eval-wrapper {
-  max-width: 1040px;
+  max-width: var(--container-max);
   margin: 0 auto;
 }
 
-/* Table Card Container */
+/* Editorial Header */
+.plan-eval-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 32px;
+  margin-bottom: 44px;
+}
+
+.plan-eval-header__title-wrap {
+  flex: 1;
+}
+
+.plan-eval-title {
+  font-family: var(--font-heading);
+  display: flex;
+  flex-direction: column;
+  font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: 0.08em;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.plan-eval-title__dark {
+  color: var(--color-forest-dark);
+}
+
+.plan-eval-title__emerald {
+  color: var(--color-emerald-base);
+}
+
+.plan-eval-header__desc-wrap {
+  max-width: 440px;
+  flex-shrink: 0;
+  padding-bottom: 6px;
+  text-align: right;
+  margin-left: auto;
+}
+
+.plan-eval-desc {
+  font-family: var(--font-primary);
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--color-text-muted);
+  margin: 0;
+  font-weight: 400;
+  text-align: right;
+}
+
+/* Institutional Table Card */
 .plan-eval-card {
-  background: #ffffff;
-  border-radius: 20px;
-  border: 1px solid rgba(226, 232, 240, 0.95);
-  box-shadow: 0 10px 30px -5px rgba(15, 23, 42, 0.05);
+  background: #FFFFFF;
+  border-radius: 16px;
+  border: 1px solid #E2E8F0;
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.04);
   overflow: hidden;
   margin-bottom: 24px;
 }
@@ -38,47 +90,44 @@
   text-align: left;
 }
 
-/* Table Header (Matching Reference Dark Navy Header) */
+/* Table Header (Deep Forest Green) */
 .plan-eval-table thead th {
-  background: #0b132b;
-  color: #ffffff;
-  font-size: 12px;
+  background: #062C1E;
+  color: #FFFFFF;
+  font-family: var(--font-mono);
+  font-size: 11px;
   font-weight: 700;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
-  padding: 18px 24px;
-  white-space: nowrap;
+  padding: 16px 28px;
   border: none;
+  white-space: nowrap;
 }
 
 .plan-eval-th-goal {
-  width: 38%;
+  width: 34%;
 }
 
 .plan-eval-th-val {
-  width: 24%;
+  width: 22%;
 }
 
-.plan-eval-th-source {
-  width: 23%;
+.plan-eval-th-capital {
+  width: 26%;
 }
 
-.plan-eval-th-result {
-  width: 15%;
+.plan-eval-th-status {
+  width: 18%;
 }
 
 /* Table Body Rows */
 .plan-eval-table tbody tr {
-  border-bottom: 1px solid #f1f5f9;
+  border-bottom: 1px solid #F1F5F9;
   transition: background-color 0.15s ease;
 }
 
-.plan-eval-table tbody tr:nth-child(even) {
-  background: #fafbfc;
-}
-
 .plan-eval-table tbody tr:hover {
-  background: #f0fdf4;
+  background-color: #F8FAF9;
 }
 
 .plan-eval-table tbody tr:last-child {
@@ -86,104 +135,303 @@
 }
 
 .plan-eval-table td {
-  padding: 20px 24px;
+  padding: 20px 28px;
   vertical-align: middle;
 }
 
-/* Goal Column (Blue Text) */
-.plan-eval-td-goal {
-  color: #2563eb;
+/* Goal Title Column */
+.plan-goal-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.plan-goal-idx {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--color-emerald-base);
+  background: rgba(7, 135, 90, 0.08);
+  padding: 3px 8px;
+  border-radius: 4px;
+  letter-spacing: 0.04em;
+  flex-shrink: 0;
+}
+
+.plan-goal-name {
+  color: var(--color-forest-dark);
   font-size: 15px;
   font-weight: 700;
+  font-family: var(--font-heading);
 }
 
-/* Numeric Values (Monospace) */
-.plan-eval-td-val,
-.plan-eval-td-source {
-  color: #0f172a;
+/* Goal Value (Monospace) */
+.plan-eval-td-val {
+  color: #0F172A;
   font-size: 15px;
-  font-weight: 600;
-}
-
-/* Result Status */
-.plan-eval-td-result {
   font-weight: 700;
-  font-size: 14.5px;
+  font-family: var(--font-mono);
+  letter-spacing: -0.01em;
 }
 
-.plan-result--unachieved {
-  color: #e11d48; /* Red/Rose */
+/* Accumulated Capital Progress Capsule */
+.plan-progress-pill {
+  position: relative;
+  width: 100%;
+  max-width: 230px;
+  height: 36px;
+  background-color: #F1F5F9;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 12px;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.04);
 }
 
-.plan-result--achieved {
-  color: #059669; /* Emerald Green */
+.plan-progress-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  border-radius: 8px;
+  transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Supplementary Institutional Highlights (Surplus, Reserve, Horizon) */
-.plan-highlights {
+.plan-progress-fill--achieved {
+  background: linear-gradient(90deg, rgba(7, 135, 90, 0.22) 0%, rgba(16, 185, 129, 0.35) 100%);
+  border-right: 2px solid #07875A;
+}
+
+.plan-progress-fill--pending {
+  background: linear-gradient(90deg, rgba(100, 116, 139, 0.15) 0%, rgba(148, 163, 184, 0.25) 100%);
+  border-right: 2px solid #64748B;
+}
+
+.plan-progress-text {
+  position: relative;
+  z-index: 1;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #062C1E;
+}
+
+.plan-progress-pct {
+  position: relative;
+  z-index: 1;
+  font-size: 11px;
+  font-weight: 700;
+  color: #475569;
+  background: rgba(255, 255, 255, 0.85);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+/* Status Column */
+.plan-eval-td-status {
+  vertical-align: middle;
+}
+
+.plan-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 12.5px;
+  font-weight: 700;
+  padding: 5px 14px;
+  border-radius: 999px;
+  letter-spacing: 0.02em;
+}
+
+.plan-status-pill--achieved {
+  background: rgba(7, 135, 90, 0.08);
+  color: #07875A;
+  border: 1px solid rgba(7, 135, 90, 0.25);
+}
+
+.plan-status-pill--achieved .plan-status-pill__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #07875A;
+  box-shadow: 0 0 6px rgba(7, 135, 90, 0.6);
+}
+
+.plan-status-pill--not-achieved {
+  background: rgba(225, 29, 72, 0.08);
+  color: #BE123C;
+  border: 1px solid rgba(225, 29, 72, 0.25);
+}
+
+.plan-status-pill--not-achieved .plan-status-pill__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #BE123C;
+  box-shadow: 0 0 6px rgba(225, 29, 72, 0.5);
+}
+
+/* Footer Note */
+.plan-eval-footer-note {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 28px;
+  background: #FAFBF9;
+  border-top: 1px solid #E2E8F0;
+}
+
+.plan-eval-footer-badge {
+  font-size: 11px;
+  font-weight: 700;
+  color: #07875A;
+  background: rgba(7, 135, 90, 0.08);
+  padding: 4px 10px;
+  border-radius: 6px;
+  letter-spacing: 0.06em;
+  flex-shrink: 0;
+}
+
+.plan-eval-footer-text {
+  font-size: 13.5px;
+  color: #52665D;
+  line-height: 1.5;
+  margin: 0;
+  font-family: var(--font-primary);
+  font-weight: 500;
+}
+
+/* Supplementary 3 Cards Row */
+.plan-highlights-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
+  gap: 20px;
   margin-top: 24px;
 }
 
 .plan-highlight-card {
-  background: #ffffff;
-  border: 1px solid rgba(226, 232, 240, 0.85);
   border-radius: 16px;
-  padding: 18px 20px;
-  box-shadow: 0 2px 10px rgba(15, 23, 42, 0.02);
+  padding: 30px 28px;
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  justify-content: space-between;
+  min-height: 185px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .plan-highlight-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+  transform: translateY(-3px);
 }
 
-.plan-highlight-label {
-  font-size: 12.5px;
-  color: #64748b;
-  font-weight: 600;
+/* Emerald Card (10-Year Housing Goal) */
+.plan-highlight-card--emerald {
+  background: linear-gradient(145deg, #062C1E 0%, #0A4530 100%);
+  color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 12px 32px -4px rgba(6, 44, 30, 0.28);
+}
+
+.plan-highlight-card--emerald .plan-card-tag {
+  color: #A7F3D0;
+}
+
+.plan-highlight-card--emerald .plan-card-val {
+  color: #FFFFFF;
+}
+
+.plan-highlight-card--emerald .plan-card-desc {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* White Card (Emergency Reserve & Compound Growth) */
+.plan-highlight-card--white {
+  background-color: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.03);
+}
+
+.plan-highlight-card--white .plan-card-tag {
+  color: #07875A;
+}
+
+.plan-highlight-card--white .plan-card-val {
+  color: #062C1E;
+}
+
+.plan-highlight-card--white .plan-card-desc {
+  color: #52665D;
+}
+
+/* Card Typography */
+.plan-card-tag {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  margin-bottom: 12px;
 }
 
-.plan-highlight-val {
-  font-size: 20px;
+.plan-card-val {
+  font-size: clamp(26px, 2.2vw, 32px);
   font-weight: 800;
-  color: #0f172a;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
+  margin-bottom: 10px;
+  line-height: 1.15;
 }
 
-.plan-highlight-val--surplus {
-  color: #059669;
-}
-
-.plan-highlight-desc {
-  font-size: 13px;
-  color: #475569;
-  line-height: 1.45;
+.plan-card-desc {
+  font-size: 13.5px;
+  line-height: 1.55;
   margin: 0;
+  font-weight: 450;
 }
 
 /* Responsive */
-@media (max-width: 860px) {
+@media (max-width: 900px) {
+  .plan-highlights-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
   .plan-eval-table thead th,
   .plan-eval-table td {
-    padding: 14px 16px;
+    padding: 14px 18px;
     font-size: 13.5px;
   }
 
-  .plan-highlights {
-    grid-template-columns: 1fr;
-    gap: 12px;
+  .plan-progress-pill {
+    max-width: 160px;
+    height: 34px;
   }
 
-  .plan-highlight-val {
-    font-size: 18px;
+  .plan-card-val {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .plan-eval-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+
+  .plan-eval-header__desc-wrap {
+    max-width: 100%;
+    padding-bottom: 0;
+    text-align: left;
+    margin-left: 0;
+  }
+
+  .plan-eval-desc {
+    text-align: left;
+  }
+
+  .plan-eval-footer-note {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 16px 20px;
   }
 }

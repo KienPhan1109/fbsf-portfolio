@@ -1,383 +1,674 @@
 /* ============================================================
    INVESTMENT POLICY STATEMENT (IPS) REPORT SECTION STYLES
-   Matching Reference Screenshots (The Nam–Nu Family & Cash Flow)
+   Minimalist, Executive Institutional Wealth Charter
    ============================================================ */
 
 .sec-ips-report {
-  padding-top: calc(var(--navbar-height) + 32px);
+  padding-top: var(--space-20);
   padding-bottom: var(--space-24);
-  background: var(--color-off-white, #f8fafc);
+  background-color: #EFF9F3;
   box-sizing: border-box;
 }
 
 .ips-wrapper {
-  max-width: 900px;
+  max-width: var(--container-wide, 1290px);
   margin: 0 auto;
 }
 
-/* Main IPS Sheet Card */
-.ips-doc-card {
-  background: #ffffff;
-  border-radius: 24px;
-  border: 1px solid rgba(226, 232, 240, 0.95);
-  box-shadow: 0 12px 36px -4px rgba(15, 23, 42, 0.05);
-  padding: 36px 40px;
+/* --- Main Section Header --- */
+.ips-main-header {
+  text-align: center;
+  margin-bottom: 36px;
 }
 
-/* Document Top Header */
-.ips-doc-header {
-  margin-bottom: 24px;
-}
-
-.ips-doc-eyebrow {
-  color: #2563eb;
-  font-size: 12.5px;
+.ips-main-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2.2rem, 4vw, 3.4rem);
   font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.07em;
-  margin-bottom: 6px;
+  line-height: 1.1;
+  letter-spacing: 0.08em;
+  margin: 0 0 12px 0;
 }
 
-.ips-doc-title {
-  color: #0f172a;
-  font-size: 28px;
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  margin: 0 0 6px 0;
-  line-height: 1.2;
+.ips-main-title__dark {
+  color: var(--color-forest-dark);
 }
 
-.ips-doc-subtitle {
-  color: #64748b;
+.ips-main-title__emerald {
+  color: var(--color-emerald-base);
+}
+
+.ips-main-subtitle {
+  font-family: var(--font-primary);
   font-size: 15px;
-  margin: 0;
+  color: var(--color-text-muted);
+  margin: 0 auto;
+  max-width: 680px;
   line-height: 1.5;
 }
 
-/* Upper 2-Column Grid */
-.ips-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-  margin-bottom: 16px;
-}
-
-.ips-col {
+/* ============================================================
+   MASTER INSTITUTIONAL EXECUTIVE DOSSIER CARD
+   ============================================================ */
+.ips-doc-card {
+  background: #FFFFFF;
+  border-radius: 24px;
+  border: 1px solid rgba(226, 232, 240, 0.85);
+  box-shadow: 0 16px 40px -8px rgba(6, 44, 30, 0.06),
+              0 2px 6px rgba(0, 0, 0, 0.02);
+  padding: clamp(24px, 3.2vw, 40px);
   display: flex;
   flex-direction: column;
+  gap: 24px;
+}
+
+/* ============================================================
+   ROW 1: 4 CLEAN, PURE KPI METRIC CARDS
+   ============================================================ */
+.ips-kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   gap: 16px;
 }
 
-/* Standard Single Metric Stat Card */
-.ips-stat-card {
-  background: #ffffff;
-  border: 1px solid rgba(226, 232, 240, 0.9);
+.ips-kpi-card {
+  background: #F8FAF9;
   border-radius: 16px;
   padding: 20px 22px;
   display: flex;
   flex-direction: column;
-  gap: 4px;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  justify-content: space-between;
+  border: 1px solid rgba(226, 232, 240, 0.85);
+  min-height: 120px;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.2s ease,
+              border-color 0.2s ease;
 }
 
-.ips-stat-card:hover {
+.ips-kpi-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.05);
+  box-shadow: 0 8px 20px -4px rgba(6, 44, 30, 0.06);
+  border-color: rgba(7, 135, 90, 0.3);
 }
 
-.ips-stat-label {
-  font-size: 13px;
-  color: #64748b;
-  font-weight: 500;
+.ips-kpi-card--highlight {
+  background: #F0FAF4;
+  border-color: #D6EFE0;
 }
 
-.ips-stat-value {
-  font-size: 26px;
+.ips-kpi-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #64748B;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.ips-kpi-val {
+  font-size: clamp(24px, 2vw, 30px);
   font-weight: 800;
-  color: #0f172a;
-  letter-spacing: -0.015em;
+  color: #062C1E;
+  letter-spacing: -0.02em;
   line-height: 1.15;
+  margin-bottom: 6px;
 }
 
-.ips-stat-desc {
+.ips-kpi-val--emerald {
+  color: #07875A;
+}
+
+.ips-kpi-unit {
+  font-size: 14px;
+  font-weight: 600;
+  color: #64748B;
+  margin-left: 2px;
+}
+
+.ips-kpi-val__sub {
   font-size: 13px;
-  color: #64748b;
+  font-weight: 700;
+  color: #07875A;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+
+.ips-kpi-desc {
+  font-size: 12.5px;
+  color: #64748B;
+  line-height: 1.4;
   margin: 0;
 }
 
-/* Monthly Net Cash Flow Card (Exact Implementation from Image 2) */
-.ips-cashflow-card {
-  background: #ffffff;
-  border: 1px solid rgba(226, 232, 240, 0.9);
-  border-radius: 16px;
-  padding: 20px 22px;
-  display: flex;
-  flex-direction: column;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.ips-cashflow-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.05);
-}
-
-.ips-cf-title {
-  color: #475569;
-  font-size: 12px;
+.ips-kpi-desc strong {
+  color: #07875A;
   font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin: 0 0 8px 0;
 }
 
-.ips-cf-highlight {
-  font-size: 28px;
-  font-weight: 800;
-  color: #059669;
-  letter-spacing: -0.02em;
-  line-height: 1.1;
-  margin-bottom: 8px;
-}
-
-.ips-cf-badge {
-  display: inline-block;
-  align-self: flex-start;
-  font-size: 11.5px;
-  font-weight: 600;
-  color: #15803d;
-  background: #dcfce7;
-  border-radius: 9999px;
-  padding: 3px 10px;
-  margin-bottom: 14px;
-}
-
-.ips-cf-divider {
-  height: 1px;
-  background: #f1f5f9;
-  margin: 12px 0;
-}
-
-.ips-cf-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 13.5px;
-  margin-bottom: 8px;
-}
-
-.ips-cf-row:last-child {
-  margin-bottom: 0;
-}
-
-.ips-cf-row-label {
-  color: #475569;
-  font-weight: 500;
-}
-
-.ips-cf-row-val {
-  font-weight: 700;
-  font-size: 14px;
-}
-
-.ips-cf-row-val--negative {
-  color: #ef4444;
-}
-
-.ips-cf-row-val--positive {
-  color: #059669;
-}
-
-/* Optimal Complete Portfolio Allocation Card */
-.ips-alloc-card {
-  background: #ffffff;
-  border: 1px solid rgba(226, 232, 240, 0.9);
-  border-radius: 18px;
-  padding: 24px 26px;
-  margin-bottom: 16px;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.ips-alloc-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.05);
-}
-
-.ips-alloc-title {
-  color: #0f172a;
-  font-size: 19px;
-  font-weight: 700;
-  letter-spacing: -0.01em;
-  margin: 0 0 4px 0;
-}
-
-.ips-alloc-sub {
-  color: #64748b;
-  font-size: 13.5px;
-  margin: 0 0 16px 0;
-}
-
-.ips-alloc-bar {
-  display: flex;
-  height: 14px;
-  border-radius: 9999px;
-  overflow: hidden;
-  background: #e2e8f0;
-  margin-bottom: 18px;
-}
-
-.ips-alloc-slice--risky {
-  background: #2563eb;
-  height: 100%;
-}
-
-.ips-alloc-slice--riskfree {
-  background: #93c5fd;
-  height: 100%;
-}
-
-.ips-alloc-legend {
+/* ============================================================
+   ROW 2: DUAL CORE VISUAL CHARTS (50/50 BALANCED GRID)
+   ============================================================ */
+.ips-charts-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 20px;
 }
 
-.ips-alloc-col {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-}
-
-.ips-alloc-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  margin-top: 6px;
-  flex-shrink: 0;
-}
-
-.ips-alloc-dot--risky {
-  background: #2563eb;
-}
-
-.ips-alloc-dot--riskfree {
-  background: #93c5fd;
-}
-
-.ips-alloc-info {
+.ips-panel {
+  background: #FFFFFF;
+  border: 1px solid rgba(226, 232, 240, 0.85);
+  border-radius: 18px;
+  padding: 24px;
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  justify-content: space-between;
+  box-shadow: 0 4px 14px -2px rgba(6, 44, 30, 0.03);
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.2s ease,
+              border-color 0.2s ease;
 }
 
-.ips-alloc-pct {
-  font-size: 17px;
-  font-weight: 800;
-  color: #0f172a;
-  letter-spacing: -0.01em;
+.ips-panel:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px -4px rgba(6, 44, 30, 0.07);
+  border-color: rgba(7, 135, 90, 0.25);
 }
 
-.ips-alloc-name {
-  font-size: 13.5px;
-  font-weight: 600;
-  color: #1e293b;
+.ips-panel-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 20px;
 }
 
-.ips-alloc-desc {
+.ips-panel-title {
+  color: #062C1E;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  margin: 0 0 3px 0;
+}
+
+.ips-panel-subtitle {
+  color: #64748B;
   font-size: 12.5px;
-  color: #64748b;
+  margin: 0;
+  line-height: 1.4;
 }
 
-/* Investment Strategy Card (Dark Navy) */
-.ips-strategy-card {
-  background: #0b132b;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 18px;
-  padding: 26px 30px 22px 30px;
-  box-shadow: 0 8px 24px rgba(11, 19, 43, 0.12);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+.ips-panel-metric {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #07875A;
+  background: #EFF9F3;
+  border: 1px solid #D1FAE5;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  white-space: nowrap;
+}
+
+/* --- Bar Chart Elements --- */
+.ips-bars-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ips-bar-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background: #F8FAF9;
+  border: 1px solid rgba(226, 232, 240, 0.75);
+  border-radius: 12px;
+  padding: 10px 14px;
+}
+
+.ips-bar-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.ips-bar-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: #062C1E;
+}
+
+.ips-bar-vals {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.ips-bar-val {
+  color: #64748B;
+}
+
+.ips-bar-vals__arrow {
+  color: #94A3B8;
+  font-size: 11px;
+}
+
+.text-danger {
+  color: #DC2626 !important;
+}
+
+.text-success {
+  color: #07875A !important;
+}
+
+.ips-dual-bar-track {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.ips-bar-subgroup {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ips-bar-sublabel {
+  font-size: 9px;
+  font-weight: 700;
+  color: #94A3B8;
+  width: 42px;
+  letter-spacing: 0.04em;
+}
+
+.ips-bar-shell {
+  flex: 1;
+  height: 16px;
+  background: rgba(0, 0, 0, 0.04);
+  border-radius: 5px;
+  overflow: hidden;
   position: relative;
 }
 
-.ips-strategy-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 28px rgba(11, 19, 43, 0.18);
-}
-
-.ips-strat-eyebrow {
-  color: #94a3b8;
-  font-size: 11.5px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  margin-bottom: 8px;
-}
-
-.ips-strat-title {
-  color: #ffffff;
-  font-size: 20px;
-  font-weight: 800;
-  letter-spacing: -0.01em;
-  margin: 0 0 10px 0;
-}
-
-.ips-strat-desc {
-  color: #cbd5e1;
-  font-size: 14.5px;
-  line-height: 1.6;
-  margin: 0;
-}
-
-.ips-strat-icon-wrap {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-}
-
-.ips-strat-arrow-btn {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background: #ffffff;
+.ips-bar-fill {
+  height: 100%;
+  border-radius: 5px;
   display: flex;
   align-items: center;
+  justify-content: flex-end;
+  padding-right: 6px;
+  transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  min-width: 28px;
+}
+
+.ips-bar-fill--before {
+  background: #CBD5E1;
+}
+
+.ips-bar-fill--negative {
+  background: linear-gradient(90deg, #F87171, #EF4444);
+}
+
+.ips-bar-fill--positive {
+  background: linear-gradient(90deg, #10B981, #07875A);
+}
+
+.ips-bar-fill-text {
+  font-size: 10px;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
+/* --- Donut Chart Elements --- */
+.ips-donut-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+}
+
+.ips-donut-visual-wrap {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  margin: 4px 0;
+}
+
+.ips-donut-svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.ips-donut-bg-ring {
+  fill: none;
+  stroke: #E2ECE7;
+  stroke-width: 18;
+}
+
+.ips-donut-slice {
+  fill: none;
+  stroke-width: 18;
+  transition: stroke-width 0.25s ease, filter 0.25s ease;
+}
+
+.ips-donut-slice--bonds {
+  stroke: #34D399;
+}
+
+.ips-donut-slice--orp {
+  stroke: #07875A;
+}
+
+.ips-donut-slice:hover {
+  stroke-width: 22;
+  filter: drop-shadow(0 0 6px rgba(7, 135, 90, 0.4));
+}
+
+.ips-donut-center {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
-  color: #0b132b;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-  border: none;
+  text-align: center;
+  pointer-events: none;
+}
+
+.ips-donut-center-label {
+  font-size: 8.5px;
+  color: #64748B;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.ips-donut-center-val {
+  font-size: 20px;
+  font-weight: 800;
+  color: #062C1E;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.ips-donut-center-sub {
+  font-size: 10px;
+  color: #07875A;
+  font-weight: 700;
+}
+
+.ips-donut-legend {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ips-donut-legend-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  background: #F8FAF9;
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  border-radius: 10px;
+  gap: 12px;
+}
+
+.ips-legend-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ips-donut-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.ips-donut-name {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #062C1E;
+}
+
+.ips-donut-pct {
+  font-size: 13.5px;
+  font-weight: 800;
+  color: #07875A;
+}
+
+.ips-ticker-summary {
+  font-size: 11.5px;
+  color: #64748B;
+  background: #F0FAF4;
+  border: 1px dashed #D6EFE0;
+  border-radius: 8px;
+  padding: 6px 12px;
+  text-align: center;
+}
+
+/* ============================================================
+   ROW 3: BIỂU ĐỒ ĐƯỜNG (10-YEAR WEALTH TRAJECTORY PROJECTION)
+   ============================================================ */
+.ips-panel--line {
+  background: #FFFFFF;
+}
+
+.ips-line-legend {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #64748B;
+}
+
+.ips-line-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.ips-line-swatch {
+  width: 14px;
+  height: 3px;
+  border-radius: 2px;
+}
+
+.ips-line-swatch--opt {
+  background: #07875A;
+}
+
+.ips-line-swatch--base {
+  background: #94A3B8;
+  border-top: 1px dashed #64748B;
+}
+
+.ips-linechart-wrap {
+  width: 100%;
+  margin: 10px 0 12px 0;
+  overflow-x: auto;
+}
+
+.ips-linechart-svg {
+  width: 100%;
+  height: auto;
+  min-height: 200px;
+  display: block;
+}
+
+.ips-grid-line {
+  stroke: rgba(226, 232, 240, 0.9);
+  stroke-width: 1;
+}
+
+.ips-grid-label {
+  fill: #94A3B8;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.ips-baseline-line {
+  fill: none;
+  stroke: #94A3B8;
+  stroke-width: 2;
+  stroke-dasharray: 6 5;
+  opacity: 0.85;
+}
+
+.ips-opt-line {
+  fill: none;
+  stroke: #07875A;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.ips-base-dot {
+  fill: #94A3B8;
+  stroke: #FFFFFF;
+  stroke-width: 1.5;
+}
+
+.ips-opt-dot {
+  fill: #07875A;
+  stroke: #FFFFFF;
+  stroke-width: 2;
   cursor: pointer;
-  transition: transform 0.2s ease, background 0.2s ease;
+  transition: all 0.2s ease;
 }
 
-.ips-strat-arrow-btn:hover {
-  transform: translateY(2px);
-  background: #f1f5f9;
+.ips-opt-dot.is-active,
+.ips-opt-dot:hover {
+  fill: #34D399;
+  stroke: #062C1E;
+  stroke-width: 2.5;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
+.ips-opt-dot-pulse {
+  fill: none;
+  stroke: rgba(7, 135, 90, 0.35);
+  stroke-width: 2;
+  animation: dotPulse 2s infinite ease-out;
+}
+
+@keyframes dotPulse {
+  0% {
+    r: 6;
+    opacity: 0.8;
+  }
+  100% {
+    r: 14;
+    opacity: 0;
+  }
+}
+
+.ips-axis-label {
+  fill: #64748B;
+  font-size: 10.5px;
+  font-weight: 600;
+}
+
+.ips-axis-label.is-active {
+  fill: #07875A;
+  font-weight: 800;
+}
+
+.ips-point-group {
+  cursor: pointer;
+}
+
+/* Timeline Year Pills */
+.ips-year-pills {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 8px;
+  margin-top: 10px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(226, 232, 240, 0.7);
+}
+
+.ips-year-pill {
+  background: #F8FAF9;
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  border-radius: 10px;
+  padding: 8px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ips-year-pill:hover,
+.ips-year-pill.is-active {
+  background: #EFF9F3;
+  border-color: #07875A;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px -2px rgba(6, 44, 30, 0.08);
+}
+
+.ips-year-pill.is-active .ips-yp-val {
+  color: #07875A;
+  font-weight: 800;
+}
+
+.ips-yp-year {
+  font-size: 10.5px;
+  color: #64748B;
+  font-weight: 600;
+}
+
+.ips-yp-val {
+  font-size: 12px;
+  color: #062C1E;
+  font-weight: 700;
+}
+
+/* ============================================================
+   RESPONSIVE DESIGN
+   ============================================================ */
+@media (max-width: 1080px) {
+  .ips-kpi-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .ips-charts-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ips-year-pills {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
   .ips-doc-card {
-    padding: 22px 18px;
+    padding: 20px 16px;
+    border-radius: 18px;
   }
 
-  .ips-doc-title {
-    font-size: 24px;
-  }
-
-  .ips-grid {
+  .ips-kpi-grid {
     grid-template-columns: 1fr;
-    gap: 14px;
   }
 
-  .ips-alloc-legend {
-    grid-template-columns: 1fr;
-    gap: 14px;
+  .ips-year-pills {
+    grid-template-columns: repeat(2, 1fr);
   }
 
-  .ips-strategy-card {
-    padding: 22px 20px;
+  .ips-panel {
+    padding: 18px 14px;
   }
 
-  .ips-strat-title {
-    font-size: 18px;
+  .ips-bar-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
   }
 }
