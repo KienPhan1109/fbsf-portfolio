@@ -678,15 +678,15 @@
 
 .ips-linechart-wrap {
   width: 100%;
-  margin: 10px 0 16px 0;
-  overflow-x: auto;
+  margin: 14px 0 16px 0;
+  overflow: visible;
 }
 
 .ips-linechart-svg {
   width: 100%;
   height: auto;
-  min-height: 220px;
   display: block;
+  overflow: visible;
 }
 
 .ips-grid-line {
@@ -737,23 +737,18 @@
   stroke-width: 2.5;
 }
 
-.ips-opt-dot-pulse {
-  fill: none;
-  stroke: rgba(7, 135, 90, 0.45);
-  stroke-width: 2;
-  transform-origin: center;
-  animation: ipsPulseRing 2.4s infinite cubic-bezier(0.16, 1, 0.3, 1);
+/* Subtle vertical guideline connecting milestone dot to timeline */
+.ips-milestone-guide {
+  stroke: rgba(148, 163, 184, 0.45);
+  stroke-width: 1;
+  stroke-dasharray: 3 3;
+  transition: stroke 0.35s ease, stroke-width 0.35s ease;
 }
 
-@keyframes ipsPulseRing {
-  0% {
-    transform: scale(0.6);
-    opacity: 0.9;
-  }
-  100% {
-    transform: scale(1.6);
-    opacity: 0;
-  }
+.ips-milestone-guide.is-active {
+  stroke: rgba(7, 135, 90, 0.6);
+  stroke-width: 1.5;
+  stroke-dasharray: none;
 }
 
 .ips-node-val {
@@ -789,46 +784,48 @@
   cursor: pointer;
 }
 
-/* --- Timeline Year Selector - Seamless Segmented Control --- */
-.ips-year-pills {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 6px;
+/* --- Timeline Year Selector - EXACT MATCH WITH SVG MILESTONES --- */
+.ips-year-timeline {
+  position: relative;
+  width: 100%;
+  height: 48px;
   margin-top: 14px;
-  padding: 5px;
   background: #F8FAF9;
   border: 1px solid rgba(226, 232, 240, 0.9);
-  border-radius: 10px;
+  border-radius: 12px;
 }
 
 .ips-year-pill {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
   background: transparent;
   border: none;
-  border-radius: 7px;
-  padding: 8px 12px;
+  border-radius: 8px;
+  padding: 8px 16px;
+  min-width: 60px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  white-space: nowrap;
 }
 
 .ips-year-pill:hover {
   background: rgba(7, 135, 90, 0.08);
-  transform: none;
-  box-shadow: none;
 }
 
 .ips-year-pill.is-active {
   background: #07875A;
-  transform: none;
-  box-shadow: 0 2px 8px rgba(7, 135, 90, 0.25);
+  box-shadow: 0 4px 12px rgba(7, 135, 90, 0.28);
 }
 
 .ips-yp-year {
   font-size: 13px;
   color: #64748B;
   font-weight: 700;
+  transition: color 0.25s ease;
 }
 
 .ips-year-pill:hover .ips-yp-year {
@@ -883,10 +880,6 @@
   .ips-alloc-body {
     grid-template-columns: 160px 1fr;
     gap: 36px;
-  }
-
-  .ips-year-pills {
-    grid-template-columns: repeat(3, 1fr);
   }
 }
 
@@ -945,8 +938,13 @@
     font-size: 12.5px;
   }
 
-  .ips-year-pills {
-    grid-template-columns: repeat(2, 1fr);
+  .ips-year-pill {
+    padding: 6px 10px;
+    min-width: 48px;
+  }
+
+  .ips-yp-year {
+    font-size: 11.5px;
   }
 }
 

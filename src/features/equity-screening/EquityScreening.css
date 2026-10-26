@@ -398,20 +398,24 @@
   grid-template-columns: 110px 180px 1fr 28px;
   align-items: center;
   padding: 18px 24px;
-  border: none;
+  border: 1px solid transparent;
   background: transparent;
   text-align: left;
   cursor: pointer;
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-  width: 100%;
-  font-family: inherit;
+  border-radius: 8px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   position: relative;
   min-height: 64px;
+  width: 100%;
+  font-family: inherit;
+  transition: background-color 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.2s ease,
+              box-shadow 0.2s ease,
+              color 0.2s ease;
 }
 
 .ssa-row:last-child {
-  border-bottom: none;
+  border-bottom: 1px solid transparent;
 }
 
 /* Non-active row typography */
@@ -420,18 +424,21 @@
   font-size: 17px;
   font-weight: 800;
   letter-spacing: 0.02em;
+  transition: color 0.2s ease;
 }
 
 .ssa-col--sector {
   color: rgba(255, 255, 255, 0.7);
   font-size: 14.5px;
   font-weight: 450;
+  transition: color 0.2s ease;
 }
 
 .ssa-col--role {
   color: rgba(255, 255, 255, 0.7);
   font-size: 14.5px;
   font-weight: 450;
+  transition: color 0.2s ease;
 }
 
 .ssa-col--arrow {
@@ -443,8 +450,7 @@
 }
 
 .ssa-row:hover:not(.is-active) {
-  background: rgba(255, 255, 255, 0.06);
-  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.07);
 }
 
 .ssa-row:hover:not(.is-active) .ssa-col--arrow {
@@ -452,11 +458,11 @@
   transform: translate(2px, -2px);
 }
 
-/* Active Row State (Selected) */
+/* Active Row State (Selected) - Instant, Crisp & Seamless */
 .ssa-row.is-active {
   background: #E2ECE7;
-  border-radius: 8px;
   border-bottom-color: transparent;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.14);
 }
 
 .ssa-row.is-active .ssa-col--ticker {
@@ -475,6 +481,12 @@
 
 .ssa-row.is-active .ssa-col--arrow {
   color: #062C1E;
+  transform: translate(2px, -2px);
+}
+
+.ssa-row:active {
+  background: rgba(226, 236, 231, 0.95);
+  transform: none !important;
 }
 
 /* Right Column: Investment Profile Card */
@@ -546,6 +558,22 @@
   color: #52665B;
   margin: 0;
   font-weight: 400;
+}
+
+/* Silky smooth content crossfade when active ticker switches */
+@keyframes ssaProfileFadeIn {
+  0% {
+    opacity: 0.35;
+    transform: translateY(6px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.ssa-profile-card__content--animated {
+  animation: ssaProfileFadeIn 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 /* Responsive */
@@ -995,8 +1023,7 @@
   opacity: 1;
   transform: translateX(0);
   transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 1.2s cubic-bezier(0.16, 1, 0.3, 1),
-              background-color 0.35s ease;
+              transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .equity-wrapper.is-visible .ssa-row:nth-child(1) { transition-delay: 0.15s; }
@@ -1004,6 +1031,25 @@
 .equity-wrapper.is-visible .ssa-row:nth-child(3) { transition-delay: 0.45s; }
 .equity-wrapper.is-visible .ssa-row:nth-child(4) { transition-delay: 0.60s; }
 .equity-wrapper.is-visible .ssa-row:nth-child(5) { transition-delay: 0.75s; }
+
+/* Interactive click, hover and active states MUST NEVER have entrance delay or transform lag! */
+.equity-wrapper.is-visible .ssa-row:hover,
+.equity-wrapper.is-visible .ssa-row.is-active,
+.equity-wrapper.is-visible .ssa-row:active {
+  transition-delay: 0s !important;
+  transform: translateX(0) !important;
+  transition: background-color 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.2s ease,
+              box-shadow 0.2s ease,
+              color 0.2s ease !important;
+}
+
+.equity-wrapper.is-visible .ssa-row:hover .ssa-col,
+.equity-wrapper.is-visible .ssa-row.is-active .ssa-col,
+.equity-wrapper.is-visible .ssa-row:active .ssa-col {
+  transition-delay: 0s !important;
+  transition: color 0.2s ease !important;
+}
 
 .equity-wrapper:not(.is-visible) .ssa-profile-card {
   opacity: 0;

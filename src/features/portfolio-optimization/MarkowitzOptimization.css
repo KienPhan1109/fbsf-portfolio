@@ -275,11 +275,13 @@
 .orp-v2-tr {
   background: #FFFFFF;
   border-bottom: 1px solid #F1F5F9;
-  transition: background 0.15s ease;
+  transition: background-color 0.15s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  transition-delay: 0s !important;
 }
 
 .orp-v2-tr:hover {
   background: #F8FAF9;
+  transition-delay: 0s !important;
 }
 
 .orp-v2-tr--stock {
@@ -1086,9 +1088,9 @@
 .markowitz-wrapper.is-visible .orp-v2-table tbody tr {
   opacity: 1;
   transform: translateX(0);
-  transition: opacity 1.3s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 1.3s cubic-bezier(0.16, 1, 0.3, 1),
-              background-color 0.35s ease;
+  transition-property: opacity, transform;
+  transition-duration: 1.3s, 1.3s;
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1), cubic-bezier(0.16, 1, 0.3, 1);
 }
 .markowitz-wrapper.is-visible .orp-v2-table tbody tr:nth-child(1) { transition-delay: 0.14s; }
 .markowitz-wrapper.is-visible .orp-v2-table tbody tr:nth-child(2) { transition-delay: 0.28s; }
@@ -1096,6 +1098,12 @@
 .markowitz-wrapper.is-visible .orp-v2-table tbody tr:nth-child(4) { transition-delay: 0.56s; }
 .markowitz-wrapper.is-visible .orp-v2-table tbody tr:nth-child(5) { transition-delay: 0.70s; }
 .markowitz-wrapper.is-visible .orp-v2-table tbody tr:nth-child(6) { transition-delay: 0.84s; }
+
+/* Interactive row hover and sync-hover with donut chart MUST be instantaneous (0s delay) */
+.markowitz-wrapper.is-visible .orp-v2-table tbody tr:hover,
+.markowitz-wrapper.is-visible .orp-v2-table tbody tr.is-hovered {
+  transition-delay: 0s !important;
+}
 
 /* 3. Correlation Matrix Table Reveal (Slow 1.2s reveal) */
 .markowitz-wrapper:not(.is-visible) .corr-matrix-table thead tr {
@@ -1120,13 +1128,18 @@
 .markowitz-wrapper.is-visible .corr-matrix-table tbody tr {
   opacity: 1;
   transform: translateY(0);
-  transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-property: opacity, transform;
+  transition-duration: 1.2s, 1.2s;
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1), cubic-bezier(0.16, 1, 0.3, 1);
 }
 .markowitz-wrapper.is-visible .corr-matrix-table tbody tr:nth-child(1) { transition-delay: 0.15s; }
 .markowitz-wrapper.is-visible .corr-matrix-table tbody tr:nth-child(2) { transition-delay: 0.30s; }
 .markowitz-wrapper.is-visible .corr-matrix-table tbody tr:nth-child(3) { transition-delay: 0.45s; }
 .markowitz-wrapper.is-visible .corr-matrix-table tbody tr:nth-child(4) { transition-delay: 0.60s; }
+
+.markowitz-wrapper.is-visible .corr-matrix-table tbody tr:hover {
+  transition-delay: 0s !important;
+}
 
 /* 4. Portfolio Performance Right-Side Panels (Slow 1.3s reveal) */
 .markowitz-wrapper:not(.is-visible) .perf-kpi-card,

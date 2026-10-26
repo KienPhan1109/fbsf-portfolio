@@ -99,7 +99,10 @@ export function SelectedStockAnalysisTable() {
                 </span>
                 <span className="ssa-profile-card__dot" aria-hidden="true" />
               </div>
-              <div className="ssa-profile-card__content">
+              <div
+                key={activeStock.ticker}
+                className="ssa-profile-card__content ssa-profile-card__content--animated"
+              >
                 <h3 className="ssa-profile-card__ticker font-heading">
                   {activeStock.ticker}
                 </h3>

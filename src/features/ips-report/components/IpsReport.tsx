@@ -9,17 +9,17 @@ export function IpsReport() {
   const [ref, visible] = useInView();
   const [activeYearIndex, setActiveYearIndex] = useState<number>(5); // default 2036 (Year 10)
 
-  // Projection Line Chart SVG Dimensions
+  // Projection Line Chart SVG Dimensions - Optimized for generous padding & zero clipping
   const chartW = 760;
-  const chartH = 250;
-  const padL = 54;
-  const padR = 30;
-  const padT = 38;
-  const padB = 20;
+  const chartH = 290;
+  const padL = 76;
+  const padR = 64;
+  const padT = 64;
+  const padB = 30;
   const plotW = chartW - padL - padR;
   const plotH = chartH - padT - padB;
 
-  const maxVal = 4.2;
+  const maxVal = 4.4;
   const minVal = 0.5;
 
   const getX = (idx: number) => {
@@ -323,7 +323,7 @@ export function IpsReport() {
                     </linearGradient>
                   </defs>
 
-                  {/* Horizontal Grid lines */}
+                  {/* Horizontal Grid lines with generous left clearance */}
                   {[1.0, 2.0, 3.0, 4.0].map((gridVal) => {
                     const y = getY(gridVal);
                     return (
@@ -336,7 +336,7 @@ export function IpsReport() {
                           className="ips-grid-line"
                         />
                         <text
-                          x={padL - 10}
+                          x={padL - 14}
                           y={y + 4}
                           className="ips-grid-label font-mono"
                           textAnchor="end"
@@ -363,19 +363,35 @@ export function IpsReport() {
                     const cyBase = getY(pt.baseline);
                     const isActive = activeYearIndex === i;
 
+                    // Clamped horizontal center for active callout box so it never touches SVG borders
+                    const calloutBoxW = 76;
+                    const calloutBoxHalf = calloutBoxW / 2;
+                    const calloutX = Math.max(
+                      padL - 25,
+                      Math.min(chartW - padR - 50, cx - calloutBoxHalf)
+                    );
+
                     return (
                       <g
                         key={pt.year}
                         className="ips-point-group"
                         onClick={() => setActiveYearIndex(i)}
                       >
+                        {/* Milestone vertical guideline directly connecting dot to timeline */}
+                        <line
+                          x1={cx}
+                          y1={cyOpt}
+                          x2={cx}
+                          y2={padT + plotH}
+                          className={`ips-milestone-guide ${
+                            isActive ? 'is-active' : ''
+                          }`}
+                        />
+
                         {/* Baseline Node */}
                         <circle cx={cx} cy={cyBase} r={3} className="ips-base-dot" />
 
                         {/* Optimized Node */}
-                        {isActive && (
-                          <circle cx={cx} cy={cyOpt} r={10} className="ips-opt-dot-pulse" />
-                        )}
                         <circle
                           cx={cx}
                           cy={cyOpt}
@@ -383,24 +399,24 @@ export function IpsReport() {
                           className={`ips-opt-dot ${isActive ? 'is-active' : ''}`}
                         />
 
-                        {/* Prominent Monetary Value Above Node */}
+                        {/* Prominent Monetary Value Above Node with Safe Clearance */}
                         {isActive ? (
                           <g className="ips-callout-group">
                             <rect
-                              x={cx - 36}
-                              y={cyOpt - 32}
-                              width={72}
-                              height={22}
-                              rx={11}
+                              x={calloutX}
+                              y={cyOpt - 36}
+                              width={calloutBoxW}
+                              height={24}
+                              rx={12}
                               className="ips-callout-bg"
                             />
                             <polygon
-                              points={`${cx - 4},${cyOpt - 10} ${cx + 4},${cyOpt - 10} ${cx},${cyOpt - 6}`}
+                              points={`${cx - 5},${cyOpt - 12} ${cx + 5},${cyOpt - 12} ${cx},${cyOpt - 6}`}
                               className="ips-callout-arrow"
                             />
                             <text
-                              x={cx}
-                              y={cyOpt - 17}
+                              x={calloutX + calloutBoxHalf}
+                              y={cyOpt - 20}
                               className="ips-callout-text font-mono font-heading"
                               textAnchor="middle"
                             >
@@ -409,10 +425,22 @@ export function IpsReport() {
                           </g>
                         ) : (
                           <text
-                            x={cx}
-                            y={cyOpt - 11}
+                            x={
+                              i === 0
+                                ? cx + 6
+                                : i === ipsData.wealthProjection.length - 1
+                                ? cx - 6
+                                : cx
+                            }
+                            y={cyOpt - 12}
                             className="ips-node-val font-mono"
-                            textAnchor="middle"
+                            textAnchor={
+                              i === 0
+                                ? 'start'
+                                : i === ipsData.wealthProjection.length - 1
+                                ? 'end'
+                                : 'middle'
+                            }
                           >
                             ₫{pt.optimized.toFixed(2)}B
                           </text>
@@ -423,18 +451,30 @@ export function IpsReport() {
                 </svg>
               </div>
 
-              {/* Clean Timeline Year Selector - ONLY THE YEARS */}
-              <div className="ips-year-pills">
-                {ipsData.wealthProjection.map((pt, i) => (
-                  <button
-                    type="button"
-                    key={pt.year}
-                    className={`ips-year-pill ${activeYearIndex === i ? 'is-active' : ''}`}
-                    onClick={() => setActiveYearIndex(i)}
-                  >
-                    <span className="ips-yp-year font-mono">{pt.year}</span>
-                  </button>
-                ))}
+              {/* Clean Timeline Year Selector - EXACTLY CENTERED WITH SVG MILESTONE DOTS */}
+              <div
+                className="ips-year-timeline"
+                role="tablist"
+                aria-label="Investment timeline years"
+              >
+                {ipsData.wealthProjection.map((pt, i) => {
+                  const leftPct = (getX(i) / chartW) * 100;
+                  const isActive = activeYearIndex === i;
+
+                  return (
+                    <button
+                      type="button"
+                      key={pt.year}
+                      className={`ips-year-pill ${isActive ? 'is-active' : ''}`}
+                      style={{ left: `${leftPct}%` }}
+                      onClick={() => setActiveYearIndex(i)}
+                      aria-selected={isActive}
+                      role="tab"
+                    >
+                      <span className="ips-yp-year font-mono">{pt.year}</span>
+                    </button>
+                  );
+                })}
               </div>
             </div>
           </div>

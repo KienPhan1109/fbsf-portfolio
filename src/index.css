@@ -593,7 +593,6 @@ button:active,
 .navbar__cta-btn:active,
 .nav-card:active,
 .ssc-cell:active,
-.ssa-row:active,
 .ra-quiz-item__header:active {
   transform: scale(0.97) !important;
   transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1) !important;
@@ -643,7 +642,6 @@ button:active,
 .wb-card,
 .wf-card,
 .sc-card,
-.apc__card,
 .fp-balance-card,
 .fp-member-card,
 .fp-goal-card,
@@ -660,12 +658,14 @@ button:active,
 .card:hover,
 .wb-card:hover,
 .wf-card:hover,
+.sc-card:hover,
 .fp-member-card:hover,
 .fp-goal-card:hover {
   transform: translateY(-6px);
   box-shadow: 0 16px 36px -8px rgba(6, 44, 30, 0.12),
               0 0 0 1px rgba(7, 135, 90, 0.16);
   border-color: rgba(7, 135, 90, 0.3);
+  transition-delay: 0s !important;
 }
 
 /* --- Interactive Table Row Slide & Highlight (Smooth 0.35s transition) --- */

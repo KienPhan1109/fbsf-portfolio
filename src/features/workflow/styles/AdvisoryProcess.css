@@ -67,9 +67,10 @@
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
     will-change: transform, box-shadow;
+    /* Responsive, buttery smooth hover transitions with ZERO lag */
     transition:
-        transform 0.45s cubic-bezier(0.25, 1, 0.5, 1),
-        box-shadow 0.45s cubic-bezier(0.25, 1, 0.5, 1);
+        transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+        box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1);
     min-height: 240px;
     text-decoration: none;
     cursor: pointer;
@@ -77,8 +78,42 @@
 }
 
 .apc__card:hover {
-    transform: translateY(-6px) translateZ(0);
-    box-shadow: 0 20px 48px -10px rgba(10, 22, 40, 0.48);
+    transform: translateY(-8px) translateZ(0);
+    box-shadow: 0 22px 50px -10px rgba(10, 22, 40, 0.52),
+                0 0 0 1px rgba(52, 211, 153, 0.25);
+}
+
+/* Stagger entrance delays strictly apply to entrance opacity; hover is ALWAYS 0s */
+.apc__card.stagger-1 {
+    transition-property: opacity, transform, box-shadow;
+    transition-duration: 1.2s, 0.28s, 0.28s;
+    transition-delay: 0.14s, 0s, 0s;
+}
+.apc__card.stagger-2 {
+    transition-property: opacity, transform, box-shadow;
+    transition-duration: 1.2s, 0.28s, 0.28s;
+    transition-delay: 0.28s, 0s, 0s;
+}
+.apc__card.stagger-3 {
+    transition-property: opacity, transform, box-shadow;
+    transition-duration: 1.2s, 0.28s, 0.28s;
+    transition-delay: 0.42s, 0s, 0s;
+}
+.apc__card.stagger-4 {
+    transition-property: opacity, transform, box-shadow;
+    transition-duration: 1.2s, 0.28s, 0.28s;
+    transition-delay: 0.56s, 0s, 0s;
+}
+.apc__card.stagger-5 {
+    transition-property: opacity, transform, box-shadow;
+    transition-duration: 1.2s, 0.28s, 0.28s;
+    transition-delay: 0.70s, 0s, 0s;
+}
+
+/* Ensure hover and all its children ALWAYS respond instantly with 0s delay */
+.apc__card:hover,
+.apc__card:hover * {
+    transition-delay: 0s !important;
 }
 
 /* Background Image & Scrim Overlay */
@@ -99,7 +134,8 @@
     object-fit: cover;
     object-position: center;
     transform: scale(1.02);
-    transition: transform 0.65s cubic-bezier(0.25, 1, 0.5, 1);
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform;
 }
 
 .apc__card:hover .apc__card-bg-image {
@@ -115,16 +151,13 @@
         rgba(10, 22, 40, 0.72) 40%,
         rgba(6, 15, 28, 0.94) 100%
     );
-    transition: background 0.45s cubic-bezier(0.25, 1, 0.5, 1);
+    opacity: 0.96;
+    transition: opacity 0.28s ease;
+    will-change: opacity;
 }
 
 .apc__card:hover .apc__card-overlay {
-    background: linear-gradient(
-        180deg,
-        rgba(10, 22, 40, 0.3) 0%,
-        rgba(10, 22, 40, 0.62) 35%,
-        rgba(4, 25, 20, 0.95) 100%
-    );
+    opacity: 0.82;
 }
 
 /* Top: Big Punchy Number in Top-Right */
@@ -145,8 +178,8 @@
     color: rgba(255, 255, 255, 0.45);
     text-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
     transition:
-        color 0.4s ease,
-        transform 0.4s ease;
+        color 0.25s ease,
+        transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .apc__card:hover .apc__card-num {
@@ -170,13 +203,13 @@
     line-height: 1.25;
     margin: 0;
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
-    transition: color 0.3s ease;
+    transition: color 0.25s ease;
 }
 
 .apc__card-arrow {
     font-size: 0.9em;
     color: rgba(255, 255, 255, 0.7);
-    transition: transform 0.3s ease, color 0.3s ease;
+    transition: transform 0.25s ease, color 0.25s ease;
     display: inline-block;
 }
 
