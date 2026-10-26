@@ -216,16 +216,25 @@
   justify-content: flex-start;
   box-shadow: 0 2px 12px -2px rgba(6, 44, 30, 0.04);
   position: relative;
+  transform: translate3d(0, 0, 0);
   transition: 
-    transform 0.25s cubic-bezier(0.2, 0, 0, 1),
-    box-shadow 0.25s cubic-bezier(0.2, 0, 0, 1),
-    border-color 0.2s ease;
+    transform 0.36s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.36s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.36s ease !important;
+  transition-delay: 0s !important;
+  cursor: pointer;
 }
 
 .sc-cap-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 28px -6px rgba(6, 44, 30, 0.08);
-  border-color: rgba(7, 135, 90, 0.35);
+  transform: translate3d(0, -6px, 0) !important;
+  box-shadow: 0 16px 36px -8px rgba(6, 44, 30, 0.12),
+              0 0 0 1px rgba(7, 135, 90, 0.22) !important;
+  border-color: rgba(7, 135, 90, 0.35) !important;
+  transition: 
+    transform 0.36s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.36s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.36s ease !important;
+  transition-delay: 0s !important;
 }
 
 /* Card Header: Icon + Number */
@@ -245,7 +254,7 @@
   align-items: center;
   justify-content: center;
   color: var(--color-emerald-base);
-  transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
+  transition: background 0.35s ease, color 0.35s ease, transform 0.36s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .sc-cap-icon svg {
@@ -256,7 +265,7 @@
 .sc-cap-card:hover .sc-cap-icon {
   background: rgba(7, 135, 90, 0.12);
   color: var(--color-emerald-700);
-  transform: translateY(-1px);
+  transform: translate3d(0, -2px, 0);
 }
 
 .sc-cap-num {
@@ -363,27 +372,28 @@
 
 .sc-bento-matrix:not(.is-visible) .sc-cap-card {
   opacity: 0;
-  transform: translateY(36px);
+  transform: translate3d(0, 36px, 0);
   transition: opacity 0.85s ease, transform 0.85s ease;
 }
 
 .sc-bento-matrix.is-visible .sc-cap-card {
   opacity: 1;
-  transform: translateY(0);
-  transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 1.2s cubic-bezier(0.16, 1, 0.3, 1),
-              box-shadow 0.45s ease,
-              border-color 0.45s ease;
+  transform: translate3d(0, 0, 0);
+  transition: transform 0.36s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.36s cubic-bezier(0.22, 1, 0.36, 1),
+              border-color 0.36s ease,
+              opacity 1.1s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  transition-delay: 0s !important;
 }
-.sc-bento-matrix.is-visible .sc-cap-card:nth-child(1) { transition-delay: 0.18s; }
-.sc-bento-matrix.is-visible .sc-cap-card:nth-child(2) { transition-delay: 0.34s; }
-.sc-bento-matrix.is-visible .sc-cap-card:nth-child(3) { transition-delay: 0.50s; }
-.sc-bento-matrix.is-visible .sc-cap-card:nth-child(4) { transition-delay: 0.66s; }
 
-.sc-cap-card:hover {
-  transform: translateY(-8px) scale(1.015);
-  box-shadow: 0 16px 36px -8px rgba(6, 44, 30, 0.12);
-  border-color: rgba(7, 135, 90, 0.3);
+.sc-bento-matrix.is-visible .sc-cap-card:not(:hover):nth-child(1) { transition-delay: 0s, 0s, 0s, 0.14s !important; }
+.sc-bento-matrix.is-visible .sc-cap-card:not(:hover):nth-child(2) { transition-delay: 0s, 0s, 0s, 0.28s !important; }
+.sc-bento-matrix.is-visible .sc-cap-card:not(:hover):nth-child(3) { transition-delay: 0s, 0s, 0s, 0.42s !important; }
+.sc-bento-matrix.is-visible .sc-cap-card:not(:hover):nth-child(4) { transition-delay: 0s, 0s, 0s, 0.56s !important; }
+
+.sc-bento-matrix.is-visible .sc-cap-card:hover,
+.sc-bento-matrix.is-visible .sc-cap-card:hover * {
+  transition-delay: 0s !important;
 }
 
 .sc-service-item {

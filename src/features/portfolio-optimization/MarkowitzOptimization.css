@@ -805,7 +805,7 @@
 /* Unified 2-Panel OCP Container */
 .ocp-v2-container {
   display: grid;
-  grid-template-columns: 410px 1fr;
+  grid-template-columns: 460px 1fr;
   border-radius: 24px;
   overflow: hidden;
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.05);
@@ -818,7 +818,7 @@
 .ocp-left-pane {
   background: #F0FAF4;
   border-right: 1px solid #D6EFE0;
-  padding: 48px 36px 40px;
+  padding: 44px 32px 40px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -826,9 +826,9 @@
 }
 
 .ocp-donut-wrapper {
-  width: 240px;
-  height: 240px;
-  margin-bottom: 32px;
+  width: 295px;
+  height: 295px;
+  margin-bottom: 28px;
 }
 
 .ocp-svg {
@@ -839,7 +839,7 @@
 
 .ocp-slice {
   cursor: pointer;
-  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.25s ease;
   transform-origin: 130px 130px;
 }
 
@@ -849,7 +849,7 @@
 
 .ocp-donut-legend {
   width: 100%;
-  max-width: 260px;
+  max-width: 290px;
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -1027,6 +1027,13 @@
 
   .ocp-left-pane {
     padding: 36px 24px;
+    border-right: none;
+    border-bottom: 1px solid #D6EFE0;
+  }
+
+  .ocp-donut-wrapper {
+    width: min(280px, 80vw);
+    height: min(280px, 80vw);
   }
 
   .ocp-right-pane {

@@ -7,15 +7,19 @@ import '../IpsReport.css';
 
 export function IpsReport() {
   const [ref, visible] = useInView();
-  const [activeYearIndex, setActiveYearIndex] = useState<number>(5); // default 2036 (Year 10)
+  const [selectedYearIndex, setSelectedYearIndex] = useState<number>(4); // default 2034 (matching user screenshot)
+  const [hoveredYearIndex, setHoveredYearIndex] = useState<number | null>(null);
+
+  const activeYearIndex =
+    hoveredYearIndex !== null ? hoveredYearIndex : selectedYearIndex;
 
   // Projection Line Chart SVG Dimensions - Optimized for generous padding & zero clipping
   const chartW = 760;
-  const chartH = 290;
+  const chartH = 265;
   const padL = 76;
   const padR = 64;
-  const padT = 64;
-  const padB = 30;
+  const padT = 58;
+  const padB = 16;
   const plotW = chartW - padL - padR;
   const plotH = chartH - padT - padB;
 
@@ -315,6 +319,7 @@ export function IpsReport() {
                   className="ips-linechart-svg"
                   viewBox={`0 0 ${chartW} ${chartH}`}
                   preserveAspectRatio="xMidYMid meet"
+                  onMouseLeave={() => setHoveredYearIndex(null)}
                 >
                   <defs>
                     <linearGradient id="optAreaGrad" x1="0" y1="0" x2="0" y2="1">
@@ -362,6 +367,7 @@ export function IpsReport() {
                     const cyOpt = getY(pt.optimized);
                     const cyBase = getY(pt.baseline);
                     const isActive = activeYearIndex === i;
+                    const colW = plotW / (ipsData.wealthProjection.length - 1);
 
                     // Clamped horizontal center for active callout box so it never touches SVG borders
                     const calloutBoxW = 76;
@@ -374,15 +380,29 @@ export function IpsReport() {
                     return (
                       <g
                         key={pt.year}
-                        className="ips-point-group"
-                        onClick={() => setActiveYearIndex(i)}
+                        className={`ips-point-group ${isActive ? 'is-active' : ''}`}
+                        onMouseEnter={() => setHoveredYearIndex(i)}
+                        onClick={() => {
+                          setSelectedYearIndex(i);
+                          setHoveredYearIndex(i);
+                        }}
                       >
+                        {/* Generous transparent hit area across the vertical milestone column */}
+                        <rect
+                          x={cx - colW / 2}
+                          y={padT - 25}
+                          width={colW}
+                          height={chartH - padT + 25}
+                          fill="transparent"
+                          style={{ cursor: 'pointer' }}
+                        />
+
                         {/* Milestone vertical guideline directly connecting dot to timeline */}
                         <line
                           x1={cx}
                           y1={cyOpt}
                           x2={cx}
-                          y2={padT + plotH}
+                          y2={chartH}
                           className={`ips-milestone-guide ${
                             isActive ? 'is-active' : ''
                           }`}
@@ -399,80 +419,97 @@ export function IpsReport() {
                           className={`ips-opt-dot ${isActive ? 'is-active' : ''}`}
                         />
 
-                        {/* Prominent Monetary Value Above Node with Safe Clearance */}
-                        {isActive ? (
-                          <g className="ips-callout-group">
-                            <rect
-                              x={calloutX}
-                              y={cyOpt - 36}
-                              width={calloutBoxW}
-                              height={24}
-                              rx={12}
-                              className="ips-callout-bg"
-                            />
-                            <polygon
-                              points={`${cx - 5},${cyOpt - 12} ${cx + 5},${cyOpt - 12} ${cx},${cyOpt - 6}`}
-                              className="ips-callout-arrow"
-                            />
-                            <text
-                              x={calloutX + calloutBoxHalf}
-                              y={cyOpt - 20}
-                              className="ips-callout-text font-mono font-heading"
-                              textAnchor="middle"
-                            >
-                              ₫{pt.optimized.toFixed(2)}B
-                            </text>
-                          </g>
-                        ) : (
+                        {/* Prominent Monetary Value Above Node with Safe Clearance - Smooth Transition */}
+                        <g
+                          className={`ips-callout-group ${
+                            isActive ? 'is-active' : ''
+                          }`}
+                        >
+                          <rect
+                            x={calloutX}
+                            y={cyOpt - 36}
+                            width={calloutBoxW}
+                            height={24}
+                            rx={12}
+                            className="ips-callout-bg"
+                          />
+                          <polygon
+                            points={`${cx - 5},${cyOpt - 12} ${cx + 5},${cyOpt - 12} ${cx},${cyOpt - 6}`}
+                            className="ips-callout-arrow"
+                          />
                           <text
-                            x={
-                              i === 0
-                                ? cx + 6
-                                : i === ipsData.wealthProjection.length - 1
-                                ? cx - 6
-                                : cx
-                            }
-                            y={cyOpt - 12}
-                            className="ips-node-val font-mono"
-                            textAnchor={
-                              i === 0
-                                ? 'start'
-                                : i === ipsData.wealthProjection.length - 1
-                                ? 'end'
-                                : 'middle'
-                            }
+                            x={calloutX + calloutBoxHalf}
+                            y={cyOpt - 20}
+                            className="ips-callout-text font-mono font-heading"
+                            textAnchor="middle"
                           >
                             ₫{pt.optimized.toFixed(2)}B
                           </text>
-                        )}
+                        </g>
+
+                        <text
+                          x={
+                            i === 0
+                              ? cx + 6
+                              : i === ipsData.wealthProjection.length - 1
+                              ? cx - 6
+                              : cx
+                          }
+                          y={cyOpt - 12}
+                          className={`ips-node-val font-mono ${
+                            isActive ? 'is-active' : ''
+                          }`}
+                          textAnchor={
+                            i === 0
+                              ? 'start'
+                              : i === ipsData.wealthProjection.length - 1
+                              ? 'end'
+                              : 'middle'
+                          }
+                        >
+                          ₫{pt.optimized.toFixed(2)}B
+                        </text>
                       </g>
                     );
                   })}
                 </svg>
               </div>
 
-              {/* Clean Timeline Year Selector - EXACTLY CENTERED WITH SVG MILESTONE DOTS */}
+              {/* Timeline Year Labels - Centered flush directly beneath vertical guidelines */}
               <div
                 className="ips-year-timeline"
-                role="tablist"
                 aria-label="Investment timeline years"
+                onMouseLeave={() => setHoveredYearIndex(null)}
               >
                 {ipsData.wealthProjection.map((pt, i) => {
                   const leftPct = (getX(i) / chartW) * 100;
                   const isActive = activeYearIndex === i;
+                  const isSelected = selectedYearIndex === i;
 
                   return (
-                    <button
-                      type="button"
+                    <div
                       key={pt.year}
-                      className={`ips-year-pill ${isActive ? 'is-active' : ''}`}
+                      role="button"
+                      tabIndex={0}
+                      className={`ips-year-label ${isActive ? 'is-active' : ''} ${
+                        isSelected ? 'is-selected' : ''
+                      }`}
                       style={{ left: `${leftPct}%` }}
-                      onClick={() => setActiveYearIndex(i)}
-                      aria-selected={isActive}
-                      role="tab"
+                      onMouseEnter={() => setHoveredYearIndex(i)}
+                      onClick={() => {
+                        setSelectedYearIndex(i);
+                        setHoveredYearIndex(i);
+                      }}
+                      onKeyDown={(e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                          setSelectedYearIndex(i);
+                          setHoveredYearIndex(i);
+                        }
+                      }}
+                      aria-label={`Select year ${pt.year}, milestone: ${pt.milestone}`}
                     >
                       <span className="ips-yp-year font-mono">{pt.year}</span>
-                    </button>
+                    </div>
                   );
                 })}
               </div>

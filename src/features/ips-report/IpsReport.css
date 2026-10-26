@@ -678,7 +678,7 @@
 
 .ips-linechart-wrap {
   width: 100%;
-  margin: 14px 0 16px 0;
+  margin: 14px 0 0 0;
   overflow: visible;
 }
 
@@ -727,11 +727,16 @@
   stroke: #07875A;
   stroke-width: 2.5;
   cursor: pointer;
-  transition: all 0.2s ease;
+  r: 4px;
+  transition: r 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+              fill 0.55s ease,
+              stroke 0.55s ease,
+              stroke-width 0.55s ease;
 }
 
 .ips-opt-dot.is-active,
 .ips-opt-dot:hover {
+  r: 6.5px;
   fill: #07875A;
   stroke: #FFFFFF;
   stroke-width: 2.5;
@@ -739,34 +744,51 @@
 
 /* Subtle vertical guideline connecting milestone dot to timeline */
 .ips-milestone-guide {
-  stroke: rgba(148, 163, 184, 0.45);
+  stroke: rgba(148, 163, 184, 0.4);
   stroke-width: 1;
   stroke-dasharray: 3 3;
-  transition: stroke 0.35s ease, stroke-width 0.35s ease;
+  transition: stroke 0.55s ease, stroke-width 0.55s ease, opacity 0.55s ease;
 }
 
 .ips-milestone-guide.is-active {
-  stroke: rgba(7, 135, 90, 0.6);
+  stroke: rgba(7, 135, 90, 0.8);
   stroke-width: 1.5;
-  stroke-dasharray: none;
 }
 
+/* Inactive node monetary text */
 .ips-node-val {
   fill: #062C1E;
   font-size: 10px;
   font-weight: 700;
   opacity: 0.75;
   pointer-events: none;
+  transition: opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* Callout Bubble for Active Node */
+.ips-node-val.is-active {
+  opacity: 0;
+  transform: translateY(-4px);
+}
+
+/* Callout Bubble for Active Node: Gentle, slow luxury fade & lift (0.55s) */
 .ips-callout-group {
   pointer-events: none;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.ips-callout-group.is-active {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .ips-callout-bg {
   fill: #07875A;
-  filter: drop-shadow(0 3px 8px rgba(7, 135, 90, 0.35));
+  filter: drop-shadow(0 4px 12px rgba(7, 135, 90, 0.35));
 }
 
 .ips-callout-arrow {
@@ -784,57 +806,72 @@
   cursor: pointer;
 }
 
-/* --- Timeline Year Selector - EXACT MATCH WITH SVG MILESTONES --- */
+/* --- Timeline Year Labels - DIRECTLY FLUSH UNDER VERTICAL GUIDELINES --- */
 .ips-year-timeline {
   position: relative;
   width: 100%;
-  height: 48px;
-  margin-top: 14px;
-  background: #F8FAF9;
-  border: 1px solid rgba(226, 232, 240, 0.9);
-  border-radius: 12px;
-}
-
-.ips-year-pill {
-  position: absolute;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  height: 38px;
+  margin-top: 4px;
   background: transparent;
   border: none;
-  border-radius: 8px;
-  padding: 8px 16px;
-  min-width: 60px;
+  user-select: none;
+}
+
+.ips-year-label {
+  position: absolute;
+  top: 0;
+  transform: translateX(-50%);
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   white-space: nowrap;
+  padding: 4px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  background: transparent;
+  border: 1px solid transparent;
+  outline: none;
+  transition: background-color 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+              border-color 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+              color 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.ips-year-pill:hover {
+.ips-year-label:hover {
   background: rgba(7, 135, 90, 0.08);
+  border-color: rgba(7, 135, 90, 0.22);
 }
 
-.ips-year-pill.is-active {
-  background: #07875A;
-  box-shadow: 0 4px 12px rgba(7, 135, 90, 0.28);
+.ips-year-label:hover .ips-yp-year {
+  color: #07875A;
+}
+
+.ips-year-label.is-active {
+  background: rgba(7, 135, 90, 0.12);
+  border-color: rgba(7, 135, 90, 0.32);
+}
+
+.ips-year-label.is-active .ips-yp-year {
+  color: #07875A;
+  font-weight: 800;
+}
+
+.ips-year-label.is-selected {
+  background: rgba(7, 135, 90, 0.16);
+  border-color: rgba(7, 135, 90, 0.45);
+}
+
+.ips-year-label.is-selected .ips-yp-year {
+  color: #064E3B;
+  font-weight: 800;
 }
 
 .ips-yp-year {
-  font-size: 13px;
+  font-size: 15px;
   color: #64748B;
   font-weight: 700;
-  transition: color 0.25s ease;
-}
-
-.ips-year-pill:hover .ips-yp-year {
-  color: #062C1E;
-}
-
-.ips-year-pill.is-active .ips-yp-year {
-  color: #FFFFFF;
-  font-weight: 800;
+  letter-spacing: 0.02em;
+  display: inline-block;
+  transition: color 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 /* ============================================================

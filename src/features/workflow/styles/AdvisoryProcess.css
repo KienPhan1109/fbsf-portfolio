@@ -63,14 +63,15 @@
     overflow: hidden;
     background: var(--color-navy-950, #0a1120);
     box-shadow: 0 12px 32px -8px rgba(10, 22, 40, 0.28);
-    transform: translateY(0) translateZ(0);
+    transform: translate3d(0, 0, 0);
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
-    will-change: transform, box-shadow;
-    /* Responsive, buttery smooth hover transitions with ZERO lag */
+    /* Silky smooth, fluid transitions with 0s delay */
     transition:
-        transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
-        box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+        transform 0.36s cubic-bezier(0.22, 1, 0.36, 1),
+        box-shadow 0.36s cubic-bezier(0.22, 1, 0.36, 1),
+        border-color 0.36s ease !important;
+    transition-delay: 0s !important;
     min-height: 240px;
     text-decoration: none;
     cursor: pointer;
@@ -78,36 +79,41 @@
 }
 
 .apc__card:hover {
-    transform: translateY(-8px) translateZ(0);
-    box-shadow: 0 22px 50px -10px rgba(10, 22, 40, 0.52),
-                0 0 0 1px rgba(52, 211, 153, 0.25);
+    transform: translate3d(0, -8px, 0) !important;
+    box-shadow: 0 20px 46px -10px rgba(10, 22, 40, 0.48),
+                0 0 0 1px rgba(52, 211, 153, 0.28) !important;
+    transition:
+        transform 0.36s cubic-bezier(0.22, 1, 0.36, 1),
+        box-shadow 0.36s cubic-bezier(0.22, 1, 0.36, 1),
+        border-color 0.36s ease !important;
+    transition-delay: 0s !important;
 }
 
-/* Stagger entrance delays strictly apply to entrance opacity; hover is ALWAYS 0s */
-.apc__card.stagger-1 {
-    transition-property: opacity, transform, box-shadow;
-    transition-duration: 1.2s, 0.28s, 0.28s;
-    transition-delay: 0.14s, 0s, 0s;
+/* Stagger entrance delays strictly apply to entrance opacity when NOT hovered */
+.apc__card.animate-on-scroll.is-visible:not(:hover).stagger-1 {
+    transition: opacity 1.1s cubic-bezier(0.16, 1, 0.3, 1) 0.12s,
+                transform 0.36s cubic-bezier(0.22, 1, 0.36, 1) 0s,
+                box-shadow 0.36s cubic-bezier(0.22, 1, 0.36, 1) 0s !important;
 }
-.apc__card.stagger-2 {
-    transition-property: opacity, transform, box-shadow;
-    transition-duration: 1.2s, 0.28s, 0.28s;
-    transition-delay: 0.28s, 0s, 0s;
+.apc__card.animate-on-scroll.is-visible:not(:hover).stagger-2 {
+    transition: opacity 1.1s cubic-bezier(0.16, 1, 0.3, 1) 0.24s,
+                transform 0.36s cubic-bezier(0.22, 1, 0.36, 1) 0s,
+                box-shadow 0.36s cubic-bezier(0.22, 1, 0.36, 1) 0s !important;
 }
-.apc__card.stagger-3 {
-    transition-property: opacity, transform, box-shadow;
-    transition-duration: 1.2s, 0.28s, 0.28s;
-    transition-delay: 0.42s, 0s, 0s;
+.apc__card.animate-on-scroll.is-visible:not(:hover).stagger-3 {
+    transition: opacity 1.1s cubic-bezier(0.16, 1, 0.3, 1) 0.36s,
+                transform 0.36s cubic-bezier(0.22, 1, 0.36, 1) 0s,
+                box-shadow 0.36s cubic-bezier(0.22, 1, 0.36, 1) 0s !important;
 }
-.apc__card.stagger-4 {
-    transition-property: opacity, transform, box-shadow;
-    transition-duration: 1.2s, 0.28s, 0.28s;
-    transition-delay: 0.56s, 0s, 0s;
+.apc__card.animate-on-scroll.is-visible:not(:hover).stagger-4 {
+    transition: opacity 1.1s cubic-bezier(0.16, 1, 0.3, 1) 0.48s,
+                transform 0.36s cubic-bezier(0.22, 1, 0.36, 1) 0s,
+                box-shadow 0.36s cubic-bezier(0.22, 1, 0.36, 1) 0s !important;
 }
-.apc__card.stagger-5 {
-    transition-property: opacity, transform, box-shadow;
-    transition-duration: 1.2s, 0.28s, 0.28s;
-    transition-delay: 0.70s, 0s, 0s;
+.apc__card.animate-on-scroll.is-visible:not(:hover).stagger-5 {
+    transition: opacity 1.1s cubic-bezier(0.16, 1, 0.3, 1) 0.60s,
+                transform 0.36s cubic-bezier(0.22, 1, 0.36, 1) 0s,
+                box-shadow 0.36s cubic-bezier(0.22, 1, 0.36, 1) 0s !important;
 }
 
 /* Ensure hover and all its children ALWAYS respond instantly with 0s delay */
@@ -126,6 +132,7 @@
     pointer-events: none;
     overflow: hidden;
     border-radius: inherit;
+    contain: paint;
 }
 
 .apc__card-bg-image {
@@ -133,13 +140,15 @@
     height: 100%;
     object-fit: cover;
     object-position: center;
-    transform: scale(1.02);
-    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    transform: scale3d(1.01, 1.01, 1);
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1) !important;
+    transition-delay: 0s !important;
     will-change: transform;
 }
 
 .apc__card:hover .apc__card-bg-image {
-    transform: scale(1.08);
+    transform: scale3d(1.05, 1.05, 1) !important;
+    transition-delay: 0s !important;
 }
 
 .apc__card-overlay {
@@ -152,12 +161,14 @@
         rgba(6, 15, 28, 0.94) 100%
     );
     opacity: 0.96;
-    transition: opacity 0.28s ease;
+    transition: opacity 0.25s ease !important;
+    transition-delay: 0s !important;
     will-change: opacity;
 }
 
 .apc__card:hover .apc__card-overlay {
     opacity: 0.82;
+    transition-delay: 0s !important;
 }
 
 /* Top: Big Punchy Number in Top-Right */
@@ -178,13 +189,13 @@
     color: rgba(255, 255, 255, 0.45);
     text-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
     transition:
-        color 0.25s ease,
-        transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        color 0.36s ease,
+        transform 0.36s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .apc__card:hover .apc__card-num {
     color: var(--color-emerald-400, #34d399);
-    transform: scale(1.06);
+    transform: scale3d(1.05, 1.05, 1);
 }
 
 /* Bottom: Title with clean indicator */
@@ -203,18 +214,18 @@
     line-height: 1.25;
     margin: 0;
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
-    transition: color 0.25s ease;
+    transition: color 0.36s ease;
 }
 
 .apc__card-arrow {
     font-size: 0.9em;
     color: rgba(255, 255, 255, 0.7);
-    transition: transform 0.25s ease, color 0.25s ease;
+    transition: transform 0.36s cubic-bezier(0.22, 1, 0.36, 1), color 0.36s ease;
     display: inline-block;
 }
 
 .apc__card:hover .apc__card-arrow {
-    transform: translate(3px, -3px);
+    transform: translate3d(3px, -3px, 0);
     color: var(--color-emerald-300, #6ee7b7);
 }
 
