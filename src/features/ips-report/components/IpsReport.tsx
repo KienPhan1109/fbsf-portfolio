@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { useInView } from '../../../shared/hooks/useAnimations';
 import { ipsData } from '../data/ipsData';
 import '../../../shared/ui/ui.css';
@@ -7,44 +6,6 @@ import '../IpsReport.css';
 
 export function IpsReport() {
   const [ref, visible] = useInView();
-  const [selectedYearIndex, setSelectedYearIndex] = useState<number>(4); // default 2034 (matching user screenshot)
-  const [hoveredYearIndex, setHoveredYearIndex] = useState<number | null>(null);
-
-  const activeYearIndex =
-    hoveredYearIndex !== null ? hoveredYearIndex : selectedYearIndex;
-
-  // Projection Line Chart SVG Dimensions - Optimized for generous padding & zero clipping
-  const chartW = 760;
-  const chartH = 265;
-  const padL = 76;
-  const padR = 64;
-  const padT = 58;
-  const padB = 16;
-  const plotW = chartW - padL - padR;
-  const plotH = chartH - padT - padB;
-
-  const maxVal = 4.4;
-  const minVal = 0.5;
-
-  const getX = (idx: number) => {
-    return padL + (idx / (ipsData.wealthProjection.length - 1)) * plotW;
-  };
-
-  const getY = (val: number) => {
-    const norm = (val - minVal) / (maxVal - minVal);
-    return padT + plotH - norm * plotH;
-  };
-
-  // SVG lines
-  const optPoints = ipsData.wealthProjection
-    .map((pt, i) => `${getX(i)},${getY(pt.optimized)}`)
-    .join(' ');
-  const basePoints = ipsData.wealthProjection
-    .map((pt, i) => `${getX(i)},${getY(pt.baseline)}`)
-    .join(' ');
-  const optAreaPoints = `${getX(0)},${padT + plotH} ${optPoints} ${getX(
-    ipsData.wealthProjection.length - 1
-  )},${padT + plotH}`;
 
   // Donut chart constants
   const donutR = 60;
@@ -52,8 +13,6 @@ export function IpsReport() {
   const orpWeight = ipsData.allocationBreakdown[0].weight / 100;
   const orpDash = orpWeight * donutCirc;
   const bondDash = donutCirc - orpDash;
-
-  const activePoint = ipsData.wealthProjection[activeYearIndex];
 
   return (
     <section
